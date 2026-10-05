@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import os
+from datetime import datetime
 
 import numpy as np
 import pandas as pd
@@ -22,6 +22,7 @@ from data_layer import (
     market_state,
     pct_change_period,
     return_since,
+    twelve_data_enabled,
     twelve_data_quotes,
     yahoo_latest,
 )
@@ -56,7 +57,6 @@ ZERO_COLOR = "#6b7280"
 VOLUME_ALERT_COLOR = "#d97706"
 
 
-# ---------- formatting ----------
 def fmt_pct(x):
     return "—" if x is None or pd.isna(x) else f"{x:+.2%}"
 
@@ -106,18 +106,18 @@ def volume_ratio_css(value):
     return ""
 
 
-def style_numeric_table(df: pd.DataFrame, formatters: dict, return_cols: list[str], volume_col: str | None = None):
-    """Keep numeric columns numeric so Streamlit right-aligns them naturally.
-
-    Styler is used only for formatting and font color; values are never converted
-    to strings before st.dataframe.
-    """
+def style_numeric_table(
+    df: pd.DataFrame,
+    formatters: dict,
+    return_cols: list[str],
+    volume_col: str | None = None,
+):
+    """Keep numeric dtype so Streamlit right-aligns numeric columns."""
     styler = df.style.format(formatters, na_rep="—")
 
-    if return_cols:
-        cols = [c for c in return_cols if c in df.columns]
-        if cols:
-            styler = styler.map(return_css, subset=cols)
+    cols = [c for c in return_cols if c in df.columns]
+    if cols:
+        styler = styler.map(return_css, subset=cols)
 
     if volume_col and volume_col in df.columns:
         styler = styler.map(volume_ratio_css, subset=[volume_col])
@@ -125,11 +125,22 @@ def style_numeric_table(df: pd.DataFrame, formatters: dict, return_cols: list[st
     return styler
 
 
-# ---------- header ----------
+# -----------------------------------------------------------------------------
+# Market state / API state
+# -----------------------------------------------------------------------------
 state = market_state()
+td_enabled = twelve_data_enabled()
 status_color = "🟢" if state.is_open else "⚪"
-td_enabled = bool(os.getenv("TWELVE_DATA_API_KEY", "").strip())
 
+if "live_quotes" not in st.session_state:
+    st.session_state.live_quotes = {}
+if "live_updated_at" not in st.session_state:
+    st.session_state.live_updated_at = {}
+
+
+# -----------------------------------------------------------------------------
+# Header
+# -----------------------------------------------------------------------------
 header_l, header_r = st.columns([3, 2])
 with header_l:
     st.title("AI Equity Dashboard")
@@ -138,11 +149,13 @@ with header_r:
     st.markdown(
         f"**{status_color} Market Status: {state.label}**  \n"
         f"ET {state.now_et.strftime('%Y-%m-%d %H:%M:%S')}  \n"
-        f"Realtime source: {'Twelve Data enabled' if td_enabled else 'Yahoo fallback'}"
+        f"Twelve Data: {'Ready' if td_enabled else 'Not configured'}"
     )
 
 
-# ---------- load core data ----------
+# -----------------------------------------------------------------------------
+# Core data
+# -----------------------------------------------------------------------------
 with st.spinner("加载历史行情与市值数据…"):
     prices = download_history(tuple(ALL_TICKERS), period="10y")
     caps = market_caps(tuple(ALL_TICKERS))
@@ -152,7 +165,9 @@ if prices.empty:
     st.stop()
 
 
-# ---------- Level 1 ----------
+# -----------------------------------------------------------------------------
+# Level 1 sector table
+# -----------------------------------------------------------------------------
 st.subheader("一级：AI产业链板块")
 
 sector_rows: list[dict] = []
@@ -191,7 +206,6 @@ for sector, members in SECTORS.items():
 
 sector_df = pd.DataFrame(sector_rows)
 
-# IMPORTANT: numeric columns stay numeric. This is what makes them right-aligned.
 sector_formatters = {
     "指数": lambda x: fmt_num(x, 1),
     "当日": fmt_pct,
@@ -227,7 +241,58 @@ selected_members = SECTORS[selected_sector]
 selected_tickers = [ticker for ticker, _ in selected_members]
 
 
-# ---------- sector chart ----------
+# -----------------------------------------------------------------------------
+# Manual Twelve Data refresh
+# -----------------------------------------------------------------------------
+btn_col, note_col = st.columns([1, 4])
+
+with btn_col:
+    refresh_live = st.button(
+        "刷新实时行情",
+        type="primary",
+        disabled=(not td_enabled or not state.is_open),
+        use_container_width=True,
+    )
+
+with note_col:
+    last_refresh = st.session_state.live_updated_at.get(selected_sector)
+    if not td_enabled:
+        st.caption("Twelve Data API key 未配置；当前使用 Yahoo / 收盘数据。")
+    elif not state.is_open:
+        st.caption("美股当前已收盘：主价格固定显示 regular-session close，不调用实时行情。")
+    elif last_refresh:
+        st.caption(f"当前板块最近一次 Twelve Data 手动刷新：{last_refresh} ET")
+    else:
+        st.caption("美股交易时段：只有点击“刷新实时行情”才调用 Twelve Data。")
+
+if refresh_live:
+    try:
+        # Manual means manual: clear the short cache before each button-triggered request.
+        twelve_data_quotes.clear()
+    except Exception:
+        pass
+
+    with st.spinner("正在从 Twelve Data 刷新当前板块…"):
+        quotes = twelve_data_quotes(tuple(selected_tickers))
+
+    if quotes:
+        st.session_state.live_quotes[selected_sector] = quotes
+        st.session_state.live_updated_at[selected_sector] = datetime.now(state.now_et.tzinfo).strftime("%Y-%m-%d %H:%M:%S")
+        st.success(f"已刷新 {len(quotes)} / {len(selected_tickers)} 只股票。")
+    else:
+        st.warning("Twelve Data 未返回有效行情；本页继续使用 Yahoo / 收盘数据。")
+
+# Only use stored live data when the market is open.
+td_q = (
+    st.session_state.live_quotes.get(selected_sector, {})
+    if state.is_open
+    else {}
+)
+
+
+# -----------------------------------------------------------------------------
+# Sector chart
+# -----------------------------------------------------------------------------
 idx = sector_series[selected_sector]
 if not idx.empty:
     chart_df = idx.rename("Index").reset_index()
@@ -252,13 +317,14 @@ if not idx.empty:
     st.plotly_chart(fig, use_container_width=True)
 
 
-# ---------- Level 2 ----------
+# -----------------------------------------------------------------------------
+# Level 2 stock table
+# -----------------------------------------------------------------------------
 st.subheader("二级：个股明细")
 
 volumes = download_volume_history(tuple(selected_tickers), period="6mo")
 fundamentals = fundamentals_for(tuple(selected_tickers))
 yahoo_q = yahoo_latest(tuple(selected_tickers))
-td_q = twelve_data_quotes(tuple(selected_tickers)) if state.is_open else {}
 
 sector_cap = sum(
     caps.get(ticker, 0.0)
@@ -267,6 +333,8 @@ sector_cap = sum(
 )
 
 rows: list[dict] = []
+weighted_live_return_num = 0.0
+weighted_live_return_den = 0.0
 
 for ticker, configured_name in selected_members:
     hist_last, hist_prev = latest_regular_close(prices, ticker)
@@ -279,7 +347,11 @@ for ticker, configured_name in selected_members:
         except Exception:
             latest_price = None
         try:
-            prev_close = float(td.get("previous_close")) if td.get("previous_close") is not None else hist_prev
+            prev_close = (
+                float(td.get("previous_close"))
+                if td.get("previous_close") is not None
+                else hist_prev
+            )
         except Exception:
             prev_close = hist_prev
         try:
@@ -295,7 +367,6 @@ for ticker, configured_name in selected_members:
         source = "Yahoo"
 
     else:
-        # After the regular session, main price is the regular-session close.
         latest_price = yq.get("regular_close") or hist_last
         prev_close = hist_prev
         volume = yq.get("volume")
@@ -317,6 +388,10 @@ for ticker, configured_name in selected_members:
     name = fundamentals.get(ticker, {}).get("longName") or configured_name
     cap = caps.get(ticker)
     weight = float(cap) / float(sector_cap) if cap and sector_cap else None
+
+    if source == "Twelve Data" and daily_ret is not None and cap:
+        weighted_live_return_num += float(cap) * float(daily_ret)
+        weighted_live_return_den += float(cap)
 
     rows.append(
         {
@@ -361,6 +436,14 @@ preferred_order = [
     "Source",
 ]
 stock_df = stock_df[preferred_order]
+
+if weighted_live_return_den > 0:
+    live_sector_return = weighted_live_return_num / weighted_live_return_den
+    st.metric(
+        "当前板块实时市值加权涨跌",
+        fmt_pct(live_sector_return),
+        help="仅根据本次 Twelve Data 手动刷新成功返回的当前板块股票计算。",
+    )
 
 stock_formatters = {
     "Price": fmt_price,
@@ -417,15 +500,14 @@ with st.expander("数据源、指数方法与刷新规则"):
     st.markdown(
         f"""
 - **指数基准**：{INDEX_BASE_DATE.strftime('%Y-%m-%d')} 收盘 = {INDEX_BASE_VALUE:.0f}。
-- **指数方法**：链式市值加权研究指数。使用当前市值和最新调整价推导固定等效股数，再以昨日推导市值作为当日权重；后上市股票从具备前一交易日价格后纳入，避免上市日造成机械跳升。
-- **正式指数差异**：正式可投资指数还需要历史自由流通股本、定期调仓规则以及 corporate-action divisor；本网站当前版本定位为研究指数。
-- **交易时段**：若配置 Twelve Data API key，当前选中板块优先使用 Twelve Data；失败自动回退 Yahoo。
-- **收盘后**：主价格显示 regular-session close，不把盘后价作为主价格。
+- **指数方法**：链式市值加权研究指数；后上市股票从具备前一交易日价格后纳入。
+- **实时行情**：不自动刷新。仅在美股正常交易时段点击 **“刷新实时行情”** 时调用 Twelve Data，而且只刷新当前选中的板块。
+- **实时数据保存范围**：本次浏览器会话内保留最近一次手动刷新结果；重新启动 App 后重新获取。
+- **收盘后**：主价格显示 regular-session close，不调用 Twelve Data，不把盘后价作为主价格。
 - **历史收益率**：YTD、1M、3M、6M、1Y、3Y、5Y均由该 ticker 自身历史计算；历史不足显示“—”。
 - **SKHY**：只使用 SKHY US，自上市前不使用 000660.KS 回填。
 - **成交量比**：当日累计/收盘成交量 ÷ 最近约63个交易日平均成交量。
 - **Forward P/E / Market Cap**：Yahoo Finance 低频缓存。
 - **颜色**：正收益绿色、负收益红色；Vol / 3M Avg ≥ 1.5x 为橙色。
-- **表格对齐**：数字字段始终保留 numeric dtype，由 Streamlit 原生右对齐；显示格式仅由 Styler 处理，不再把数字预先转成字符串。
         """
     )

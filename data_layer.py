@@ -156,9 +156,21 @@ def fundamentals_for(tickers: tuple[str, ...]) -> dict[str, dict]:
 
 
 def _twelve_data_key() -> str | None:
+    """Read Twelve Data key from local .env/environment or Streamlit Cloud Secrets."""
     key = os.getenv("TWELVE_DATA_API_KEY", "").strip()
+
+    if not key:
+        try:
+            key = str(st.secrets.get("TWELVE_DATA_API_KEY", "")).strip()
+        except Exception:
+            key = ""
+
     enabled = os.getenv("ENABLE_TWELVE_DATA", "true").lower() not in {"0", "false", "no"}
     return key if key and enabled else None
+
+
+def twelve_data_enabled() -> bool:
+    return bool(_twelve_data_key())
 
 
 @st.cache_data(ttl=45, show_spinner=False)

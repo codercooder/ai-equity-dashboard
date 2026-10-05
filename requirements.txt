@@ -5,4 +5,4 @@ plotly
 yfinance
 python-dotenv
 requests
-exchange-calendars
+pandas-market-calendars

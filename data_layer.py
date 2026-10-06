@@ -377,3 +377,124 @@ def pct_change_period(
     if s.empty:
         return None
     return return_since(s, float(s.iloc[-1]), months=months, years=years, ytd=ytd)
+
+@st.cache_data(ttl=60 * 60, show_spinner=False)
+def stock_ohlcv(ticker: str) -> pd.DataFrame:
+    """Full daily OHLCV history for the Level 3 stock charts."""
+    try:
+        obj = yf.Ticker(ticker)
+        df = obj.history(
+            period="max",
+            interval="1d",
+            auto_adjust=False,
+            actions=False,
+            repair=True,
+        )
+    except Exception:
+        return pd.DataFrame()
+
+    if df is None or df.empty:
+        return pd.DataFrame()
+
+    keep = [c for c in ["Open", "High", "Low", "Close", "Adj Close", "Volume"] if c in df.columns]
+    df = df[keep].copy()
+    df.index = pd.to_datetime(df.index)
+    try:
+        df.index = df.index.tz_localize(None)
+    except TypeError:
+        df.index = df.index.tz_convert(None)
+    return df.sort_index()
+
+
+@st.cache_data(ttl=60 * 60 * 12, show_spinner=False)
+def valuation_history(ticker: str) -> pd.DataFrame:
+    """Monthly historical Forward P/E and Price/Sales from Yahoo valuation measures.
+
+    Requires yfinance >= 1.3.0. The function fails soft so the dashboard can
+    continue to run if Yahoo does not provide valuation history for a symbol.
+    """
+    try:
+        obj = yf.Ticker(ticker)
+        table = obj.get_valuation_measures(freq="monthly", periods=None)
+    except Exception:
+        return pd.DataFrame(columns=["Forward P/E", "Price/Sales"])
+
+    if table is None or table.empty:
+        return pd.DataFrame(columns=["Forward P/E", "Price/Sales"])
+
+    wanted = [x for x in ["Forward P/E", "Price/Sales"] if x in table.index]
+    if not wanted:
+        return pd.DataFrame(columns=["Forward P/E", "Price/Sales"])
+
+    out_rows: list[dict] = []
+    today = pd.Timestamp.today().normalize()
+
+    for col in table.columns:
+        if str(col).lower() == "current":
+            dt = today
+        else:
+            dt = pd.to_datetime(str(col), errors="coerce")
+            if pd.isna(dt):
+                continue
+
+        row = {"Date": dt}
+        for measure in ["Forward P/E", "Price/Sales"]:
+            value = table.loc[measure, col] if measure in table.index else np.nan
+            try:
+                row[measure] = float(value) if pd.notna(value) else np.nan
+            except Exception:
+                row[measure] = np.nan
+        out_rows.append(row)
+
+    if not out_rows:
+        return pd.DataFrame(columns=["Forward P/E", "Price/Sales"])
+
+    out = pd.DataFrame(out_rows).set_index("Date").sort_index()
+    out = out[~out.index.duplicated(keep="last")]
+    return out
+
+
+@st.cache_data(ttl=60 * 60 * 12, show_spinner=False)
+def eps_history(ticker: str) -> pd.DataFrame:
+    """Historical reported quarterly EPS and a rolling four-quarter TTM EPS.
+
+    Yahoo's earnings history provides the broadest free historical series for
+    this dashboard. TTM EPS is the rolling sum of the latest four reported
+    quarterly EPS observations. Missing history is left missing rather than
+    backfilled from another security.
+    """
+    try:
+        obj = yf.Ticker(ticker)
+        earnings = obj.get_earnings_dates(limit=100)
+    except Exception:
+        earnings = None
+
+    if earnings is None or earnings.empty:
+        return pd.DataFrame(columns=["Quarterly EPS", "TTM EPS"])
+
+    df = earnings.copy()
+    df.index = pd.to_datetime(df.index)
+    try:
+        df.index = df.index.tz_localize(None)
+    except TypeError:
+        df.index = df.index.tz_convert(None)
+
+    reported_col = None
+    for candidate in ["Reported EPS", "reportedEPS", "epsActual"]:
+        if candidate in df.columns:
+            reported_col = candidate
+            break
+
+    if reported_col is None:
+        return pd.DataFrame(columns=["Quarterly EPS", "TTM EPS"])
+
+    eps = pd.to_numeric(df[reported_col], errors="coerce").dropna().sort_index()
+    if eps.empty:
+        return pd.DataFrame(columns=["Quarterly EPS", "TTM EPS"])
+
+    # Some feeds can include duplicate timestamps around the same earnings event.
+    eps = eps[~eps.index.duplicated(keep="last")]
+    out = pd.DataFrame({"Quarterly EPS": eps})
+    out["TTM EPS"] = out["Quarterly EPS"].rolling(4, min_periods=4).sum()
+    return out
+

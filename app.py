@@ -5,6 +5,7 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import streamlit as st
 from dotenv import load_dotenv
 
@@ -25,6 +26,9 @@ from data_layer import (
     twelve_data_enabled,
     twelve_data_quotes,
     yahoo_latest,
+    stock_ohlcv,
+    valuation_history,
+    eps_history,
 )
 
 load_dotenv()
@@ -539,6 +543,237 @@ st.dataframe(
     hide_index=True,
     height=330,
 )
+
+
+
+# -----------------------------------------------------------------------------
+# Level 3 single-stock analytics
+# -----------------------------------------------------------------------------
+st.subheader("三级：个股指标图")
+
+# Every stock in the 14-sector universe appears once in this selector.
+stock_to_sector: dict[str, str] = {}
+stock_to_name: dict[str, str] = {}
+for sector_name, members in SECTORS.items():
+    for ticker, name in members:
+        stock_to_sector[ticker] = sector_name
+        stock_to_name[ticker] = name
+
+stock_options = list(stock_to_sector.keys())
+option_labels = {ticker: f"{ticker} — {stock_to_name[ticker]}" for ticker in stock_options}
+
+def _default_level3_index() -> int:
+    preferred = selected_tickers[0] if selected_tickers else stock_options[0]
+    try:
+        return stock_options.index(preferred)
+    except ValueError:
+        return 0
+
+level3_ticker = st.selectbox(
+    "选择个股",
+    stock_options,
+    index=_default_level3_index(),
+    format_func=lambda x: option_labels[x],
+    key="level3_ticker",
+)
+
+sector_name = stock_to_sector[level3_ticker]
+st.caption(f"所属板块：**{sector_name}**")
+
+TIME_RANGES = ["YTD", "1M", "3M", "6M", "1Y", "3Y", "5Y", "MAX"]
+selected_range = st.radio(
+    "时间范围",
+    TIME_RANGES,
+    index=4,
+    horizontal=True,
+    key="level3_range",
+)
+
+
+def range_start(last_date: pd.Timestamp, label: str) -> pd.Timestamp | None:
+    last_date = pd.Timestamp(last_date).tz_localize(None)
+    if label == "YTD":
+        return pd.Timestamp(year=last_date.year, month=1, day=1)
+    if label == "1M":
+        return last_date - pd.DateOffset(months=1)
+    if label == "3M":
+        return last_date - pd.DateOffset(months=3)
+    if label == "6M":
+        return last_date - pd.DateOffset(months=6)
+    if label == "1Y":
+        return last_date - pd.DateOffset(years=1)
+    if label == "3Y":
+        return last_date - pd.DateOffset(years=3)
+    if label == "5Y":
+        return last_date - pd.DateOffset(years=5)
+    return None
+
+
+def clip_to_range(df: pd.DataFrame | pd.Series, label: str):
+    if df is None or len(df) == 0:
+        return df
+    last_date = pd.Timestamp(df.index.max()).tz_localize(None)
+    start = range_start(last_date, label)
+    if start is None:
+        return df
+    return df.loc[df.index >= start]
+
+
+with st.spinner(f"加载 {level3_ticker} 图表数据…"):
+    ohlcv = stock_ohlcv(level3_ticker)
+    valuations = valuation_history(level3_ticker)
+    eps_df = eps_history(level3_ticker)
+
+if ohlcv.empty:
+    st.warning(f"{level3_ticker} 暂时没有可用的历史 OHLCV 数据。")
+else:
+    # Technical indicators are calculated before clipping so the first visible
+    # point can still have 10/30/120-day averages and MACD context.
+    tech = ohlcv.copy()
+    tech["MA10"] = tech["Close"].rolling(10, min_periods=10).mean()
+    tech["MA30"] = tech["Close"].rolling(30, min_periods=30).mean()
+    tech["MA120"] = tech["Close"].rolling(120, min_periods=120).mean()
+
+    ema12 = tech["Close"].ewm(span=12, adjust=False).mean()
+    ema26 = tech["Close"].ewm(span=26, adjust=False).mean()
+    tech["MACD"] = ema12 - ema26
+    tech["Signal"] = tech["MACD"].ewm(span=9, adjust=False).mean()
+    tech["Histogram"] = tech["MACD"] - tech["Signal"]
+
+    visible = clip_to_range(tech, selected_range)
+
+    # 1. Candlestick + moving averages
+    price_fig = go.Figure()
+    price_fig.add_trace(
+        go.Candlestick(
+            x=visible.index,
+            open=visible["Open"],
+            high=visible["High"],
+            low=visible["Low"],
+            close=visible["Close"],
+            name="Price",
+        )
+    )
+    price_fig.add_trace(go.Scatter(x=visible.index, y=visible["MA10"], mode="lines", name="MA10", line=dict(color="#2563eb", width=1.5)))
+    price_fig.add_trace(go.Scatter(x=visible.index, y=visible["MA30"], mode="lines", name="MA30", line=dict(color="#f59e0b", width=1.5)))
+    price_fig.add_trace(go.Scatter(x=visible.index, y=visible["MA120"], mode="lines", name="MA120", line=dict(color="#7c3aed", width=1.5)))
+    price_fig.update_layout(
+        title=f"1. {level3_ticker} 股价 — Candlestick + MA10 / MA30 / MA120",
+        height=500,
+        margin=dict(l=10, r=10, t=55, b=10),
+        xaxis_rangeslider_visible=False,
+        yaxis_title="Price",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
+    )
+    st.plotly_chart(price_fig, use_container_width=True)
+
+    # 2. Volume
+    volume_fig = go.Figure(
+        data=[go.Bar(x=visible.index, y=visible["Volume"], name="Volume")]
+    )
+    volume_fig.update_layout(
+        title=f"2. {level3_ticker} 成交量",
+        height=280,
+        margin=dict(l=10, r=10, t=50, b=10),
+        yaxis_title="Volume",
+        showlegend=False,
+    )
+    st.plotly_chart(volume_fig, use_container_width=True)
+
+    # 3. MACD (12, 26, 9)
+    macd_fig = go.Figure()
+    macd_fig.add_trace(go.Bar(x=visible.index, y=visible["Histogram"], name="Histogram"))
+    macd_fig.add_trace(go.Scatter(x=visible.index, y=visible["MACD"], mode="lines", name="MACD"))
+    macd_fig.add_trace(go.Scatter(x=visible.index, y=visible["Signal"], mode="lines", name="Signal"))
+    macd_fig.add_hline(y=0, line_width=1, line_dash="dot")
+    macd_fig.update_layout(
+        title=f"3. {level3_ticker} MACD (12, 26, 9)",
+        height=320,
+        margin=dict(l=10, r=10, t=50, b=10),
+        yaxis_title="MACD",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
+    )
+    st.plotly_chart(macd_fig, use_container_width=True)
+
+# 4 & 5. Valuation history. Yahoo valuation history is generally monthly;
+# if a newly listed stock has no history in the requested window we simply do
+# not draw that chart, per the requested rule.
+visible_val = clip_to_range(valuations, selected_range) if not valuations.empty else valuations
+
+if visible_val is not None and not visible_val.empty and "Forward P/E" in visible_val.columns and visible_val["Forward P/E"].notna().any():
+    pe_data = visible_val["Forward P/E"].dropna()
+    pe_fig = go.Figure(go.Scatter(x=pe_data.index, y=pe_data.values, mode="lines+markers", name="Forward P/E"))
+    pe_fig.update_layout(
+        title=f"4. {level3_ticker} Forward P/E",
+        height=300,
+        margin=dict(l=10, r=10, t=50, b=10),
+        yaxis_title="Forward P/E (x)",
+        showlegend=False,
+    )
+    st.plotly_chart(pe_fig, use_container_width=True)
+else:
+    st.caption(f"4. {level3_ticker}：所选时间范围内暂无可用的 Forward P/E 历史数据。")
+
+if visible_val is not None and not visible_val.empty and "Price/Sales" in visible_val.columns and visible_val["Price/Sales"].notna().any():
+    ps_data = visible_val["Price/Sales"].dropna()
+    ps_fig = go.Figure(go.Scatter(x=ps_data.index, y=ps_data.values, mode="lines+markers", name="Price/Sales"))
+    ps_fig.update_layout(
+        title=f"5. {level3_ticker} Price / Sales",
+        height=300,
+        margin=dict(l=10, r=10, t=50, b=10),
+        yaxis_title="Price / Sales (x)",
+        showlegend=False,
+    )
+    st.plotly_chart(ps_fig, use_container_width=True)
+else:
+    st.caption(f"5. {level3_ticker}：所选时间范围内暂无可用的 Price/Sales 历史数据。")
+
+# 6. EPS. Use reported quarterly EPS; TTM EPS is the rolling sum of four
+# reported quarters, which is a useful common earnings-per-share trend measure.
+visible_eps = clip_to_range(eps_df, selected_range) if not eps_df.empty else eps_df
+if visible_eps is not None and not visible_eps.empty and visible_eps["Quarterly EPS"].notna().any():
+    eps_fig = go.Figure()
+    eps_fig.add_trace(
+        go.Bar(
+            x=visible_eps.index,
+            y=visible_eps["Quarterly EPS"],
+            name="Quarterly EPS",
+            opacity=0.45,
+        )
+    )
+    if visible_eps["TTM EPS"].notna().any():
+        eps_fig.add_trace(
+            go.Scatter(
+                x=visible_eps.index,
+                y=visible_eps["TTM EPS"],
+                mode="lines+markers",
+                name="TTM EPS",
+            )
+        )
+    eps_fig.add_hline(y=0, line_width=1, line_dash="dot")
+    eps_fig.update_layout(
+        title=f"6. {level3_ticker} EPS — Reported Quarterly / TTM",
+        height=330,
+        margin=dict(l=10, r=10, t=50, b=10),
+        yaxis_title="EPS",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
+    )
+    st.plotly_chart(eps_fig, use_container_width=True)
+    st.caption("EPS口径：Yahoo reported quarterly EPS；TTM EPS = 最近4个季度 reported EPS 之和。历史不足时不回填。")
+else:
+    st.caption(f"6. {level3_ticker}：所选时间范围内暂无可用的 EPS 历史数据。")
+
+with st.expander("三级图表数据说明"):
+    st.markdown(
+        """
+- **股价 / 成交量 / MACD**：Yahoo Finance 日频历史数据；MACD 参数为标准 12 / 26 / 9。
+- **MA10 / MA30 / MA120**：基于日收盘价计算；先在完整历史上计算，再按所选时间范围裁剪，避免窗口起点均线失真。
+- **Forward P/E / Price/Sales**：Yahoo Finance valuation measures 的月度历史序列；部分新股或个别证券可能没有完整历史。
+- **EPS**：reported quarterly EPS，并额外计算滚动四季度 TTM EPS。
+- **时间选择**：YTD、1M、3M、6M、1Y、3Y、5Y、MAX会同时作用于上述所有图。若股票尚未上市或对应基本面历史不足，只显示实际可用数据，不做跨证券回填。
+        """
+    )
+
 
 st.markdown(
     f"""

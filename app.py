@@ -695,14 +695,14 @@ else:
     )
     st.plotly_chart(macd_fig, use_container_width=True)
 
-# 4 & 5. Valuation history. Yahoo valuation history is generally monthly;
-# if a newly listed stock has no history in the requested window we simply do
-# not draw that chart, per the requested rule.
+# 4 & 5. Daily price-driven valuation history. Yahoo provides periodic
+# valuation snapshots; data_layer.py reconstructs a daily series by holding
+# the latest implied forward-EPS / sales-per-share denominator between snapshots.
 visible_val = clip_to_range(valuations, selected_range) if not valuations.empty else valuations
 
 if visible_val is not None and not visible_val.empty and "Forward P/E" in visible_val.columns and visible_val["Forward P/E"].notna().any():
     pe_data = visible_val["Forward P/E"].dropna()
-    pe_fig = go.Figure(go.Scatter(x=pe_data.index, y=pe_data.values, mode="lines+markers", name="Forward P/E"))
+    pe_fig = go.Figure(go.Scatter(x=pe_data.index, y=pe_data.values, mode="lines", name="Forward P/E"))
     pe_fig.update_layout(
         title=f"4. {level3_ticker} Forward P/E",
         height=300,
@@ -716,7 +716,7 @@ else:
 
 if visible_val is not None and not visible_val.empty and "Price/Sales" in visible_val.columns and visible_val["Price/Sales"].notna().any():
     ps_data = visible_val["Price/Sales"].dropna()
-    ps_fig = go.Figure(go.Scatter(x=ps_data.index, y=ps_data.values, mode="lines+markers", name="Price/Sales"))
+    ps_fig = go.Figure(go.Scatter(x=ps_data.index, y=ps_data.values, mode="lines", name="Price/Sales"))
     ps_fig.update_layout(
         title=f"5. {level3_ticker} Price / Sales",
         height=300,
@@ -733,20 +733,28 @@ else:
 visible_eps = clip_to_range(eps_df, selected_range) if not eps_df.empty else eps_df
 if visible_eps is not None and not visible_eps.empty and visible_eps["Quarterly EPS"].notna().any():
     eps_fig = go.Figure()
+    quarterly_text = [f"{v:.2f}" if pd.notna(v) else "" for v in visible_eps["Quarterly EPS"]]
     eps_fig.add_trace(
         go.Bar(
             x=visible_eps.index,
             y=visible_eps["Quarterly EPS"],
             name="Quarterly EPS",
             opacity=0.45,
+            text=quarterly_text,
+            textposition="outside",
+            cliponaxis=False,
         )
     )
     if visible_eps["TTM EPS"].notna().any():
+        ttm = visible_eps["TTM EPS"]
+        ttm_text = [f"{v:.2f}" if pd.notna(v) else "" for v in ttm]
         eps_fig.add_trace(
             go.Scatter(
                 x=visible_eps.index,
-                y=visible_eps["TTM EPS"],
-                mode="lines+markers",
+                y=ttm,
+                mode="lines+markers+text",
+                text=ttm_text,
+                textposition="top center",
                 name="TTM EPS",
             )
         )
@@ -768,7 +776,7 @@ with st.expander("三级图表数据说明"):
         """
 - **股价 / 成交量 / MACD**：Yahoo Finance 日频历史数据；MACD 参数为标准 12 / 26 / 9。
 - **MA10 / MA30 / MA120**：基于日收盘价计算；先在完整历史上计算，再按所选时间范围裁剪，避免窗口起点均线失真。
-- **Forward P/E / Price/Sales**：Yahoo Finance valuation measures 的月度历史序列；部分新股或个别证券可能没有完整历史。
+- **Forward P/E / Price/Sales**：Yahoo Finance 提供周期性估值快照；网站用每个快照反推当时的 forward EPS / sales-per-share，并在下一次快照前用每日股价重算估值倍数，因此曲线会随股价逐日变化。
 - **EPS**：reported quarterly EPS，并额外计算滚动四季度 TTM EPS。
 - **时间选择**：YTD、1M、3M、6M、1Y、3Y、5Y、MAX会同时作用于上述所有图。若股票尚未上市或对应基本面历史不足，只显示实际可用数据，不做跨证券回填。
         """

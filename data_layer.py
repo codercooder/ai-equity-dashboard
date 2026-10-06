@@ -380,55 +380,126 @@ def pct_change_period(
 
 @st.cache_data(ttl=60 * 60, show_spinner=False)
 def stock_ohlcv(ticker: str) -> pd.DataFrame:
-    """Full daily OHLCV history for the Level 3 stock charts."""
-    try:
-        obj = yf.Ticker(ticker)
-        df = obj.history(
-            period="max",
-            interval="1d",
-            auto_adjust=False,
-            actions=False,
-            repair=True,
-        )
-    except Exception:
-        return pd.DataFrame()
+    """Daily OHLCV history for Level 3 charts.
 
-    if df is None or df.empty:
-        return pd.DataFrame()
+    Use ``yf.download`` first because it is the same Yahoo path that already
+    powers the dashboard's working historical-price tables.  Fall back through
+    shorter periods rather than returning an empty chart when Yahoo rejects a
+    ``period=max`` request for a symbol/session.
+    """
 
-    keep = [c for c in ["Open", "High", "Low", "Close", "Adj Close", "Volume"] if c in df.columns]
-    df = df[keep].copy()
-    df.index = pd.to_datetime(df.index)
-    try:
-        df.index = df.index.tz_localize(None)
-    except TypeError:
-        df.index = df.index.tz_convert(None)
-    return df.sort_index()
+    def _normalise(raw: pd.DataFrame) -> pd.DataFrame:
+        if raw is None or raw.empty:
+            return pd.DataFrame()
+
+        df = raw.copy()
+        # yf.download can return a two-level column index even for one ticker.
+        if isinstance(df.columns, pd.MultiIndex):
+            # Usually level 0 is Price and level 1 is Ticker.
+            if ticker in df.columns.get_level_values(-1):
+                try:
+                    df = df.xs(ticker, axis=1, level=-1, drop_level=True)
+                except Exception:
+                    pass
+            if isinstance(df.columns, pd.MultiIndex):
+                # If a single symbol still remains, collapse the redundant level.
+                for level in range(df.columns.nlevels):
+                    vals = df.columns.get_level_values(level)
+                    if len(set(vals)) == 1:
+                        try:
+                            df.columns = df.columns.droplevel(level)
+                            break
+                        except Exception:
+                            pass
+
+        keep = [c for c in ["Open", "High", "Low", "Close", "Adj Close", "Volume"] if c in df.columns]
+        if not {"Open", "High", "Low", "Close", "Volume"}.issubset(set(keep)):
+            return pd.DataFrame()
+
+        df = df[keep].copy()
+        for c in keep:
+            df[c] = pd.to_numeric(df[c], errors="coerce")
+
+        df.index = pd.to_datetime(df.index)
+        try:
+            df.index = df.index.tz_localize(None)
+        except TypeError:
+            df.index = df.index.tz_convert(None)
+
+        df = df[~df.index.duplicated(keep="last")].sort_index()
+        return df.dropna(subset=["Open", "High", "Low", "Close"], how="any")
+
+    # Try the same bulk-download route used elsewhere in the app first.
+    for period in ("max", "10y", "5y"):
+        try:
+            raw = yf.download(
+                ticker,
+                period=period,
+                interval="1d",
+                auto_adjust=False,
+                actions=False,
+                progress=False,
+                threads=False,
+                group_by="column",
+            )
+            df = _normalise(raw)
+            if not df.empty:
+                return df
+        except Exception:
+            pass
+
+    # Final fallback to Ticker.history.
+    for period in ("10y", "5y", "2y"):
+        try:
+            raw = yf.Ticker(ticker).history(
+                period=period,
+                interval="1d",
+                auto_adjust=False,
+                actions=False,
+            )
+            df = _normalise(raw)
+            if not df.empty:
+                return df
+        except Exception:
+            pass
+
+    return pd.DataFrame()
 
 
 @st.cache_data(ttl=60 * 60 * 12, show_spinner=False)
 def valuation_history(ticker: str) -> pd.DataFrame:
-    """Monthly historical Forward P/E and Price/Sales from Yahoo valuation measures.
+    """Reconstruct daily Forward P/E and Price/Sales series.
 
-    Requires yfinance >= 1.3.0. The function fails soft so the dashboard can
-    continue to run if Yahoo does not provide valuation history for a symbol.
+    Yahoo exposes valuation *snapshots* (normally monthly), not a genuine
+    daily historical consensus series.  To make the chart respond every trading
+    day to the stock price, each snapshot is converted into an implied
+    denominator:
+
+      implied forward EPS = stock price / Forward P/E
+      implied sales/share  = stock price / Price/Sales
+
+    The latest known denominator is then held constant until the next Yahoo
+    valuation snapshot, while the daily close moves.  This produces a daily
+    price-driven valuation series without pretending that Yahoo supplies daily
+    analyst-estimate revisions.
     """
+    empty = pd.DataFrame(columns=["Forward P/E", "Price/Sales"])
+
     try:
         obj = yf.Ticker(ticker)
         table = obj.get_valuation_measures(freq="monthly", periods=None)
     except Exception:
-        return pd.DataFrame(columns=["Forward P/E", "Price/Sales"])
+        return empty
 
     if table is None or table.empty:
-        return pd.DataFrame(columns=["Forward P/E", "Price/Sales"])
+        return empty
 
     wanted = [x for x in ["Forward P/E", "Price/Sales"] if x in table.index]
     if not wanted:
-        return pd.DataFrame(columns=["Forward P/E", "Price/Sales"])
+        return empty
 
-    out_rows: list[dict] = []
+    anchor_rows: list[dict] = []
     today = pd.Timestamp.today().normalize()
-
     for col in table.columns:
         if str(col).lower() == "current":
             dt = today
@@ -437,21 +508,55 @@ def valuation_history(ticker: str) -> pd.DataFrame:
             if pd.isna(dt):
                 continue
 
-        row = {"Date": dt}
+        row = {"Date": pd.Timestamp(dt).tz_localize(None)}
         for measure in ["Forward P/E", "Price/Sales"]:
             value = table.loc[measure, col] if measure in table.index else np.nan
             try:
-                row[measure] = float(value) if pd.notna(value) else np.nan
+                value = float(value)
+                row[measure] = value if np.isfinite(value) and value > 0 else np.nan
             except Exception:
                 row[measure] = np.nan
-        out_rows.append(row)
+        anchor_rows.append(row)
 
-    if not out_rows:
-        return pd.DataFrame(columns=["Forward P/E", "Price/Sales"])
+    if not anchor_rows:
+        return empty
 
-    out = pd.DataFrame(out_rows).set_index("Date").sort_index()
-    out = out[~out.index.duplicated(keep="last")]
-    return out
+    anchors = pd.DataFrame(anchor_rows).set_index("Date").sort_index()
+    anchors = anchors[~anchors.index.duplicated(keep="last")]
+
+    ohlcv = stock_ohlcv(ticker)
+    if ohlcv.empty or "Close" not in ohlcv.columns:
+        return anchors[[c for c in ["Forward P/E", "Price/Sales"] if c in anchors.columns]]
+
+    close = pd.to_numeric(ohlcv["Close"], errors="coerce").dropna().sort_index()
+    if close.empty:
+        return empty
+
+    result = pd.DataFrame(index=close.index, columns=["Forward P/E", "Price/Sales"], dtype=float)
+
+    for measure in ["Forward P/E", "Price/Sales"]:
+        if measure not in anchors.columns:
+            continue
+        vals = anchors[measure].dropna()
+        if vals.empty:
+            continue
+
+        denominator_events = pd.Series(index=close.index, dtype=float)
+        for dt, multiple in vals.items():
+            eligible = close.loc[close.index <= pd.Timestamp(dt)]
+            if eligible.empty or not np.isfinite(multiple) or multiple <= 0:
+                continue
+            trade_dt = eligible.index[-1]
+            px = float(eligible.iloc[-1])
+            if px > 0:
+                denominator_events.loc[trade_dt] = px / float(multiple)
+
+        denominator = denominator_events.ffill()
+        daily_multiple = close / denominator
+        result[measure] = daily_multiple.where((daily_multiple > 0) & np.isfinite(daily_multiple))
+
+    result = result.dropna(how="all")
+    return result
 
 
 @st.cache_data(ttl=60 * 60 * 12, show_spinner=False)

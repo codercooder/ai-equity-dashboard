@@ -166,6 +166,108 @@ if prices.empty:
 
 
 # -----------------------------------------------------------------------------
+# Sector selection + manual Twelve Data refresh
+# -----------------------------------------------------------------------------
+selected_sector = st.selectbox(
+    "选择板块查看二级个股",
+    list(SECTORS.keys()),
+    index=0,
+)
+selected_members = SECTORS[selected_sector]
+selected_tickers = [ticker for ticker, _ in selected_members]
+
+btn_col, note_col = st.columns([1, 4])
+
+with btn_col:
+    refresh_live = st.button(
+        "刷新实时行情",
+        type="primary",
+        disabled=(not td_enabled or not state.is_open),
+        use_container_width=True,
+    )
+
+with note_col:
+    last_refresh = st.session_state.live_updated_at.get(selected_sector)
+    if not td_enabled:
+        st.caption("Twelve Data API key 未配置；当前使用收盘数据。")
+    elif not state.is_open:
+        st.caption("美股当前已收盘：一级和二级均显示 regular-session close 的当日变动。")
+    elif last_refresh:
+        st.caption(f"当前板块最近一次 Twelve Data 手动刷新：{last_refresh} ET")
+    else:
+        st.caption("美股交易时段：点击“刷新实时行情”后，一级‘当日’和二级 Daily Return 同步使用 Twelve Data。")
+
+if refresh_live:
+    try:
+        # Manual means manual: clear the short cache before each button-triggered request.
+        twelve_data_quotes.clear()
+    except Exception:
+        pass
+
+    with st.spinner("正在从 Twelve Data 刷新当前板块…"):
+        quotes = twelve_data_quotes(tuple(selected_tickers))
+
+    if quotes:
+        st.session_state.live_quotes[selected_sector] = quotes
+        st.session_state.live_updated_at[selected_sector] = datetime.now(state.now_et.tzinfo).strftime("%Y-%m-%d %H:%M:%S")
+        st.success(f"已刷新 {len(quotes)} / {len(selected_tickers)} 只股票。一级板块‘当日’与二级 Daily Return 已同步更新。")
+    else:
+        st.warning("Twelve Data 未返回有效行情；本页继续显示最近 regular-session close 数据。")
+
+# Only use stored live data when the market is open.
+td_q = (
+    st.session_state.live_quotes.get(selected_sector, {})
+    if state.is_open
+    else {}
+)
+
+
+def live_sector_daily_return(
+    tickers: list[str],
+    quotes: dict[str, dict],
+) -> float | None:
+    """Calculate the sector's intraday move using the same stock returns shown in Level 2.
+
+    Constituents are weighted by market cap. Only names with a valid Twelve Data
+    price/previous close and market cap enter the calculation; weights are
+    renormalized across the successfully refreshed names.
+    """
+    numerator = 0.0
+    denominator = 0.0
+
+    for ticker in tickers:
+        td = quotes.get(ticker, {})
+        cap = caps.get(ticker)
+        if not td or not cap:
+            continue
+
+        hist_last, hist_prev = latest_regular_close(prices, ticker)
+
+        try:
+            latest_price = float(td.get("close")) if td.get("close") is not None else None
+        except Exception:
+            latest_price = None
+
+        try:
+            prev_close = (
+                float(td.get("previous_close"))
+                if td.get("previous_close") is not None
+                else hist_prev
+            )
+        except Exception:
+            prev_close = hist_prev
+
+        if latest_price is None or prev_close in (None, 0):
+            continue
+
+        stock_return = latest_price / float(prev_close) - 1.0
+        numerator += float(cap) * stock_return
+        denominator += float(cap)
+
+    return numerator / denominator if denominator > 0 else None
+
+
+# -----------------------------------------------------------------------------
 # Level 1 sector table
 # -----------------------------------------------------------------------------
 st.subheader("一级：AI产业链板块")
@@ -185,7 +287,26 @@ for sector, members in SECTORS.items():
     sector_series[sector] = idx
 
     latest = float(idx.iloc[-1]) if not idx.empty else None
-    daily = float(idx.pct_change(fill_method=None).iloc[-1]) if len(idx) >= 2 else None
+    close_daily = float(idx.pct_change(fill_method=None).iloc[-1]) if len(idx) >= 2 else None
+    daily = close_daily
+
+    # During the session, a manually refreshed selected sector uses Twelve Data
+    # exactly like Level 2 Daily Return. Other sectors remain at their latest close
+    # until the user selects and refreshes them.
+    if state.is_open and sector == selected_sector and td_q:
+        live_daily = live_sector_daily_return(tickers, td_q)
+        if live_daily is not None:
+            daily = live_daily
+
+            # Also update the displayed index point intraday from the most recent
+            # completed index close. Historical period returns remain close-based.
+            if not idx.empty:
+                if pd.Timestamp(idx.index[-1]).date() == state.now_et.date() and len(idx) >= 2:
+                    prior_index_close = float(idx.iloc[-2])
+                else:
+                    prior_index_close = float(idx.iloc[-1])
+                latest = prior_index_close * (1.0 + live_daily)
+
     total_cap = sum(caps.get(ticker, 0.0) for ticker in tickers)
 
     sector_rows.append(
@@ -231,64 +352,6 @@ st.dataframe(
     hide_index=True,
     height=535,
 )
-
-selected_sector = st.selectbox(
-    "选择板块查看二级个股",
-    list(SECTORS.keys()),
-    index=0,
-)
-selected_members = SECTORS[selected_sector]
-selected_tickers = [ticker for ticker, _ in selected_members]
-
-
-# -----------------------------------------------------------------------------
-# Manual Twelve Data refresh
-# -----------------------------------------------------------------------------
-btn_col, note_col = st.columns([1, 4])
-
-with btn_col:
-    refresh_live = st.button(
-        "刷新实时行情",
-        type="primary",
-        disabled=(not td_enabled or not state.is_open),
-        use_container_width=True,
-    )
-
-with note_col:
-    last_refresh = st.session_state.live_updated_at.get(selected_sector)
-    if not td_enabled:
-        st.caption("Twelve Data API key 未配置；当前使用 Yahoo / 收盘数据。")
-    elif not state.is_open:
-        st.caption("美股当前已收盘：主价格固定显示 regular-session close，不调用实时行情。")
-    elif last_refresh:
-        st.caption(f"当前板块最近一次 Twelve Data 手动刷新：{last_refresh} ET")
-    else:
-        st.caption("美股交易时段：只有点击“刷新实时行情”才调用 Twelve Data。")
-
-if refresh_live:
-    try:
-        # Manual means manual: clear the short cache before each button-triggered request.
-        twelve_data_quotes.clear()
-    except Exception:
-        pass
-
-    with st.spinner("正在从 Twelve Data 刷新当前板块…"):
-        quotes = twelve_data_quotes(tuple(selected_tickers))
-
-    if quotes:
-        st.session_state.live_quotes[selected_sector] = quotes
-        st.session_state.live_updated_at[selected_sector] = datetime.now(state.now_et.tzinfo).strftime("%Y-%m-%d %H:%M:%S")
-        st.success(f"已刷新 {len(quotes)} / {len(selected_tickers)} 只股票。")
-    else:
-        st.warning("Twelve Data 未返回有效行情；本页继续使用 Yahoo / 收盘数据。")
-
-# Only use stored live data when the market is open.
-td_q = (
-    st.session_state.live_quotes.get(selected_sector, {})
-    if state.is_open
-    else {}
-)
-
 
 # -----------------------------------------------------------------------------
 # Sector chart
@@ -437,14 +500,6 @@ preferred_order = [
 ]
 stock_df = stock_df[preferred_order]
 
-if weighted_live_return_den > 0:
-    live_sector_return = weighted_live_return_num / weighted_live_return_den
-    st.metric(
-        "当前板块实时市值加权涨跌",
-        fmt_pct(live_sector_return),
-        help="仅根据本次 Twelve Data 手动刷新成功返回的当前板块股票计算。",
-    )
-
 stock_formatters = {
     "Price": fmt_price,
     "Daily Return": fmt_pct,
@@ -501,9 +556,9 @@ with st.expander("数据源、指数方法与刷新规则"):
         f"""
 - **指数基准**：{INDEX_BASE_DATE.strftime('%Y-%m-%d')} 收盘 = {INDEX_BASE_VALUE:.0f}。
 - **指数方法**：链式市值加权研究指数；后上市股票从具备前一交易日价格后纳入。
-- **实时行情**：不自动刷新。仅在美股正常交易时段点击 **“刷新实时行情”** 时调用 Twelve Data，而且只刷新当前选中的板块。
+- **实时行情**：不自动刷新。仅在美股正常交易时段点击 **“刷新实时行情”** 时调用 Twelve Data，而且只刷新当前选中的板块。一级“当日”与二级 Daily Return 使用同一批实时数据。
 - **实时数据保存范围**：本次浏览器会话内保留最近一次手动刷新结果；重新启动 App 后重新获取。
-- **收盘后**：主价格显示 regular-session close，不调用 Twelve Data，不把盘后价作为主价格。
+- **收盘后**：一级“当日”使用板块成分股 regular-session close 的收盘变动，二级主价格与 Daily Return 同样使用 regular-session close；不把盘后价作为主价格。
 - **历史收益率**：YTD、1M、3M、6M、1Y、3Y、5Y均由该 ticker 自身历史计算；历史不足显示“—”。
 - **SKHY**：只使用 SKHY US，自上市前不使用 000660.KS 回填。
 - **成交量比**：当日累计/收盘成交量 ÷ 最近约63个交易日平均成交量。

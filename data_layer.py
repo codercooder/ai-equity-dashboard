@@ -603,3 +603,189 @@ def eps_history(ticker: str) -> pd.DataFrame:
     out["TTM EPS"] = out["Quarterly EPS"].rolling(4, min_periods=4).sum()
     return out
 
+
+
+@st.cache_data(ttl=60 * 30, show_spinner=False)
+def company_event_snapshot(ticker: str) -> dict[str, list[dict]]:
+    """Return recent company activity/news and publicly scheduled upcoming events.
+
+    This intentionally avoids guessing. Recent items come from Yahoo Finance news,
+    prioritising conference/event/earnings/product-related headlines when available.
+    Upcoming items are drawn from announced future-event headlines, Yahoo's earnings
+    dates and company calendar fields. Missing coverage is returned as an empty list.
+    """
+    obj = yf.Ticker(ticker)
+    now = pd.Timestamp.now(tz=ET)
+    recent: list[dict] = []
+    upcoming: list[dict] = []
+
+    # ----- Yahoo news: robust to old/new yfinance response shapes -----
+    news_items = []
+    try:
+        news_items = obj.get_news(count=40, tab="news") or []
+    except Exception:
+        try:
+            news_items = obj.news or []
+        except Exception:
+            news_items = []
+
+    activity_kw = (
+        "conference", "summit", "keynote", "fireside", "investor", "event",
+        "presentation", "expo", "forum", "earnings", "launch", "unveil",
+        "gtc", "computex", "ces", "analyst day", "capital markets day",
+    )
+    future_kw = (
+        "will participate", "to participate", "will present", "to present",
+        "will speak", "to speak", "upcoming", "scheduled", "conference",
+        "investor day", "analyst day", "earnings call",
+    )
+
+    parsed_news: list[dict] = []
+    for raw in news_items:
+        if not isinstance(raw, dict):
+            continue
+        content = raw.get("content") if isinstance(raw.get("content"), dict) else raw
+        title = content.get("title") or raw.get("title")
+        if not title:
+            continue
+
+        source = None
+        provider = content.get("provider")
+        if isinstance(provider, dict):
+            source = provider.get("displayName") or provider.get("name")
+        source = source or content.get("publisher") or raw.get("publisher") or "Yahoo Finance"
+
+        url = None
+        for candidate in (content.get("canonicalUrl"), content.get("clickThroughUrl")):
+            if isinstance(candidate, dict) and candidate.get("url"):
+                url = candidate.get("url")
+                break
+        url = url or content.get("link") or raw.get("link")
+
+        published = content.get("pubDate") or content.get("displayTime") or raw.get("providerPublishTime")
+        dt = pd.NaT
+        if isinstance(published, (int, float)) and published:
+            try:
+                dt = pd.to_datetime(published, unit="s", utc=True).tz_convert(ET)
+            except Exception:
+                dt = pd.NaT
+        elif published:
+            try:
+                dt = pd.to_datetime(published, utc=True).tz_convert(ET)
+            except Exception:
+                dt = pd.NaT
+
+        parsed_news.append({
+            "title": str(title),
+            "source": str(source),
+            "url": url,
+            "dt": dt,
+        })
+
+    parsed_news.sort(
+        key=lambda x: x["dt"].timestamp() if pd.notna(x["dt"]) else 0,
+        reverse=True,
+    )
+
+    # Prefer event-like items; fill remaining slots with latest company news.
+    activity_items = [x for x in parsed_news if any(k in x["title"].lower() for k in activity_kw)]
+    chosen = activity_items[:5]
+    if len(chosen) < 5:
+        seen = {x["title"] for x in chosen}
+        chosen.extend([x for x in parsed_news if x["title"] not in seen][: 5 - len(chosen)])
+
+    for item in chosen:
+        dt = item["dt"]
+        recent.append({
+            "date": dt.strftime("%Y-%m-%d") if pd.notna(dt) else "—",
+            "title": item["title"],
+            "source": item["source"],
+            "url": item["url"],
+        })
+
+    # Announced future conference / presentation headlines.
+    for item in parsed_news:
+        title_lower = item["title"].lower()
+        if any(k in title_lower for k in future_kw):
+            upcoming.append({
+                "date": "待定/见公告",
+                "title": item["title"],
+                "detail": item["source"],
+                "url": item["url"],
+            })
+        if len(upcoming) >= 3:
+            break
+
+    # Yahoo earnings dates. Include only future dates.
+    try:
+        earnings = obj.get_earnings_dates(limit=24)
+    except Exception:
+        earnings = None
+
+    if earnings is not None and not earnings.empty:
+        dates = pd.to_datetime(earnings.index, utc=True, errors="coerce")
+        for dt in dates:
+            if pd.isna(dt):
+                continue
+            dt_et = dt.tz_convert(ET)
+            if dt_et >= now - pd.Timedelta(hours=6):
+                upcoming.append({
+                    "date": dt_et.strftime("%Y-%m-%d"),
+                    "title": "财报 / Earnings",
+                    "detail": "Yahoo Finance earnings calendar",
+                    "url": None,
+                })
+                break
+
+    # Company calendar fields such as ex-dividend date or earnings date.
+    try:
+        cal = obj.calendar
+    except Exception:
+        cal = None
+
+    def _calendar_items(calendar_obj):
+        if calendar_obj is None:
+            return []
+        if isinstance(calendar_obj, dict):
+            return list(calendar_obj.items())
+        if isinstance(calendar_obj, pd.DataFrame) and not calendar_obj.empty:
+            if calendar_obj.shape[1] == 1:
+                return list(calendar_obj.iloc[:, 0].items())
+            if calendar_obj.shape[0] == 1:
+                return list(calendar_obj.iloc[0].items())
+        return []
+
+    label_map = {
+        "Earnings Date": "财报 / Earnings",
+        "Ex-Dividend Date": "除息日 / Ex-Dividend",
+        "Dividend Date": "股息支付日 / Dividend",
+    }
+
+    for key, value in _calendar_items(cal):
+        if str(key) not in label_map:
+            continue
+        vals = value if isinstance(value, (list, tuple)) else [value]
+        for val in vals:
+            try:
+                dt = pd.to_datetime(val, utc=True, errors="coerce")
+            except Exception:
+                dt = pd.NaT
+            if pd.isna(dt):
+                continue
+            dt_et = dt.tz_convert(ET)
+            if dt_et >= now - pd.Timedelta(hours=6):
+                upcoming.append({
+                    "date": dt_et.strftime("%Y-%m-%d"),
+                    "title": label_map[str(key)],
+                    "detail": "Yahoo Finance company calendar",
+                    "url": None,
+                })
+
+    # De-duplicate by (date, title), then order dated items ahead of undated announcements.
+    dedup = {}
+    for item in upcoming:
+        dedup[(item.get("date"), item.get("title"))] = item
+    upcoming = list(dedup.values())
+    upcoming.sort(key=lambda x: (x.get("date") in {None, "待定/见公告"}, x.get("date") or "9999-12-31"))
+
+    return {"recent": recent[:5], "upcoming": upcoming[:6]}

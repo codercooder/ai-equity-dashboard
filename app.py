@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, time
+from zoneinfo import ZoneInfo
 
 import numpy as np
 import pandas as pd
@@ -29,6 +30,7 @@ from data_layer import (
     stock_ohlcv,
     valuation_history,
     eps_history,
+    company_event_snapshot,
 )
 
 load_dotenv()
@@ -138,25 +140,111 @@ state = market_state()
 td_enabled = twelve_data_enabled()
 status_color = "🟢" if state.is_open else "⚪"
 
-if "live_quotes" not in st.session_state:
-    st.session_state.live_quotes = {}
-if "live_updated_at" not in st.session_state:
-    st.session_state.live_updated_at = {}
+if "live_quotes_all" not in st.session_state:
+    st.session_state.live_quotes_all = {}
+if "live_benchmark_quotes" not in st.session_state:
+    st.session_state.live_benchmark_quotes = {}
+if "live_updated_at_global" not in st.session_state:
+    st.session_state.live_updated_at_global = None
 
+MARKET_OVERVIEW = {
+    "道琼斯工业指数": {"yahoo": "^DJI", "twelve": "DJI", "live_mode": "us"},
+    "标普500指数": {"yahoo": "^GSPC", "twelve": "SPX", "live_mode": "us"},
+    "纳斯达克综合指数": {"yahoo": "^IXIC", "twelve": "IXIC", "live_mode": "us"},
+    "纳斯达克100": {"yahoo": "^NDX", "twelve": "NDX", "live_mode": "us"},
+    "比特币": {"yahoo": "BTC-USD", "twelve": "BTC/USD", "live_mode": "always"},
+    "黄金": {"yahoo": "GC=F", "twelve": "XAU/USD", "live_mode": "weekday_24h"},
+    "石油（Brent）": {"yahoo": "BZ=F", "twelve": "XBR/USD", "live_mode": "weekday_24h"},
+    "铜": {"yahoo": "HG=F", "twelve": "HG1", "live_mode": "weekday_24h"},
+    "美元指数": {"yahoo": "DX-Y.NYB", "twelve": "DXY", "live_mode": "weekday_24h"},
+    "沪深300": {"yahoo": "000300.SS", "twelve": None, "live_mode": "china"},
+}
+
+
+def market_live_allowed(mode: str) -> bool:
+    """Whether an instrument should use a freshly requested intraday quote now."""
+    if mode == "always":
+        return True
+    if mode == "us":
+        return state.is_open
+    if mode == "weekday_24h":
+        # FX/spot commodity feeds trade effectively around the clock Monday-Friday.
+        return state.now_et.weekday() < 5
+    if mode == "china":
+        now_cn = datetime.now(ZoneInfo("Asia/Shanghai"))
+        if now_cn.weekday() >= 5:
+            return False
+        t = now_cn.time()
+        return (time(9, 30) <= t <= time(11, 30)) or (time(13, 0) <= t <= time(15, 0))
+    return False
 
 # -----------------------------------------------------------------------------
-# Header
+# Header + one global manual live refresh
 # -----------------------------------------------------------------------------
 header_l, header_r = st.columns([3, 2])
 with header_l:
     st.title("AI Equity Dashboard")
-    st.caption("14个AI产业链板块 · 市值加权研究指数 · 个股行情与估值")
+    st.caption("市场概览 · 14个AI产业链板块 · 板块监控 · 个股研究")
 with header_r:
     st.markdown(
         f"**{status_color} Market Status: {state.label}**  \n"
         f"ET {state.now_et.strftime('%Y-%m-%d %H:%M:%S')}  \n"
         f"Twelve Data: {'Ready' if td_enabled else 'Not configured'}"
     )
+
+refresh_col, refresh_note_col = st.columns([1.25, 4.75])
+with refresh_col:
+    refresh_live = st.button(
+        "刷新实时行情",
+        type="primary",
+        disabled=(not td_enabled),
+        use_container_width=True,
+    )
+with refresh_note_col:
+    last_refresh = st.session_state.live_updated_at_global
+    if not td_enabled:
+        st.caption("Twelve Data API key 未配置；当前显示最近收盘数据。")
+    elif last_refresh:
+        st.caption(
+            f"最近一次 Twelve Data 手动刷新：{last_refresh} ET。"
+            "美股仅在正常交易时段采用实时价；BTC/商品/美元指数按各自交易状态更新。"
+        )
+    else:
+        st.caption(
+            "点击后刷新市场概览；美股交易时段同时刷新AI股票。"
+            "收盘后的市场使用正式收盘价，Twelve Data不支持的标的自动回退 Yahoo。"
+        )
+
+if refresh_live:
+    try:
+        twelve_data_quotes.clear()
+    except Exception:
+        pass
+
+    with st.spinner("正在从 Twelve Data 刷新市场与AI股票实时行情…"):
+        # US equities only consume credits during the regular US session.
+        stock_quotes = twelve_data_quotes(tuple(ALL_TICKERS)) if state.is_open else {}
+        benchmark_symbols = tuple(
+            v["twelve"] for v in MARKET_OVERVIEW.values() if v.get("twelve")
+        )
+        benchmark_live = twelve_data_quotes(benchmark_symbols)
+
+    if stock_quotes:
+        st.session_state.live_quotes_all = stock_quotes
+    if benchmark_live:
+        st.session_state.live_benchmark_quotes = benchmark_live
+
+    if stock_quotes or benchmark_live:
+        st.session_state.live_updated_at_global = datetime.now(state.now_et.tzinfo).strftime("%Y-%m-%d %H:%M:%S")
+        st.success(
+            f"实时刷新完成：AI股票 {len(stock_quotes)} / {len(ALL_TICKERS)}；"
+            f"市场标的 {len(benchmark_live)} / {len([v for v in MARKET_OVERVIEW.values() if v.get('twelve')])}。"
+        )
+    else:
+        st.warning("Twelve Data 未返回有效实时行情；本页继续使用最近 regular-session close 数据。")
+
+live_quotes_all = st.session_state.live_quotes_all if state.is_open else {}
+live_benchmark_quotes = st.session_state.live_benchmark_quotes
 
 
 # -----------------------------------------------------------------------------
@@ -172,115 +260,132 @@ if prices.empty:
 
 
 # -----------------------------------------------------------------------------
-# Sector selection + manual Twelve Data refresh
+# Helpers for consistent intraday daily-return logic
 # -----------------------------------------------------------------------------
-selected_sector = st.selectbox(
-    "选择板块查看二级个股",
-    list(SECTORS.keys()),
-    index=0,
-)
-selected_members = SECTORS[selected_sector]
-selected_tickers = [ticker for ticker, _ in selected_members]
-
-btn_col, note_col = st.columns([1, 4])
-
-with btn_col:
-    refresh_live = st.button(
-        "刷新实时行情",
-        type="primary",
-        disabled=(not td_enabled or not state.is_open),
-        use_container_width=True,
-    )
-
-with note_col:
-    last_refresh = st.session_state.live_updated_at.get(selected_sector)
-    if not td_enabled:
-        st.caption("Twelve Data API key 未配置；当前使用收盘数据。")
-    elif not state.is_open:
-        st.caption("美股当前已收盘：一级和二级均显示 regular-session close 的当日变动。")
-    elif last_refresh:
-        st.caption(f"当前板块最近一次 Twelve Data 手动刷新：{last_refresh} ET")
-    else:
-        st.caption("美股交易时段：点击“刷新实时行情”后，一级‘当日’和二级 Daily Return 同步使用 Twelve Data。")
-
-if refresh_live:
-    try:
-        # Manual means manual: clear the short cache before each button-triggered request.
-        twelve_data_quotes.clear()
-    except Exception:
-        pass
-
-    with st.spinner("正在从 Twelve Data 刷新当前板块…"):
-        quotes = twelve_data_quotes(tuple(selected_tickers))
-
-    if quotes:
-        st.session_state.live_quotes[selected_sector] = quotes
-        st.session_state.live_updated_at[selected_sector] = datetime.now(state.now_et.tzinfo).strftime("%Y-%m-%d %H:%M:%S")
-        st.success(f"已刷新 {len(quotes)} / {len(selected_tickers)} 只股票。一级板块‘当日’与二级 Daily Return 已同步更新。")
-    else:
-        st.warning("Twelve Data 未返回有效行情；本页继续显示最近 regular-session close 数据。")
-
-# Only use stored live data when the market is open.
-td_q = (
-    st.session_state.live_quotes.get(selected_sector, {})
-    if state.is_open
-    else {}
-)
-
-
 def live_sector_daily_return(
     tickers: list[str],
     quotes: dict[str, dict],
 ) -> float | None:
-    """Calculate the sector's intraday move using the same stock returns shown in Level 2.
-
-    Constituents are weighted by market cap. Only names with a valid Twelve Data
-    price/previous close and market cap enter the calculation; weights are
-    renormalized across the successfully refreshed names.
-    """
     numerator = 0.0
     denominator = 0.0
-
     for ticker in tickers:
         td = quotes.get(ticker, {})
         cap = caps.get(ticker)
         if not td or not cap:
             continue
-
-        hist_last, hist_prev = latest_regular_close(prices, ticker)
-
+        _, hist_prev = latest_regular_close(prices, ticker)
         try:
             latest_price = float(td.get("close")) if td.get("close") is not None else None
         except Exception:
             latest_price = None
-
         try:
-            prev_close = (
-                float(td.get("previous_close"))
-                if td.get("previous_close") is not None
-                else hist_prev
-            )
+            prev_close = float(td.get("previous_close")) if td.get("previous_close") is not None else hist_prev
         except Exception:
             prev_close = hist_prev
-
         if latest_price is None or prev_close in (None, 0):
             continue
-
         stock_return = latest_price / float(prev_close) - 1.0
         numerator += float(cap) * stock_return
         denominator += float(cap)
-
     return numerator / denominator if denominator > 0 else None
 
 
+def latest_from_td(item: dict | None) -> tuple[float | None, float | None, float | None]:
+    item = item or {}
+    try:
+        price = float(item.get("close")) if item.get("close") is not None else None
+    except Exception:
+        price = None
+    try:
+        prev = float(item.get("previous_close")) if item.get("previous_close") is not None else None
+    except Exception:
+        prev = None
+    try:
+        volume = float(item.get("volume")) if item.get("volume") is not None else None
+    except Exception:
+        volume = None
+    return price, prev, volume
+
+
 # -----------------------------------------------------------------------------
-# Level 1 sector table
+# 一级：市场概览
 # -----------------------------------------------------------------------------
-st.subheader("一级：AI产业链板块")
+st.subheader("一级：市场概览")
+
+benchmark_yahoo_tickers = tuple(v["yahoo"] for v in MARKET_OVERVIEW.values())
+with st.spinner("加载全球市场概览…"):
+    benchmark_prices = download_history(benchmark_yahoo_tickers, period="10y")
+    benchmark_quotes = yahoo_latest(benchmark_yahoo_tickers)
+
+market_rows: list[dict] = []
+for label, ids in MARKET_OVERVIEW.items():
+    yt = ids["yahoo"]
+    td_symbol = ids.get("twelve")
+    live_mode = ids.get("live_mode", "us")
+    use_live = market_live_allowed(live_mode)
+
+    hist = benchmark_prices[yt].dropna() if yt in benchmark_prices.columns else pd.Series(dtype=float)
+    hist_last = float(hist.iloc[-1]) if not hist.empty else None
+    hist_prev = float(hist.iloc[-2]) if len(hist) >= 2 else None
+    yq = benchmark_quotes.get(yt, {})
+
+    td_item = live_benchmark_quotes.get(td_symbol, {}) if (use_live and td_symbol) else {}
+    if td_item:
+        level, prev_close, _ = latest_from_td(td_item)
+        level = level or yq.get("price") or hist_last
+        prev_close = prev_close or yq.get("previous_close") or hist_prev
+    elif use_live:
+        # Fallback while the instrument is trading.
+        level = yq.get("price") or hist_last
+        prev_close = yq.get("previous_close") or hist_prev
+    else:
+        # Closed markets show the latest completed regular-session/daily close.
+        level = yq.get("regular_close") or hist_last
+        prev_close = hist_prev
+
+    daily = (float(level) / float(prev_close) - 1.0) if level is not None and prev_close not in (None, 0) else None
+    market_rows.append(
+        {
+            "市场": label,
+            "点位/价格": level,
+            "当日": daily,
+            "YTD": return_since(hist, float(level), ytd=True) if level is not None and not hist.empty else None,
+            "1M": return_since(hist, float(level), months=1) if level is not None and not hist.empty else None,
+            "3M": return_since(hist, float(level), months=3) if level is not None and not hist.empty else None,
+            "6M": return_since(hist, float(level), months=6) if level is not None and not hist.empty else None,
+            "1Y": return_since(hist, float(level), years=1) if level is not None and not hist.empty else None,
+            "3Y": return_since(hist, float(level), years=3) if level is not None and not hist.empty else None,
+            "5Y": return_since(hist, float(level), years=5) if level is not None and not hist.empty else None,
+        }
+    )
+
+market_df = pd.DataFrame(market_rows)
+market_formatters = {
+    "点位/价格": lambda x: fmt_num(x, 2),
+    "当日": fmt_pct,
+    "YTD": fmt_pct,
+    "1M": fmt_pct,
+    "3M": fmt_pct,
+    "6M": fmt_pct,
+    "1Y": fmt_pct,
+    "3Y": fmt_pct,
+    "5Y": fmt_pct,
+}
+market_styler = style_numeric_table(
+    market_df,
+    formatters=market_formatters,
+    return_cols=["当日", "YTD", "1M", "3M", "6M", "1Y", "3Y", "5Y"],
+)
+st.dataframe(market_styler, use_container_width=True, hide_index=True, height=390)
+
+
+# -----------------------------------------------------------------------------
+# 二级：AI产业链板块总览
+# -----------------------------------------------------------------------------
+st.subheader("二级：AI产业链板块")
 
 sector_rows: list[dict] = []
 sector_series: dict[str, pd.Series] = {}
-
 for sector, members in SECTORS.items():
     tickers = [ticker for ticker, _ in members]
     idx = build_sector_index(
@@ -293,19 +398,12 @@ for sector, members in SECTORS.items():
     sector_series[sector] = idx
 
     latest = float(idx.iloc[-1]) if not idx.empty else None
-    close_daily = float(idx.pct_change(fill_method=None).iloc[-1]) if len(idx) >= 2 else None
-    daily = close_daily
+    daily = float(idx.pct_change(fill_method=None).iloc[-1]) if len(idx) >= 2 else None
 
-    # During the session, a manually refreshed selected sector uses Twelve Data
-    # exactly like Level 2 Daily Return. Other sectors remain at their latest close
-    # until the user selects and refreshes them.
-    if state.is_open and sector == selected_sector and td_q:
-        live_daily = live_sector_daily_return(tickers, td_q)
+    if state.is_open and live_quotes_all:
+        live_daily = live_sector_daily_return(tickers, live_quotes_all)
         if live_daily is not None:
             daily = live_daily
-
-            # Also update the displayed index point intraday from the most recent
-            # completed index close. Historical period returns remain close-based.
             if not idx.empty:
                 if pd.Timestamp(idx.index[-1]).date() == state.now_et.date() and len(idx) >= 2:
                     prior_index_close = float(idx.iloc[-2])
@@ -314,7 +412,6 @@ for sector, members in SECTORS.items():
                 latest = prior_index_close * (1.0 + live_daily)
 
     total_cap = sum(caps.get(ticker, 0.0) for ticker in tickers)
-
     sector_rows.append(
         {
             "板块": sector,
@@ -332,7 +429,6 @@ for sector, members in SECTORS.items():
     )
 
 sector_df = pd.DataFrame(sector_rows)
-
 sector_formatters = {
     "指数": lambda x: fmt_num(x, 1),
     "当日": fmt_pct,
@@ -345,28 +441,31 @@ sector_formatters = {
     "5Y": fmt_pct,
     "总市值": lambda x: fmt_compact(x, dollar=True),
 }
-sector_return_cols = ["当日", "YTD", "1M", "3M", "6M", "1Y", "3Y", "5Y"]
 sector_styler = style_numeric_table(
     sector_df,
     formatters=sector_formatters,
-    return_cols=sector_return_cols,
+    return_cols=["当日", "YTD", "1M", "3M", "6M", "1Y", "3Y", "5Y"],
 )
+st.dataframe(sector_styler, use_container_width=True, hide_index=True, height=535)
 
-st.dataframe(
-    sector_styler,
-    use_container_width=True,
-    hide_index=True,
-    height=535,
-)
 
 # -----------------------------------------------------------------------------
-# Sector chart
+# 三级：板块详情
 # -----------------------------------------------------------------------------
+st.subheader("三级：板块详情")
+selected_sector = st.selectbox(
+    "选择板块",
+    list(SECTORS.keys()),
+    index=0,
+    key="sector_selector",
+)
+selected_members = SECTORS[selected_sector]
+selected_tickers = [ticker for ticker, _ in selected_members]
+
 idx = sector_series[selected_sector]
 if not idx.empty:
     chart_df = idx.rename("Index").reset_index()
     chart_df.columns = ["Date", "Index"]
-
     fig = px.line(
         chart_df,
         x="Date",
@@ -383,84 +482,44 @@ if not idx.empty:
         yaxis_title="Index",
         xaxis_title="Date",
     )
-    st.plotly_chart(fig, use_container_width=True)
-
-
-# -----------------------------------------------------------------------------
-# Level 2 stock table
-# -----------------------------------------------------------------------------
-st.subheader("二级：个股明细")
+    st.plotly_chart(fig, use_container_width=True, config={"displaylogo": False})
 
 volumes = download_volume_history(tuple(selected_tickers), period="6mo")
 fundamentals = fundamentals_for(tuple(selected_tickers))
 yahoo_q = yahoo_latest(tuple(selected_tickers))
-
-sector_cap = sum(
-    caps.get(ticker, 0.0)
-    for ticker in selected_tickers
-    if caps.get(ticker, 0.0) > 0
-)
+sector_cap = sum(caps.get(ticker, 0.0) for ticker in selected_tickers if caps.get(ticker, 0.0) > 0)
 
 rows: list[dict] = []
-weighted_live_return_num = 0.0
-weighted_live_return_den = 0.0
-
 for ticker, configured_name in selected_members:
     hist_last, hist_prev = latest_regular_close(prices, ticker)
     yq = yahoo_q.get(ticker, {})
-    td = td_q.get(ticker, {})
+    td = live_quotes_all.get(ticker, {}) if state.is_open else {}
 
     if state.is_open and td:
-        try:
-            latest_price = float(td.get("close")) if td.get("close") is not None else None
-        except Exception:
-            latest_price = None
-        try:
-            prev_close = (
-                float(td.get("previous_close"))
-                if td.get("previous_close") is not None
-                else hist_prev
-            )
-        except Exception:
-            prev_close = hist_prev
-        try:
-            volume = float(td.get("volume")) if td.get("volume") is not None else None
-        except Exception:
-            volume = None
+        latest_price, prev_close, volume = latest_from_td(td)
+        latest_price = latest_price or yq.get("price") or hist_last
+        prev_close = prev_close or yq.get("previous_close") or hist_prev
+        volume = volume if volume is not None else yq.get("volume")
         source = "Twelve Data"
-
     elif state.is_open:
         latest_price = yq.get("price") or hist_last
         prev_close = yq.get("previous_close") or hist_prev
         volume = yq.get("volume")
         source = "Yahoo"
-
     else:
         latest_price = yq.get("regular_close") or hist_last
         prev_close = hist_prev
         volume = yq.get("volume")
         source = "Close"
 
-    daily_ret = None
-    if latest_price is not None and prev_close not in (None, 0):
-        daily_ret = float(latest_price) / float(prev_close) - 1.0
-
+    daily_ret = (float(latest_price) / float(prev_close) - 1.0) if latest_price is not None and prev_close not in (None, 0) else None
     avg_vol = avg_3m_volume(volumes, ticker)
-    vol_ratio = (
-        float(volume) / float(avg_vol)
-        if volume is not None and avg_vol not in (None, 0)
-        else None
-    )
-
+    vol_ratio = float(volume) / float(avg_vol) if volume is not None and avg_vol not in (None, 0) else None
     price_series = prices[ticker].dropna() if ticker in prices.columns else pd.Series(dtype=float)
     fp = fundamentals.get(ticker, {}).get("forwardPE")
     name = fundamentals.get(ticker, {}).get("longName") or configured_name
     cap = caps.get(ticker)
     weight = float(cap) / float(sector_cap) if cap and sector_cap else None
-
-    if source == "Twelve Data" and daily_ret is not None and cap:
-        weighted_live_return_num += float(cap) * float(daily_ret)
-        weighted_live_return_den += float(cap)
 
     rows.append(
         {
@@ -486,26 +545,11 @@ for ticker, configured_name in selected_members:
 
 stock_df = pd.DataFrame(rows)
 preferred_order = [
-    "Ticker",
-    "Name",
-    "Price",
-    "Daily Return",
-    "Volume",
-    "Vol / 3M Avg",
-    "Forward P/E",
-    "YTD Return",
-    "1M Return",
-    "3M Return",
-    "6M Return",
-    "1Y Return",
-    "3Y Return",
-    "5Y Return",
-    "Market Cap",
-    "Index Weight",
-    "Source",
+    "Ticker", "Name", "Price", "Daily Return", "Volume", "Vol / 3M Avg", "Forward P/E",
+    "YTD Return", "1M Return", "3M Return", "6M Return", "1Y Return", "3Y Return", "5Y Return",
+    "Market Cap", "Index Weight", "Source",
 ]
 stock_df = stock_df[preferred_order]
-
 stock_formatters = {
     "Price": fmt_price,
     "Daily Return": fmt_pct,
@@ -522,36 +566,19 @@ stock_formatters = {
     "Market Cap": lambda x: fmt_compact(x, dollar=True),
     "Index Weight": fmt_pct,
 }
-stock_return_cols = [
-    "Daily Return",
-    "YTD Return",
-    "1M Return",
-    "3M Return",
-    "6M Return",
-    "1Y Return",
-    "3Y Return",
-    "5Y Return",
-]
 stock_styler = style_numeric_table(
     stock_df,
     formatters=stock_formatters,
-    return_cols=stock_return_cols,
+    return_cols=["Daily Return", "YTD Return", "1M Return", "3M Return", "6M Return", "1Y Return", "3Y Return", "5Y Return"],
     volume_col="Vol / 3M Avg",
 )
-
-st.dataframe(
-    stock_styler,
-    use_container_width=True,
-    hide_index=True,
-    height=330,
-)
-
+st.dataframe(stock_styler, use_container_width=True, hide_index=True, height=330)
 
 
 # -----------------------------------------------------------------------------
-# Level 3 single-stock analytics
+# Level 4 single-stock analytics
 # -----------------------------------------------------------------------------
-st.subheader("三级：个股指标图")
+st.subheader("四级：个股指标图")
 
 # Every stock in the 14-sector universe appears once in this selector.
 stock_to_sector: dict[str, str] = {}
@@ -691,6 +718,7 @@ with st.spinner(f"加载 {level3_ticker} 图表数据…"):
     ohlcv = stock_ohlcv(level3_ticker)
     valuations = valuation_history(level3_ticker)
     eps_df = eps_history(level3_ticker)
+    event_snapshot = company_event_snapshot(level3_ticker)
 
 if ohlcv.empty:
     st.warning(f"{level3_ticker} 暂时没有可用的历史 OHLCV 数据。")
@@ -814,6 +842,49 @@ if visible_eps is not None and not visible_eps.empty and visible_eps["Quarterly 
 else:
     st.caption(f"{level3_ticker}：所选时间范围内暂无可用的 EPS 历史数据。")
 
+
+level3_divider()
+level3_heading(7, f"{level3_ticker} 近期活动 / 下一阶段重要事件")
+
+recent_col, upcoming_col = st.columns(2, gap="large")
+
+with recent_col:
+    st.markdown("**近期活动 / 公司动态**")
+    recent_items = event_snapshot.get("recent", []) if event_snapshot else []
+    if recent_items:
+        for item in recent_items[:5]:
+            date_txt = item.get("date") or "—"
+            title = item.get("title") or "Untitled"
+            source = item.get("source") or "Yahoo Finance"
+            url = item.get("url")
+            if url:
+                st.markdown(f"- **{date_txt}** — [{title}]({url})  \n  <span class='small-note'>{source}</span>", unsafe_allow_html=True)
+            else:
+                st.markdown(f"- **{date_txt}** — {title}  \n  <span class='small-note'>{source}</span>", unsafe_allow_html=True)
+    else:
+        st.caption("暂未获取到可用的近期活动 / 公司动态。")
+
+with upcoming_col:
+    st.markdown("**下一阶段重要事件**")
+    upcoming_items = event_snapshot.get("upcoming", []) if event_snapshot else []
+    if upcoming_items:
+        for item in upcoming_items[:6]:
+            date_txt = item.get("date") or "待定"
+            title = item.get("title") or "重要事件"
+            detail = item.get("detail")
+            url = item.get("url")
+            if url:
+                line = f"- **{date_txt}** — [{title}]({url})"
+            else:
+                line = f"- **{date_txt}** — {title}"
+            if detail:
+                line += f"  \n  <span class='small-note'>{detail}</span>"
+            st.markdown(line, unsafe_allow_html=True)
+    else:
+        st.caption("暂未获取到已公布的下一阶段重要事件。")
+
+st.caption("事件模块优先展示 Yahoo Finance 可获取的公司活动/新闻与公司日历；未公开或数据源未覆盖的活动不会推断补齐。")
+
 with st.expander("三级图表数据说明"):
     st.markdown(
         """
@@ -821,6 +892,7 @@ with st.expander("三级图表数据说明"):
 - **MA10 / MA30 / MA120**：基于日收盘价计算；先在完整历史上计算，再按所选时间范围裁剪，避免窗口起点均线失真。
 - **Forward P/E / Price/Sales**：Yahoo Finance 提供周期性估值快照；网站用每个快照反推当时的 forward EPS / sales-per-share，并在下一次快照前用每日股价重算估值倍数，因此曲线会随股价逐日变化。
 - **EPS**：reported quarterly EPS，并额外计算滚动四季度 TTM EPS。
+- **活动 / 重要事件**：Yahoo Finance 公司新闻、活动相关标题、earnings calendar 与可获取的公司日历；只展示可核验的公开事件。
 - **时间选择**：YTD、1M、3M、6M、1Y、3Y、5Y、MAX会同时作用于上述所有图。若股票尚未上市或对应基本面历史不足，只显示实际可用数据，不做跨证券回填。
         """
     )
@@ -842,9 +914,10 @@ with st.expander("数据源、指数方法与刷新规则"):
         f"""
 - **指数基准**：{INDEX_BASE_DATE.strftime('%Y-%m-%d')} 收盘 = {INDEX_BASE_VALUE:.0f}。
 - **指数方法**：链式市值加权研究指数；后上市股票从具备前一交易日价格后纳入。
-- **实时行情**：不自动刷新。仅在美股正常交易时段点击 **“刷新实时行情”** 时调用 Twelve Data，而且只刷新当前选中的板块。一级“当日”与二级 Daily Return 使用同一批实时数据。
+- **实时行情**：不自动刷新。顶部只有一个 **“刷新实时行情”** 按钮。市场概览会按各资产交易状态优先采用 Twelve Data；美股正常交易时段同时刷新全部AI股票。未获 Twelve Data 返回的标的自动回退 Yahoo。
+- **市场概览**：道琼斯、标普500、纳斯达克综合、纳斯达克100、比特币、黄金、Brent、铜、美元指数、沪深300；统一显示当日、YTD、1M、3M、6M、1Y、3Y、5Y。
 - **实时数据保存范围**：本次浏览器会话内保留最近一次手动刷新结果；重新启动 App 后重新获取。
-- **收盘后**：一级“当日”使用板块成分股 regular-session close 的收盘变动，二级主价格与 Daily Return 同样使用 regular-session close；不把盘后价作为主价格。
+- **收盘后**：美股指数、AI板块和个股使用 regular-session close；商品/外汇/加密按各自市场状态决定是否使用最新行情。盘后美股价格不作为主价格。
 - **历史收益率**：YTD、1M、3M、6M、1Y、3Y、5Y均由该 ticker 自身历史计算；历史不足显示“—”。
 - **SKHY**：只使用 SKHY US，自上市前不使用 000660.KS 回填。
 - **成交量比**：当日累计/收盘成交量 ÷ 最近约63个交易日平均成交量。

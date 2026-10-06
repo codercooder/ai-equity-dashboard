@@ -50,6 +50,8 @@ st.markdown(
         border-radius: 12px;
     }
     .small-note {font-size:.82rem; opacity:.72;}
+    .level3-chart-title {font-size:1.02rem; font-weight:700; margin:1.35rem 0 .35rem 0;}
+    .level3-divider {height:1px; background:rgba(127,127,127,.16); margin:.45rem 0 1.1rem 0;}
     </style>
     """,
     unsafe_allow_html=True,
@@ -590,6 +592,72 @@ selected_range = st.radio(
 )
 
 
+
+
+def style_level3_chart(
+    fig: go.Figure,
+    *,
+    height: int,
+    yaxis_title: str,
+    showlegend: bool = False,
+    legend_y: float = 1.055,
+) -> go.Figure:
+    """Apply one consistent visual system to every Level-3 chart."""
+    fig.update_layout(
+        height=height,
+        margin=dict(l=18, r=18, t=48 if showlegend else 22, b=38),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        hovermode="x unified",
+        yaxis_title=yaxis_title,
+        xaxis_title=None,
+        showlegend=showlegend,
+        font=dict(size=12),
+        legend=(
+            dict(
+                orientation="h",
+                yanchor="bottom",
+                y=legend_y,
+                xanchor="left",
+                x=0,
+                bgcolor="rgba(0,0,0,0)",
+                borderwidth=0,
+                itemclick="toggle",
+                itemdoubleclick="toggleothers",
+            )
+            if showlegend
+            else None
+        ),
+    )
+    fig.update_xaxes(
+        showgrid=False,
+        zeroline=False,
+        showline=True,
+        linecolor="rgba(127,127,127,.22)",
+        ticks="outside",
+        ticklen=4,
+        rangeslider_visible=False,
+    )
+    fig.update_yaxes(
+        showgrid=True,
+        gridcolor="rgba(127,127,127,.14)",
+        zeroline=False,
+        showline=False,
+    )
+    return fig
+
+
+def level3_heading(number: int, text: str) -> None:
+    st.markdown(
+        f'<div class="level3-chart-title">{number}. {text}</div>',
+        unsafe_allow_html=True,
+    )
+
+
+def level3_divider() -> None:
+    st.markdown('<div class="level3-divider"></div>', unsafe_allow_html=True)
+
+
 def range_start(last_date: pd.Timestamp, label: str) -> pd.Timestamp | None:
     last_date = pd.Timestamp(last_date).tz_localize(None)
     if label == "YTD":
@@ -643,6 +711,7 @@ else:
     visible = clip_to_range(tech, selected_range)
 
     # 1. Candlestick + moving averages
+    level3_heading(1, f"{level3_ticker} 股价")
     price_fig = go.Figure()
     price_fig.add_trace(
         go.Candlestick(
@@ -657,80 +726,60 @@ else:
     price_fig.add_trace(go.Scatter(x=visible.index, y=visible["MA10"], mode="lines", name="MA10", line=dict(color="#2563eb", width=1.5)))
     price_fig.add_trace(go.Scatter(x=visible.index, y=visible["MA30"], mode="lines", name="MA30", line=dict(color="#f59e0b", width=1.5)))
     price_fig.add_trace(go.Scatter(x=visible.index, y=visible["MA120"], mode="lines", name="MA120", line=dict(color="#7c3aed", width=1.5)))
-    price_fig.update_layout(
-        title=f"1. {level3_ticker} 股价 — Candlestick + MA10 / MA30 / MA120",
-        height=500,
-        margin=dict(l=10, r=10, t=55, b=10),
-        xaxis_rangeslider_visible=False,
-        yaxis_title="Price",
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
-    )
-    st.plotly_chart(price_fig, use_container_width=True)
+    style_level3_chart(price_fig, height=470, yaxis_title="Price", showlegend=True)
+    price_fig.update_layout(xaxis_rangeslider_visible=False)
+    st.plotly_chart(price_fig, use_container_width=True, config={"displaylogo": False})
+    level3_divider()
 
     # 2. Volume
+    level3_heading(2, f"{level3_ticker} 成交量")
     volume_fig = go.Figure(
         data=[go.Bar(x=visible.index, y=visible["Volume"], name="Volume")]
     )
-    volume_fig.update_layout(
-        title=f"2. {level3_ticker} 成交量",
-        height=280,
-        margin=dict(l=10, r=10, t=50, b=10),
-        yaxis_title="Volume",
-        showlegend=False,
-    )
-    st.plotly_chart(volume_fig, use_container_width=True)
+    style_level3_chart(volume_fig, height=260, yaxis_title="Volume", showlegend=False)
+    st.plotly_chart(volume_fig, use_container_width=True, config={"displaylogo": False})
+    level3_divider()
 
     # 3. MACD (12, 26, 9)
+    level3_heading(3, f"{level3_ticker} MACD (12, 26, 9)")
     macd_fig = go.Figure()
     macd_fig.add_trace(go.Bar(x=visible.index, y=visible["Histogram"], name="Histogram"))
     macd_fig.add_trace(go.Scatter(x=visible.index, y=visible["MACD"], mode="lines", name="MACD"))
     macd_fig.add_trace(go.Scatter(x=visible.index, y=visible["Signal"], mode="lines", name="Signal"))
     macd_fig.add_hline(y=0, line_width=1, line_dash="dot")
-    macd_fig.update_layout(
-        title=f"3. {level3_ticker} MACD (12, 26, 9)",
-        height=320,
-        margin=dict(l=10, r=10, t=50, b=10),
-        yaxis_title="MACD",
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
-    )
-    st.plotly_chart(macd_fig, use_container_width=True)
+    style_level3_chart(macd_fig, height=300, yaxis_title="MACD", showlegend=True)
+    st.plotly_chart(macd_fig, use_container_width=True, config={"displaylogo": False})
+    level3_divider()
 
 # 4 & 5. Daily price-driven valuation history. Yahoo provides periodic
 # valuation snapshots; data_layer.py reconstructs a daily series by holding
 # the latest implied forward-EPS / sales-per-share denominator between snapshots.
 visible_val = clip_to_range(valuations, selected_range) if not valuations.empty else valuations
 
+level3_heading(4, f"{level3_ticker} Forward P/E")
 if visible_val is not None and not visible_val.empty and "Forward P/E" in visible_val.columns and visible_val["Forward P/E"].notna().any():
     pe_data = visible_val["Forward P/E"].dropna()
     pe_fig = go.Figure(go.Scatter(x=pe_data.index, y=pe_data.values, mode="lines", name="Forward P/E"))
-    pe_fig.update_layout(
-        title=f"4. {level3_ticker} Forward P/E",
-        height=300,
-        margin=dict(l=10, r=10, t=50, b=10),
-        yaxis_title="Forward P/E (x)",
-        showlegend=False,
-    )
-    st.plotly_chart(pe_fig, use_container_width=True)
+    style_level3_chart(pe_fig, height=285, yaxis_title="Forward P/E (x)", showlegend=False)
+    st.plotly_chart(pe_fig, use_container_width=True, config={"displaylogo": False})
 else:
-    st.caption(f"4. {level3_ticker}：所选时间范围内暂无可用的 Forward P/E 历史数据。")
+    st.caption(f"{level3_ticker}：所选时间范围内暂无可用的 Forward P/E 历史数据。")
+level3_divider()
 
+level3_heading(5, f"{level3_ticker} Price / Sales")
 if visible_val is not None and not visible_val.empty and "Price/Sales" in visible_val.columns and visible_val["Price/Sales"].notna().any():
     ps_data = visible_val["Price/Sales"].dropna()
     ps_fig = go.Figure(go.Scatter(x=ps_data.index, y=ps_data.values, mode="lines", name="Price/Sales"))
-    ps_fig.update_layout(
-        title=f"5. {level3_ticker} Price / Sales",
-        height=300,
-        margin=dict(l=10, r=10, t=50, b=10),
-        yaxis_title="Price / Sales (x)",
-        showlegend=False,
-    )
-    st.plotly_chart(ps_fig, use_container_width=True)
+    style_level3_chart(ps_fig, height=285, yaxis_title="Price / Sales (x)", showlegend=False)
+    st.plotly_chart(ps_fig, use_container_width=True, config={"displaylogo": False})
 else:
-    st.caption(f"5. {level3_ticker}：所选时间范围内暂无可用的 Price/Sales 历史数据。")
+    st.caption(f"{level3_ticker}：所选时间范围内暂无可用的 Price/Sales 历史数据。")
+level3_divider()
 
 # 6. EPS. Use reported quarterly EPS; TTM EPS is the rolling sum of four
 # reported quarters, which is a useful common earnings-per-share trend measure.
 visible_eps = clip_to_range(eps_df, selected_range) if not eps_df.empty else eps_df
+level3_heading(6, f"{level3_ticker} EPS — Reported Quarterly / TTM")
 if visible_eps is not None and not visible_eps.empty and visible_eps["Quarterly EPS"].notna().any():
     eps_fig = go.Figure()
     quarterly_text = [f"{v:.2f}" if pd.notna(v) else "" for v in visible_eps["Quarterly EPS"]]
@@ -759,17 +808,11 @@ if visible_eps is not None and not visible_eps.empty and visible_eps["Quarterly 
             )
         )
     eps_fig.add_hline(y=0, line_width=1, line_dash="dot")
-    eps_fig.update_layout(
-        title=f"6. {level3_ticker} EPS — Reported Quarterly / TTM",
-        height=330,
-        margin=dict(l=10, r=10, t=50, b=10),
-        yaxis_title="EPS",
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
-    )
-    st.plotly_chart(eps_fig, use_container_width=True)
+    style_level3_chart(eps_fig, height=330, yaxis_title="EPS", showlegend=True)
+    st.plotly_chart(eps_fig, use_container_width=True, config={"displaylogo": False})
     st.caption("EPS口径：Yahoo reported quarterly EPS；TTM EPS = 最近4个季度 reported EPS 之和。历史不足时不回填。")
 else:
-    st.caption(f"6. {level3_ticker}：所选时间范围内暂无可用的 EPS 历史数据。")
+    st.caption(f"{level3_ticker}：所选时间范围内暂无可用的 EPS 历史数据。")
 
 with st.expander("三级图表数据说明"):
     st.markdown(

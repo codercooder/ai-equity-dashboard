@@ -26,6 +26,10 @@ from data_layer import (
     return_since,
     twelve_data_enabled,
     twelve_data_quotes,
+    twelve_data_history,
+    csi300_history,
+    csi300_quote,
+    nasdaq_index_snapshot,
     yahoo_latest,
     stock_ohlcv,
     valuation_history,
@@ -152,12 +156,20 @@ MARKET_OVERVIEW = {
     "标普500指数": {"yahoo": "^GSPC", "twelve": "SPX", "live_mode": "us"},
     "纳斯达克综合指数": {"yahoo": "^IXIC", "twelve": "IXIC", "live_mode": "us"},
     "纳斯达克100": {"yahoo": "^NDX", "twelve": "NDX", "live_mode": "us"},
+    "Nasdaq CTA人工智能指数（NQINTEL）": {
+        "yahoo": None, "twelve": "NQINTEL", "live_mode": "us", "special": "nqintel"
+    },
+    "iShares Russell 1000 Value ETF（IWD）": {"yahoo": "IWD", "twelve": "IWD", "live_mode": "us"},
+    "iShares Russell 1000 Growth ETF（IWF）": {"yahoo": "IWF", "twelve": "IWF", "live_mode": "us"},
+    "NASDAQ Biotechnology Index": {"yahoo": "^NBI", "twelve": "NBI", "live_mode": "us"},
     "比特币": {"yahoo": "BTC-USD", "twelve": "BTC/USD", "live_mode": "always"},
     "黄金": {"yahoo": "GC=F", "twelve": "XAU/USD", "live_mode": "weekday_24h"},
     "石油（Brent）": {"yahoo": "BZ=F", "twelve": "XBR/USD", "live_mode": "weekday_24h"},
     "铜": {"yahoo": "HG=F", "twelve": "HG1", "live_mode": "weekday_24h"},
     "美元指数": {"yahoo": "DX-Y.NYB", "twelve": "DXY", "live_mode": "weekday_24h"},
-    "沪深300": {"yahoo": "000300.SS", "twelve": None, "live_mode": "china"},
+    "沪深300（000300:SHA）": {
+        "yahoo": "000300.SS", "twelve": None, "live_mode": "china", "special": "csi300"
+    },
 }
 
 
@@ -218,10 +230,12 @@ with refresh_note_col:
 if refresh_live:
     try:
         twelve_data_quotes.clear()
+        csi300_quote.clear()
+        nasdaq_index_snapshot.clear()
     except Exception:
         pass
 
-    with st.spinner("正在从 Twelve Data 刷新市场与AI股票实时行情…"):
+    with st.spinner("正在刷新市场与AI股票实时行情…"):
         # US equities only consume credits during the regular US session.
         stock_quotes = twelve_data_quotes(tuple(ALL_TICKERS)) if state.is_open else {}
         benchmark_symbols = tuple(
@@ -312,34 +326,55 @@ def latest_from_td(item: dict | None) -> tuple[float | None, float | None, float
 # -----------------------------------------------------------------------------
 st.subheader("一级：市场概览")
 
-benchmark_yahoo_tickers = tuple(v["yahoo"] for v in MARKET_OVERVIEW.values())
+benchmark_yahoo_tickers = tuple(
+    dict.fromkeys(v["yahoo"] for v in MARKET_OVERVIEW.values() if v.get("yahoo"))
+)
 with st.spinner("加载全球市场概览…"):
     benchmark_prices = download_history(benchmark_yahoo_tickers, period="10y")
     benchmark_quotes = yahoo_latest(benchmark_yahoo_tickers)
+    csi_hist = csi300_history()
+    csi_quote_now = csi300_quote()
+    nqintel_hist = twelve_data_history("NQINTEL", start_date="2018-10-29") if td_enabled else pd.Series(dtype=float)
+    nqintel_snap = nasdaq_index_snapshot("NQINTEL")
 
 market_rows: list[dict] = []
 for label, ids in MARKET_OVERVIEW.items():
-    yt = ids["yahoo"]
+    yt = ids.get("yahoo")
     td_symbol = ids.get("twelve")
     live_mode = ids.get("live_mode", "us")
+    special = ids.get("special")
     use_live = market_live_allowed(live_mode)
 
-    hist = benchmark_prices[yt].dropna() if yt in benchmark_prices.columns else pd.Series(dtype=float)
+    if special == "csi300":
+        hist = csi_hist.copy()
+    elif special == "nqintel":
+        hist = nqintel_hist.copy()
+    elif yt and yt in benchmark_prices.columns:
+        hist = benchmark_prices[yt].dropna()
+    else:
+        hist = pd.Series(dtype=float)
+
     hist_last = float(hist.iloc[-1]) if not hist.empty else None
     hist_prev = float(hist.iloc[-2]) if len(hist) >= 2 else None
-    yq = benchmark_quotes.get(yt, {})
+    yq = benchmark_quotes.get(yt, {}) if yt else {}
 
     td_item = live_benchmark_quotes.get(td_symbol, {}) if (use_live and td_symbol) else {}
-    if td_item:
+
+    if special == "csi300":
+        # Canonical CSI 300 code: 000300 on Shanghai (Google-style 000300:SHA).
+        level = csi_quote_now.get("price") or yq.get("regular_close") or hist_last
+        prev_close = csi_quote_now.get("previous_close") or yq.get("previous_close") or hist_prev
+    elif td_item:
         level, prev_close, _ = latest_from_td(td_item)
         level = level or yq.get("price") or hist_last
         prev_close = prev_close or yq.get("previous_close") or hist_prev
+    elif special == "nqintel" and nqintel_snap:
+        level = nqintel_snap.get("price") or hist_last
+        prev_close = nqintel_snap.get("previous_close") or hist_prev
     elif use_live:
-        # Fallback while the instrument is trading.
         level = yq.get("price") or hist_last
         prev_close = yq.get("previous_close") or hist_prev
     else:
-        # Closed markets show the latest completed regular-session/daily close.
         level = yq.get("regular_close") or hist_last
         prev_close = hist_prev
 
@@ -376,7 +411,7 @@ market_styler = style_numeric_table(
     formatters=market_formatters,
     return_cols=["当日", "YTD", "1M", "3M", "6M", "1Y", "3Y", "5Y"],
 )
-st.dataframe(market_styler, use_container_width=True, hide_index=True, height=390)
+st.dataframe(market_styler, use_container_width=True, hide_index=True, height=520)
 
 
 # -----------------------------------------------------------------------------

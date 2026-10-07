@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import os
+import re
+import html as html_lib
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
@@ -201,6 +203,157 @@ def twelve_data_quotes(tickers: tuple[str, ...]) -> dict[str, dict]:
         if isinstance(item, dict) and item.get("status") != "error":
             out[ticker] = item
     return out
+
+@st.cache_data(ttl=60 * 60 * 12, show_spinner=False)
+def twelve_data_history(symbol: str, start_date: str = "2010-01-01") -> pd.Series:
+    """Daily close history from Twelve Data for instruments not carried by Yahoo."""
+    key = _twelve_data_key()
+    if not key or not symbol:
+        return pd.Series(dtype=float)
+    try:
+        r = requests.get(
+            "https://api.twelvedata.com/time_series",
+            params={
+                "symbol": symbol,
+                "interval": "1day",
+                "start_date": start_date,
+                "outputsize": 5000,
+                "order": "ASC",
+                "apikey": key,
+            },
+            timeout=15,
+        )
+        r.raise_for_status()
+        payload = r.json()
+        values = payload.get("values", []) if isinstance(payload, dict) else []
+        rows = []
+        for item in values:
+            try:
+                dt = pd.to_datetime(item.get("datetime"), errors="coerce")
+                close = float(item.get("close"))
+            except Exception:
+                continue
+            if pd.isna(dt) or not np.isfinite(close):
+                continue
+            rows.append((pd.Timestamp(dt).tz_localize(None), close))
+        if not rows:
+            return pd.Series(dtype=float)
+        out = pd.Series(dict(rows), name=symbol, dtype=float).sort_index()
+        out.index = pd.to_datetime(out.index).tz_localize(None)
+        return out[~out.index.duplicated(keep="last")]
+    except Exception:
+        return pd.Series(dtype=float)
+
+
+@st.cache_data(ttl=60 * 60 * 12, show_spinner=False)
+def csi300_history() -> pd.Series:
+    """CSI 300 daily history using the canonical Shanghai index code 000300 (SHA)."""
+    try:
+        r = requests.get(
+            "https://push2his.eastmoney.com/api/qt/stock/kline/get",
+            params={
+                "secid": "1.000300",
+                "klt": "101",
+                "fqt": "0",
+                "beg": "20100101",
+                "end": "20500101",
+                "fields1": "f1,f2,f3,f4,f5,f6",
+                "fields2": "f51,f52,f53,f54,f55,f56",
+            },
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=15,
+        )
+        r.raise_for_status()
+        payload = r.json()
+        klines = ((payload or {}).get("data") or {}).get("klines") or []
+        rows = []
+        for line in klines:
+            parts = str(line).split(",")
+            if len(parts) < 3:
+                continue
+            try:
+                dt = pd.to_datetime(parts[0], errors="coerce")
+                close = float(parts[2])
+            except Exception:
+                continue
+            if pd.isna(dt) or not np.isfinite(close):
+                continue
+            rows.append((pd.Timestamp(dt).tz_localize(None), close))
+        if not rows:
+            return pd.Series(dtype=float)
+        out = pd.Series(dict(rows), name="000300:SHA", dtype=float).sort_index()
+        return out[~out.index.duplicated(keep="last")]
+    except Exception:
+        return pd.Series(dtype=float)
+
+
+@st.cache_data(ttl=60, show_spinner=False)
+def csi300_quote() -> dict:
+    """Latest CSI 300 quote; regular close after the Shanghai session ends."""
+    try:
+        r = requests.get(
+            "https://push2.eastmoney.com/api/qt/stock/get",
+            params={
+                "secid": "1.000300",
+                "fields": "f43,f58,f60,f170",
+                "fltt": "2",
+                "invt": "2",
+            },
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=10,
+        )
+        r.raise_for_status()
+        data = (r.json() or {}).get("data") or {}
+        price = data.get("f43")
+        prev = data.get("f60")
+        price = float(price) if price not in (None, "-") else None
+        prev = float(prev) if prev not in (None, "-") else None
+        return {
+            "price": price,
+            "previous_close": prev,
+            "name": data.get("f58") or "沪深300",
+            "symbol": "000300:SHA",
+        }
+    except Exception:
+        return {}
+
+
+@st.cache_data(ttl=300, show_spinner=False)
+def nasdaq_index_snapshot(symbol: str) -> dict:
+    """Best-effort current/close snapshot from Nasdaq Global Index Watch."""
+    if not symbol:
+        return {}
+    try:
+        r = requests.get(
+            f"https://indexes.nasdaq.com/Index/Overview/{symbol}",
+            headers={
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120 Safari/537.36"
+            },
+            timeout=12,
+        )
+        r.raise_for_status()
+        txt = html_lib.unescape(re.sub(r"<[^>]+>", " ", r.text))
+        txt = re.sub(r"\s+", " ", txt)
+        m = re.search(
+            r"Summary Details.*?Last\s+([0-9,]+(?:\.[0-9]+)?).*?Previous Close\s+([0-9,]+(?:\.[0-9]+)?)",
+            txt,
+            flags=re.I,
+        )
+        if not m:
+            m = re.search(
+                rf"{re.escape(symbol)}.*?DATA AS OF.*?([0-9,]+(?:\.[0-9]+)?).*?Previous Close\s+([0-9,]+(?:\.[0-9]+)?)",
+                txt,
+                flags=re.I,
+            )
+        if not m:
+            return {}
+        return {
+            "price": float(m.group(1).replace(",", "")),
+            "previous_close": float(m.group(2).replace(",", "")),
+            "symbol": symbol,
+        }
+    except Exception:
+        return {}
 
 
 @st.cache_data(ttl=60, show_spinner=False)

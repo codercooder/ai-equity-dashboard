@@ -80,6 +80,13 @@ SECTORS = OrderedDict({
         ("TER", "Teradyne"),
         ("ISRG", "Intuitive Surgical"),
     ],
+    "15. Use AI": [
+        ("JPM", "JPMorgan Chase"),
+        ("V", "Visa"),
+        ("MA", "Mastercard"),
+        ("GE", "GE Aerospace"),
+        ("LLY", "Eli Lilly"),
+    ],
 })
 
 ALL_TICKERS = [ticker for members in SECTORS.values() for ticker, _ in members]

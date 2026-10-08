@@ -26,10 +26,6 @@ from data_layer import (
     return_since,
     twelve_data_enabled,
     twelve_data_quotes,
-    twelve_data_history,
-    csi300_history,
-    csi300_quote,
-    nasdaq_index_snapshot,
     yahoo_latest,
     stock_ohlcv,
     valuation_history,
@@ -156,9 +152,6 @@ MARKET_OVERVIEW = {
     "标普500指数": {"yahoo": "^GSPC", "twelve": "SPX", "live_mode": "us"},
     "纳斯达克综合指数": {"yahoo": "^IXIC", "twelve": "IXIC", "live_mode": "us"},
     "纳斯达克100": {"yahoo": "^NDX", "twelve": "NDX", "live_mode": "us"},
-    "Nasdaq CTA人工智能指数（NQINTEL）": {
-        "yahoo": None, "twelve": "NQINTEL", "live_mode": "us", "special": "nqintel"
-    },
     "iShares Russell 1000 Value ETF（IWD）": {"yahoo": "IWD", "twelve": "IWD", "live_mode": "us"},
     "iShares Russell 1000 Growth ETF（IWF）": {"yahoo": "IWF", "twelve": "IWF", "live_mode": "us"},
     "NASDAQ Biotechnology Index": {"yahoo": "^NBI", "twelve": "NBI", "live_mode": "us"},
@@ -167,9 +160,6 @@ MARKET_OVERVIEW = {
     "石油（Brent）": {"yahoo": "BZ=F", "twelve": "XBR/USD", "live_mode": "weekday_24h"},
     "铜": {"yahoo": "HG=F", "twelve": "HG1", "live_mode": "weekday_24h"},
     "美元指数": {"yahoo": "DX-Y.NYB", "twelve": "DXY", "live_mode": "weekday_24h"},
-    "沪深300（000300:SHA）": {
-        "yahoo": "000300.SS", "twelve": None, "live_mode": "china", "special": "csi300"
-    },
 }
 
 
@@ -196,7 +186,7 @@ def market_live_allowed(mode: str) -> bool:
 header_l, header_r = st.columns([3, 2])
 with header_l:
     st.title("AI Equity Dashboard")
-    st.caption("市场概览 · 14个AI产业链板块 · 板块监控 · 个股研究")
+    st.caption("市场概览 · 15个AI产业链板块 · 板块监控 · 个股研究")
 with header_r:
     st.markdown(
         f"**{status_color} Market Status: {state.label}**  \n"
@@ -230,8 +220,6 @@ with refresh_note_col:
 if refresh_live:
     try:
         twelve_data_quotes.clear()
-        csi300_quote.clear()
-        nasdaq_index_snapshot.clear()
     except Exception:
         pass
 
@@ -332,24 +320,15 @@ benchmark_yahoo_tickers = tuple(
 with st.spinner("加载全球市场概览…"):
     benchmark_prices = download_history(benchmark_yahoo_tickers, period="10y")
     benchmark_quotes = yahoo_latest(benchmark_yahoo_tickers)
-    csi_hist = csi300_history()
-    csi_quote_now = csi300_quote()
-    nqintel_hist = twelve_data_history("NQINTEL", start_date="2018-10-29") if td_enabled else pd.Series(dtype=float)
-    nqintel_snap = nasdaq_index_snapshot("NQINTEL")
 
 market_rows: list[dict] = []
 for label, ids in MARKET_OVERVIEW.items():
     yt = ids.get("yahoo")
     td_symbol = ids.get("twelve")
     live_mode = ids.get("live_mode", "us")
-    special = ids.get("special")
     use_live = market_live_allowed(live_mode)
 
-    if special == "csi300":
-        hist = csi_hist.copy()
-    elif special == "nqintel":
-        hist = nqintel_hist.copy()
-    elif yt and yt in benchmark_prices.columns:
+    if yt and yt in benchmark_prices.columns:
         hist = benchmark_prices[yt].dropna()
     else:
         hist = pd.Series(dtype=float)
@@ -360,17 +339,10 @@ for label, ids in MARKET_OVERVIEW.items():
 
     td_item = live_benchmark_quotes.get(td_symbol, {}) if (use_live and td_symbol) else {}
 
-    if special == "csi300":
-        # Canonical CSI 300 code: 000300 on Shanghai (Google-style 000300:SHA).
-        level = csi_quote_now.get("price") or yq.get("regular_close") or hist_last
-        prev_close = csi_quote_now.get("previous_close") or yq.get("previous_close") or hist_prev
-    elif td_item:
+    if td_item:
         level, prev_close, _ = latest_from_td(td_item)
         level = level or yq.get("price") or hist_last
         prev_close = prev_close or yq.get("previous_close") or hist_prev
-    elif special == "nqintel" and nqintel_snap:
-        level = nqintel_snap.get("price") or hist_last
-        prev_close = nqintel_snap.get("previous_close") or hist_prev
     elif use_live:
         level = yq.get("price") or hist_last
         prev_close = yq.get("previous_close") or hist_prev
@@ -481,7 +453,7 @@ sector_styler = style_numeric_table(
     formatters=sector_formatters,
     return_cols=["当日", "YTD", "1M", "3M", "6M", "1Y", "3Y", "5Y"],
 )
-st.dataframe(sector_styler, use_container_width=True, hide_index=True, height=535)
+st.dataframe(sector_styler, use_container_width=True, hide_index=True, height=570)
 
 
 # -----------------------------------------------------------------------------
@@ -950,7 +922,7 @@ with st.expander("数据源、指数方法与刷新规则"):
 - **指数基准**：{INDEX_BASE_DATE.strftime('%Y-%m-%d')} 收盘 = {INDEX_BASE_VALUE:.0f}。
 - **指数方法**：链式市值加权研究指数；后上市股票从具备前一交易日价格后纳入。
 - **实时行情**：不自动刷新。顶部只有一个 **“刷新实时行情”** 按钮。市场概览会按各资产交易状态优先采用 Twelve Data；美股正常交易时段同时刷新全部AI股票。未获 Twelve Data 返回的标的自动回退 Yahoo。
-- **市场概览**：道琼斯、标普500、纳斯达克综合、纳斯达克100、比特币、黄金、Brent、铜、美元指数、沪深300；统一显示当日、YTD、1M、3M、6M、1Y、3Y、5Y。
+- **市场概览**：道琼斯、标普500、纳斯达克综合、纳斯达克100、IWD、IWF、NASDAQ Biotechnology Index、比特币、黄金、Brent、铜、美元指数；统一显示当日、YTD、1M、3M、6M、1Y、3Y、5Y。
 - **实时数据保存范围**：本次浏览器会话内保留最近一次手动刷新结果；重新启动 App 后重新获取。
 - **收盘后**：美股指数、AI板块和个股使用 regular-session close；商品/外汇/加密按各自市场状态决定是否使用最新行情。盘后美股价格不作为主价格。
 - **历史收益率**：YTD、1M、3M、6M、1Y、3Y、5Y均由该 ticker 自身历史计算；历史不足显示“—”。

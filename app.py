@@ -11,6 +11,7 @@ import streamlit as st
 from dotenv import load_dotenv
 
 from config import ALL_TICKERS, SECTORS, NAME_MAP
+from event_engine import get_market_events, auto_event_metadata
 from data_layer import (
     INDEX_BASE_DATE,
     INDEX_BASE_VALUE,
@@ -511,6 +512,23 @@ with dashboard_tab:
     selected_tickers = [ticker for ticker, _ in selected_members]
 
     idx = sector_series[selected_sector]
+    market_events = get_market_events(include_auto=True, high_only=True)
+    event_meta = auto_event_metadata()
+    event_toggle_col, event_note_col = st.columns([1.45, 4.55])
+    with event_toggle_col:
+        show_market_events = st.toggle(
+            "显示重要事件 / 区间",
+            value=True,
+            key="sector_event_overlay_toggle",
+            help="一次性显示或隐藏人工确认与自动识别的宏观、政策、AI及市场重大事件。",
+        )
+    with event_note_col:
+        auto_updated = event_meta.get("updated_at") or "尚未自动更新"
+        st.caption(
+            "浅色背景 = 重要时间区间；虚线 = 单日重要事件；关闭开关可统一隐藏全部标注。"
+            f" 自动事件库：{event_meta.get('event_count', 0)}条，最近更新 {auto_updated}。"
+        )
+
     if not idx.empty:
         chart_df = idx.rename("Index").reset_index()
         chart_df.columns = ["Date", "Index"]
@@ -523,14 +541,98 @@ with dashboard_tab:
                 f"（{INDEX_BASE_DATE.strftime('%Y-%m-%d')} = {INDEX_BASE_VALUE:.0f}）"
             ),
         )
+        fig.update_traces(line=dict(width=2.2), hovertemplate="%{x|%Y-%m-%d}<br>Index: %{y:,.1f}<extra></extra>")
+
+        if show_market_events:
+            chart_start = pd.Timestamp(chart_df["Date"].min()).tz_localize(None)
+            chart_end = pd.Timestamp(chart_df["Date"].max()).tz_localize(None)
+            point_events = []
+
+            for event in market_events:
+                if event.get("kind") == "range":
+                    start = pd.Timestamp(event["start"])
+                    end = pd.Timestamp(event["end"]) if event.get("end") else chart_end
+                    if end < chart_start or start > chart_end:
+                        continue
+                    clipped_start = max(start, chart_start)
+                    clipped_end = min(end, chart_end)
+                    fig.add_vrect(
+                        x0=clipped_start,
+                        x1=clipped_end,
+                        fillcolor=event.get("color", "rgba(107,114,128,0.08)"),
+                        line_width=1,
+                        line_color=event.get("line_color", "rgba(107,114,128,0.25)"),
+                        layer="below",
+                    )
+                    mid = clipped_start + (clipped_end - clipped_start) / 2
+                    fig.add_annotation(
+                        x=mid, y=0.98, xref="x", yref="paper",
+                        text=event["label"], showarrow=False,
+                        font=dict(size=10, color="rgba(75,85,99,0.88)"),
+                        bgcolor="rgba(255,255,255,0.58)",
+                        borderpad=2,
+                    )
+                else:
+                    event_date = pd.Timestamp(event["date"])
+                    if event_date < chart_start or event_date > chart_end:
+                        continue
+                    fig.add_vline(
+                        x=event_date,
+                        line_width=1.2,
+                        line_dash="dot",
+                        line_color=event.get("color", "rgba(75,85,99,0.42)"),
+                        layer="below",
+                    )
+                    point_events.append(event)
+
+            # Alternate label heights so nearby point events do not overlap.
+            for n, event in enumerate(point_events):
+                fig.add_annotation(
+                    x=pd.Timestamp(event["date"]),
+                    y=1.025 + (n % 2) * 0.065,
+                    xref="x", yref="paper",
+                    text=event["label"],
+                    showarrow=False,
+                    xanchor="center",
+                    font=dict(size=10, color="rgba(55,65,81,0.92)"),
+                    bgcolor="rgba(255,255,255,0.76)",
+                    bordercolor="rgba(156,163,175,0.20)",
+                    borderwidth=1,
+                    borderpad=2,
+                )
+
         fig.update_layout(
-            height=350,
-            margin=dict(l=10, r=10, t=50, b=10),
+            height=410,
+            margin=dict(l=10, r=10, t=82 if show_market_events else 52, b=10),
             showlegend=False,
             yaxis_title="Index",
             xaxis_title="Date",
+            hovermode="x unified",
         )
         st.plotly_chart(fig, use_container_width=True, config={"displaylogo": False})
+
+        if show_market_events:
+            with st.expander("重要事件标注说明"):
+                event_rows = []
+                for event in market_events:
+                    if event.get("kind") == "range":
+                        when = f"{event['start']} → {event['end'] or '至今'}"
+                    else:
+                        when = event["date"]
+                    event_rows.append({
+                        "时间": when,
+                        "类别": event.get("category", ""),
+                        "事件": event["label"],
+                        "重要性": event.get("importance", "High"),
+                        "模式": "自动" if event.get("auto_generated") else "人工确认",
+                        "来源": event.get("source", ""),
+                    })
+                st.dataframe(pd.DataFrame(event_rows), use_container_width=True, hide_index=True)
+                if event_meta.get("scheduled_count"):
+                    st.caption(
+                        f"自动事件引擎另外跟踪 {event_meta.get('scheduled_count')} 个未来FOMC/CPI日程；"
+                        "为避免历史图过密，日程本身不直接画入指数图，只有实际形成高重要性市场事件后才进入标注。"
+                    )
 
     volumes = download_volume_history(tuple(selected_tickers), period="6mo")
     fundamentals = fundamentals_for(tuple(selected_tickers))

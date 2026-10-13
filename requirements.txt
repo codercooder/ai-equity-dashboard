@@ -6,3 +6,4 @@ yfinance>=1.3.0
 python-dotenv
 requests
 pandas-market-calendars
+beautifulsoup4

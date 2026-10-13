@@ -1,0 +1,89 @@
+{
+  "updated_at": "2026-10-13T09:45:00Z",
+  "events": [],
+  "scheduled_events": [
+    {
+      "event_id": "29800f0d6f7a78be",
+      "kind": "point",
+      "date": "2026-10-28",
+      "label": "FOMC 决议日",
+      "category": "利率",
+      "importance": "High",
+      "status": "scheduled",
+      "confidence": 1.0,
+      "auto_generated": true,
+      "source": "Federal Reserve",
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+    },
+    {
+      "event_id": "65f4a18de5703972",
+      "kind": "point",
+      "date": "2026-12-09",
+      "label": "FOMC 决议日",
+      "category": "利率",
+      "importance": "High",
+      "status": "scheduled",
+      "confidence": 1.0,
+      "auto_generated": true,
+      "source": "Federal Reserve",
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+    },
+    {
+      "event_id": "6d64c7b0b5269486",
+      "kind": "point",
+      "date": "2026-11-10",
+      "label": "美国 CPI 发布",
+      "category": "宏观",
+      "importance": "Medium",
+      "status": "scheduled",
+      "confidence": 1.0,
+      "auto_generated": true,
+      "source": "U.S. Bureau of Labor Statistics",
+      "source_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+    },
+    {
+      "event_id": "67fc06dec49e3041",
+      "kind": "point",
+      "date": "2026-12-10",
+      "label": "美国 CPI 发布",
+      "category": "宏观",
+      "importance": "Medium",
+      "status": "scheduled",
+      "confidence": 1.0,
+      "auto_generated": true,
+      "source": "U.S. Bureau of Labor Statistics",
+      "source_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+    },
+    {
+      "event_id": "6dbe05d70e30d171",
+      "kind": "point",
+      "date": "2027-01-13",
+      "label": "美国 CPI 发布",
+      "category": "宏观",
+      "importance": "Medium",
+      "status": "scheduled",
+      "confidence": 1.0,
+      "auto_generated": true,
+      "source": "U.S. Bureau of Labor Statistics",
+      "source_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+    },
+    {
+      "event_id": "bcbfc11cf9788c5d",
+      "kind": "point",
+      "date": "2027-02-11",
+      "label": "美国 CPI 发布",
+      "category": "宏观",
+      "importance": "Medium",
+      "status": "scheduled",
+      "confidence": 1.0,
+      "auto_generated": true,
+      "source": "U.S. Bureau of Labor Statistics",
+      "source_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+    }
+  ],
+  "last_run": {
+    "discovered_count": 0,
+    "scheduled_count": 6,
+    "failures": []
+  }
+}

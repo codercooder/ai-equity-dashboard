@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T09:51:59Z",
+  "updated_at": "2026-10-13T19:19:06Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -29,7 +29,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQM0xoWVo4eTNVMU5uQXk0Rk9WeWlMaWN0TFlDbWwzX1FqNy1iWW5iUzk0REtlMGNVSnlGWkRCb0tySkQwRFZ0NzVDQzRFVk1IcWNqVFIteWpOVTRVM01xblZ0TzN1dWdlNUdYWTRMUUFBOGhwQ2xTYl9NaTF0bmk5UllSanctMGJDT1g3MnVuX1IxTWpwR193RHoyV1BEd2FqOWlDcg?oc=5",
       "headline": "Oil prices rise on Saudi Arabia attacks, overshadowing Trump's diesel deal - Reuters",
-      "detected_at": "2026-10-13T09:51:58Z"
+      "detected_at": "2026-10-13T19:19:05Z"
     },
     {
       "event_id": "a7997b55f7293960",
@@ -41,10 +41,10 @@
       "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "France 24",
-      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQVmZoZ194QXBDUllvRE9iNzdhMDc2TWVKa0x1YUhIM3RibHJhaEhqTGhlaW1ra0hmSlZveW85bmJEUlEzaFBGVDh4Yy1mUnVhcUlFWWNfcnQzRGptdzFvUU9fbHlkbFRHN3pJVTVyWlo1TmlneDRScWN5MXlLb3VlMnZXczhVdnNvMExibGw2SFJUcS1DNkVMcXV3RVlDWkRMaFRhN2w1Z0dEVmdOQWpGeDBBWHY1cmxYVHhPWEFB?oc=5",
-      "headline": "Ukraine to stop refinery strikes when Russia curbs energy attacks: Zelensky - France 24",
-      "detected_at": "2026-10-13T09:51:58Z"
+      "source": "Channels Television",
+      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQUm1hTjFlbmk5MGowLUNtcWZrSXF0NFRxWDRjMmtmZm91UW1PWnhLVTdHdW5lRE5SdjNHU3dNbEJMLUlrVzQ3SExmRzIwZHpKd1BiWGtPcy16M1l6UkxoM2JDSXN5Rm84SnBqa3BmVXFzbFh1OHNjcnVnQUxRalI2TGVtT0hTc1d3cDYwYmQwQXNNRkFTT1Nfd0U0RjZPYUt4ZWZQUzBRM3Q2UC10TUN1VVFxVWMtOEVsT3dHVXJ3?oc=5",
+      "headline": "Ukraine Ready To Stop Refinery Strikes If Russia Ends Energy Attacks, Says Zelensky - Channels Television",
+      "detected_at": "2026-10-13T19:19:06Z"
     },
     {
       "event_id": "eedfd38efd005245",
@@ -59,7 +59,7 @@
       "source": "The Sunday Guardian",
       "source_url": "https://news.google.com/rss/articles/CBMipwJBVV95cUxOSEptRGlSN3RpcWhvMk1lbW5FSE9GSXRyOFpHZUdpSkc4QUtQdG1sbnRFSTNfbDR5X2FxY0hGZ1Rkdy1maG9QaURsRms2QWxxZjZ1TUMySHJieDNEcE9tRUZKMVZzSmpVUFd3eFVTTHlvXzFfdVhVRnViMDQzSl9sWUc0WXY2WGhmZEhiV3lBX0xOdmQtNFhKdHBwMGhQaFFvbl9JY29JOV80anVobVNpLUFPVERPM3llMVR0WVFtSkZ6Njg0NnpSaUE3S0tPLV84ZWhoQlRrXzNpdjZrQmtwTVl1ZVN2RGp3RkR6OVhoMURqVDRpTXJIUGlZRnZGVFl2bHh2NnhGZ1NlR0pkaFhEM0dTRkZ6YkIzcFNSLU14RG1abFpORlRv0gGsAkFVX3lxTFBpTEhKcGhKR2dhd19ja1RHVDJyTlRXbmpRQ3FnYjlsZHN2S010UUFNTG1KTDVaX1hYTG10cDFIVU9NbXh5MU0yeGJ5aURoLUVHTi1HZndKWllqZ05ocmNRZmVFNkFuSHJER2hBUjNnV0xwbkpCRkNqejRJeWRTaHIwdGgzV2pPWFEtYXU2dVN2dGc5aThNRThxdWxDU1FzbFNoU013a1JodHpfa1Fnck9QMjdNc1l6a3BNa3MzdVlpRkpaRFM3ZUp5Y2VUNWM3b2NRalMxNU9HZUViRV9CS0hmNk8wbF9ITWcxRjQ2RnhYLVBwMktEMHJvQ2RtM3luaUMzUkJPeGFYRnREandEemlRNjIxNTFGMmVGQVQtcXJqYkkxOTRyY0lYRUtTWA?oc=5",
       "headline": "Oil Prices Today: Brent Crude Climbs to Near Two-Week High at $106.19 as Houthi Attacks on Saudi Arabia and Strait of Hormuz Tanker Strikes Raise Supply Fears - The Sunday Guardian",
-      "detected_at": "2026-10-13T09:51:58Z"
+      "detected_at": "2026-10-13T19:19:05Z"
     },
     {
       "event_id": "2a3f5fb7f53675d8",
@@ -74,7 +74,7 @@
       "source": "inkl",
       "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPR1lDZjM2VWVzNDhTdnFOQnlUdklaQVdUcHQ1YnpYM1gweUhKb0JkMWdILUVRLW1YM3Z2eENmOVFaNEdNajlvRE5DclJsbkJLRTQ2V2VhZ3Z1M2ZvNjFkX1RQVmdpNm9FY1ZFUkgyV1dGVVUxWjFtV0tNWTI5ZUM1TkIyLWphVTczeG5HNGNrQlZ2SUJFazZfOC1hX3d0TTY5ay0zVVpIblZLRWdjZzBzaVI3ajB1MDBHdFNhWVVOQy1Wemoxem5jQ2lnMA?oc=5",
       "headline": "Ukraine-Russia war latest: Nato will destroy ‘everything’ used in attack if Putin launches assault, says top commander - inkl",
-      "detected_at": "2026-10-13T09:51:58Z"
+      "detected_at": "2026-10-13T19:19:06Z"
     },
     {
       "event_id": "4f4cf386cebc23d4",
@@ -84,12 +84,12 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.75,
+      "confidence": 0.9,
       "auto_generated": true,
-      "source": "The Sunday Guardian",
-      "source_url": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxOeEhOYVNmbDV2YVhzSUt6dTl2SlBiTkh4VUkxRmZpRTZRMDVZa1NISE5UT2hVdXVKcjJpMlg5VG9kaGpFa3R3bmNCU1c5N1NPUkJNOXlaa0Mtbll5OEQwYVhkbVZtSW5mYlZ3Mk1XX3JMTE12TlVjNUdFR2FSTVRXaFhVZEtDajBHU2VlY2pEbmRXQkc5YmFtUXQ0V3JXdGlneVBpY2lqeUJnUVZIcjE2WFRVVjYtN2xuNW9PVjd5a0RHZ0tWSkZBbnotU2w5aG43SXM3MEN2c21lWG1DOXI0eUtHRFJoX213Z1BHRWFDSVZ4WjNLQVI2X01jZEVKQWlGUGNfUzJOQzVSOHhYbkRneWwxWGs0LVNXWERnSEhDUVpqRHJtQzNiZEJhT0w0WDNNX3Rvem1mcXREWEtITUpxLdIBwAJBVV95cUxOeEhOYVNmbDV2YVhzSUt6dTl2SlBiTkh4VUkxRmZpRTZRMDVZa1NISE5UT2hVdXVKcjJpMlg5VG9kaGpFa3R3bmNCU1c5N1NPUkJNOXlaa0Mtbll5OEQwYVhkbVZtSW5mYlZ3Mk1XX3JMTE12TlVjNUdFR2FSTVRXaFhVZEtDajBHU2VlY2pEbmRXQkc5YmFtUXQ0V3JXdGlneVBpY2lqeUJnUVZIcjE2WFRVVjYtN2xuNW9PVjd5a0RHZ0tWSkZBbnotU2w5aG43SXM3MEN2c21lWG1DOXI0eUtHRFJoX213Z1BHRWFDSVZ4WjNLQVI2X01jZEVKQWlGUGNfUzJOQzVSOHhYbkRneWwxWGs0LVNXWERnSEhDUVpqRHJtQzNiZEJhT0w0WDNNX3Rvem1mcXREWEtITUpxLQ?oc=5",
-      "headline": "US-Israel-Iran War Latest Live News: Iran Reports 5.14 Million Tonnes of Oil Product Exports Despite US Naval Blockade as Crude Oil Slips to $105.35 Amid Middle East Tensions - The Sunday Guardian",
-      "detected_at": "2026-10-13T09:51:58Z"
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPa2sxWTVlekZ2bXloVXNiOUltMm5iODVOMW9NTUo4Q016ZU02OFQ5TU9relFTcUZSaW8xV0c2YmNVbE5jWW5uQjhKeXNKaWxBcE92SU1fQUU0R2RVamdNUzRhTER3NzEzMFUtRVd3bzVnZ1g0ZmtRek95VHdYbVNNMmNacmlDd3dLTThmaGF2VVJDYTc4c1hQeUZfX0ZGQzZjTXlpLU52U3JuUGpjOHJjWndoS19LandSX0dtMmdUMzNKZw?oc=5",
+      "headline": "Oil prices ease as US-Russia diesel deal hopes offset Middle East attacks - Reuters",
+      "detected_at": "2026-10-13T19:19:05Z"
     },
     {
       "event_id": "196cd022ed7f01dd",
@@ -101,10 +101,10 @@
       "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "Al Jazeera",
-      "source_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPMU5hQ2Z1WXdJZF93U24zN1FqbVlYNFN4bWFRNmVRS2d4eTVyQU1xTXRFNVJRdWN4TnhGRUVfcDdidEJ3dUFyaXhFY01ZbHJHZFJSSTFWb2dJOFJzcXoyZHNVRm5KQzI4TXRUb2NfSzBkazVlVE9tLUtjY0ZPa0ExMUNVZ3BKdldiN0FoSE9feDZBWndDODBiYUJYcE1UTEx5RXpjd2d2ekxrNjJYbFVyWmN2Qjg3anBibG82U9IBwgFBVV95cUxNdzQ0NGxoUW5xZU1HRHJESXhwZ1ZXMmFhbG1WVzVMczRpR3h1V3dfdTRNQVNRLWNNQUs0VzIzLVZReHpOSzA5STFwbjNUeVZaTTBYOGt6ZVEzblBZYjV3cGsyMmhUSlFHZlVGMTBHRnVEbU12Y0tUUnV6STlOblhVZjM5aE1iQ0tRSktxd1lSSzA2dlJxTFN2ZENuWmQzMnBhQzlEVnoxTjNEQTI5REExR2NOTkJNNjM0RE5rX1BFaWlUdw?oc=5",
-      "headline": "Trump insists energy ceasefire holds as Ukraine reports new Russian strikes - Al Jazeera",
-      "detected_at": "2026-10-13T09:51:58Z"
+      "source": "The Times of India",
+      "source_url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNNkM4QmNiUGc1V1lJVlJEWlZWemNscml2LU1VSDNnR2VsV3kxekVOdV9qNVRuTHpESTJjOTd1V3FQZ21ROVlJSnh3V09XX2ZacVZMSnJrSHZyR3ZJRFptUlk1Vm56QnU5UERyT0JPekV1ZTJ0S0JzWTNmbC1yWlZockxxaE1tX0YtMUxwT3JLOWZwTktVZGduYldNRnBjZngxQ09zRHh2Y0xuOWVCN2JXLXBaVFRGMGk1bkNXRnAwd0l2d0s0Z3ExYzBJN05oWDJNTWdyT3VRVExqbmFjNmtvT0RkM0ZhWEh1ZjJuQ2E3WU9FV2l6VkZHZ0ZGaGFZMUXSAYQCQVVfeXFMT2VjQ19SRjlVbWQ4ZlRGbFAwYktrWGJDc0p5aXlnMWgtakxDejU2TUg3UmdRLTBxSVoyLXFwd05CSHJjb1hwUzZJaGYyaTBidzRTTU1OUWI4OS15aDdXNVhBSkxRSTFvZHR5Y0ZDbWhqa21xTGtzTVFnU29uRy1SV3czaGtXcy1nTTY2Y2RiVUpyVFNDbGV4cUJVQkFoaFh3OWI3T2FPcFgxeXJBZFAzQTdYa1FCNnNOWEI1czBIU1ppQ0VWOXIwa3p0WjB3UjVPcTRyVmhLNFJVc3h3Qi1EQ1ZlX3VIb2JJYTFqcnRXY0J2Mi01QUllbkxjR29SaEdrd01hejc?oc=5",
+      "headline": "'Ukraine has not attacked Russian oil refineries for 2 days': Zelenskyy on Trump's 'energy ceasefire' - The Times of India",
+      "detected_at": "2026-10-13T19:19:06Z"
     }
   ],
   "scheduled_events": [
@@ -305,7 +305,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 7,
+    "discovered_count": 6,
     "scheduled_count": 10,
     "failures": []
   }

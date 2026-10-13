@@ -481,7 +481,13 @@ with dashboard_tab:
             path=["Label"],
             values="总市值",
             color="ReturnPct",
-            color_continuous_scale="RdYlGn",
+            color_continuous_scale=[
+                (0.0, "#991b1b"),   # Larger losses: darker red.
+                (0.25, "#f87171"),
+                (0.5, "#f3f4f6"),   # Zero return: light neutral.
+                (0.75, "#4ade80"),
+                (1.0, "#166534"),   # Larger gains: darker green.
+            ],
             color_continuous_midpoint=0,
             custom_data=["ReturnPct", "总市值"],
         )

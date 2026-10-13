@@ -5,6 +5,10 @@ import re
 import html as html_lib
 from dataclasses import dataclass
 from datetime import datetime, timedelta
+from email.utils import parsedate_to_datetime
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from urllib.parse import quote_plus
+import xml.etree.ElementTree as ET_XML
 from zoneinfo import ZoneInfo
 
 import numpy as np
@@ -757,6 +761,56 @@ def eps_history(ticker: str) -> pd.DataFrame:
     return out
 
 
+@st.cache_data(ttl=60 * 60 * 6, show_spinner=False)
+def eps_revision_trend(ticker: str) -> pd.DataFrame:
+    """Consensus annual EPS trend for the current and next fiscal year.
+
+    Yahoo/yfinance exposes point-in-time analyst consensus at Current, 7, 30,
+    60 and 90 days ago.  This is not a full historical time series, but it is
+    a useful clean snapshot of recent estimate momentum.
+    """
+    columns = ["FY1 EPS", "FY2 EPS"]
+    try:
+        trend = yf.Ticker(ticker).get_eps_trend()
+    except Exception:
+        trend = None
+
+    if trend is None or trend.empty:
+        return pd.DataFrame(columns=columns)
+
+    # yfinance row labels: 0q, +1q, 0y, +1y.  Annual rows are the most useful
+    # for cross-company valuation and medium-term earnings revision analysis.
+    annual_rows = {"0y": "FY1 EPS", "+1y": "FY2 EPS"}
+    available = {k: v for k, v in annual_rows.items() if k in trend.index}
+    if not available:
+        return pd.DataFrame(columns=columns)
+
+    offsets = [
+        ("90daysAgo", 90),
+        ("60daysAgo", 60),
+        ("30daysAgo", 30),
+        ("7daysAgo", 7),
+        ("current", 0),
+    ]
+    today = pd.Timestamp.today().normalize()
+    rows = []
+    for field, days in offsets:
+        row = {"Date": today - pd.Timedelta(days=days)}
+        for src_row, label in available.items():
+            value = trend.loc[src_row, field] if field in trend.columns else np.nan
+            try:
+                value = float(value)
+                row[label] = value if np.isfinite(value) else np.nan
+            except Exception:
+                row[label] = np.nan
+        rows.append(row)
+
+    out = pd.DataFrame(rows).set_index("Date").sort_index()
+    for col in columns:
+        if col not in out.columns:
+            out[col] = np.nan
+    return out[columns].dropna(how="all")
+
 
 @st.cache_data(ttl=60 * 30, show_spinner=False)
 def company_event_snapshot(ticker: str) -> dict[str, list[dict]]:
@@ -942,3 +996,305 @@ def company_event_snapshot(ticker: str) -> dict[str, list[dict]]:
     upcoming.sort(key=lambda x: (x.get("date") in {None, "待定/见公告"}, x.get("date") or "9999-12-31"))
 
     return {"recent": recent[:5], "upcoming": upcoming[:6]}
+
+
+# -----------------------------------------------------------------------------
+# Cross-company latest news feed (Google News RSS aggregator)
+# -----------------------------------------------------------------------------
+
+_NEWS_PRIORITY_SOURCES = {
+    "reuters", "bloomberg", "the wall street journal", "wsj", "financial times",
+    "cnbc", "marketwatch", "barron's", "associated press", "ap news", "the verge",
+    "techcrunch", "fortune", "business insider", "yahoo finance", "investing.com",
+}
+
+_NEWS_IMPORTANT_KEYWORDS = (
+    "earnings", "revenue", "profit", "guidance", "forecast", "outlook", "eps",
+    "acquisition", "acquire", "merger", "deal", "partnership", "contract", "order",
+    "launch", "unveil", "approval", "fda", "trial", "antitrust", "regulator",
+    "investigation", "probe", "lawsuit", "settlement", "recall", "ban", "tariff",
+    "export", "downgrade", "upgrade", "price target", "buyback", "dividend",
+    "layoff", "cuts jobs", "ceo", "cfo", "resign", "appoint", "conference",
+    "investor day", "capital markets day", "data center", "ai", "artificial intelligence",
+)
+
+_POSITIVE_NEWS_KEYWORDS = (
+    "beat", "beats", "surge", "surges", "jump", "jumps", "rise", "rises", "gain", "gains",
+    "raise guidance", "raises guidance", "upgrade", "upgraded", "approval", "approved",
+    "record revenue", "record profit", "strong demand", "wins contract", "wins order",
+    "partnership", "expands", "launches", "buyback", "dividend increase", "outperform",
+)
+
+_NEGATIVE_NEWS_KEYWORDS = (
+    "miss", "misses", "fall", "falls", "drop", "drops", "slump", "slumps", "cut guidance",
+    "cuts guidance", "downgrade", "downgraded", "warning", "weak demand", "lawsuit", "probe",
+    "investigation", "recall", "delay", "delays", "ban", "antitrust", "layoff", "cuts jobs",
+    "loss", "losses", "fraud", "breach", "outage", "reject", "rejected", "underperform",
+)
+
+_NEWS_ALIASES = {
+    "NVDA": ("nvidia",),
+    "AMD": ("advanced micro devices", "amd"),
+    "AVGO": ("broadcom",),
+    "MRVL": ("marvell",),
+    "ARM": ("arm holdings", "arm ltd", "arm chip"),
+    "INTC": ("intel",),
+    "MU": ("micron",),
+    "SNDK": ("sandisk", "san disk"),
+    "WDC": ("western digital",),
+    "SKHY": ("sk hynix", "skhynix"),
+    "TSM": ("taiwan semiconductor", "tsmc"),
+    "AMAT": ("applied materials",),
+    "LRCX": ("lam research",),
+    "KLAC": ("kla corp", "kla corporation"),
+    "ANET": ("arista networks", "arista"),
+    "COHR": ("coherent corp", "coherent"),
+    "LITE": ("lumentum",),
+    "DELL": ("dell technologies", "dell"),
+    "HPE": ("hewlett packard enterprise",),
+    "SMCI": ("super micro computer", "supermicro"),
+    "VRT": ("vertiv",),
+    "ETN": ("eaton",),
+    "CEG": ("constellation energy",),
+    "VST": ("vistra",),
+    "GEV": ("ge vernova",),
+    "NRG": ("nrg energy",),
+    "BE": ("bloom energy",),
+    "EQIX": ("equinix",),
+    "DLR": ("digital realty",),
+    "MSFT": ("microsoft",),
+    "AMZN": ("amazon", "aws"),
+    "GOOGL": ("alphabet", "google"),
+    "ORCL": ("oracle",),
+    "PLTR": ("palantir",),
+    "NOW": ("servicenow",),
+    "CRM": ("salesforce",),
+    "SNOW": ("snowflake",),
+    "DDOG": ("datadog",),
+    "MDB": ("mongodb",),
+    "ESTC": ("elastic nv", "elastic search", "elastic n.v."),
+    "GTLB": ("gitlab",),
+    "PANW": ("palo alto networks",),
+    "CRWD": ("crowdstrike",),
+    "ZS": ("zscaler",),
+    "AAPL": ("apple",),
+    "META": ("meta platforms", "meta ai", "facebook"),
+    "QCOM": ("qualcomm",),
+    "TSLA": ("tesla",),
+    "MBLY": ("mobileye",),
+    "TER": ("teradyne",),
+    "ISRG": ("intuitive surgical",),
+    "JPM": ("jpmorgan", "jp morgan"),
+    "V": ("visa inc", "visa card", "visa payments"),
+    "MA": ("mastercard",),
+    "GE": ("ge aerospace", "general electric aerospace"),
+    "LLY": ("eli lilly", "lilly"),
+}
+
+
+def _normalise_news_title(title: str) -> str:
+    text = html_lib.unescape(str(title or "")).strip()
+    text = re.sub(r"\s+", " ", text)
+    return text
+
+
+def _headline_sentiment(title: str) -> str:
+    text = _normalise_news_title(title).lower()
+    pos = sum(1 for kw in _POSITIVE_NEWS_KEYWORDS if kw in text)
+    neg = sum(1 for kw in _NEGATIVE_NEWS_KEYWORDS if kw in text)
+    if pos > neg:
+        return "正面"
+    if neg > pos:
+        return "负面"
+    return "中性"
+
+
+def _news_importance(title: str, source: str) -> int:
+    text = _normalise_news_title(title).lower()
+    src = str(source or "").lower()
+    score = 0
+    if any(s in src for s in _NEWS_PRIORITY_SOURCES):
+        score += 2
+    kw_hits = sum(1 for kw in _NEWS_IMPORTANT_KEYWORDS if kw in text)
+    score += min(3, kw_hits)
+    # Headlines carrying explicit market-moving language get an additional point.
+    if any(kw in text for kw in _POSITIVE_NEWS_KEYWORDS + _NEGATIVE_NEWS_KEYWORDS):
+        score += 1
+    return score
+
+
+def _news_importance_label(score: int) -> str:
+    if score >= 4:
+        return "高"
+    if score >= 2:
+        return "中"
+    return "低"
+
+
+def _news_event_type(title: str) -> str:
+    text = _normalise_news_title(title).lower()
+    buckets = [
+        ("财报 / 指引", ("earnings", "revenue", "profit", "eps", "guidance", "forecast", "outlook")),
+        ("产品 / 技术", ("launch", "unveil", "product", "chip", "gpu", "platform", "software", "model", "technology")),
+        ("AI Capex / 数据中心", ("data center", "datacenter", "capex", "ai infrastructure", "gpu cluster", "cloud capacity")),
+        ("M&A", ("acquisition", "acquire", "merger", "takeover", "buyout")),
+        ("合作 / 订单", ("partnership", "partner", "contract", "order", "deal", "supplier", "customer")),
+        ("监管 / 法律", ("regulator", "antitrust", "investigation", "probe", "lawsuit", "settlement", "ban", "recall", "fda", "approval", "trial")),
+        ("分析师评级", ("upgrade", "downgrade", "price target", "outperform", "underperform", "overweight", "underweight")),
+        ("管理层", (" ceo", " cfo", "chief executive", "chief financial", "resign", "appoint", "management")),
+        ("资本回报 / 融资", ("buyback", "repurchase", "dividend", "offering", "bond", "debt", "financing")),
+        ("宏观 / 贸易政策", ("tariff", "export", "sanction", "trade restriction", "china", "rate cut", "interest rate")),
+        ("会议 / Investor Event", ("conference", "investor day", "capital markets day", "fireside", "keynote", "presentation")),
+    ]
+    for label, keywords in buckets:
+        if any(keyword in text for keyword in keywords):
+            return label
+    return "其他"
+
+
+def _aliases_for_ticker(ticker: str, name: str) -> tuple[str, ...]:
+    aliases = list(_NEWS_ALIASES.get(ticker, ()))
+    name_clean = re.sub(r"\b(inc\.?|corp\.?|corporation|plc|ltd\.?|holdings?|technologies)\b", "", str(name), flags=re.I)
+    name_clean = re.sub(r"\s+", " ", name_clean).strip().lower()
+    if len(name_clean) >= 4:
+        aliases.append(name_clean)
+    if len(ticker) >= 3:
+        aliases.append(ticker.lower())
+    # Preserve order while deduplicating.
+    return tuple(dict.fromkeys(a.strip().lower() for a in aliases if a and a.strip()))
+
+
+def _parse_google_news_sector(sector: str, members: tuple[tuple[str, str], ...], lookback_days: int) -> list[dict]:
+    # One RSS request per sector keeps the dashboard responsive and avoids dozens
+    # of individual company requests. Google News is used only as an aggregator;
+    # the source field below preserves the original publisher shown by Google.
+    terms = []
+    for ticker, name in members:
+        # Company names are more reliable than raw tickers in news search.
+        # Short/generic tickers such as ARM/NOW/V/MA create noisy matches.
+        terms.append(f'"{name}"')
+    query = " OR ".join(terms) + f" when:{max(1, int(lookback_days))}d"
+
+    try:
+        r = requests.get(
+            "https://news.google.com/rss/search",
+            params={"q": query, "hl": "en-US", "gl": "US", "ceid": "US:en"},
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=12,
+        )
+        r.raise_for_status()
+        root = ET_XML.fromstring(r.content)
+    except Exception:
+        return []
+
+    alias_map = {ticker: _aliases_for_ticker(ticker, name) for ticker, name in members}
+    now_utc = pd.Timestamp.now(tz="UTC")
+    cutoff = now_utc - pd.Timedelta(days=lookback_days)
+    out: list[dict] = []
+
+    for item in root.findall(".//item"):
+        title = _normalise_news_title(item.findtext("title") or "")
+        if not title:
+            continue
+        link = (item.findtext("link") or "").strip()
+        description = _normalise_news_title(item.findtext("description") or "")
+        source_node = item.find("source")
+        source = _normalise_news_title(source_node.text if source_node is not None else "") or "Google News"
+        pub_raw = item.findtext("pubDate")
+        try:
+            dt = pd.Timestamp(parsedate_to_datetime(pub_raw)).tz_convert("UTC")
+        except Exception:
+            dt = pd.NaT
+        if pd.notna(dt) and dt < cutoff:
+            continue
+
+        haystack = f"{title} {description}".lower()
+        related = []
+        for ticker, aliases in alias_map.items():
+            if any(alias in haystack for alias in aliases):
+                related.append(ticker)
+
+        # Google matched the sector query but the title/snippet may omit the company
+        # name. In that case keep only headlines with obvious market-moving language;
+        # they are still useful, but do not invent a company association.
+        if not related:
+            continue
+
+        score = _news_importance(title, source)
+        out.append({
+            "published": dt,
+            "source": source,
+            "title": title,
+            "sentiment": _headline_sentiment(title),
+            "event_type": _news_event_type(title),
+            "companies": related,
+            "sector": sector,
+            "url": link,
+            "importance": score,
+            "importance_label": _news_importance_label(score),
+        })
+
+    return out
+
+
+@st.cache_data(ttl=60 * 15, show_spinner=False)
+def company_news_feed(
+    sectors: tuple[tuple[str, tuple[tuple[str, str], ...]], ...],
+    lookback_days: int = 7,
+) -> pd.DataFrame:
+    """Latest cross-company news from public publisher headlines via Google News RSS.
+
+    Returns a deduplicated, newest-first table. Sentiment is a transparent
+    headline-keyword classifier intended for triage only, not an investment signal.
+    """
+    rows: list[dict] = []
+    with ThreadPoolExecutor(max_workers=min(8, max(1, len(sectors)))) as pool:
+        futures = {
+            pool.submit(_parse_google_news_sector, sector, members, lookback_days): sector
+            for sector, members in sectors
+        }
+        for future in as_completed(futures):
+            try:
+                rows.extend(future.result() or [])
+            except Exception:
+                continue
+
+    if not rows:
+        return pd.DataFrame(
+            columns=["published", "source", "title", "sentiment", "event_type", "companies", "sector", "url", "importance", "importance_label"]
+        )
+
+    # Merge duplicate syndicated headlines and union their company tags.
+    merged: dict[str, dict] = {}
+    for row in rows:
+        key = re.sub(r"[^a-z0-9]+", " ", str(row.get("title", "")).lower()).strip()
+        if not key:
+            continue
+        if key not in merged:
+            merged[key] = row.copy()
+            merged[key]["companies"] = set(row.get("companies", []))
+        else:
+            merged[key]["companies"].update(row.get("companies", []))
+            # Keep the newest timestamp and the highest importance score.
+            old_dt = merged[key].get("published")
+            new_dt = row.get("published")
+            if pd.notna(new_dt) and (pd.isna(old_dt) or new_dt > old_dt):
+                merged[key]["published"] = new_dt
+                if row.get("url"):
+                    merged[key]["url"] = row.get("url")
+                if row.get("source"):
+                    merged[key]["source"] = row.get("source")
+            merged[key]["importance"] = max(int(merged[key].get("importance", 0)), int(row.get("importance", 0)))
+
+    clean_rows = []
+    for row in merged.values():
+        row = row.copy()
+        row["companies"] = ", ".join(sorted(row.get("companies", set())))
+        clean_rows.append(row)
+
+    df = pd.DataFrame(clean_rows)
+    if df.empty:
+        return df
+    df["published"] = pd.to_datetime(df["published"], utc=True, errors="coerce")
+    df = df.sort_values(["published", "importance"], ascending=[False, False], na_position="last")
+    return df.reset_index(drop=True)

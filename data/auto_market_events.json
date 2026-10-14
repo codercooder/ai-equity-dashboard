@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T11:56:02Z",
+  "updated_at": "2026-10-14T17:13:03Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -89,7 +89,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPa2sxWTVlekZ2bXloVXNiOUltMm5iODVOMW9NTUo4Q016ZU02OFQ5TU9relFTcUZSaW8xV0c2YmNVbE5jWW5uQjhKeXNKaWxBcE92SU1fQUU0R2RVamdNUzRhTER3NzEzMFUtRVd3bzVnZ1g0ZmtRek95VHdYbVNNMmNacmlDd3dLTThmaGF2VVJDYTc4c1hQeUZfX0ZGQzZjTXlpLU52U3JuUGpjOHJjWndoS19LandSX0dtMmdUMzNKZw?oc=5",
       "headline": "Oil prices settle mixed, focus on US-Russia diesel deal, Saudi Yemen attacks - Reuters",
-      "detected_at": "2026-10-14T11:56:01Z"
+      "detected_at": "2026-10-14T17:13:02Z"
     },
     {
       "event_id": "196cd022ed7f01dd",
@@ -104,7 +104,7 @@
       "source": "Al Jazeera",
       "source_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPMU5hQ2Z1WXdJZF93U24zN1FqbVlYNFN4bWFRNmVRS2d4eTVyQU1xTXRFNVJRdWN4TnhGRUVfcDdidEJ3dUFyaXhFY01ZbHJHZFJSSTFWb2dJOFJzcXoyZHNVRm5KQzI4TXRUb2NfSzBkazVlVE9tLUtjY0ZPa0ExMUNVZ3BKdldiN0FoSE9feDZBWndDODBiYUJYcE1UTEx5RXpjd2d2ekxrNjJYbFVyWmN2Qjg3anBibG82U9IBwgFBVV95cUxNdzQ0NGxoUW5xZU1HRHJESXhwZ1ZXMmFhbG1WVzVMczRpR3h1V3dfdTRNQVNRLWNNQUs0VzIzLVZReHpOSzA5STFwbjNUeVZaTTBYOGt6ZVEzblBZYjV3cGsyMmhUSlFHZlVGMTBHRnVEbU12Y0tUUnV6STlOblhVZjM5aE1iQ0tRSktxd1lSSzA2dlJxTFN2ZENuWmQzMnBhQzlEVnoxTjNEQTI5REExR2NOTkJNNjM0RE5rX1BFaWlUdw?oc=5",
       "headline": "Trump insists energy ceasefire holds as Ukraine reports new Russian strikes - Al Jazeera",
-      "detected_at": "2026-10-14T11:56:01Z"
+      "detected_at": "2026-10-14T17:13:02Z"
     },
     {
       "event_id": "f1f9c2b82a6a6dae",
@@ -134,7 +134,7 @@
       "source": "Iran International",
       "source_url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1wQmxYOERIOGlCRFkyM3FMWjg3eVp1UVpCQm5MdENQdUNBRHBrOVJlU3FzNGR2czNHZzdXd3NjbnVlR204Qkp0TE56Tzk5UVpHcEE?oc=5",
       "headline": "Iran escalates Hormuz tanker attacks in gamble ahead of US midterms - Iran International",
-      "detected_at": "2026-10-14T11:56:01Z"
+      "detected_at": "2026-10-14T17:13:02Z"
     },
     {
       "event_id": "8cfade9ff3b44e91",
@@ -149,7 +149,22 @@
       "source": "The Sunday Guardian",
       "source_url": "https://news.google.com/rss/articles/CBMiywJBVV95cUxObjhla1BCZEJQa0NKSTFSWDdwX0RjTElWY2g1VHFWd25TNGlpUDJIQUQxWEN6YlZYYmI2cVN3a01vOUlQcndDcnpIZC15ek5rdTNxSTRRYU41YldZZWp4eVBSdElsYUxtT1pFMHJ6d3hBYmlhaTViTXpTeW05ZVpPTnFJTGF2N2pMcm5EeUxlVjFVWFJja1JmWFFoMUdPbl9SOHpiVTBWTFk5SkNyWkhYOWtmdkp5eUxiZktXdHRqVDA1TDk2WjdhcXc0bW41MlJzUjJ5a19mNG5oS0VXcGtXSng4M3lrY01FODBhaXdiQlVlNjdaR1NBRl9FTm9UOXp6Y2dSZjd3aVRIYjZVbDZEOHlsZnRpcjIzY0g3WVAwNXctRjhKRlREb3oybElLUlRtSkhsaE5LMWxYdTJSckJndjU2dXhpN2xWbktN0gHQAkFVX3lxTE9UTjBZanhkN1RRdTdfY2Z2RUFRNWFPWWxsSFpYQmdzZXNDOGJIMWRRQmZhV0g4OFdsaXF5R2h5SDB6YTJKb1FNeWJtd2tNcDVVMWhtbVlGdHFzRzVNQWhHZ1JoY3d6NDNTTHpKR1pPM2haeEE0NGRlZUtPQ2g0eHFSV1NaRU9RUjNuZXdZdC1RRlVxYzNiSzZ1b0wwN0ZlbnpfalBQN1RVQTlBSmcyS2dHWURkT2Njd1Z1V0ZtQndvWlJsNjc3QkItT0JBYVZKWUtxVmNxTWtGSkVUWlgzYzM3a0tRc2ZKWWlfMkNmVmFqaHNfZ3lfSjFBcXBoUTJ2V3Utbk1FWFo0bm83VDIwS0NWWVFSQlhSOUxxelVDWXNnaG1KUkNPcVJIcXd0NmZtRVJXTnN2RjFfcUM1QjRTN0wyQUNmbF9VWUE0cVdvS3RIXw?oc=5",
       "headline": "LIVE | Gold Price Today: MCX Gold Slips ₹1.48 Lakh, Silver at ₹2.35 as Oil Surge, Middle East War Ahead Fed Rate Hike — Check Latest 24K, 22K, 18K Gold Rate in Delhi, Mumbai, Kerala, Chennai & More - The Sunday Guardian",
-      "detected_at": "2026-10-14T11:56:00Z"
+      "detected_at": "2026-10-14T17:13:01Z"
+    },
+    {
+      "event_id": "46eb1964e9f03d4d",
+      "kind": "point",
+      "date": "2026-10-14",
+      "label": "贸易 / 关税 / 出口管制冲击",
+      "category": "贸易",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.8,
+      "auto_generated": true,
+      "source": "BNN Bloomberg",
+      "source_url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOT2VrdjJzVWc4aExfR3B1bFFaQmtqTEc0S09rQlNnbnJiRFJxREYyTmZNUl83MVNGdHJLckdwcEF0ODRvLW9nR3ZNTFFLMEROQmVCeElHUWlfMU1tRkR6XzhwdjFQZXR2cXNwaEItV0U5YTJZMHVGZGtfUTdvcGw4MVBuLXUxQWpQd2d4UjItOEpuS1ozS0x6VzhrNDk5RWVyR0tHMU1GMW9DZGM1TlliV05WamppT2lqNnUweFdrSQ?oc=5",
+      "headline": "China’s trade surplus nears record as pressure mounts from trading partners - BNN Bloomberg",
+      "detected_at": "2026-10-14T17:13:03Z"
     }
   ],
   "scheduled_events": [
@@ -350,7 +365,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 7,
+    "discovered_count": 6,
     "scheduled_count": 10,
     "failures": []
   }

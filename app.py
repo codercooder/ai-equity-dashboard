@@ -18,6 +18,7 @@ from data_layer import (
     avg_3m_volume,
     build_sector_index,
     download_history,
+    download_regular_closes,
     download_volume_history,
     fundamentals_for,
     latest_regular_close,
@@ -261,6 +262,14 @@ with dashboard_tab:
     with st.spinner("加载历史行情与市值数据…"):
         prices = download_history(tuple(ALL_TICKERS), period="10y")
         caps = market_caps(tuple(ALL_TICKERS))
+        # After the US close, fetch a short, low-TTL regular-close snapshot so
+        # the heatmap reflects the just-completed session even when the longer
+        # adjusted-history cache has not refreshed yet.
+        regular_closes = (
+            download_regular_closes(tuple(ALL_TICKERS), period="5d")
+            if not state.is_open
+            else pd.DataFrame()
+        )
 
     if prices.empty:
         st.error("暂时无法取得历史行情。请检查网络或稍后重试。")
@@ -296,6 +305,47 @@ with dashboard_tab:
             numerator += float(cap) * stock_return
             denominator += float(cap)
         return numerator / denominator if denominator > 0 else None
+
+
+    def closed_sector_daily_snapshot(
+        tickers: list[str],
+        closes: pd.DataFrame,
+    ) -> tuple[float | None, pd.Timestamp | None]:
+        """Cap-weighted regular-session close/previous-close move after market close."""
+        if closes.empty:
+            return None, None
+
+        available = [ticker for ticker in tickers if ticker in closes.columns]
+        if not available:
+            return None, None
+
+        valid_rows = closes[available].dropna(how="all")
+        if valid_rows.empty:
+            return None, None
+        asof = pd.Timestamp(valid_rows.index[-1]).tz_localize(None)
+
+        numerator = 0.0
+        denominator = 0.0
+        for ticker in available:
+            cap = caps.get(ticker)
+            if not cap:
+                continue
+            series = pd.to_numeric(closes[ticker], errors="coerce").dropna()
+            if len(series) < 2:
+                continue
+            last_date = pd.Timestamp(series.index[-1]).tz_localize(None)
+            if last_date != asof:
+                continue
+            latest_close = float(series.iloc[-1])
+            previous_close = float(series.iloc[-2])
+            if previous_close == 0:
+                continue
+            numerator += float(cap) * (latest_close / previous_close - 1.0)
+            denominator += float(cap)
+
+        if denominator <= 0:
+            return None, asof
+        return numerator / denominator, asof
 
 
     def latest_from_td(item: dict | None) -> tuple[float | None, float | None, float | None]:
@@ -408,8 +458,7 @@ with dashboard_tab:
             base_date=INDEX_BASE_DATE,
             base=INDEX_BASE_VALUE,
         )
-        sector_series[sector] = idx
-
+        idx_view = idx.copy()
         latest = float(idx.iloc[-1]) if not idx.empty else None
         daily = float(idx.pct_change(fill_method=None).iloc[-1]) if len(idx) >= 2 else None
 
@@ -423,20 +472,34 @@ with dashboard_tab:
                     else:
                         prior_index_close = float(idx.iloc[-1])
                     latest = prior_index_close * (1.0 + live_daily)
+        elif not regular_closes.empty:
+            close_daily, close_date = closed_sector_daily_snapshot(tickers, regular_closes)
+            if close_daily is not None:
+                daily = close_daily
+                if not idx.empty and close_date is not None:
+                    idx_last_date = pd.Timestamp(idx.index[-1]).tz_localize(None)
+                    if close_date > idx_last_date:
+                        latest = float(idx.iloc[-1]) * (1.0 + close_daily)
+                        idx_view = idx.copy()
+                        idx_view.loc[close_date] = latest
+                        idx_view = idx_view.sort_index()
+                    else:
+                        latest = float(idx.iloc[-1])
 
+        sector_series[sector] = idx_view
         total_cap = sum(caps.get(ticker, 0.0) for ticker in tickers)
         sector_rows.append(
             {
                 "板块": sector,
                 "指数": latest,
                 "当日": daily,
-                "YTD": pct_change_period(idx, ytd=True),
-                "1M": pct_change_period(idx, months=1),
-                "3M": pct_change_period(idx, months=3),
-                "6M": pct_change_period(idx, months=6),
-                "1Y": pct_change_period(idx, years=1),
-                "3Y": pct_change_period(idx, years=3),
-                "5Y": pct_change_period(idx, years=5),
+                "YTD": pct_change_period(idx_view, ytd=True),
+                "1M": pct_change_period(idx_view, months=1),
+                "3M": pct_change_period(idx_view, months=3),
+                "6M": pct_change_period(idx_view, months=6),
+                "1Y": pct_change_period(idx_view, years=1),
+                "3Y": pct_change_period(idx_view, years=3),
+                "5Y": pct_change_period(idx_view, years=5),
                 "总市值": total_cap,
             }
         )
@@ -461,47 +524,91 @@ with dashboard_tab:
     )
     st.dataframe(sector_styler, use_container_width=True, hide_index=True, height=570)
 
-    # AI sector heatmap: size = sector market cap, colour = selected return horizon.
-    heatmap_left, heatmap_right = st.columns([1.6, 4.4])
+    # AI sector heatmap: Bloomberg-style treemap.
+    heatmap_left, heatmap_right = st.columns([1.25, 4.75])
     with heatmap_left:
-        heatmap_period = st.radio(
-            "AI Sector Heatmap",
-            ["当日", "1M", "3M", "YTD"],
+        heatmap_period = st.selectbox(
+            "Heatmap 区间",
+            ["当日", "YTD", "1M", "3M", "6M", "1Y", "3Y"],
             index=0,
-            horizontal=True,
             key="sector_heatmap_period",
         )
+    with heatmap_right:
+        st.markdown("**AI Sector Heatmap**")
+        st.caption("方块面积 = 板块总市值；绿色 = 上涨，红色 = 下跌，颜色强度随绝对涨跌幅增加。")
+
     heatmap_df = sector_df[["板块", "总市值", heatmap_period]].copy()
     heatmap_df = heatmap_df.dropna(subset=["总市值", heatmap_period])
     if not heatmap_df.empty:
         heatmap_df["ReturnPct"] = heatmap_df[heatmap_period] * 100.0
         heatmap_df["Label"] = heatmap_df["板块"].str.replace(r"^\d+\.\s*", "", regex=True)
+
+        # A robust symmetric colour range preserves contrast when one sector is
+        # an outlier. Small moves stay dark; larger gains/losses become brighter,
+        # matching the visual hierarchy of professional market heatmaps.
+        floor_by_period = {
+            "当日": 3.0,
+            "1M": 10.0,
+            "3M": 20.0,
+            "6M": 35.0,
+            "YTD": 40.0,
+            "1Y": 50.0,
+            "3Y": 120.0,
+        }
+        abs_moves = np.abs(pd.to_numeric(heatmap_df["ReturnPct"], errors="coerce").dropna().to_numpy())
+        robust_move = float(np.nanpercentile(abs_moves, 90)) if len(abs_moves) else 0.0
+        color_limit = max(floor_by_period.get(heatmap_period, 3.0), robust_move)
+        heatmap_df["ColorPct"] = heatmap_df["ReturnPct"].clip(-color_limit, color_limit)
+
+        bloomberg_scale = [
+            (0.00, "#e31b3d"),
+            (0.18, "#b1002d"),
+            (0.38, "#650019"),
+            (0.49, "#2d2d2d"),
+            (0.50, "#242424"),
+            (0.51, "#003516"),
+            (0.62, "#005b24"),
+            (0.82, "#008b34"),
+            (1.00, "#00b83f"),
+        ]
+
         heatmap_fig = px.treemap(
             heatmap_df,
             path=["Label"],
             values="总市值",
-            color="ReturnPct",
-            color_continuous_scale=[
-                (0.0, "#991b1b"),   # Larger losses: darker red.
-                (0.25, "#f87171"),
-                (0.5, "#f3f4f6"),   # Zero return: light neutral.
-                (0.75, "#4ade80"),
-                (1.0, "#166534"),   # Larger gains: darker green.
-            ],
+            color="ColorPct",
+            color_continuous_scale=bloomberg_scale,
+            range_color=(-color_limit, color_limit),
             color_continuous_midpoint=0,
             custom_data=["ReturnPct", "总市值"],
         )
         heatmap_fig.update_traces(
             texttemplate="<b>%{label}</b><br>%{customdata[0]:+.2f}%",
+            textposition="middle center",
+            textfont=dict(color="white", size=16),
+            marker=dict(line=dict(color="#111111", width=2)),
+            tiling=dict(pad=2),
             hovertemplate="%{label}<br>Return: %{customdata[0]:+.2f}%<br>Market Cap: $%{customdata[1]:.3s}<extra></extra>",
         )
         heatmap_fig.update_layout(
-            height=420,
-            margin=dict(l=5, r=5, t=15, b=5),
-            coloraxis_colorbar=dict(title=f"{heatmap_period} %"),
+            height=470,
+            margin=dict(l=4, r=4, t=4, b=4),
+            paper_bgcolor="#111111",
+            plot_bgcolor="#111111",
+            font=dict(color="white"),
+            coloraxis_showscale=False,
         )
         st.plotly_chart(heatmap_fig, use_container_width=True, config={"displaylogo": False})
-        st.caption("方块大小 = 板块总市值；颜色 = 所选期间回报。盘中手动刷新后，“当日”使用 Twelve Data 可获取的实时成分股收益计算。")
+        if heatmap_period == "当日":
+            st.caption(
+                "当日口径：美股盘中使用 Twelve Data；美股收盘后使用最新 regular-session close / previous close，"
+                "因此可显示刚结束交易日的收盘涨跌，不使用盘后价格。"
+            )
+        else:
+            st.caption(
+                f"{heatmap_period} 为板块市值加权研究指数回报；为避免单一极端板块压缩其他板块色差，"
+                "颜色范围采用对称的稳健尺度，实际回报数字不截断。"
+            )
 
 
     # -----------------------------------------------------------------------------

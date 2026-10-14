@@ -83,6 +83,33 @@ def download_history(tickers: tuple[str, ...], period: str = "10y") -> pd.DataFr
     return px.sort_index()
 
 
+@st.cache_data(ttl=60, show_spinner=False)
+def download_regular_closes(tickers: tuple[str, ...], period: str = "5d") -> pd.DataFrame:
+    """Unadjusted regular-session daily closes for completed-session return snapshots."""
+    data = yf.download(
+        list(tickers),
+        period=period,
+        interval="1d",
+        auto_adjust=False,
+        progress=False,
+        group_by="column",
+        threads=True,
+    )
+    if data.empty:
+        return pd.DataFrame()
+
+    if isinstance(data.columns, pd.MultiIndex):
+        px = data["Close"].copy()
+    else:
+        px = data[["Close"]].rename(columns={"Close": tickers[0]})
+
+    if isinstance(px, pd.Series):
+        px = px.to_frame(name=tickers[0])
+
+    px.index = pd.to_datetime(px.index).tz_localize(None)
+    return px.sort_index()
+
+
 @st.cache_data(ttl=60 * 60, show_spinner=False)
 def download_volume_history(tickers: tuple[str, ...], period: str = "6mo") -> pd.DataFrame:
     data = yf.download(

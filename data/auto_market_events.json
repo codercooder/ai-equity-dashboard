@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T19:19:06Z",
+  "updated_at": "2026-10-14T04:56:33Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -59,7 +59,7 @@
       "source": "The Sunday Guardian",
       "source_url": "https://news.google.com/rss/articles/CBMipwJBVV95cUxOSEptRGlSN3RpcWhvMk1lbW5FSE9GSXRyOFpHZUdpSkc4QUtQdG1sbnRFSTNfbDR5X2FxY0hGZ1Rkdy1maG9QaURsRms2QWxxZjZ1TUMySHJieDNEcE9tRUZKMVZzSmpVUFd3eFVTTHlvXzFfdVhVRnViMDQzSl9sWUc0WXY2WGhmZEhiV3lBX0xOdmQtNFhKdHBwMGhQaFFvbl9JY29JOV80anVobVNpLUFPVERPM3llMVR0WVFtSkZ6Njg0NnpSaUE3S0tPLV84ZWhoQlRrXzNpdjZrQmtwTVl1ZVN2RGp3RkR6OVhoMURqVDRpTXJIUGlZRnZGVFl2bHh2NnhGZ1NlR0pkaFhEM0dTRkZ6YkIzcFNSLU14RG1abFpORlRv0gGsAkFVX3lxTFBpTEhKcGhKR2dhd19ja1RHVDJyTlRXbmpRQ3FnYjlsZHN2S010UUFNTG1KTDVaX1hYTG10cDFIVU9NbXh5MU0yeGJ5aURoLUVHTi1HZndKWllqZ05ocmNRZmVFNkFuSHJER2hBUjNnV0xwbkpCRkNqejRJeWRTaHIwdGgzV2pPWFEtYXU2dVN2dGc5aThNRThxdWxDU1FzbFNoU013a1JodHpfa1Fnck9QMjdNc1l6a3BNa3MzdVlpRkpaRFM3ZUp5Y2VUNWM3b2NRalMxNU9HZUViRV9CS0hmNk8wbF9ITWcxRjQ2RnhYLVBwMktEMHJvQ2RtM3luaUMzUkJPeGFYRnREandEemlRNjIxNTFGMmVGQVQtcXJqYkkxOTRyY0lYRUtTWA?oc=5",
       "headline": "Oil Prices Today: Brent Crude Climbs to Near Two-Week High at $106.19 as Houthi Attacks on Saudi Arabia and Strait of Hormuz Tanker Strikes Raise Supply Fears - The Sunday Guardian",
-      "detected_at": "2026-10-13T19:19:05Z"
+      "detected_at": "2026-10-14T04:56:32Z"
     },
     {
       "event_id": "2a3f5fb7f53675d8",
@@ -74,7 +74,7 @@
       "source": "inkl",
       "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPR1lDZjM2VWVzNDhTdnFOQnlUdklaQVdUcHQ1YnpYM1gweUhKb0JkMWdILUVRLW1YM3Z2eENmOVFaNEdNajlvRE5DclJsbkJLRTQ2V2VhZ3Z1M2ZvNjFkX1RQVmdpNm9FY1ZFUkgyV1dGVVUxWjFtV0tNWTI5ZUM1TkIyLWphVTczeG5HNGNrQlZ2SUJFazZfOC1hX3d0TTY5ay0zVVpIblZLRWdjZzBzaVI3ajB1MDBHdFNhWVVOQy1Wemoxem5jQ2lnMA?oc=5",
       "headline": "Ukraine-Russia war latest: Nato will destroy ‘everything’ used in attack if Putin launches assault, says top commander - inkl",
-      "detected_at": "2026-10-13T19:19:06Z"
+      "detected_at": "2026-10-14T04:56:32Z"
     },
     {
       "event_id": "4f4cf386cebc23d4",
@@ -88,8 +88,8 @@
       "auto_generated": true,
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPa2sxWTVlekZ2bXloVXNiOUltMm5iODVOMW9NTUo4Q016ZU02OFQ5TU9relFTcUZSaW8xV0c2YmNVbE5jWW5uQjhKeXNKaWxBcE92SU1fQUU0R2RVamdNUzRhTER3NzEzMFUtRVd3bzVnZ1g0ZmtRek95VHdYbVNNMmNacmlDd3dLTThmaGF2VVJDYTc4c1hQeUZfX0ZGQzZjTXlpLU52U3JuUGpjOHJjWndoS19LandSX0dtMmdUMzNKZw?oc=5",
-      "headline": "Oil prices ease as US-Russia diesel deal hopes offset Middle East attacks - Reuters",
-      "detected_at": "2026-10-13T19:19:05Z"
+      "headline": "Oil prices settle mixed, focus on US-Russia diesel deal, Saudi Yemen attacks - Reuters",
+      "detected_at": "2026-10-14T04:56:32Z"
     },
     {
       "event_id": "196cd022ed7f01dd",
@@ -104,7 +104,37 @@
       "source": "The Times of India",
       "source_url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNNkM4QmNiUGc1V1lJVlJEWlZWemNscml2LU1VSDNnR2VsV3kxekVOdV9qNVRuTHpESTJjOTd1V3FQZ21ROVlJSnh3V09XX2ZacVZMSnJrSHZyR3ZJRFptUlk1Vm56QnU5UERyT0JPekV1ZTJ0S0JzWTNmbC1yWlZockxxaE1tX0YtMUxwT3JLOWZwTktVZGduYldNRnBjZngxQ09zRHh2Y0xuOWVCN2JXLXBaVFRGMGk1bkNXRnAwd0l2d0s0Z3ExYzBJN05oWDJNTWdyT3VRVExqbmFjNmtvT0RkM0ZhWEh1ZjJuQ2E3WU9FV2l6VkZHZ0ZGaGFZMUXSAYQCQVVfeXFMT2VjQ19SRjlVbWQ4ZlRGbFAwYktrWGJDc0p5aXlnMWgtakxDejU2TUg3UmdRLTBxSVoyLXFwd05CSHJjb1hwUzZJaGYyaTBidzRTTU1OUWI4OS15aDdXNVhBSkxRSTFvZHR5Y0ZDbWhqa21xTGtzTVFnU29uRy1SV3czaGtXcy1nTTY2Y2RiVUpyVFNDbGV4cUJVQkFoaFh3OWI3T2FPcFgxeXJBZFAzQTdYa1FCNnNOWEI1czBIU1ppQ0VWOXIwa3p0WjB3UjVPcTRyVmhLNFJVc3h3Qi1EQ1ZlX3VIb2JJYTFqcnRXY0J2Mi01QUllbkxjR29SaEdrd01hejc?oc=5",
       "headline": "'Ukraine has not attacked Russian oil refineries for 2 days': Zelenskyy on Trump's 'energy ceasefire' - The Times of India",
-      "detected_at": "2026-10-13T19:19:06Z"
+      "detected_at": "2026-10-14T04:56:32Z"
+    },
+    {
+      "event_id": "f1f9c2b82a6a6dae",
+      "kind": "point",
+      "date": "2026-10-13",
+      "label": "FOMC 利率政策重大变化",
+      "category": "利率",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.8,
+      "auto_generated": true,
+      "source": "Bloomberg.com",
+      "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQb01adkN2OHdNQWZjaW9DMVk0NlotU0RrVkV2dGVDZDc5WTY5aEJmemJtSjY1eTJNRjM1UzY1OUlBMXNHQ0FBd09mV3ZXdWJlZXZhY2N6Sng3QnRNcW5FY1cyU216SmNtVUNIcEd4TFR4aHR1cGR1eU1CYkZOdjQ0SndhRzJKdWc0aGM1cnlTSWpHZnJJbEtrZVduWl9fSmJObDNFT2k5UXREWWtBT3J3?oc=5",
+      "headline": "Fed’s Williams Currently Sees No Need for Rate Hike in 2027 - Bloomberg.com",
+      "detected_at": "2026-10-14T04:56:31Z"
+    },
+    {
+      "event_id": "f351f836375bb750",
+      "kind": "point",
+      "date": "2026-10-14",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Iran International",
+      "source_url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1wQmxYOERIOGlCRFkyM3FMWjg3eVp1UVpCQm5MdENQdUNBRHBrOVJlU3FzNGR2czNHZzdXd3NjbnVlR204Qkp0TE56Tzk5UVpHcEE?oc=5",
+      "headline": "Iran escalates Hormuz tanker attacks in gamble ahead of US midterms - Iran International",
+      "detected_at": "2026-10-14T04:56:32Z"
     }
   ],
   "scheduled_events": [

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-15T04:42:43Z",
+  "updated_at": "2026-10-15T11:32:42Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -101,10 +101,10 @@
       "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "The Times of India",
-      "source_url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNNkM4QmNiUGc1V1lJVlJEWlZWemNscml2LU1VSDNnR2VsV3kxekVOdV9qNVRuTHpESTJjOTd1V3FQZ21ROVlJSnh3V09XX2ZacVZMSnJrSHZyR3ZJRFptUlk1Vm56QnU5UERyT0JPekV1ZTJ0S0JzWTNmbC1yWlZockxxaE1tX0YtMUxwT3JLOWZwTktVZGduYldNRnBjZngxQ09zRHh2Y0xuOWVCN2JXLXBaVFRGMGk1bkNXRnAwd0l2d0s0Z3ExYzBJN05oWDJNTWdyT3VRVExqbmFjNmtvT0RkM0ZhWEh1ZjJuQ2E3WU9FV2l6VkZHZ0ZGaGFZMUXSAYQCQVVfeXFMT2VjQ19SRjlVbWQ4ZlRGbFAwYktrWGJDc0p5aXlnMWgtakxDejU2TUg3UmdRLTBxSVoyLXFwd05CSHJjb1hwUzZJaGYyaTBidzRTTU1OUWI4OS15aDdXNVhBSkxRSTFvZHR5Y0ZDbWhqa21xTGtzTVFnU29uRy1SV3czaGtXcy1nTTY2Y2RiVUpyVFNDbGV4cUJVQkFoaFh3OWI3T2FPcFgxeXJBZFAzQTdYa1FCNnNOWEI1czBIU1ppQ0VWOXIwa3p0WjB3UjVPcTRyVmhLNFJVc3h3Qi1EQ1ZlX3VIb2JJYTFqcnRXY0J2Mi01QUllbkxjR29SaEdrd01hejc?oc=5",
-      "headline": "'Ukraine has not attacked Russian oil refineries for 2 days': Zelenskyy on Trump's 'energy ceasefire' - The Times of India",
-      "detected_at": "2026-10-15T04:42:43Z"
+      "source": "Newswav",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOMjBhREU2TVl3d0dkdUNiRlVoWmRCczA1NUY1aDhXUFRIWWFOLUt3Wk85bDgxV3BuSlFoWEtBYXNidFpYOHJGTC03M1pXWWRVc1dhdl9TSFV4UFZadHBBN1RGcmNNMHd3aXAyU2h2NXJDV2U4RlJYNTlINUpvUi1wUkRYMGZ0TVUwS1FHZUNTRGl1Q3VVYzVpb251SEdmRUdFZWg5bEJQTXBjVmdZbkRnNldqVmdHRGM?oc=5",
+      "headline": "Ukraine-Russia war latest: Trump insists energy ceasefire still holds and lashes out at diesel deal critics - Newswav",
+      "detected_at": "2026-10-15T11:32:42Z"
     },
     {
       "event_id": "f1f9c2b82a6a6dae",
@@ -134,7 +134,7 @@
       "source": "Hindustan Times",
       "source_url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPdkloNFppOGQ2RjBGUE9adGhrYVEwVWdkVi1NVnRyNFBIMkxYdnV6ZDdXYWc3ZndWZlJIUTgzeWJnZy1LU2hLd1dKdDhnUERYS041Y0tBYU5EZDlSZGxWbkdYblZNdXBvU01NQUNXbk1aT0k3ZkE4WkRwQXdNQk00SVJpeUNPelFqd1ZiOFFUb3pNb1FfN2s4LS15UVNqbXVsaENJOEt4Mk5QWDEtMnQ2UDN4SVZreDlmVkl6RTNBSEhQRzdPa1RlODZ2bjVKbURXU09FVXlub0VTcGFlQU1UdXlJSm1ZUXdaVVNTbmhlRlRHTllO0gH6AUFVX3lxTE1Gd3l6ekMwdTVkZHhOdlU0eW9VYVZURS16U1ltSkVFTURLWE13Um1tal9JVktpa2xGZHdRVXpEN21LNV8wZXNDbnRmX2VXSFQwc1NIbklqaE5SUDE5RDdSZ19KcGZCQmFFMFVVSlg1ZzZQUE1OMkR0SHhwRi1zcUVoM1B3ZUU5TGNYbHhFUHBzMGdmcTdUTlRsd2h1Ql90MHkxbjYtUEpHTktrVl9BZlBMTTFvcU51eXZpalF3VldwRXVRYjNQWnNiR1BFZHg3RkVGVU5aLUlNR0R2eGZuMDd4R3BQeXJ2c1N1Und1N2xYQ0ZDaXNiYUNjTGc?oc=5",
       "headline": "Oil prices today: Brent crude hits $106.60 after Saudi Aramco attack, ship strikes near Hormuz | Hindustan Times - Hindustan Times",
-      "detected_at": "2026-10-15T04:42:42Z"
+      "detected_at": "2026-10-15T11:32:41Z"
     },
     {
       "event_id": "8cfade9ff3b44e91",
@@ -149,7 +149,7 @@
       "source": "The Sunday Guardian",
       "source_url": "https://news.google.com/rss/articles/CBMiywJBVV95cUxObjhla1BCZEJQa0NKSTFSWDdwX0RjTElWY2g1VHFWd25TNGlpUDJIQUQxWEN6YlZYYmI2cVN3a01vOUlQcndDcnpIZC15ek5rdTNxSTRRYU41YldZZWp4eVBSdElsYUxtT1pFMHJ6d3hBYmlhaTViTXpTeW05ZVpPTnFJTGF2N2pMcm5EeUxlVjFVWFJja1JmWFFoMUdPbl9SOHpiVTBWTFk5SkNyWkhYOWtmdkp5eUxiZktXdHRqVDA1TDk2WjdhcXc0bW41MlJzUjJ5a19mNG5oS0VXcGtXSng4M3lrY01FODBhaXdiQlVlNjdaR1NBRl9FTm9UOXp6Y2dSZjd3aVRIYjZVbDZEOHlsZnRpcjIzY0g3WVAwNXctRjhKRlREb3oybElLUlRtSkhsaE5LMWxYdTJSckJndjU2dXhpN2xWbktN0gHQAkFVX3lxTE9UTjBZanhkN1RRdTdfY2Z2RUFRNWFPWWxsSFpYQmdzZXNDOGJIMWRRQmZhV0g4OFdsaXF5R2h5SDB6YTJKb1FNeWJtd2tNcDVVMWhtbVlGdHFzRzVNQWhHZ1JoY3d6NDNTTHpKR1pPM2haeEE0NGRlZUtPQ2g0eHFSV1NaRU9RUjNuZXdZdC1RRlVxYzNiSzZ1b0wwN0ZlbnpfalBQN1RVQTlBSmcyS2dHWURkT2Njd1Z1V0ZtQndvWlJsNjc3QkItT0JBYVZKWUtxVmNxTWtGSkVUWlgzYzM3a0tRc2ZKWWlfMkNmVmFqaHNfZ3lfSjFBcXBoUTJ2V3Utbk1FWFo0bm83VDIwS0NWWVFSQlhSOUxxelVDWXNnaG1KUkNPcVJIcXd0NmZtRVJXTnN2RjFfcUM1QjRTN0wyQUNmbF9VWUE0cVdvS3RIXw?oc=5",
       "headline": "LIVE | Gold Price Today: MCX Gold Slips ₹1.48 Lakh, Silver at ₹2.35 as Oil Surge, Middle East War Ahead Fed Rate Hike — Check Latest 24K, 22K, 18K Gold Rate in Delhi, Mumbai, Kerala, Chennai & More - The Sunday Guardian",
-      "detected_at": "2026-10-15T04:42:42Z"
+      "detected_at": "2026-10-15T11:32:41Z"
     },
     {
       "event_id": "46eb1964e9f03d4d",
@@ -164,7 +164,7 @@
       "source": "BNN Bloomberg",
       "source_url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOT2VrdjJzVWc4aExfR3B1bFFaQmtqTEc0S09rQlNnbnJiRFJxREYyTmZNUl83MVNGdHJLckdwcEF0ODRvLW9nR3ZNTFFLMEROQmVCeElHUWlfMU1tRkR6XzhwdjFQZXR2cXNwaEItV0U5YTJZMHVGZGtfUTdvcGw4MVBuLXUxQWpQd2d4UjItOEpuS1ozS0x6VzhrNDk5RWVyR0tHMU1GMW9DZGM1TlliV05WamppT2lqNnUweFdrSQ?oc=5",
       "headline": "China’s trade surplus nears record as pressure mounts from trading partners - BNN Bloomberg",
-      "detected_at": "2026-10-15T04:42:43Z"
+      "detected_at": "2026-10-15T11:32:42Z"
     },
     {
       "event_id": "2db7463615baae4a",
@@ -176,10 +176,10 @@
       "status": "auto_high",
       "confidence": 0.85,
       "auto_generated": true,
-      "source": "inkl",
-      "source_url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOS3RBMmo1QzBuR3o1X05ucjJ4T19hNEgxdFdJd3E2RUg2YkJ4T3laTmY0NzdRWmQ2bFFENEdyZktSRmxjZWRLWUpNamxTQ01vb1piQU1qNkJ6dTBSUHBZZWJqMFdMUnpzQmUzeXB1aG9QUU12dFJrU1UtXzJQVmNWZ0gySXNHRGl3MF83YmxTeERGVzRTel9RU3hDdVYyZUdxeWlFdlB2VWpKNDhnRkh5XzlBMC1JVmp3LV8ydWZXY3VnMlFZSm81Ri04TEpoOEtSUlE?oc=5",
-      "headline": "Ukraine-Russia war latest: Kremlin confused by Trump’s energy ceasefire after attacking power plants and cities - inkl",
-      "detected_at": "2026-10-15T04:42:43Z"
+      "source": "Daily Express",
+      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOQUZqNEFXdlB4UXNVNDYtMmhkZXFzYU1mZFljVkd5U2tvYWh4cGhJWUpNakpqZnAyX2laVE93YnNpN2ZmSThINk1rX3pxNHJHQnh5RTBtNDVoQkVZc0xOSS1nYW9aRE93YmhtYUR1dENvNmRUTlIydklYLS1yRDhsWHh6VGlvMzJPQktsMlBaSGVENF9sQTRsc3ZwVmRUeFFwdW5rX1VlYzXSAa4BQVVfeXFMUGtzTHB2TnFocXFmM2txdEc0VEprQkhOZzNWUXREX3BkREpRN2tSQWU2T3BleXk1dzdzdE9YdGJZcUNiQkc5bUlvdnZiRk1fX1VDeFlhYXlId3IzZHp0U3pnZlhEVk1TdzVxTjdod3kxVWRTWG5EaHV3Q0ptVEl5SG5NVGV1b2gwYmthLUxFbE96SnVTR3IwdUpZU0xYYU9CUF92NWRPd3RMc2pCTGJB?oc=5",
+      "headline": "Russia launches horror attacks as 600k left without power – NATO scrambles fighter jets - Daily Express",
+      "detected_at": "2026-10-15T11:32:42Z"
     },
     {
       "event_id": "71b181e04d431587",
@@ -189,12 +189,27 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.85,
+      "confidence": 1.0,
       "auto_generated": true,
-      "source": "The Sunday Guardian",
-      "source_url": "https://news.google.com/rss/articles/CBMivAJBVV95cUxOU25ReE9GVS1XU0VPZVZRQXo3TGczM3FoV2FEMXJJRmlDbWdIYUJvX3JKT3ppWjVnOURDN09YMnl4MjVUaElTOEJEVk1NSmRLZXJDQUZoRWNYRDNiYnlfSHo4X0h6b2h3Q0dYVU5pY0hPVmxvbjJFT1hod19qdThfb00wbTdUUnFCaVZDcXhzWmRjcHQzRV9IeGwtUEE2UzUzSUlxTWpPRlpuQ3lRZXVUR1d0bzhYNjVYSUJMdDFHUEJJY05aUkFCTGNLQUs5MGRnRkdwNGFlUFV2Mm1aNVVmdUVxeU5yM0Fpd2tQOVhRck8ySjNuZlpVTGlPY2pBV2FHUzZaVTZ5bjlqWkRUV2Z2NzhnS3VCaHNublgza2JvR3BBSHJVc1RsRV9oT0MzbmpEdlNlSnpDejVlYkx00gHCAkFVX3lxTFBCTEFmZXFkWUZOeTBOZ3FVaXo0bkg4S202bjA4Zk9VVDJzb0x2U3F2NHZQSUZ4NTdReXhBcE52QnJpRHdDcHZxSW5iMUx4V1AyZ2pOUmJyWTNycE93NU9CU25fVkV5WW9yUC1JMFZMRF9qQlBOcUFnU1BFZ2lpQVpTSWtsWGRwWUEwYklHZDZSc2hpUHBrT0tNSXdPV05xdkFVZWp5MXJKSjRyTkc5dWRwcXB2cXlWTUZrTmpfMFFjWkZ6dzRHMFJYN2duWHNqaXNCLWtXSThNVUl2bEVTbmdwRjEzTnl6MDF3TnpvRkxvc1VhbmFkdzJZdnNBZlRUblhWNFVDOGF3SUh6Q1FEcnZwS1ZfcGYtd0loLXc3WVdzMzFBcjNQTmNYNzV0b05hUUUyZ2VNdlYybmFQQUtZaFVMb1E?oc=5",
-      "headline": "US-Israel-Iran War Latest Live News: Saudi-Led Coalition Intercepts Drone Over Eastern Saudi Arabia as Oil Prices Fall Over $1 a Barrel Amid Surging Strait of Hormuz Attacks - The Sunday Guardian",
-      "detected_at": "2026-10-15T04:42:42Z"
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxONmZVZ0RfSms3U0s1SVE3N3ZMeWxLaVhtTjczazRmNU40UkpCUldVbWZJVUtJVkt3cHdLOEpoTl9qY0lFXzdKWUtydmYzVi1MeDExbXB6eHc3NjAyTi1CT2lveE5WVUNPeHV5SndkU3BmRUNiS1JCQUI2bDYyZjd6RjltYUhzeFVmUDFPSU93NWo?oc=5",
+      "headline": "Iran’s precision strikes picked apart Gulf infrastructure, blunting US war plans - Reuters",
+      "detected_at": "2026-10-15T11:32:41Z"
+    },
+    {
+      "event_id": "7e0673944c5e95dd",
+      "kind": "point",
+      "date": "2026-10-15",
+      "label": "俄乌战争重大升级 / 缓和",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "https://globalpost.com/",
+      "source_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNa1RfTmlUYnlMZVRaRVFmYWljemFxTjNNVExoSUxaVVY5a3VULV9FQTZubDJYMTRwRUlPcWhUNHlOeFpVdDdHcEhQM21sUk00dU9FZFY0THZ4dkViWnlKZk1XRlMtNWJfcjdYWVhyMU0xRmNTNlpTYkZLdG5reHR2OEJXaDJCSnFNekVNck90SktCZVd6UXdVRFViamU2VUNCQkRmQkpqUm8xVWNvY0RPSU1Nc3VaYlU0?oc=5",
+      "headline": "Zelenskyy ‘Welcomes’ Trump Announcement of ‘Energy Ceasefire’ As Russian Strikes Continue - https://globalpost.com/",
+      "detected_at": "2026-10-15T11:32:42Z"
     }
   ],
   "scheduled_events": [
@@ -395,7 +410,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 8,
+    "discovered_count": 7,
     "scheduled_count": 10,
     "failures": []
   }

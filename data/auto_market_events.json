@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T04:34:54Z",
+  "updated_at": "2026-10-16T11:27:41Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -134,7 +134,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxON0hPaGRDOW9haXRKcUJ3WVU5dVdwSjB2ZzNMZTVWd0lRYV9ZUjRNRTI4VjVXeERGeW1XVU1GanZidjZneXhKeFh1dWM0OUJ6ZGltVXFXdHJNVk52MDN5M3NvRnhUUWN6aEFiSldFUWxfeHNPYmQ2R21JMGlhaUNaWEFNckc0T0ItSFpYcHA3MmM4UUdnTVd0VFg0NWhtbm91MllPWllha0pqdVBjZlRldDgxaG5PclVud0xtNQ?oc=5",
       "headline": "Oil prices gain on attacks in Saudi Arabia, Iran's new tactics to target tankers - Reuters",
-      "detected_at": "2026-10-15T21:25:12Z"
+      "detected_at": "2026-10-16T11:27:40Z"
     },
     {
       "event_id": "8cfade9ff3b44e91",
@@ -149,7 +149,7 @@
       "source": "BNN Bloomberg",
       "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPeG5zTjVXRktPRFJFVnAxbkZEcWJHOGRrcnVLVkZjeUVzSklKeDhnU3d3Vm5vNC1TYnVJUmd5d1ZYVGJPSk5kTUN4WER6eTQ0U1p6Q3R5Y1hsYnhUX3p2TXZVekdXYWhEN0ZnTEFVLXEwekNHek5wZzRVSkNVU1RjenducVkySzNybHJnNUF2VE8xaHQ4TzY4SlVVdFJUYW9kVGdnMmZtelFmZ1pTOHQ5d0w3SQ?oc=5",
       "headline": "Fed rate hike call seen tight as U.S. inflation heats up - BNN Bloomberg",
-      "detected_at": "2026-10-16T04:34:52Z"
+      "detected_at": "2026-10-16T11:27:40Z"
     },
     {
       "event_id": "46eb1964e9f03d4d",
@@ -194,7 +194,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxONmZVZ0RfSms3U0s1SVE3N3ZMeWxLaVhtTjczazRmNU40UkpCUldVbWZJVUtJVkt3cHdLOEpoTl9qY0lFXzdKWUtydmYzVi1MeDExbXB6eHc3NjAyTi1CT2lveE5WVUNPeHV5SndkU3BmRUNiS1JCQUI2bDYyZjd6RjltYUhzeFVmUDFPSU93NWo?oc=5",
       "headline": "Iran’s precision strikes picked apart Gulf infrastructure, blunting US war plans - Reuters",
-      "detected_at": "2026-10-16T04:34:52Z"
+      "detected_at": "2026-10-16T11:27:40Z"
     },
     {
       "event_id": "7e0673944c5e95dd",
@@ -209,7 +209,52 @@
       "source": "BBC",
       "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE55WlVaQ0dKd18wLTRNdDZ1clMtOGU2eTBYOU5wWnY3bWgtU3lWTmNpd1pHTFZNaW9BVDZWMXh4Si1jd2c0S0pxalhyQ01FU1NXb2s3elViWGY5MlU?oc=5",
       "headline": "Russia accuses Ukraine of attacking oil refinery after Zelensky says strikes to resume - BBC",
-      "detected_at": "2026-10-16T04:34:53Z"
+      "detected_at": "2026-10-16T11:27:41Z"
+    },
+    {
+      "event_id": "a8dff28f3d8648dc",
+      "kind": "point",
+      "date": "2026-10-16",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.7,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOY0FIVXBWc1k5eW1ObWUyOGNQS1NGZDA5anNoLVJmVDRoMGR0ZUM5aWdDYTFDX3lKN2dYbVlhZzhuTFUwcVo3N0xmTkpBNXJKV2JLVW9qUmdmNWdxaWFJVlFZLWVPVHJjZ0RTNUdYdGxoMk9RZms0aHpzQWlTVDd4LUNnQ1RKUlZmVkhFSS1FQlk5bWl1dkU2QTQ0bDA2dVdHVzMzcTlRZi00ZkM1THVWRFgzTnYtUm9id3pBM1BWeEI4ZVFqU1ltSDB2SQ?oc=5",
+      "headline": "Oil eases but heads for small weekly gain as investors focus on Middle East supply - Reuters",
+      "detected_at": "2026-10-16T11:27:40Z"
+    },
+    {
+      "event_id": "9e9aabf4b6ef71bb",
+      "kind": "point",
+      "date": "2026-10-16",
+      "label": "俄乌战争重大升级 / 缓和",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "UNITED24 Media",
+      "source_url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOSDV4c0thRWp0YjdsUS1TU3VuZGZLTVZNOWtnb2JqdDhFVUp6Vk45MHFtaXNkeUJGck4zQzNOc085Q0ZfZXh0MHZxODkzengxLWR1QmVrQjRvSWN6blpKREY1LTBuazY4ZmtuNkZsbWd2VWFqVEV3MzFnaXNhR0lFbzVGY2R6LWtRQTZTT0lCMllQWHpROXBvMVhDdU9ic1djcjBKQUppZDUtV2RJMXBOVVFsc09UemxxVl9HMlIwU2pEMkZnOG1Jc0pPaTBSQkZIbTVIUmJfUTlaRWZBUEd4Z2lkNkhpTmVZ?oc=5",
+      "headline": "“Not a Single Minute”: Von der Leyen Slams Russia’s Ceasefire Violations as EU Prepares 22nd Sanctions Package - UNITED24 Media",
+      "detected_at": "2026-10-16T11:27:41Z"
+    },
+    {
+      "event_id": "a1850bf25a21a96b",
+      "kind": "point",
+      "date": "2026-10-16",
+      "label": "贸易 / 关税 / 出口管制冲击",
+      "category": "贸易",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.8,
+      "auto_generated": true,
+      "source": "CNBC TV18",
+      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNdUZ2dHBaZmYzc3NEQ1c4Ny1pdDF1YVF5U0tZTnFEeTQyZEF4aTU1ZFlOWUhLdjN1V1gxcjVLbTJUekFNblNmS0kzWWx1azEwWklxMXRmRlM0blh4am1Ba0txTWNRekdNSFFnM2Y0dDQ5SWVUZVBRbXdkVzJvc1B1N3VBc25tUXoxZFJsQkhuTjNLSS1LdzVKTWZmZTZNMnVSZGFxQ2dBY0k4UmJy0gGyAUFVX3lxTFAwLTJzX0JQcEFhWi1tQ3A1ckxHaEt6eG1tTU5xWEU3UUtpaFNaYlRlTW5RTlRWenFrb29lLVRTdnQxanE5ZU9WdHN3QVdYMnZMeElpRTMxaXZKWXJfR0ZNVmJ1NmtvTkpPcWp0eUNUOXpWbnRLT1BfTDF2UC05ZmdCRmNMdTk0d245dXZsN0Fpc3FjTWozM0xnVTZIeVFZRVdpRVhQS3RGdnctRmRFTWFYVlE?oc=5",
+      "headline": "Taiwan to curb AI chip exports to China as part of US trade deal - CNBC TV18",
+      "detected_at": "2026-10-16T11:27:41Z"
     }
   ],
   "scheduled_events": [
@@ -410,7 +455,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 5,
+    "discovered_count": 7,
     "scheduled_count": 10,
     "failures": []
   }

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T16:41:37Z",
+  "updated_at": "2026-10-16T21:11:41Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -209,7 +209,7 @@
       "source": "BBC",
       "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE55WlVaQ0dKd18wLTRNdDZ1clMtOGU2eTBYOU5wWnY3bWgtU3lWTmNpd1pHTFZNaW9BVDZWMXh4Si1jd2c0S0pxalhyQ01FU1NXb2s3elViWGY5MlU?oc=5",
       "headline": "Russia accuses Ukraine of attacking oil refinery after Zelensky says strikes to resume - BBC",
-      "detected_at": "2026-10-16T16:41:36Z"
+      "detected_at": "2026-10-16T21:11:41Z"
     },
     {
       "event_id": "a8dff28f3d8648dc",
@@ -224,7 +224,7 @@
       "source": "Bankingnews",
       "source_url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNLS1RSnp6dFVxOWtFS0lpTzJhVGZmVXFZWmYzOEZCckhXdW45dFdEX2R1OTlQcFZkc0hvbHRKVm5KVnlwZktxdmRGVDdmZUlDSG95WEFRLUlFMHFFTlYzOXBjQjRnRGV4S1pIWG9ub05yTG11WGZDaEdPSnF0aThXQVVJcno1bE9FWktsV254ek0xOXlFWGhiQk5PYVJIMGxPdGFlUDIwb2FkbE92d3B0bTg3MmxIa0xjdTdCZUNHa3liQloza3NsdHZnenZsOWlxblE?oc=5",
       "headline": "Trump faces two losing options in Iran as IRGC warns on Hormuz - Bankingnews",
-      "detected_at": "2026-10-16T16:41:36Z"
+      "detected_at": "2026-10-16T21:11:40Z"
     },
     {
       "event_id": "9e9aabf4b6ef71bb",
@@ -234,12 +234,12 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.75,
+      "confidence": 0.85,
       "auto_generated": true,
-      "source": "UNITED24 Media",
-      "source_url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOSDV4c0thRWp0YjdsUS1TU3VuZGZLTVZNOWtnb2JqdDhFVUp6Vk45MHFtaXNkeUJGck4zQzNOc085Q0ZfZXh0MHZxODkzengxLWR1QmVrQjRvSWN6blpKREY1LTBuazY4ZmtuNkZsbWd2VWFqVEV3MzFnaXNhR0lFbzVGY2R6LWtRQTZTT0lCMllQWHpROXBvMVhDdU9ic1djcjBKQUppZDUtV2RJMXBOVVFsc09UemxxVl9HMlIwU2pEMkZnOG1Jc0pPaTBSQkZIbTVIUmJfUTlaRWZBUEd4Z2lkNkhpTmVZ?oc=5",
-      "headline": "“Not a Single Minute”: Von der Leyen Slams Russia’s Ceasefire Violations as EU Prepares 22nd Sanctions Package - UNITED24 Media",
-      "detected_at": "2026-10-16T16:41:36Z"
+      "source": "Facebook",
+      "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNcENSdU9ISEVNWXY2eXpNaU5CdnhUdVJHNEwyU29pOXlORUVFbGt3VXZJQXBPWkhNQmRXZFdDcFRHN1Y2U09hWk1uYTNXbW1ZSkw2QmRFZnpoQlB1TGJsTmJuT1ZxQUxURUx2ejZYSDRxOC1ncUx2Zzdfbjg5REd4Z1RseHQ4U2NYelhteDF5azlXeTNvTzRkYW11ckNHY24xYl9sTGFxbHZJdE9OeEpSaXdrengzUU9Fem1aakRVUnd6YnlHWVA2T3ZrWlZ5WmhpdEU0cE05ZXZ3VnM?oc=5",
+      "headline": "Ukraine hits Russian refinery as Zelenskyy says 'we're done' with Trump's energy truce Ukraine strikes a Russian oil refinery after President Volodymyr Zelenskyy declared Kyiv was abandoning a ceasefire announced by US President Donald Trump. Full story: - Facebook",
+      "detected_at": "2026-10-16T21:11:41Z"
     },
     {
       "event_id": "a1850bf25a21a96b",
@@ -254,7 +254,7 @@
       "source": "CNBC TV18",
       "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNdUZ2dHBaZmYzc3NEQ1c4Ny1pdDF1YVF5U0tZTnFEeTQyZEF4aTU1ZFlOWUhLdjN1V1gxcjVLbTJUekFNblNmS0kzWWx1azEwWklxMXRmRlM0blh4am1Ba0txTWNRekdNSFFnM2Y0dDQ5SWVUZVBRbXdkVzJvc1B1N3VBc25tUXoxZFJsQkhuTjNLSS1LdzVKTWZmZTZNMnVSZGFxQ2dBY0k4UmJy0gGyAUFVX3lxTFAwLTJzX0JQcEFhWi1tQ3A1ckxHaEt6eG1tTU5xWEU3UUtpaFNaYlRlTW5RTlRWenFrb29lLVRTdnQxanE5ZU9WdHN3QVdYMnZMeElpRTMxaXZKWXJfR0ZNVmJ1NmtvTkpPcWp0eUNUOXpWbnRLT1BfTDF2UC05ZmdCRmNMdTk0d245dXZsN0Fpc3FjTWozM0xnVTZIeVFZRVdpRVhQS3RGdnctRmRFTWFYVlE?oc=5",
       "headline": "Taiwan to curb AI chip exports to China as part of US trade deal - CNBC TV18",
-      "detected_at": "2026-10-16T16:41:37Z"
+      "detected_at": "2026-10-16T21:11:41Z"
     }
   ],
   "scheduled_events": [
@@ -455,7 +455,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 6,
+    "discovered_count": 5,
     "scheduled_count": 10,
     "failures": []
   }

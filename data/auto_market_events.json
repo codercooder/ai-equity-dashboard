@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-15T21:25:13Z",
+  "updated_at": "2026-10-16T04:34:54Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -149,7 +149,7 @@
       "source": "BNN Bloomberg",
       "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPeG5zTjVXRktPRFJFVnAxbkZEcWJHOGRrcnVLVkZjeUVzSklKeDhnU3d3Vm5vNC1TYnVJUmd5d1ZYVGJPSk5kTUN4WER6eTQ0U1p6Q3R5Y1hsYnhUX3p2TXZVekdXYWhEN0ZnTEFVLXEwekNHek5wZzRVSkNVU1RjenducVkySzNybHJnNUF2VE8xaHQ4TzY4SlVVdFJUYW9kVGdnMmZtelFmZ1pTOHQ5d0w3SQ?oc=5",
       "headline": "Fed rate hike call seen tight as U.S. inflation heats up - BNN Bloomberg",
-      "detected_at": "2026-10-15T21:25:11Z"
+      "detected_at": "2026-10-16T04:34:52Z"
     },
     {
       "event_id": "46eb1964e9f03d4d",
@@ -179,7 +179,7 @@
       "source": "Daily Express",
       "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOQUZqNEFXdlB4UXNVNDYtMmhkZXFzYU1mZFljVkd5U2tvYWh4cGhJWUpNakpqZnAyX2laVE93YnNpN2ZmSThINk1rX3pxNHJHQnh5RTBtNDVoQkVZc0xOSS1nYW9aRE93YmhtYUR1dENvNmRUTlIydklYLS1yRDhsWHh6VGlvMzJPQktsMlBaSGVENF9sQTRsc3ZwVmRUeFFwdW5rX1VlYzXSAa4BQVVfeXFMUGtzTHB2TnFocXFmM2txdEc0VEprQkhOZzNWUXREX3BkREpRN2tSQWU2T3BleXk1dzdzdE9YdGJZcUNiQkc5bUlvdnZiRk1fX1VDeFlhYXlId3IzZHp0U3pnZlhEVk1TdzVxTjdod3kxVWRTWG5EaHV3Q0ptVEl5SG5NVGV1b2gwYmthLUxFbE96SnVTR3IwdUpZU0xYYU9CUF92NWRPd3RMc2pCTGJB?oc=5",
       "headline": "Russia launches horror attacks as 600k left without power – NATO scrambles fighter jets - Daily Express",
-      "detected_at": "2026-10-15T21:25:13Z"
+      "detected_at": "2026-10-16T04:34:53Z"
     },
     {
       "event_id": "71b181e04d431587",
@@ -194,7 +194,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxONmZVZ0RfSms3U0s1SVE3N3ZMeWxLaVhtTjczazRmNU40UkpCUldVbWZJVUtJVkt3cHdLOEpoTl9qY0lFXzdKWUtydmYzVi1MeDExbXB6eHc3NjAyTi1CT2lveE5WVUNPeHV5SndkU3BmRUNiS1JCQUI2bDYyZjd6RjltYUhzeFVmUDFPSU93NWo?oc=5",
       "headline": "Iran’s precision strikes picked apart Gulf infrastructure, blunting US war plans - Reuters",
-      "detected_at": "2026-10-15T21:25:12Z"
+      "detected_at": "2026-10-16T04:34:52Z"
     },
     {
       "event_id": "7e0673944c5e95dd",
@@ -206,10 +206,10 @@
       "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "980 CJME",
-      "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNTXVIa0Jrd3oyMDZ6eERhOUZfUUxKTDFTMkZUeXVQTE1oZVZySldnZGJBWmNNN0tBTWJwV2c0b3dnZ1RYQUJxdV85Wlc4OVdmVjBnZWo0WXd4TlJTUjVTNWpSMDZWZUFBZmxlZXYxUWZzSHplck5VNjM0d01mbUdXUmVpS3BjSlBhLXBKQ0l0c3U3cWtSY2Z2X0xZOS14WEJ1ZEJVbzJjTGsxNWVvQjB1WGItdmYzQU05czdEUTdISlpOZ0QtOGtJSzNpSFRvdw?oc=5",
-      "headline": "Ukraine abandons truce and attacks Russian oil refinery as Zelenskyy says he feels betrayed by Trump - 980 CJME",
-      "detected_at": "2026-10-15T21:25:13Z"
+      "source": "BBC",
+      "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE55WlVaQ0dKd18wLTRNdDZ1clMtOGU2eTBYOU5wWnY3bWgtU3lWTmNpd1pHTFZNaW9BVDZWMXh4Si1jd2c0S0pxalhyQ01FU1NXb2s3elViWGY5MlU?oc=5",
+      "headline": "Russia accuses Ukraine of attacking oil refinery after Zelensky says strikes to resume - BBC",
+      "detected_at": "2026-10-16T04:34:53Z"
     }
   ],
   "scheduled_events": [

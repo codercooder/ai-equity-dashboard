@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T21:11:41Z",
+  "updated_at": "2026-10-17T04:30:03Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -209,7 +209,7 @@
       "source": "BBC",
       "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE55WlVaQ0dKd18wLTRNdDZ1clMtOGU2eTBYOU5wWnY3bWgtU3lWTmNpd1pHTFZNaW9BVDZWMXh4Si1jd2c0S0pxalhyQ01FU1NXb2s3elViWGY5MlU?oc=5",
       "headline": "Russia accuses Ukraine of attacking oil refinery after Zelensky says strikes to resume - BBC",
-      "detected_at": "2026-10-16T21:11:41Z"
+      "detected_at": "2026-10-17T04:30:02Z"
     },
     {
       "event_id": "a8dff28f3d8648dc",
@@ -224,7 +224,7 @@
       "source": "Bankingnews",
       "source_url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNLS1RSnp6dFVxOWtFS0lpTzJhVGZmVXFZWmYzOEZCckhXdW45dFdEX2R1OTlQcFZkc0hvbHRKVm5KVnlwZktxdmRGVDdmZUlDSG95WEFRLUlFMHFFTlYzOXBjQjRnRGV4S1pIWG9ub05yTG11WGZDaEdPSnF0aThXQVVJcno1bE9FWktsV254ek0xOXlFWGhiQk5PYVJIMGxPdGFlUDIwb2FkbE92d3B0bTg3MmxIa0xjdTdCZUNHa3liQloza3NsdHZnenZsOWlxblE?oc=5",
       "headline": "Trump faces two losing options in Iran as IRGC warns on Hormuz - Bankingnews",
-      "detected_at": "2026-10-16T21:11:40Z"
+      "detected_at": "2026-10-17T04:30:02Z"
     },
     {
       "event_id": "9e9aabf4b6ef71bb",
@@ -239,7 +239,7 @@
       "source": "Facebook",
       "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNcENSdU9ISEVNWXY2eXpNaU5CdnhUdVJHNEwyU29pOXlORUVFbGt3VXZJQXBPWkhNQmRXZFdDcFRHN1Y2U09hWk1uYTNXbW1ZSkw2QmRFZnpoQlB1TGJsTmJuT1ZxQUxURUx2ejZYSDRxOC1ncUx2Zzdfbjg5REd4Z1RseHQ4U2NYelhteDF5azlXeTNvTzRkYW11ckNHY24xYl9sTGFxbHZJdE9OeEpSaXdrengzUU9Fem1aakRVUnd6YnlHWVA2T3ZrWlZ5WmhpdEU0cE05ZXZ3VnM?oc=5",
       "headline": "Ukraine hits Russian refinery as Zelenskyy says 'we're done' with Trump's energy truce Ukraine strikes a Russian oil refinery after President Volodymyr Zelenskyy declared Kyiv was abandoning a ceasefire announced by US President Donald Trump. Full story: - Facebook",
-      "detected_at": "2026-10-16T21:11:41Z"
+      "detected_at": "2026-10-17T04:30:02Z"
     },
     {
       "event_id": "a1850bf25a21a96b",
@@ -254,7 +254,22 @@
       "source": "CNBC TV18",
       "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNdUZ2dHBaZmYzc3NEQ1c4Ny1pdDF1YVF5U0tZTnFEeTQyZEF4aTU1ZFlOWUhLdjN1V1gxcjVLbTJUekFNblNmS0kzWWx1azEwWklxMXRmRlM0blh4am1Ba0txTWNRekdNSFFnM2Y0dDQ5SWVUZVBRbXdkVzJvc1B1N3VBc25tUXoxZFJsQkhuTjNLSS1LdzVKTWZmZTZNMnVSZGFxQ2dBY0k4UmJy0gGyAUFVX3lxTFAwLTJzX0JQcEFhWi1tQ3A1ckxHaEt6eG1tTU5xWEU3UUtpaFNaYlRlTW5RTlRWenFrb29lLVRTdnQxanE5ZU9WdHN3QVdYMnZMeElpRTMxaXZKWXJfR0ZNVmJ1NmtvTkpPcWp0eUNUOXpWbnRLT1BfTDF2UC05ZmdCRmNMdTk0d245dXZsN0Fpc3FjTWozM0xnVTZIeVFZRVdpRVhQS3RGdnctRmRFTWFYVlE?oc=5",
       "headline": "Taiwan to curb AI chip exports to China as part of US trade deal - CNBC TV18",
-      "detected_at": "2026-10-16T21:11:41Z"
+      "detected_at": "2026-10-17T04:30:02Z"
+    },
+    {
+      "event_id": "344348b4131c6486",
+      "kind": "point",
+      "date": "2026-10-17",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.85,
+      "auto_generated": true,
+      "source": "The Sunday Guardian",
+      "source_url": "https://news.google.com/rss/articles/CBMisgJBVV95cUxPLVJPdDRHWWZIRlN3TjZZVGJqWnlLNHY0T08wc1lTWVBWVkstSm9aZXJYTUwtSHAzcXpibTRkSGdmYV9rTnBwNi1xZTNrakhZb0VWVG5MTnhjSnA1bWtBaDhVZ1pCNWVsMU1yRnV2emJfTzlMaUJwZkdyTk5QaEVtOUp0QnZESzRYaTgyb3FNeUwtRXBBd2dqVjJiWTVxWVNTSkNKYkZHYlBILXdGV29DcGNNd2FRSXMzb3BFeXNtMnNmNTRpT3ZBdDVJUnczY05Nbm04VjZrb0JrT0JqXzhUUlVIQXVpRkYxcGZrNkFsZlJMal9ZRTFCV1FtWk1GODUxRVZsUUlSQ01CZ1JjVnBRYTVOWS1VSUw1Q2l2VGNQT3FQX2h2SlRVVjVqMFNuXzBSU3fSAbcCQVVfeXFMTWdBOVJkTUh2NklLM040SDE4R0RpYmFuNVRYOHdPRUliWElXMFhWZ2ZtMmRWcXJqa28wWTYwcjhFamxwWWs0SDhhZUdSQTVSX0hvYnczQWdYTmc1LS1DeGNHWEVVVTBacXFwbUhEQWcxbFJoQWQ1ZlFrWm5nSE9rY0lVQUF3ZDNXOEs5cnBzdXJNd3RjbVNzWlg4bnB1b2JCaUZobXJGaFp5aW9ZQnZnbG9wNVAtVXVCUlpnY0ZIODQ5SVBULU5MdW8ybUF1Rm40Mnpra21MdzVNRjhoUmlMZG1CRVJQMWhZTC1QcnoxZ0JSa1lPeUl5ZTBqTzdQZ1hkWkp1S3hVN3JHcDZUUmZpS3JRYklsNHB6eFBkalVyTFkxTjJRaWJMMDZ1Y0FqYk5OWldPN19sbEE?oc=5",
+      "headline": "US-Israel-Iran War Latest Live News: Brent Crude Climbs to $109.86, WTI Hits $101.41 as Strait of Hormuz Crisis Deepens; Can Emergency Oil Releases Prevent a Supply Shock? - The Sunday Guardian",
+      "detected_at": "2026-10-17T04:30:02Z"
     }
   ],
   "scheduled_events": [
@@ -455,7 +470,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 5,
+    "discovered_count": 6,
     "scheduled_count": 10,
     "failures": []
   }

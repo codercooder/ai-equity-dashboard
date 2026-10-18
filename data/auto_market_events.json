@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-18T04:37:16Z",
+  "updated_at": "2026-10-18T11:09:35Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -239,7 +239,7 @@
       "source": "Facebook",
       "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNcENSdU9ISEVNWXY2eXpNaU5CdnhUdVJHNEwyU29pOXlORUVFbGt3VXZJQXBPWkhNQmRXZFdDcFRHN1Y2U09hWk1uYTNXbW1ZSkw2QmRFZnpoQlB1TGJsTmJuT1ZxQUxURUx2ejZYSDRxOC1ncUx2Zzdfbjg5REd4Z1RseHQ4U2NYelhteDF5azlXeTNvTzRkYW11ckNHY24xYl9sTGFxbHZJdE9OeEpSaXdrengzUU9Fem1aakRVUnd6YnlHWVA2T3ZrWlZ5WmhpdEU0cE05ZXZ3VnM?oc=5",
       "headline": "Ukraine hits Russian refinery as Zelenskyy says 'we're done' with Trump's energy truce Ukraine strikes a Russian oil refinery after President Volodymyr Zelenskyy declared Kyiv was abandoning a ceasefire announced by US President Donald Trump. Full story: - Facebook",
-      "detected_at": "2026-10-18T04:37:15Z"
+      "detected_at": "2026-10-18T11:09:35Z"
     },
     {
       "event_id": "a1850bf25a21a96b",
@@ -266,10 +266,10 @@
       "status": "auto_high",
       "confidence": 0.7,
       "auto_generated": true,
-      "source": "BNN Bloomberg",
-      "source_url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQNVk2bVJwcHpVbGxzelBPOFd2cWZWcW92MVdrbzJGSVV6cUNhNVZkc0IzN19lOWdwOUJ3QnA4dG8tV3hPbG1Wa081aktGNHpzOTBLUHNlTHVjNjJDb05sOThGNFZHaHBiSXhuZWpjVlo1Sk5vZHZncGRvaGRHN1ZESVMwZHlmdVJJNEJkSDhRYkh6dWlycF9NbTFMRW1OYzczU3NLa1FtQXJzQzA4OGpoLUlBZ1FGNGgybUxDSzFWVlowSHhRcjJoc2tlS2dVR1d2bXc3WXBEdWNUTGExZHc?oc=5",
-      "headline": "Fed chair Warsh says U.S. price stability is key but shies away from signals about rates - BNN Bloomberg",
-      "detected_at": "2026-10-17T20:38:31Z"
+      "source": "Bloomberg.com",
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQdHZhMDY1QkVFRU1NQ0c1NkxlNzR2cDR4NEgwbVFMSkQ3RzFSNlFYT1Q0d1BzOWpRUGtLcTg1YUk0UkxOc2tKWENkTGxkRWc5SFAwWDFMS3JxdXJfWUIyNmwzR1Z0T3B5SmF0R2hjc0lDdXppV0wzQmw2bHh0a0FZS1BsUXVJdkdyZF9YcWIxMlZ3RnMwOVZ0YlFDeHdFWE5nTXdSdlQwb2NfZw?oc=5",
+      "headline": "Warsh Boosts Market Expectations of Fed Rate Hold in October - Bloomberg.com",
+      "detected_at": "2026-10-18T11:09:34Z"
     },
     {
       "event_id": "344348b4131c6486",
@@ -284,7 +284,7 @@
       "source": "The Sunday Guardian",
       "source_url": "https://news.google.com/rss/articles/CBMisgJBVV95cUxPLVJPdDRHWWZIRlN3TjZZVGJqWnlLNHY0T08wc1lTWVBWVkstSm9aZXJYTUwtSHAzcXpibTRkSGdmYV9rTnBwNi1xZTNrakhZb0VWVG5MTnhjSnA1bWtBaDhVZ1pCNWVsMU1yRnV2emJfTzlMaUJwZkdyTk5QaEVtOUp0QnZESzRYaTgyb3FNeUwtRXBBd2dqVjJiWTVxWVNTSkNKYkZHYlBILXdGV29DcGNNd2FRSXMzb3BFeXNtMnNmNTRpT3ZBdDVJUnczY05Nbm04VjZrb0JrT0JqXzhUUlVIQXVpRkYxcGZrNkFsZlJMal9ZRTFCV1FtWk1GODUxRVZsUUlSQ01CZ1JjVnBRYTVOWS1VSUw1Q2l2VGNQT3FQX2h2SlRVVjVqMFNuXzBSU3fSAbcCQVVfeXFMTWdBOVJkTUh2NklLM040SDE4R0RpYmFuNVRYOHdPRUliWElXMFhWZ2ZtMmRWcXJqa28wWTYwcjhFamxwWWs0SDhhZUdSQTVSX0hvYnczQWdYTmc1LS1DeGNHWEVVVTBacXFwbUhEQWcxbFJoQWQ1ZlFrWm5nSE9rY0lVQUF3ZDNXOEs5cnBzdXJNd3RjbVNzWlg4bnB1b2JCaUZobXJGaFp5aW9ZQnZnbG9wNVAtVXVCUlpnY0ZIODQ5SVBULU5MdW8ybUF1Rm40Mnpra21MdzVNRjhoUmlMZG1CRVJQMWhZTC1QcnoxZ0JSa1lPeUl5ZTBqTzdQZ1hkWkp1S3hVN3JHcDZUUmZpS3JRYklsNHB6eFBkalVyTFkxTjJRaWJMMDZ1Y0FqYk5OWldPN19sbEE?oc=5",
       "headline": "US-Israel-Iran War Latest Live News: Brent Crude Climbs to $109.86, WTI Hits $101.41 as Strait of Hormuz Crisis Deepens; Can Emergency Oil Releases Prevent a Supply Shock? - The Sunday Guardian",
-      "detected_at": "2026-10-18T04:37:15Z"
+      "detected_at": "2026-10-18T11:09:34Z"
     },
     {
       "event_id": "158b0562bb1fb6e1",
@@ -297,9 +297,9 @@
       "confidence": 0.85,
       "auto_generated": true,
       "source": "The New Voice of Ukraine",
-      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQeWd0NzRuaUpYQjMwUkUzRU1XZG1HVjRvdnBVWUgzT1ZBbktSb0R5V2xmU0FBX1pRV2V2NFo1SFRvcHhVdFUyUHUtSVh5OWFqcmZHLXNHQnR1Nm4yc3kyemlGUlBWekNWX0plZ2ctWHhPTFlzWURBcGNWby1LQ3JkZVZvZmpvSDZCNUpYR05nX2Q4UmtQckltakV6SW9hRXFEbnpXR9IBpAFBVV95cUxQeWd0NzRuaUpYQjMwUkUzRU1XZG1HVjRvdnBVWUgzT1ZBbktSb0R5V2xmU0FBX1pRV2V2NFo1SFRvcHhVdFUyUHUtSVh5OWFqcmZHLXNHQnR1Nm4yc3kyemlGUlBWekNWX0plZ2ctWHhPTFlzWURBcGNWby1LQ3JkZVZvZmpvSDZCNUpYR05nX2Q4UmtQckltakV6SW9hRXFEbnpXRw?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNVGNfcEtqeDg4NVl0TlRKVTJpcEhtal82bnRyWjR4TU9icDJKbFpFVDExeGtSNTlSdllnVjEyRXdkWkx0TllVNHJkbGZpLTJIdURacFRlS1NrZjNpRVZ4U3hKRFR1TnNDcU82U0QxTXZWYTVMZzZaQURVeWFfWGFIMjFUZVplS290dkh5Tl9sSFBQMXMzamktUGVaZHZYd0ZCd0hYZmhKcEvSAaQBQVVfeXFMUHlndDc0bmlKWEIzMFJFM0VNV2RtR1Y0b3ZwVVlIM09WQW5LUm9EeVdsZlNBQV9aUVdldjRaNUhUb3B4VXRVMlB1LUlYeTlhanJmRy1zR0J0dTZuMnN5MnppRlJQVnpDVl9KZWdnLVh4T0xZc1lEQXBjVm8tS0NyZGVWb2Zqb0g2QjVKWEdOZ19kOFJrUHJJbWpFeklvYUVxRG56V0c?oc=5",
       "headline": "Zelenskyy warns easing pressure on Russia encourages more attacks after Trump rolls back sanctions - The New Voice of Ukraine",
-      "detected_at": "2026-10-18T04:37:15Z"
+      "detected_at": "2026-10-18T11:09:35Z"
     },
     {
       "event_id": "e889c2c1d23837c2",
@@ -314,7 +314,22 @@
       "source": "Tom's Hardware",
       "source_url": "https://news.google.com/rss/articles/CBMipAJBVV95cUxPNC1IcW1faV82eWRWelAzby1jRFlvYTlUWmVBSDJSalhVOENPNHBQdkVuUXZ2SE5fRnhqSEoyZkNaRjNycEVCQm00LWVoXzhneWhSNjIxYmRXZGpuR1pyeU5yWmVib2Q3eEV4bE94WGlKblIzMldIb2FfYzNyanpadFhmWWYwaGhCWWdjaXJNN1JxbnlVUVc1MUtucmdPT2s2a3RhQ1FEY0N4MTh6S19sX1BoSGRITHAxbkhIMk5UZkx5ODY3ZVVjdExZWlhzU01pdjF4czNTZUFKOXNkWnFyS1NTQV9SSmxBcmRNU1R2VkY2UkVYelYxTXRnUmxxeTBNRXd4dVh6X3RWaEJnUkxzRjhWMm1CRE1vWkJsajhGTWxkc05s?oc=5",
       "headline": "Taiwan targets illicit AI server exports to China with five-year prison terms — strict new controls follow US tariff deal and Super Micro raid - Tom's Hardware",
-      "detected_at": "2026-10-18T04:37:15Z"
+      "detected_at": "2026-10-18T11:09:35Z"
+    },
+    {
+      "event_id": "6ef7f2d4c2398b9c",
+      "kind": "point",
+      "date": "2026-10-18",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "The Financial Express",
+      "source_url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNakg4clIweGtPRGdmbTVQd2FKRXp0M3czX1hLcTdtTmFfME1kOHBJZnlWanhwUk5yUXlrcHlMZy1JMnI2eDNHSnNJZ010NlZxRndZbFNrUEVSeTVHbS1YdElNMGpNNWl4RVNLRTk0RlZPSG5WSGdaZnJXdkxfZnU1QjlKYTJTbjlLeV9aVEF4X1ljeVJtOUhnb0hDVGN2RG5pRUVDVGQzNXlvVFg2VzN4NnlmaVFMR09uVlZqRjNLMDJaM1RKSU1zSUxNTlVSYi1oT0RJcU5CSzV6N2VBOUhaTEcweXM3d9IB5gFBVV95cUxNakg4clIweGtPRGdmbTVQd2FKRXp0M3czX1hLcTdtTmFfME1kOHBJZnlWanhwUk5yUXlrcHlMZy1JMnI2eDNHSnNJZ010NlZxRndZbFNrUEVSeTVHbS1YdElNMGpNNWl4RVNLRTk0RlZPSG5WSGdaZnJXdkxfZnU1QjlKYTJTbjlLeV9aVEF4X1ljeVJtOUhnb0hDVGN2RG5pRUVDVGQzNXlvVFg2VzN4NnlmaVFMR09uVlZqRjNLMDJaM1RKSU1zSUxNTlVSYi1oT0RJcU5CSzV6N2VBOUhaTEcweXM3dw?oc=5",
+      "headline": "US says 97% of ships cross ‘completely open’ Strait of Hormuz as attacks hit record high - The Financial Express",
+      "detected_at": "2026-10-18T11:09:34Z"
     }
   ],
   "scheduled_events": [
@@ -515,7 +530,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 6,
+    "discovered_count": 7,
     "scheduled_count": 10,
     "failures": []
   }

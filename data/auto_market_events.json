@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-19T13:20:41Z",
+  "updated_at": "2026-10-19T22:22:53Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -341,10 +341,10 @@
       "status": "auto_high",
       "confidence": 0.85,
       "auto_generated": true,
-      "source": "NewsCord",
-      "source_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNY1FyYWRoTXRyY2txNHR1M0FCVjk5M3pfN3F1Zmpjd3JMU3lpMFhzcHV5Mkl1OWZPZFh1bEh4ek00cEo0eHY4SzR1cmVJRWJMTHZjOFh4UkJvbVprWjZMV1hpTG0zZVh4WlpOdlZCQ0VzMGNpU05pRmxtWVJmU2lUMmJKVlR5TWFSa0ZoQk1OMVpuM3JrYzFTY2VYMU9xaFF1NC1aRWVndkY4UWoweS1XcVFGT2xya3dOXzVwMWxFczNTNG5BcVgxazhXc0VzdDVuZTNjZGxCUGQ1YzlJU0UySkIxZEc?oc=5",
-      "headline": "Ukraine Launches Massive Drone Attack on St Petersburg, Killing 1 and Injuring 5: how 10 outlets framed it - NewsCord",
-      "detected_at": "2026-10-19T13:20:40Z"
+      "source": "inkl",
+      "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPQnZVa0dzTmRtSkJpLURhUjdNYnExdzk1MFZVcVE5LWFhQmNOS3ZYX3duMUxBRHAzSHNqdVVudFRMNjZYY2t5Z21CMkxCZ0liOHl2R1hzNFZCWE95czRoeWNPTHdIRGp3em9rLTRhSmJIVHZLZ2hMemRkaGxLLWNCcDYyaXk3UXNjT1h0VWV1YXZnd0JOVTdrUDhXWXVxQ0VqRmk1MkRqMHFRZHU3ZWc0WnItWDN3X1AzY0oxUFpZbTMzTTFFbEwwTA?oc=5",
+      "headline": "Ukraine Launches Large-Scale Drone Attack On Russia, Defies Trump's Demands To Leave Russian Energy Alone - inkl",
+      "detected_at": "2026-10-19T22:22:52Z"
     },
     {
       "event_id": "9d6845941cbbf192",
@@ -354,12 +354,12 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.75,
+      "confidence": 0.85,
       "auto_generated": true,
-      "source": "Gulf News",
-      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQSXRfYVZUeHBDd0FSSHZncm8zcW9rLTNnSWkxcjliVHVGNldad2tFc0w2Z3h3NHpEa0xsaU9XN1gtTkJISDFpUElGeXpVZWlnQm05b0d4RC12d2dXNGFFYlNkTXdmeFhNRTQtYTF4SGxQY3hTUnE1aFlqRHp3azdmVk9NYmpsZnFMUmt4M2tQOVVMTDhsTFRCSy15c1pLMWltM09MZXVyQ1FKXzd6ZHI0Tzd5OEljX0E?oc=5",
-      "headline": "US-Israel-Iran war: Hormuz deal unresolved as US issues new warning to Americans - Gulf News",
-      "detected_at": "2026-10-19T13:20:40Z"
+      "source": "The Sunday Guardian",
+      "source_url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxPNzFfV3M5R19BLWZJR0xDdDFTNDdUQ0FyWDZfNnIzMnd5UkFzaFpQMDVwZmN2a2IzQU83bWNIMVBaZ3hoTGlXdUF1bTJINzdkOVpQMnhMdl9aNktrZE9WaV9fN21FOXhYaVZLWWR5TllWdUFaeUY5TXRqeE5fREdZTzJwSC15ZV9wME5ubGRJWmxvZ1V0Y3IzWFE1LU1QZzNXdVdiV1FpNkVHSlRTbHdaRFdWbVpBd3A4dWp3LU04b2FQclNTeTVvTlE2TzZ6NU1PeDdfZEMzT2M0NUxxcjY4RUxVdXBKOXdkQlhyRHF2NVJoUE9MaHY4XzI3b0hQdE1RM2dUY3V5QnJJMEJXd3Q4TEdJTTlxd3FuOUgzLTFZMEhoQdIBpwJBVV95cUxPQlc3YXB1R3hHd05mamdCOGtRTC1sX1piUDNmUXFmbHlqLUp0UVhLYnVhNzBSdEpnX05WT1JGWF9wWDlMNjJTUTVyc2dSTXpLQVd5N2RSVmhLNS1aUjRYS2ZKd3ZaR0htaWtvN3paMDcxYUNCVFd5OEJNczY3ZVVEdVhiR1dualFOcGgxWVVqT0p3Ml9ma1Z4QU1SWjRJbVVXSkdSQXVxVDhCOERlWW1PR3pqSjNoUV9kVmNLdjZRcnF3VXcwd3BZVGhVLUdYYnFWTnNhYUJPVTU4dG1hWEo1c093MFZVN1BMd1NOTkNXaGgzenhTMDZxS0JMejlmWWhpVmZOTEFVU1V0azI4S1NpTGZUM1dMMkh3My1kZ3ZtVEFJaEFoS3U0?oc=5",
+      "headline": "US-Israel-Iran War Latest Live News: Iran Warns 9 Nations ‘If US Strikes Resume’ as Oil Prices Surge Above $110 Amid Renewed Houthi Attacks on Saudi Arabia - The Sunday Guardian",
+      "detected_at": "2026-10-19T22:22:52Z"
     },
     {
       "event_id": "a4919ab20de7f931",
@@ -575,7 +575,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 6,
+    "discovered_count": 4,
     "scheduled_count": 10,
     "failures": []
   }

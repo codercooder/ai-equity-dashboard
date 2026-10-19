@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-18T20:46:17Z",
+  "updated_at": "2026-10-19T04:43:41Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -299,7 +299,7 @@
       "source": "The New Voice of Ukraine",
       "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNVGNfcEtqeDg4NVl0TlRKVTJpcEhtal82bnRyWjR4TU9icDJKbFpFVDExeGtSNTlSdllnVjEyRXdkWkx0TllVNHJkbGZpLTJIdURacFRlS1NrZjNpRVZ4U3hKRFR1TnNDcU82U0QxTXZWYTVMZzZaQURVeWFfWGFIMjFUZVplS290dkh5Tl9sSFBQMXMzamktUGVaZHZYd0ZCd0hYZmhKcEvSAaQBQVVfeXFMUHlndDc0bmlKWEIzMFJFM0VNV2RtR1Y0b3ZwVVlIM09WQW5LUm9EeVdsZlNBQV9aUVdldjRaNUhUb3B4VXRVMlB1LUlYeTlhanJmRy1zR0J0dTZuMnN5MnppRlJQVnpDVl9KZWdnLVh4T0xZc1lEQXBjVm8tS0NyZGVWb2Zqb0g2QjVKWEdOZ19kOFJrUHJJbWpFeklvYUVxRG56V0c?oc=5",
       "headline": "Zelenskyy warns easing pressure on Russia encourages more attacks after Trump rolls back sanctions - The New Voice of Ukraine",
-      "detected_at": "2026-10-18T20:46:17Z"
+      "detected_at": "2026-10-19T04:43:41Z"
     },
     {
       "event_id": "e889c2c1d23837c2",
@@ -314,7 +314,7 @@
       "source": "Tom's Hardware",
       "source_url": "https://news.google.com/rss/articles/CBMipAJBVV95cUxPNC1IcW1faV82eWRWelAzby1jRFlvYTlUWmVBSDJSalhVOENPNHBQdkVuUXZ2SE5fRnhqSEoyZkNaRjNycEVCQm00LWVoXzhneWhSNjIxYmRXZGpuR1pyeU5yWmVib2Q3eEV4bE94WGlKblIzMldIb2FfYzNyanpadFhmWWYwaGhCWWdjaXJNN1JxbnlVUVc1MUtucmdPT2s2a3RhQ1FEY0N4MTh6S19sX1BoSGRITHAxbkhIMk5UZkx5ODY3ZVVjdExZWlhzU01pdjF4czNTZUFKOXNkWnFyS1NTQV9SSmxBcmRNU1R2VkY2UkVYelYxTXRnUmxxeTBNRXd4dVh6X3RWaEJnUkxzRjhWMm1CRE1vWkJsajhGTWxkc05s?oc=5",
       "headline": "Taiwan targets illicit AI server exports to China with five-year prison terms — strict new controls follow US tariff deal and Super Micro raid - Tom's Hardware",
-      "detected_at": "2026-10-18T20:46:17Z"
+      "detected_at": "2026-10-19T04:43:41Z"
     },
     {
       "event_id": "6ef7f2d4c2398b9c",
@@ -326,10 +326,10 @@
       "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "The Financial Express",
-      "source_url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOSm5iaXVza0NxanEzd3I0SmUzelo2RmRkZTRZTFFhNjF5R09mcFZVTDlqNnBvd3Y3OVYxaHJnNHRtUmtmdjBwYW1yamU2Q1R3U0N4QVBNOFNDNUIxdEw5bzAzUWlycTVtdjB3dmdXcENaX3hNNHVUNzdncnRiSEdtSEEtUDEtd0dtRDBpQ1lieEwwd2VLV2lBWDZnYm1tQk14dHM5OFhULXI4ZVpnMERXREtPRzN3VksxampaUERvU29IVlNQWFZ3ZFgxWnFpR3hGMWJvNk55T0ltVG1GcmF30gHmAUFVX3lxTE1qSDhyUjB4a09EZ2ZtNVB3YUpFenQzdzNfWEtxN21OYV8wTWQ4cElmeVZqeHBSTnJReWtweUxnLUkycjZ4M0dKc0lnTXQ2VnFGd1lsU2tQRVJ5NUdtLVh0SU0wak01aXhFU0tFOTRGVk9IblZIZ1pmcld2TF9mdTVCOUphMlNuOUt5X1pUQXhfWWN5Um05SGdvSENUY3ZEbmlFRUNUZDM1eW9UWDZXM3g2eWZpUUxHT25WVmpGM0swMlozVEpJTXNJTE1OVVJiLWhPRElxTkJLNXo3ZUE5SFpMRzB5czd3?oc=5",
-      "headline": "US says 97% of ships cross ‘completely open’ Strait of Hormuz as attacks hit record high - The Financial Express",
-      "detected_at": "2026-10-18T20:46:17Z"
+      "source": "EnergyNow.com",
+      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPenRKWEpXeWJsMU8xX01hWFBmd1p6YUpZZERjRVZCN0V1NVVGR1h6WEg5b1VsTGpndTQ1elI3ZHp5VEhsV09VMmNBUmVDeTFCcVZob1RBbTI3OEEzZ2hfcHM5U1Z5ZUJqX09DeXJWTHBITTZPT0RTMGlXUVFVTmNRU1F4WjlxTHJkaThBNUdlTllYQlJsZDh6cklJOUloRDN2SHVpdmhlVjA?oc=5",
+      "headline": "Oil Prices Rise as US, Iran Trade Strikes, Israel Moves Further Into Lebanon - EnergyNow.com",
+      "detected_at": "2026-10-19T04:43:40Z"
     },
     {
       "event_id": "e8e2399109c36cf4",
@@ -344,7 +344,22 @@
       "source": "inkl",
       "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPQnZVa0dzTmRtSkJpLURhUjdNYnExdzk1MFZVcVE5LWFhQmNOS3ZYX3duMUxBRHAzSHNqdVVudFRMNjZYY2t5Z21CMkxCZ0liOHl2R1hzNFZCWE95czRoeWNPTHdIRGp3em9rLTRhSmJIVHZLZ2hMemRkaGxLLWNCcDYyaXk3UXNjT1h0VWV1YXZnd0JOVTdrUDhXWXVxQ0VqRmk1MkRqMHFRZHU3ZWc0WnItWDN3X1AzY0oxUFpZbTMzTTFFbEwwTA?oc=5",
       "headline": "Ukraine Launches Large-Scale Drone Attack On Russia, Defies Trump's Demands To Leave Russian Energy Alone - inkl",
-      "detected_at": "2026-10-18T20:46:17Z"
+      "detected_at": "2026-10-19T04:43:41Z"
+    },
+    {
+      "event_id": "9d6845941cbbf192",
+      "kind": "point",
+      "date": "2026-10-19",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Gulf News",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQSXRfYVZUeHBDd0FSSHZncm8zcW9rLTNnSWkxcjliVHVGNldad2tFc0w2Z3h3NHpEa0xsaU9XN1gtTkJISDFpUElGeXpVZWlnQm05b0d4RC12d2dXNGFFYlNkTXdmeFhNRTQtYTF4SGxQY3hTUnE1aFlqRHp3azdmVk9NYmpsZnFMUmt4M2tQOVVMTDhsTFRCSy15c1pLMWltM09MZXVyQ1FKXzd6ZHI0Tzd5OEljX0E?oc=5",
+      "headline": "US-Israel-Iran war: Hormuz deal unresolved as US issues new warning to Americans - Gulf News",
+      "detected_at": "2026-10-19T04:43:40Z"
     }
   ],
   "scheduled_events": [
@@ -545,7 +560,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 5,
+    "discovered_count": 6,
     "scheduled_count": 10,
     "failures": []
   }

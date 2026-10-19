@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-19T04:43:41Z",
+  "updated_at": "2026-10-19T13:20:41Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -299,7 +299,7 @@
       "source": "The New Voice of Ukraine",
       "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNVGNfcEtqeDg4NVl0TlRKVTJpcEhtal82bnRyWjR4TU9icDJKbFpFVDExeGtSNTlSdllnVjEyRXdkWkx0TllVNHJkbGZpLTJIdURacFRlS1NrZjNpRVZ4U3hKRFR1TnNDcU82U0QxTXZWYTVMZzZaQURVeWFfWGFIMjFUZVplS290dkh5Tl9sSFBQMXMzamktUGVaZHZYd0ZCd0hYZmhKcEvSAaQBQVVfeXFMUHlndDc0bmlKWEIzMFJFM0VNV2RtR1Y0b3ZwVVlIM09WQW5LUm9EeVdsZlNBQV9aUVdldjRaNUhUb3B4VXRVMlB1LUlYeTlhanJmRy1zR0J0dTZuMnN5MnppRlJQVnpDVl9KZWdnLVh4T0xZc1lEQXBjVm8tS0NyZGVWb2Zqb0g2QjVKWEdOZ19kOFJrUHJJbWpFeklvYUVxRG56V0c?oc=5",
       "headline": "Zelenskyy warns easing pressure on Russia encourages more attacks after Trump rolls back sanctions - The New Voice of Ukraine",
-      "detected_at": "2026-10-19T04:43:41Z"
+      "detected_at": "2026-10-19T13:20:40Z"
     },
     {
       "event_id": "e889c2c1d23837c2",
@@ -324,12 +324,12 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.75,
+      "confidence": 0.9,
       "auto_generated": true,
-      "source": "EnergyNow.com",
-      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPenRKWEpXeWJsMU8xX01hWFBmd1p6YUpZZERjRVZCN0V1NVVGR1h6WEg5b1VsTGpndTQ1elI3ZHp5VEhsV09VMmNBUmVDeTFCcVZob1RBbTI3OEEzZ2hfcHM5U1Z5ZUJqX09DeXJWTHBITTZPT0RTMGlXUVFVTmNRU1F4WjlxTHJkaThBNUdlTllYQlJsZDh6cklJOUloRDN2SHVpdmhlVjA?oc=5",
-      "headline": "Oil Prices Rise as US, Iran Trade Strikes, Israel Moves Further Into Lebanon - EnergyNow.com",
-      "detected_at": "2026-10-19T04:43:40Z"
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPMmVLc19hd0VSYXIydVNTWENKZ2J5WVNvVDRQUjRfTUJXWGhjOGxGZkFHVm9SNnZzeU9TWUhrYnJTRU1sVFRnX1BwZVd3NHB5a0NLdThkbDRldlg2eHdhTll2b3RnQTJ4U3dHVGczM25FdjJHRGQ5WGJDV2Qxd1hzLV9EcjNWaUQ4cXEzbWVHRzNuS1dGVVNBSmdXWGR6THN1dXhvSUdFS0dMMTJZTnBBZEFfZ2JoYVVFSWNMZw?oc=5",
+      "headline": "Oil slips from five-month high with Hormuz transits in focus - Reuters",
+      "detected_at": "2026-10-19T13:20:40Z"
     },
     {
       "event_id": "e8e2399109c36cf4",
@@ -341,10 +341,10 @@
       "status": "auto_high",
       "confidence": 0.85,
       "auto_generated": true,
-      "source": "inkl",
-      "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPQnZVa0dzTmRtSkJpLURhUjdNYnExdzk1MFZVcVE5LWFhQmNOS3ZYX3duMUxBRHAzSHNqdVVudFRMNjZYY2t5Z21CMkxCZ0liOHl2R1hzNFZCWE95czRoeWNPTHdIRGp3em9rLTRhSmJIVHZLZ2hMemRkaGxLLWNCcDYyaXk3UXNjT1h0VWV1YXZnd0JOVTdrUDhXWXVxQ0VqRmk1MkRqMHFRZHU3ZWc0WnItWDN3X1AzY0oxUFpZbTMzTTFFbEwwTA?oc=5",
-      "headline": "Ukraine Launches Large-Scale Drone Attack On Russia, Defies Trump's Demands To Leave Russian Energy Alone - inkl",
-      "detected_at": "2026-10-19T04:43:41Z"
+      "source": "NewsCord",
+      "source_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNY1FyYWRoTXRyY2txNHR1M0FCVjk5M3pfN3F1Zmpjd3JMU3lpMFhzcHV5Mkl1OWZPZFh1bEh4ek00cEo0eHY4SzR1cmVJRWJMTHZjOFh4UkJvbVprWjZMV1hpTG0zZVh4WlpOdlZCQ0VzMGNpU05pRmxtWVJmU2lUMmJKVlR5TWFSa0ZoQk1OMVpuM3JrYzFTY2VYMU9xaFF1NC1aRWVndkY4UWoweS1XcVFGT2xya3dOXzVwMWxFczNTNG5BcVgxazhXc0VzdDVuZTNjZGxCUGQ1YzlJU0UySkIxZEc?oc=5",
+      "headline": "Ukraine Launches Massive Drone Attack on St Petersburg, Killing 1 and Injuring 5: how 10 outlets framed it - NewsCord",
+      "detected_at": "2026-10-19T13:20:40Z"
     },
     {
       "event_id": "9d6845941cbbf192",
@@ -359,7 +359,22 @@
       "source": "Gulf News",
       "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQSXRfYVZUeHBDd0FSSHZncm8zcW9rLTNnSWkxcjliVHVGNldad2tFc0w2Z3h3NHpEa0xsaU9XN1gtTkJISDFpUElGeXpVZWlnQm05b0d4RC12d2dXNGFFYlNkTXdmeFhNRTQtYTF4SGxQY3hTUnE1aFlqRHp3azdmVk9NYmpsZnFMUmt4M2tQOVVMTDhsTFRCSy15c1pLMWltM09MZXVyQ1FKXzd6ZHI0Tzd5OEljX0E?oc=5",
       "headline": "US-Israel-Iran war: Hormuz deal unresolved as US issues new warning to Americans - Gulf News",
-      "detected_at": "2026-10-19T04:43:40Z"
+      "detected_at": "2026-10-19T13:20:40Z"
+    },
+    {
+      "event_id": "a4919ab20de7f931",
+      "kind": "point",
+      "date": "2026-10-19",
+      "label": "俄乌战争重大升级 / 缓和",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.85,
+      "auto_generated": true,
+      "source": "inkl",
+      "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNN3R0Q1p5Nzl2aHozdUpqS2preGxwa2tBZi1HWG9tckVmUHdmRUY2SE5xMGpCcmZ2S3Izb25nSnVXNzMyS1ZGMXZSTm9hcGRnMVNrOTdrQzBPaGFPdGlZY0pMTnRSdS1qamVLa1JpeXJiWEY3Qm5ZSnBGcFM5NGRrenhYdmZGSUxESGxJRVdnT0ozUXVSOXpVejZqS3JXTk1LMVFSc19OdVJISmZ4TFNDTHU5WHBSbFhCNUhNOE5Qb2xBcTIxQnZKN3BVMA?oc=5",
+      "headline": "Ukraine-Russia war latest: Kyiv launches 1,000-drone attack after Trump accuses Zelensky of prolonging war - inkl",
+      "detected_at": "2026-10-19T13:20:40Z"
     }
   ],
   "scheduled_events": [

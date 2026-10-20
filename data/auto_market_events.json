@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-19T22:22:53Z",
+  "updated_at": "2026-10-20T04:53:42Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -344,7 +344,7 @@
       "source": "inkl",
       "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPQnZVa0dzTmRtSkJpLURhUjdNYnExdzk1MFZVcVE5LWFhQmNOS3ZYX3duMUxBRHAzSHNqdVVudFRMNjZYY2t5Z21CMkxCZ0liOHl2R1hzNFZCWE95czRoeWNPTHdIRGp3em9rLTRhSmJIVHZLZ2hMemRkaGxLLWNCcDYyaXk3UXNjT1h0VWV1YXZnd0JOVTdrUDhXWXVxQ0VqRmk1MkRqMHFRZHU3ZWc0WnItWDN3X1AzY0oxUFpZbTMzTTFFbEwwTA?oc=5",
       "headline": "Ukraine Launches Large-Scale Drone Attack On Russia, Defies Trump's Demands To Leave Russian Energy Alone - inkl",
-      "detected_at": "2026-10-19T22:22:52Z"
+      "detected_at": "2026-10-20T04:53:42Z"
     },
     {
       "event_id": "9d6845941cbbf192",
@@ -359,7 +359,7 @@
       "source": "The Sunday Guardian",
       "source_url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxPNzFfV3M5R19BLWZJR0xDdDFTNDdUQ0FyWDZfNnIzMnd5UkFzaFpQMDVwZmN2a2IzQU83bWNIMVBaZ3hoTGlXdUF1bTJINzdkOVpQMnhMdl9aNktrZE9WaV9fN21FOXhYaVZLWWR5TllWdUFaeUY5TXRqeE5fREdZTzJwSC15ZV9wME5ubGRJWmxvZ1V0Y3IzWFE1LU1QZzNXdVdiV1FpNkVHSlRTbHdaRFdWbVpBd3A4dWp3LU04b2FQclNTeTVvTlE2TzZ6NU1PeDdfZEMzT2M0NUxxcjY4RUxVdXBKOXdkQlhyRHF2NVJoUE9MaHY4XzI3b0hQdE1RM2dUY3V5QnJJMEJXd3Q4TEdJTTlxd3FuOUgzLTFZMEhoQdIBpwJBVV95cUxPQlc3YXB1R3hHd05mamdCOGtRTC1sX1piUDNmUXFmbHlqLUp0UVhLYnVhNzBSdEpnX05WT1JGWF9wWDlMNjJTUTVyc2dSTXpLQVd5N2RSVmhLNS1aUjRYS2ZKd3ZaR0htaWtvN3paMDcxYUNCVFd5OEJNczY3ZVVEdVhiR1dualFOcGgxWVVqT0p3Ml9ma1Z4QU1SWjRJbVVXSkdSQXVxVDhCOERlWW1PR3pqSjNoUV9kVmNLdjZRcnF3VXcwd3BZVGhVLUdYYnFWTnNhYUJPVTU4dG1hWEo1c093MFZVN1BMd1NOTkNXaGgzenhTMDZxS0JMejlmWWhpVmZOTEFVU1V0azI4S1NpTGZUM1dMMkh3My1kZ3ZtVEFJaEFoS3U0?oc=5",
       "headline": "US-Israel-Iran War Latest Live News: Iran Warns 9 Nations ‘If US Strikes Resume’ as Oil Prices Surge Above $110 Amid Renewed Houthi Attacks on Saudi Arabia - The Sunday Guardian",
-      "detected_at": "2026-10-19T22:22:52Z"
+      "detected_at": "2026-10-20T04:53:41Z"
     },
     {
       "event_id": "a4919ab20de7f931",
@@ -375,6 +375,21 @@
       "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNN3R0Q1p5Nzl2aHozdUpqS2preGxwa2tBZi1HWG9tckVmUHdmRUY2SE5xMGpCcmZ2S3Izb25nSnVXNzMyS1ZGMXZSTm9hcGRnMVNrOTdrQzBPaGFPdGlZY0pMTnRSdS1qamVLa1JpeXJiWEY3Qm5ZSnBGcFM5NGRrenhYdmZGSUxESGxJRVdnT0ozUXVSOXpVejZqS3JXTk1LMVFSc19OdVJISmZ4TFNDTHU5WHBSbFhCNUhNOE5Qb2xBcTIxQnZKN3BVMA?oc=5",
       "headline": "Ukraine-Russia war latest: Kyiv launches 1,000-drone attack after Trump accuses Zelensky of prolonging war - inkl",
       "detected_at": "2026-10-19T13:20:40Z"
+    },
+    {
+      "event_id": "43b2cbdfd45100af",
+      "kind": "point",
+      "date": "2026-10-20",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Arabian Business",
+      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeGVzSjhrbUhOTTctX0ViTkJTRnFEZnkwNTJQR3gySTJRQlk3aXNwenJ2Qk1DejVYcF84dmF4WDFPd2xKRzEwazEtOEdOb05OOFhJaXZQVTd3R2lDRHdGbTgtM1JSSEMxeFN5OTlLc0tLNE55MHlHRDZNU3lOVFBDaTJwQQ?oc=5",
+      "headline": "Iran war live: Houthi attack on Yemen military camp kills 58 - Arabian Business",
+      "detected_at": "2026-10-20T04:53:41Z"
     }
   ],
   "scheduled_events": [
@@ -575,7 +590,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 4,
+    "discovered_count": 5,
     "scheduled_count": 10,
     "failures": []
   }

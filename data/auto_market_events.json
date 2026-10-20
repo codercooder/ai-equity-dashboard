@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-20T11:40:42Z",
+  "updated_at": "2026-10-20T17:11:12Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -341,10 +341,10 @@
       "status": "auto_high",
       "confidence": 0.85,
       "auto_generated": true,
-      "source": "inkl",
-      "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPQnZVa0dzTmRtSkJpLURhUjdNYnExdzk1MFZVcVE5LWFhQmNOS3ZYX3duMUxBRHAzSHNqdVVudFRMNjZYY2t5Z21CMkxCZ0liOHl2R1hzNFZCWE95czRoeWNPTHdIRGp3em9rLTRhSmJIVHZLZ2hMemRkaGxLLWNCcDYyaXk3UXNjT1h0VWV1YXZnd0JOVTdrUDhXWXVxQ0VqRmk1MkRqMHFRZHU3ZWc0WnItWDN3X1AzY0oxUFpZbTMzTTFFbEwwTA?oc=5",
-      "headline": "Ukraine Launches Large-Scale Drone Attack On Russia, Defies Trump's Demands To Leave Russian Energy Alone - inkl",
-      "detected_at": "2026-10-20T11:40:41Z"
+      "source": "newsfire.gr",
+      "source_url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNOGdOdnVPa2tXZlZKYVdkMDZBTXdKalRBU3pzc3VBRFVZSmdFU0JwQU9uQVhnWG5SbjN4Xy1zNGU5bl94YkVON2pTc0hsYURzdWZYOGNCWXdkR293eU5zMWpTbjZoTFFvRDhuaWxEZjBCSkxzdDhpZi14NGhmclZzdXNybHd3QlBFUzdocmNSRWUxVXM?oc=5",
+      "headline": "Ukraine Launches Over 1,000 Drones in Strikes on Russian Oil Sites - newsfire.gr",
+      "detected_at": "2026-10-20T17:11:11Z"
     },
     {
       "event_id": "9d6845941cbbf192",
@@ -359,7 +359,7 @@
       "source": "The Sunday Guardian",
       "source_url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxPNzFfV3M5R19BLWZJR0xDdDFTNDdUQ0FyWDZfNnIzMnd5UkFzaFpQMDVwZmN2a2IzQU83bWNIMVBaZ3hoTGlXdUF1bTJINzdkOVpQMnhMdl9aNktrZE9WaV9fN21FOXhYaVZLWWR5TllWdUFaeUY5TXRqeE5fREdZTzJwSC15ZV9wME5ubGRJWmxvZ1V0Y3IzWFE1LU1QZzNXdVdiV1FpNkVHSlRTbHdaRFdWbVpBd3A4dWp3LU04b2FQclNTeTVvTlE2TzZ6NU1PeDdfZEMzT2M0NUxxcjY4RUxVdXBKOXdkQlhyRHF2NVJoUE9MaHY4XzI3b0hQdE1RM2dUY3V5QnJJMEJXd3Q4TEdJTTlxd3FuOUgzLTFZMEhoQdIBpwJBVV95cUxPQlc3YXB1R3hHd05mamdCOGtRTC1sX1piUDNmUXFmbHlqLUp0UVhLYnVhNzBSdEpnX05WT1JGWF9wWDlMNjJTUTVyc2dSTXpLQVd5N2RSVmhLNS1aUjRYS2ZKd3ZaR0htaWtvN3paMDcxYUNCVFd5OEJNczY3ZVVEdVhiR1dualFOcGgxWVVqT0p3Ml9ma1Z4QU1SWjRJbVVXSkdSQXVxVDhCOERlWW1PR3pqSjNoUV9kVmNLdjZRcnF3VXcwd3BZVGhVLUdYYnFWTnNhYUJPVTU4dG1hWEo1c093MFZVN1BMd1NOTkNXaGgzenhTMDZxS0JMejlmWWhpVmZOTEFVU1V0azI4S1NpTGZUM1dMMkh3My1kZ3ZtVEFJaEFoS3U0?oc=5",
       "headline": "US-Israel-Iran War Latest Live News: Iran Warns 9 Nations ‘If US Strikes Resume’ as Oil Prices Surge Above $110 Amid Renewed Houthi Attacks on Saudi Arabia - The Sunday Guardian",
-      "detected_at": "2026-10-20T11:40:41Z"
+      "detected_at": "2026-10-20T17:11:11Z"
     },
     {
       "event_id": "a4919ab20de7f931",
@@ -389,7 +389,7 @@
       "source": "The Sunday Guardian",
       "source_url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxPR0p0QmNjc180eS10ekpsZDhyZTN2M285VmFIZmk0WS1VWmY2MWtlbWZlOGtGdDFwcEd0clVLRXNQVTlNbHVUTGFxYWduV0xCZEpkU1hwNk1xbHBRUFpRY25ZSWNjWlh2WkFPVDlKSXR5TXJBUWc0YnoxejlZVEJtS29qNUwta0pYM05iekNxX3Jacy0tMFh4Y3BwTGM2TkhhOGR5NWRPNUFpVk1PWlNuYzZxc2h5SldtcVVUMkdGem81d0tfQ2w1ZWRub0RPVXI3WERhaU00OWNuM1dVQlJLSjhNQTNOa1E1NVI0bGRzWXozNktIaDBlMEt4OFJ6SllnWHZGYUNaTm9xYVBlVUFlNDBxMjJaWjlrZDZsdGVsVjNwUVJ4VzBZbHk1aGlHWjFDc0ZHTlV2dkfSAbgCQVVfeXFMT0dKdEJjY3NfNHktdHpKbGQ4cmUzdjNvOVZhSGZpNFktVVpmNjFrZW1mZThrRnQxcHBHdHJVS0VzUFU5TWx1VExhcWFnbldMQmRKZFNYcDZNcWxwUVBaUWNuWUljY1pYdlpBT1Q5Skl0eU1yQVFnNGJ6MXo5WVRCbUtvajVMLWtKWDNOYnpDcV9yWnMtLTBYeGNwcExjNk5IYThkeTVkTzVBaVZNT1pTbmM2cXNoeUpXbXFVVDJHRnpvNXdLX0NsNWVkbm9ET1VyN1hEYWlNNDljbjNXVUJSS0o4TUEzTmtRNTVSNGxkc1l6MzZLSGgwZTBLeDhSekpZZ1h2RmFDWk5vcWFQZVVBZTQwcTIyWlo5a2Q2bHRlbFYzcFFSeFcwWWx5NWhpR1oxQ3NGR05VdnZH?oc=5",
       "headline": "US-Israel-Iran War Latest Live Updates: Will Oil Prices Rise Further? Brent Near $110 and WTI Near $99 as Tanker Attacks and Strait of Hormuz Risks Fuel Supply Concerns - The Sunday Guardian",
-      "detected_at": "2026-10-20T11:40:41Z"
+      "detected_at": "2026-10-20T17:11:11Z"
     },
     {
       "event_id": "e3dd384253ebd300",
@@ -404,7 +404,7 @@
       "source": "Yahoo Finance",
       "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNWXNrVF9vRkFfd1lIS1pDRzl1TldxWnRqeUlDQmF5Tjk4ZXhubVdoWS1qNFB0XzBOVGQ0c0FXNkEyWVBCQU1URE5yZkt2ajhFZjNUT2xzV21rYzI1N2Q5RlRLRmZYNUxiWVZpazFGRWVaUzZDVWZqUUxlV040Q1VQTFBUWjg4TkJKVEdvY1c0QkxjcVo2MHJuTDNn?oc=5",
       "headline": "Fed Minutes Show Another Rate Hike Is Likely This Year as Kevin Warsh's FOMC Battles Persistent Inflation. Here's Why That Signal Matters for Stocks and Bonds Heading Into Year-End. - Yahoo Finance",
-      "detected_at": "2026-10-20T11:40:40Z"
+      "detected_at": "2026-10-20T17:11:10Z"
     }
   ],
   "scheduled_events": [

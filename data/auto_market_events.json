@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-21T17:14:30Z",
+  "updated_at": "2026-10-21T21:44:52Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -389,7 +389,7 @@
       "source": "The Sunday Guardian",
       "source_url": "https://news.google.com/rss/articles/CBMiswJBVV95cUxONnZJbVhSZjExVjlUczJFVjVHU2YweUlLMFVZSlR0VWQwX2JiSzlmT0VhbXVDd3BRSXM4NWhHVDItdDNKaTI0clJOd2NNZktqV05UZWhrb1hDSVl3UG11QXg1Z0hhOHpJTGFMdDdMZWJrRTlxYW1vaEMwM2dkVHN4Q2pWblA2NENvRHNydVlURHgtMVA0QW9fUFh0TS1RNm51UFhWU0N4UzlwLURweWt0d0lKUEpqWXRnM2p3a3NxYndtMTdncUJrZnVnQWtkWVhqRnc2TDhyTkJzdms4bjhBQUpDLVliT19panhlcUpGV28xLUJWYWF5dTZDNGhucjlkVS1hUEdLajZ0UUVfdjEtZ083Zm9fRndkbmNocWdXV01sdTExTUxyX3F3WXhWZkMyWkpR0gG4AkFVX3lxTE9HSnRCY2NzXzR5LXR6SmxkOHJlM3YzbzlWYUhmaTRZLVVaZjYxa2VtZmU4a0Z0MXBwR3RyVUtFc1BVOU1sdVRMYXFhZ25XTEJkSmRTWHA2TXFscFFQWlFjbllJY2NaWHZaQU9UOUpJdHlNckFRZzRiejF6OVlUQm1Lb2o1TC1rSlgzTmJ6Q3FfclpzLS0wWHhjcHBMYzZOSGE4ZHk1ZE81QWlWTU9aU25jNnFzaHlKV21xVVQyR0Z6bzV3S19DbDVlZG5vRE9VcjdYRGFpTTQ5Y24zV1VCUktKOE1BM05rUTU1UjRsZHNZejM2S0hoMGUwS3g4UnpKWWdYdkZhQ1pOb3FhUGVVQWU0MHEyMlpaOWtkNmx0ZWxWM3BRUnhXMFlseTVoaUdaMUNzRkdOVXZ2Rw?oc=5",
       "headline": "US-Israel-Iran War Latest Live Updates: Will Oil Prices Rise Further? Brent Near $110 and WTI Near $99 as Tanker Attacks and Strait of Hormuz Risks Fuel Supply Concerns - The Sunday Guardian",
-      "detected_at": "2026-10-21T17:14:29Z"
+      "detected_at": "2026-10-21T21:44:51Z"
     },
     {
       "event_id": "e3dd384253ebd300",
@@ -404,7 +404,7 @@
       "source": "Yahoo Finance",
       "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNWXNrVF9vRkFfd1lIS1pDRzl1TldxWnRqeUlDQmF5Tjk4ZXhubVdoWS1qNFB0XzBOVGQ0c0FXNkEyWVBCQU1URE5yZkt2ajhFZjNUT2xzV21rYzI1N2Q5RlRLRmZYNUxiWVZpazFGRWVaUzZDVWZqUUxlV040Q1VQTFBUWjg4TkJKVEdvY1c0QkxjcVo2MHJuTDNn?oc=5",
       "headline": "Fed Minutes Show Another Rate Hike Is Likely This Year as Kevin Warsh's FOMC Battles Persistent Inflation. Here's Why That Signal Matters for Stocks and Bonds Heading Into Year-End. - Yahoo Finance",
-      "detected_at": "2026-10-21T17:14:28Z"
+      "detected_at": "2026-10-21T21:44:50Z"
     },
     {
       "event_id": "1362d527bba23ac8",
@@ -419,7 +419,7 @@
       "source": "The National Herald",
       "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOM0owRHVSVjRETHdCM3hxRDBEOTNHYkxWdW50X0dDVG5tckZ3NjkwME4tYy1QeGZYanB4UW5fVEp4S09Tc0l1MGktUnNFaTBQTGVVZTZZZnc1VzlFMXlpM1JrMERhdnhNM3RYYldfMS1wanhOcUtUbERHTG9yWTlMcWRQa0tjZmhsMkxuZzRZNXpSMnYtTWgxWFMyQ2o0OHhkY3dHMjBxQVA3MWlzenlfLTlpZEQyZW1odGFsa2RCMkFMWFJUbGVYaQ?oc=5",
       "headline": "Ukraine Launches More than 1,000 Drones at Russia as Spat between Trump and Zelenskyy Continues - The National Herald",
-      "detected_at": "2026-10-21T17:14:29Z"
+      "detected_at": "2026-10-21T21:44:51Z"
     },
     {
       "event_id": "80c915df01633146",
@@ -434,7 +434,7 @@
       "source": "NVIDIA Newsroom",
       "source_url": "https://blogs.nvidia.com/blog/google-cloud-vera-rubin-infrastructure/",
       "headline": "Google Cloud and NVIDIA Announce General Availability of NVIDIA Vera Rubin Infrastructure",
-      "detected_at": "2026-10-21T17:14:27Z"
+      "detected_at": "2026-10-21T21:44:49Z"
     },
     {
       "event_id": "f746cd194df6324d",
@@ -444,12 +444,12 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.7,
+      "confidence": 0.8,
       "auto_generated": true,
-      "source": "Reuters",
-      "source_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPNTdIRmp3MTB3c3JZNGxXMUl1Wk5haXFwcjdJNXgtQnJkOEM4aWVVWG5tai03TmhHSWZidkliV1VlRkRvOVJCX3Q3QXhCWVdZeXlYQmViOUdOaU85anVWMXpSWFNCOHAtVU5id3Fad1BhX1BzVEt6S1A4N2s1YjJocFh6QXFTVXhHdDJJVzZBX21WUQ?oc=5",
-      "headline": "Brent oil prices near 5-month high on Middle East supply fears, US inventory drawdowns - Reuters",
-      "detected_at": "2026-10-21T11:52:19Z"
+      "source": "Bloomberg.com",
+      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNblJWeWlxaDBENVkyZVNvTWhzNVFvNldZd01GVE9venlBdk5IRkw1RHpJQ2UtaWFrQmtnR1NNbVpsb0hzcTR2X0VBaWdhckRVd3BwYkphakFYcWJtZk1IZWZlcDAwMmxGbkpOaTk0M1hiaTFpMmZPVFRMUXhEZFpoazZtSnoyczE5akRHNVpBYnBPcHl6dDFoSHV6MjJ4UQ?oc=5",
+      "headline": "Oil Steadies as Traders Weigh Conflicting Signals on Iran Talks - Bloomberg.com",
+      "detected_at": "2026-10-21T21:44:51Z"
     },
     {
       "event_id": "0f1848680b8b62c7",
@@ -464,7 +464,7 @@
       "source": "Inkorr",
       "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxORGRvNWphYUNlV0RlQjVJRnQ4X1hfdGlYTHR5QTNrRkJZX29UMW5LeUIyQVpVVXk0WW1HbHYzbENGa2pfTXBNZlhvd0hidUVUZE5WSlhITWozNlRld09ab1hIdEVTSjZ1dXdwM0ZraVY3eVpKSW5USzNlV2wxeFkycVFEckNibnJLM2VESV9sX1d1ZnZFMkowcTVmMlBBcF9HZ25sZXlaMHNRSk54SHZCbmo2TTVyRjhXRnU1ekdRUHFKRGhWY3VFdVNQc9IBywFBVV95cUxORGRvNWphYUNlV0RlQjVJRnQ4X1hfdGlYTHR5QTNrRkJZX29UMW5LeUIyQVpVVXk0WW1HbHYzbENGa2pfTXBNZlhvd0hidUVUZE5WSlhITWozNlRld09ab1hIdEVTSjZ1dXdwM0ZraVY3eVpKSW5USzNlV2wxeFkycVFEckNibnJLM2VESV9sX1d1ZnZFMkowcTVmMlBBcF9HZ25sZXlaMHNRSk54SHZCbmo2TTVyRjhXRnU1ekdRUHFKRGhWY3VFdVNQcw?oc=5",
       "headline": "How Trump's Reversal of Russia Sanctions and Cuts in Aid to Ukraine Could Shift the Course of the War - Inkorr",
-      "detected_at": "2026-10-21T17:14:29Z"
+      "detected_at": "2026-10-21T21:44:51Z"
     }
   ],
   "scheduled_events": [

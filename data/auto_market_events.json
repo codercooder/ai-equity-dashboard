@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T17:12:45Z",
+  "updated_at": "2026-10-22T21:37:55Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -434,7 +434,7 @@
       "source": "NVIDIA Newsroom",
       "source_url": "https://blogs.nvidia.com/blog/google-cloud-vera-rubin-infrastructure/",
       "headline": "Google Cloud and NVIDIA Announce General Availability of NVIDIA Vera Rubin Infrastructure",
-      "detected_at": "2026-10-22T17:12:42Z"
+      "detected_at": "2026-10-22T21:37:52Z"
     },
     {
       "event_id": "f746cd194df6324d",
@@ -449,7 +449,7 @@
       "source": "Bloomberg.com",
       "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNblJWeWlxaDBENVkyZVNvTWhzNVFvNldZd01GVE9venlBdk5IRkw1RHpJQ2UtaWFrQmtnR1NNbVpsb0hzcTR2X0VBaWdhckRVd3BwYkphakFYcWJtZk1IZWZlcDAwMmxGbkpOaTk0M1hiaTFpMmZPVFRMUXhEZFpoazZtSnoyczE5akRHNVpBYnBPcHl6dDFoSHV6MjJ4UQ?oc=5",
       "headline": "Oil Steadies as Traders Weigh Conflicting Signals on Iran Talks - Bloomberg.com",
-      "detected_at": "2026-10-22T17:12:44Z"
+      "detected_at": "2026-10-22T21:37:54Z"
     },
     {
       "event_id": "0f1848680b8b62c7",
@@ -464,7 +464,7 @@
       "source": "Inkorr",
       "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxORGRvNWphYUNlV0RlQjVJRnQ4X1hfdGlYTHR5QTNrRkJZX29UMW5LeUIyQVpVVXk0WW1HbHYzbENGa2pfTXBNZlhvd0hidUVUZE5WSlhITWozNlRld09ab1hIdEVTSjZ1dXdwM0ZraVY3eVpKSW5USzNlV2wxeFkycVFEckNibnJLM2VESV9sX1d1ZnZFMkowcTVmMlBBcF9HZ25sZXlaMHNRSk54SHZCbmo2TTVyRjhXRnU1ekdRUHFKRGhWY3VFdVNQc9IBywFBVV95cUxORGRvNWphYUNlV0RlQjVJRnQ4X1hfdGlYTHR5QTNrRkJZX29UMW5LeUIyQVpVVXk0WW1HbHYzbENGa2pfTXBNZlhvd0hidUVUZE5WSlhITWozNlRld09ab1hIdEVTSjZ1dXdwM0ZraVY3eVpKSW5USzNlV2wxeFkycVFEckNibnJLM2VESV9sX1d1ZnZFMkowcTVmMlBBcF9HZ25sZXlaMHNRSk54SHZCbmo2TTVyRjhXRnU1ekdRUHFKRGhWY3VFdVNQcw?oc=5",
       "headline": "How Trump's Reversal of Russia Sanctions and Cuts in Aid to Ukraine Could Shift the Course of the War - Inkorr",
-      "detected_at": "2026-10-22T17:12:44Z"
+      "detected_at": "2026-10-22T21:37:55Z"
     },
     {
       "event_id": "a440c2b5ed89184d",
@@ -478,8 +478,8 @@
       "auto_generated": true,
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYzBEdGVKYmZ3VVpJajg0TW5DN2VHVEM2aDVTcFJKQVduMnVMTU5NbVcyMGxBanBHY3VvMzJQR1VrQWM4b0hLeG1YaTFWcldTeU9yTlBXc3FiR1FtcUp0SmxhRkJkWmpmZ2x6X3VGZHZEUDNLTE9LTFZNSlBWWjNJVGtaV3YwWkc4QVhxbHozYkx5THpZMVlYVDAtd0dqbUMyOUcyVk91NEYxaFFCZklRWWhjQm5qN2NvVHdWdnZIQVJSMk0?oc=5",
-      "headline": "Oil hits five-month high as Houthi attacks stoke supply fears - Reuters",
-      "detected_at": "2026-10-22T17:12:44Z"
+      "headline": "Oil prices hit five-month high as Houthi attacks stoke Middle East supply fears - Reuters",
+      "detected_at": "2026-10-22T21:37:54Z"
     }
   ],
   "scheduled_events": [

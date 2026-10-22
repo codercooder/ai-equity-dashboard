@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T11:56:07Z",
+  "updated_at": "2026-10-22T17:12:45Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -434,7 +434,7 @@
       "source": "NVIDIA Newsroom",
       "source_url": "https://blogs.nvidia.com/blog/google-cloud-vera-rubin-infrastructure/",
       "headline": "Google Cloud and NVIDIA Announce General Availability of NVIDIA Vera Rubin Infrastructure",
-      "detected_at": "2026-10-22T11:56:04Z"
+      "detected_at": "2026-10-22T17:12:42Z"
     },
     {
       "event_id": "f746cd194df6324d",
@@ -449,7 +449,7 @@
       "source": "Bloomberg.com",
       "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNblJWeWlxaDBENVkyZVNvTWhzNVFvNldZd01GVE9venlBdk5IRkw1RHpJQ2UtaWFrQmtnR1NNbVpsb0hzcTR2X0VBaWdhckRVd3BwYkphakFYcWJtZk1IZWZlcDAwMmxGbkpOaTk0M1hiaTFpMmZPVFRMUXhEZFpoazZtSnoyczE5akRHNVpBYnBPcHl6dDFoSHV6MjJ4UQ?oc=5",
       "headline": "Oil Steadies as Traders Weigh Conflicting Signals on Iran Talks - Bloomberg.com",
-      "detected_at": "2026-10-22T11:56:06Z"
+      "detected_at": "2026-10-22T17:12:44Z"
     },
     {
       "event_id": "0f1848680b8b62c7",
@@ -464,7 +464,7 @@
       "source": "Inkorr",
       "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxORGRvNWphYUNlV0RlQjVJRnQ4X1hfdGlYTHR5QTNrRkJZX29UMW5LeUIyQVpVVXk0WW1HbHYzbENGa2pfTXBNZlhvd0hidUVUZE5WSlhITWozNlRld09ab1hIdEVTSjZ1dXdwM0ZraVY3eVpKSW5USzNlV2wxeFkycVFEckNibnJLM2VESV9sX1d1ZnZFMkowcTVmMlBBcF9HZ25sZXlaMHNRSk54SHZCbmo2TTVyRjhXRnU1ekdRUHFKRGhWY3VFdVNQc9IBywFBVV95cUxORGRvNWphYUNlV0RlQjVJRnQ4X1hfdGlYTHR5QTNrRkJZX29UMW5LeUIyQVpVVXk0WW1HbHYzbENGa2pfTXBNZlhvd0hidUVUZE5WSlhITWozNlRld09ab1hIdEVTSjZ1dXdwM0ZraVY3eVpKSW5USzNlV2wxeFkycVFEckNibnJLM2VESV9sX1d1ZnZFMkowcTVmMlBBcF9HZ25sZXlaMHNRSk54SHZCbmo2TTVyRjhXRnU1ekdRUHFKRGhWY3VFdVNQcw?oc=5",
       "headline": "How Trump's Reversal of Russia Sanctions and Cuts in Aid to Ukraine Could Shift the Course of the War - Inkorr",
-      "detected_at": "2026-10-22T11:56:06Z"
+      "detected_at": "2026-10-22T17:12:44Z"
     },
     {
       "event_id": "a440c2b5ed89184d",
@@ -476,10 +476,10 @@
       "status": "auto_high",
       "confidence": 0.9,
       "auto_generated": true,
-      "source": "CNBC TV18",
-      "source_url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNMXRDUGpqQmNDbzUwZ2Y3ZzFqNzR4aWJtYzhGVmU5WExETFdUN3E2SWNXWlVOdFI1Rmx2Rk9aVGxxM2xRNy02UTVUSllyeGhfTVVmWkNvWmpmdVVpSy1QZTV1QWFTMElBajFiVmdQbU9QSDR4Ym1URU5ZdURfYmROQ1Z6T0t4emxaZmNGcFpMUWdBUTJvc2pPYlJnWC1WNDhjcGhYaDJNZUtGTWRLU1hRemhfZDdFdXJ3czhOal9YdG1PX0VDX1hrUmlpcFV5M1BzbVZkTzB6MHp5ak41Z3JzT2RUWTA3Z0cwYU1aWU9kdlJmNEVIZXhMbWZ30gH_AUFVX3lxTE1weXh2YmdaSUwwcU82TzNnVF9LRlc5aDNCQTBQZE1oeVdmd01yQ21hV1R5NWxxM3NVUTJxaktmb3REUnFuY19IbEEzc3FJS0p5dFM1eDFnY2szNFp6b3lGNlNHZkMwLUdEV3NrTHo3bzBSZV9Va01mNjlCVnFaZkhRRW8zWDNNanY0LW1YT2p5TEhyQXdWR2M2QXNiZ05aZUxVRm9yWl9nd3JSNHp0SkRzaTM2aklQbmxBQUhtWllncFVJWS1FWHJoamRkZ3dkMzNLanJHSEVLRmFaYkYtRjBoVERnUDdwc2Q2amlYWXNJWF85eHlmcF95bF94cFVOTQ?oc=5",
-      "headline": "Brent holds near $110 as oil climbs on Houthi strikes on Saudi Aramco oilfield - CNBC TV18",
-      "detected_at": "2026-10-22T11:56:06Z"
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYzBEdGVKYmZ3VVpJajg0TW5DN2VHVEM2aDVTcFJKQVduMnVMTU5NbVcyMGxBanBHY3VvMzJQR1VrQWM4b0hLeG1YaTFWcldTeU9yTlBXc3FiR1FtcUp0SmxhRkJkWmpmZ2x6X3VGZHZEUDNLTE9LTFZNSlBWWjNJVGtaV3YwWkc4QVhxbHozYkx5THpZMVlYVDAtd0dqbUMyOUcyVk91NEYxaFFCZklRWWhjQm5qN2NvVHdWdnZIQVJSMk0?oc=5",
+      "headline": "Oil hits five-month high as Houthi attacks stoke supply fears - Reuters",
+      "detected_at": "2026-10-22T17:12:44Z"
     }
   ],
   "scheduled_events": [
@@ -680,7 +680,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 6,
+    "discovered_count": 4,
     "scheduled_count": 10,
     "failures": []
   }

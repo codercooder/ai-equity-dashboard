@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-23T04:53:03Z",
+  "updated_at": "2026-10-23T11:42:16Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -434,7 +434,7 @@
       "source": "NVIDIA Newsroom",
       "source_url": "https://blogs.nvidia.com/blog/google-cloud-vera-rubin-infrastructure/",
       "headline": "Google Cloud and NVIDIA Announce General Availability of NVIDIA Vera Rubin Infrastructure",
-      "detected_at": "2026-10-23T04:53:01Z"
+      "detected_at": "2026-10-23T11:42:13Z"
     },
     {
       "event_id": "f746cd194df6324d",
@@ -449,7 +449,7 @@
       "source": "Bloomberg.com",
       "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNblJWeWlxaDBENVkyZVNvTWhzNVFvNldZd01GVE9venlBdk5IRkw1RHpJQ2UtaWFrQmtnR1NNbVpsb0hzcTR2X0VBaWdhckRVd3BwYkphakFYcWJtZk1IZWZlcDAwMmxGbkpOaTk0M1hiaTFpMmZPVFRMUXhEZFpoazZtSnoyczE5akRHNVpBYnBPcHl6dDFoSHV6MjJ4UQ?oc=5",
       "headline": "Oil Steadies as Traders Weigh Conflicting Signals on Iran Talks - Bloomberg.com",
-      "detected_at": "2026-10-23T04:53:02Z"
+      "detected_at": "2026-10-23T11:42:15Z"
     },
     {
       "event_id": "0f1848680b8b62c7",
@@ -479,7 +479,22 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYzBEdGVKYmZ3VVpJajg0TW5DN2VHVEM2aDVTcFJKQVduMnVMTU5NbVcyMGxBanBHY3VvMzJQR1VrQWM4b0hLeG1YaTFWcldTeU9yTlBXc3FiR1FtcUp0SmxhRkJkWmpmZ2x6X3VGZHZEUDNLTE9LTFZNSlBWWjNJVGtaV3YwWkc4QVhxbHozYkx5THpZMVlYVDAtd0dqbUMyOUcyVk91NEYxaFFCZklRWWhjQm5qN2NvVHdWdnZIQVJSMk0?oc=5",
       "headline": "Oil prices hit five-month high as Houthi attacks stoke Middle East supply fears - Reuters",
-      "detected_at": "2026-10-23T04:53:02Z"
+      "detected_at": "2026-10-23T11:42:15Z"
+    },
+    {
+      "event_id": "3474b690bad584bd",
+      "kind": "point",
+      "date": "2026-10-23",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Arabian Business",
+      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeGVzSjhrbUhOTTctX0ViTkJTRnFEZnkwNTJQR3gySTJRQlk3aXNwenJ2Qk1DejVYcF84dmF4WDFPd2xKRzEwazEtOEdOb05OOFhJaXZQVTd3R2lDRHdGbTgtM1JSSEMxeFN5OTlLc0tLNE55MHlHRDZNU3lOVFBDaTJwQQ?oc=5",
+      "headline": "Iran war live: US says Iran naval blockade has prevented $25bn in oil exports - Arabian Business",
+      "detected_at": "2026-10-23T11:42:15Z"
     }
   ],
   "scheduled_events": [

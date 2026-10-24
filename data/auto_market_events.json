@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24T04:39:33Z",
+  "updated_at": "2026-10-24T11:04:26Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -479,7 +479,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYzBEdGVKYmZ3VVpJajg0TW5DN2VHVEM2aDVTcFJKQVduMnVMTU5NbVcyMGxBanBHY3VvMzJQR1VrQWM4b0hLeG1YaTFWcldTeU9yTlBXc3FiR1FtcUp0SmxhRkJkWmpmZ2x6X3VGZHZEUDNLTE9LTFZNSlBWWjNJVGtaV3YwWkc4QVhxbHozYkx5THpZMVlYVDAtd0dqbUMyOUcyVk91NEYxaFFCZklRWWhjQm5qN2NvVHdWdnZIQVJSMk0?oc=5",
       "headline": "Oil prices hit five-month high as Houthi attacks stoke Middle East supply fears - Reuters",
-      "detected_at": "2026-10-24T04:39:32Z"
+      "detected_at": "2026-10-24T11:04:25Z"
     },
     {
       "event_id": "3474b690bad584bd",
@@ -494,7 +494,22 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPR2dZUC10TmJYRUk2RmM5WWpxaUx2XzBPZ0ZTV3hIR3BkaGFvZ3B2T1hhd0xEcXZOWk5LdXhLLUF5QU9XdTRQdnRyTk9jcmVNMEZvZlZBRW8xcG1TVW1fTkY2UnFrcXlVWlUwbDhRYk9pcW1fdEdzMVNRR2ZhYVl2T0RZa09uZTktZGFWRVRWSEpGeFhYVXVPR09zNDVaTVdiNDdRRHg3VFNyZWNNWVBmdkxGMWFOa05yN2NBRnRVZjF3eF9i?oc=5",
       "headline": "Oil prices jump $3 on Houthi attacks, oil spill, highest settlement since April - Reuters",
-      "detected_at": "2026-10-24T04:39:32Z"
+      "detected_at": "2026-10-24T11:04:25Z"
+    },
+    {
+      "event_id": "3565123ed81f0c2f",
+      "kind": "point",
+      "date": "2026-10-24",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Dawn",
+      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE4wWU1XcTJjVkhydDJ6REhTa1RGZHp5eHJhYXVpQlRoNndhUjBOamFNWlRERkdMYk53LWc4LVhDbktnSXZ3RkJyWmtEMEgycjRFNmJN?oc=5",
+      "headline": "Live Updates: War returns to Iran with Israel, US strikes - Dawn",
+      "detected_at": "2026-10-24T11:04:25Z"
     }
   ],
   "scheduled_events": [

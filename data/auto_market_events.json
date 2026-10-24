@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-23T21:26:05Z",
+  "updated_at": "2026-10-24T04:39:33Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -434,7 +434,7 @@
       "source": "NVIDIA Newsroom",
       "source_url": "https://blogs.nvidia.com/blog/google-cloud-vera-rubin-infrastructure/",
       "headline": "Google Cloud and NVIDIA Announce General Availability of NVIDIA Vera Rubin Infrastructure",
-      "detected_at": "2026-10-23T21:26:02Z"
+      "detected_at": "2026-10-24T04:39:30Z"
     },
     {
       "event_id": "f746cd194df6324d",
@@ -479,7 +479,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYzBEdGVKYmZ3VVpJajg0TW5DN2VHVEM2aDVTcFJKQVduMnVMTU5NbVcyMGxBanBHY3VvMzJQR1VrQWM4b0hLeG1YaTFWcldTeU9yTlBXc3FiR1FtcUp0SmxhRkJkWmpmZ2x6X3VGZHZEUDNLTE9LTFZNSlBWWjNJVGtaV3YwWkc4QVhxbHozYkx5THpZMVlYVDAtd0dqbUMyOUcyVk91NEYxaFFCZklRWWhjQm5qN2NvVHdWdnZIQVJSMk0?oc=5",
       "headline": "Oil prices hit five-month high as Houthi attacks stoke Middle East supply fears - Reuters",
-      "detected_at": "2026-10-23T21:26:04Z"
+      "detected_at": "2026-10-24T04:39:32Z"
     },
     {
       "event_id": "3474b690bad584bd",
@@ -489,12 +489,12 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.85,
+      "confidence": 0.9,
       "auto_generated": true,
-      "source": "The Sunday Guardian",
-      "source_url": "https://news.google.com/rss/articles/CBMi2gJBVV95cUxOTDRISTl4OVhfMmFQR2dPUTU5TVlIVlFzaDctMVlva2VSNFVEMm12WnJzNXptZWVacDV3NG01LUlnMDA2dWdTQjluYVV6dUlfaC1nVWlkRlhwOGEzMldvb0hvb2hhbl90TTNXRlc3NGJ1bWpsZGphY1hDV3laVHd5c1hqUjNGVlZHQjhHQ0l6WmE3aC1NNjQ1T2J0cktjT0JyMDdqRUJBRUhWZjRZLXdOcHRwemVDY3lfOHJndlBlZmZuWU1tZ1AxNWlVeDA5cDE0VmlfemdTNEctMVJtZXFDSktkMVdJWDRSY0QydzUxMXQ2ZGJGaW0wVElVZGJfWGlxTFNTbkc0QzlteVI5cHJqaHZ1dTdoV2hNTm5ub2t0VmZhbW40bTVRMFVJLW5oejIxQnotR2RZUmxWT1ZZNExzR2E4ZzRCSERpNGpIOWJsRWZZZjNzcEM3YkJn0gHfAkFVX3lxTFBnbW9mX196Qmw3bnB0OFRhcXFtdHozNmZlSW00cEdrcnd6bkZYUjhwWmZYV09CVlREMVVYbXVZOEJLbF9iN3JreGI5N2lEalJ5eHhfM1E3VGszRVpQOFpOS3hlRXlwZDVtQzA1dVRoMjUzd1JSVldsLXROMnU4Q1NqNXI0OEd0MnhwNldkZi1xZkRldFdTWmE0THAzN3FpMmNHVUZ6b0F1aXBuZ0tlelRsblU3NEhjcnpuY085VVRYVFhEejJRLUVBYkQ2Z056ak1YeGlsTlBhXzluX3NfNV90enhkTDZFWDhyQWxDSTVRVmYwd2wyR3hoTnVjcy1lMnRVb2NCMFZZS0ZxLU1VdmZsbFBsRlBhU0VFUWF6R1pCRnVsWDgxbFpTaFp4UEozODg1TDdTcVJsdXFUaVRVWnNzSVVURmNjZ2wwOFliSlF1RUxKWC1WX1V6Q2lDejg5Zw?oc=5",
-      "headline": "US-Israel-Iran War Latest Live Updates: Oil Prices Hit Five-Month High as Brent Crude Surges to $114.72 Amid Fears of Fresh Attacks on Iran, Gulf Energy Infrastructure and Global Supply Disruptions - The Sunday Guardian",
-      "detected_at": "2026-10-23T21:26:04Z"
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPR2dZUC10TmJYRUk2RmM5WWpxaUx2XzBPZ0ZTV3hIR3BkaGFvZ3B2T1hhd0xEcXZOWk5LdXhLLUF5QU9XdTRQdnRyTk9jcmVNMEZvZlZBRW8xcG1TVW1fTkY2UnFrcXlVWlUwbDhRYk9pcW1fdEdzMVNRR2ZhYVl2T0RZa09uZTktZGFWRVRWSEpGeFhYVXVPR09zNDVaTVdiNDdRRHg3VFNyZWNNWVBmdkxGMWFOa05yN2NBRnRVZjF3eF9i?oc=5",
+      "headline": "Oil prices jump $3 on Houthi attacks, oil spill, highest settlement since April - Reuters",
+      "detected_at": "2026-10-24T04:39:32Z"
     }
   ],
   "scheduled_events": [

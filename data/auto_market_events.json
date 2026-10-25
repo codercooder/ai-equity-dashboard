@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T11:33:39Z",
+  "updated_at": "2026-10-25T16:24:13Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -494,7 +494,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPR2dZUC10TmJYRUk2RmM5WWpxaUx2XzBPZ0ZTV3hIR3BkaGFvZ3B2T1hhd0xEcXZOWk5LdXhLLUF5QU9XdTRQdnRyTk9jcmVNMEZvZlZBRW8xcG1TVW1fTkY2UnFrcXlVWlUwbDhRYk9pcW1fdEdzMVNRR2ZhYVl2T0RZa09uZTktZGFWRVRWSEpGeFhYVXVPR09zNDVaTVdiNDdRRHg3VFNyZWNNWVBmdkxGMWFOa05yN2NBRnRVZjF3eF9i?oc=5",
       "headline": "Oil prices jump $3 on Houthi attacks, oil spill, highest settlement since April - Reuters",
-      "detected_at": "2026-10-25T11:33:38Z"
+      "detected_at": "2026-10-25T16:24:12Z"
     },
     {
       "event_id": "260a8516c58b2a58",
@@ -524,7 +524,7 @@
       "source": "BigGo Finance",
       "source_url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1IdE9HNUJ6WmFiWXBneDQ3SUpYS1VhWlJmVEo3czlhTjNkMVlUOU51UXp6YjQ2cXlfRkszXzJySlhZV3FKdlpyVkRrOUhzaEg4bnNqMFFweF8tY0h1ODVYRVg2Szl3NHpBQ1M4N1hieW5IS0JUbXc?oc=5",
       "headline": "Middle East Conflict Escalates: Brent Crude Nears $117 as Strait of Hormuz Records 28 Ship Attacks in October, the Deadliest Month This Year - BigGo Finance",
-      "detected_at": "2026-10-25T11:33:38Z"
+      "detected_at": "2026-10-25T16:24:12Z"
     },
     {
       "event_id": "fd36d9b2b02c07aa",

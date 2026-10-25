@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24T20:52:19Z",
+  "updated_at": "2026-10-25T04:44:25Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -494,7 +494,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPR2dZUC10TmJYRUk2RmM5WWpxaUx2XzBPZ0ZTV3hIR3BkaGFvZ3B2T1hhd0xEcXZOWk5LdXhLLUF5QU9XdTRQdnRyTk9jcmVNMEZvZlZBRW8xcG1TVW1fTkY2UnFrcXlVWlUwbDhRYk9pcW1fdEdzMVNRR2ZhYVl2T0RZa09uZTktZGFWRVRWSEpGeFhYVXVPR09zNDVaTVdiNDdRRHg3VFNyZWNNWVBmdkxGMWFOa05yN2NBRnRVZjF3eF9i?oc=5",
       "headline": "Oil prices jump $3 on Houthi attacks, oil spill, highest settlement since April - Reuters",
-      "detected_at": "2026-10-24T15:58:39Z"
+      "detected_at": "2026-10-25T04:44:24Z"
     },
     {
       "event_id": "260a8516c58b2a58",
@@ -524,7 +524,7 @@
       "source": "The Sunday Guardian",
       "source_url": "https://news.google.com/rss/articles/CBMizgJBVV95cUxNUmdJX3hicGdaZ1Y5VFlVc1hDdXJVQ3JKUlVwaVgxMkNIX0kxdE9kTUJVdFNZSzZaWXM0bHpjcmRUSHdrdmpUbWhTSUVKeVhIUmwxUFFrQk9qZDk1bno3SWpQWHp3YUVXejA4Y2VWUlJPREhnRnlfbDctd1dVcGM4eU4tV0NXTWswNkNsTVFZRzlNdmU5T3hVZVhvVmlVRkR5MnpGZVFpbVV1OWQ5MXFKZ2o3aUo0QjY4dEI5eFdNdC1BTHBMRGk5Nk9zOWRWVDZNa1RDZXVVWTBvS1VEbWJsQWxZNk80a25ralpwUXFzMndZMHJmNDdLam5QTEg1eUNrN2MtY1ZNOHBIMW01cnZoeG5XWkR1R2Z1UzA5TG45WE5xdUN6NW9sLUVtekJfNG41MEhqM214QlRfVV92OEh5NWxGVEt3WDhPY1J3ZXZR0gHOAkFVX3lxTE1SZ0lfeGJwZ1pnVjlUWVVzWEN1clVDckpSVXBpWDEyQ0hfSTF0T2RNQlV0U1lLNlpZczRsemNyZFRId2t2alRtaFNJRUp5WEhSbDFQUWtCT2pkOTVuejdJalBYendhRVd6MDhjZVZSUk9ESGdGeV9sNy13V1VwYzh5Ti1XQ1dNazA2Q2xNUVlHOU12ZTlPeFVlWG9WaVVGRHkyekZlUWltVXU5ZDkxcUpnajdpSjRCNjh0Qjl4V010LUFMcExEaTk2T3M5ZFZUNk1rVENldVVZMG9LVURtYmxBbFk2TzRrbmtqWnBRcXMyd1kwcmY0N0tqblBMSDV5Q2s3Yy1jVk04cEgxbTVydmh4bldaRHVHZnVTMDlMbjlYTnF1Q3o1b2wtRW16Ql80bjUwSGozbXhCVF9VX3Y4SHk1bEZUS3dYOE9jUndldlE?oc=5",
       "headline": "US-Israel-Iran War Latest Live Updates: ‘We May Do Another Little Epic Fury,’ Trump Warns Iran as Tehran Prepares to Target Undersea Internet Cables in Gulf if US-Israel Attacks Resume - The Sunday Guardian",
-      "detected_at": "2026-10-24T15:58:39Z"
+      "detected_at": "2026-10-25T04:44:24Z"
     },
     {
       "event_id": "fd36d9b2b02c07aa",
@@ -740,7 +740,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 3,
+    "discovered_count": 2,
     "scheduled_count": 10,
     "failures": []
   }

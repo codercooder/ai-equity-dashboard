@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T20:53:23Z",
+  "updated_at": "2026-10-26T04:50:16Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -521,10 +521,10 @@
       "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "BigGo Finance",
-      "source_url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1IdE9HNUJ6WmFiWXBneDQ3SUpYS1VhWlJmVEo3czlhTjNkMVlUOU51UXp6YjQ2cXlfRkszXzJySlhZV3FKdlpyVkRrOUhzaEg4bnNqMFFweF8tY0h1ODVYRVg2Szl3NHpBQ1M4N1hieW5IS0JUbXc?oc=5",
-      "headline": "Middle East Conflict Escalates: Brent Crude Nears $117 as Strait of Hormuz Records 28 Ship Attacks in October, the Deadliest Month This Year - BigGo Finance",
-      "detected_at": "2026-10-25T20:53:22Z"
+      "source": "EnergyNow.com",
+      "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQa1FCOFRDdmNmTThwTUxvLXZJaEdOWEtsRnV0NWFFRkRfVFVIZmZRNzNJSVlyMmJDQ0dKV0IxTjNYVkppNldqRnNkUUZaNGlVc1JWNjF6OGFGUUFGT2h2Y25jUDZwUkVxTHJzUEV6R1B0cmdidlpJQzN6Y0pNVUQ4TXpjSV9FRFQ1MDdyYnJVeU5Xd3Nf?oc=5",
+      "headline": "Trump Hints at War’s End as Hormuz Standoff Chokes Oil Flows - EnergyNow.com",
+      "detected_at": "2026-10-26T04:50:15Z"
     },
     {
       "event_id": "fd36d9b2b02c07aa",
@@ -540,6 +540,51 @@
       "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOSTVKVU8tajFBRnZmQ2NNNldFMDZ0S1F5c2hKYjB1cEo3bkkwdjZodFFRU3c2V1ZPN3J5NzI1UzZRV2s3dndKSFF2UUxMQ3BTQnV0WkNUVGdQeGdnU25oM1lNUGRTREFsTUF6YUJFTU1lVlI3Q3U2bjQ0RG1vOHJCMC05eTJTNE9hdzNwMkNvMHBjNFAyb0ZUOExhaVFCN05EdWUwM3dlOXNkVTZyMWfSAbMBQVVfeXFMT0p1Wm5MMXNsSDQ4SUVzTjBlajdXUFBWM1EtNzF1MHJJYkJzTzhsSFZTMEx3eExROHhHQ2xBQmRUQU11OXFjMFFmR1RqZDl0NkxLdV81UHZqeExiQ3JSM3QyQkVST3dXeXU4OEM2ZU5tYWhJLWhKSTZtbXJFNURJRXNZTzRkclkxZ3ZZRzgzQjd3V2RIeEFXXzdXblNYVFNWaVJGZXhxcHp0VHlhZVZWeTJRNzA?oc=5",
       "headline": "Russia strikes power plant in Ukraine after Trump announces energy ceasefire - ABC News - Breaking News, Latest News and Videos",
       "detected_at": "2026-10-24T20:52:18Z"
+    },
+    {
+      "event_id": "56accd9ed085f6ac",
+      "kind": "point",
+      "date": "2026-10-25",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "EnergyNow.com",
+      "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOR3AtUThyTTFHa2J5N1pOeDh1SnQ3MnlOM3RseDFESUszd2VkSF9UTE52LXZmM1JKdWcySTdlamhRRVhRaUVoUlM2cGE4b3Q5LVlKMS14Z3RBZ05Bal9fcU5YVDhCYnFjUF8zaVVQbDJGeFZPeGl3bVlreUgyeERSNk5pd2FMYW1na1JjYnh4NmRXNzZkVy1tSElfRTJyMjBKcVlWOVk3ZGJqYTkySnJaajRqZXFNdm05MGhlUV9hTzdPQmwzVC10b25OYUI0dUxFRzM3d2EzblhNZXc?oc=5",
+      "headline": "HOW ABOUT NOW INSTEAD? Trump Says Iran War to End after US Midterm Elections, Threatens to Attack Pickaxe Mountain - EnergyNow.com",
+      "detected_at": "2026-10-26T04:50:15Z"
+    },
+    {
+      "event_id": "03ef64ee40c110e7",
+      "kind": "point",
+      "date": "2026-10-26",
+      "label": "FOMC 利率政策重大变化",
+      "category": "利率",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "富途牛牛",
+      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUzk2YjhiNDd1U2EwWDlGSS14T0ktMWZMNVVoejFRdDNFWG43Z1dkNHdpN2xCV0NWdHdETEhOQ3JFN0lyWkJxNjlnRHNEWmJaMjFYSmV3Q2hhVzRObWtxLVVGVXNUdnlUX3FyMWlKZ01XTDljVEMydnBqeWFEcEVPeVE4T3lwd3I3QVdiRzhscWpCNnA3YjZFN0M1azNSZnJOLWd0UlFCVG0?oc=5",
+      "headline": "The Federal Reserve and the European Central Bank are expected to jointly pause rate hikes, yet why does global capital remain under pressure? JPMorgan Outlook: The logic of continued tightening continues to weigh on equities and bonds. - 富途牛牛",
+      "detected_at": "2026-10-26T04:50:14Z"
+    },
+    {
+      "event_id": "5d4778caff84cc53",
+      "kind": "point",
+      "date": "2026-10-26",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "The Sunday Guardian",
+      "source_url": "https://news.google.com/rss/articles/CBMivAJBVV95cUxPZ2wtYkNUZWtIZmk5cmlYNmZSWDlEMTkwOXY5OUczWFpWOFRDVGZzN3NNNUZPeTgxMnhVVzV1VkVGdTFDUVE3LUpJSGRFcDZiWUtMV2RuOXdid3FRTHpGQmVuelQtUjllNjgwYmFVVkhqdU1TWGpONjNYQy1xTTZWSXRDaU14WUNUaGFMazMwMHBjNjZuWVRFVXZLMUwzUFdiUS1WeE12WG5Oa21yNmw2Yng4aUo4UTktVVlfRTgxSjI2a1QwanVpci1OVVBzcmhSYmRsUjM4QXZCVEtFalQ2c0YzYV8wNzRTMnIyTWt4TDNzcG5QWnUzd3FNb3lVT1FWNkZuNDZHNUtGbzdRaGZLZmx3V1h2S08yXzNKNDdWdU5oai1PdHJkMkxjWXVjc0hDRGJUX0liZEdVc0wy0gHCAkFVX3lxTE5YcnlyMGFUR3VVdGhYdVhaSzVZQ0x0bUpJOFdrWXNGNFdmRnd1NGQxMVBBbE9pZE5acWJ3NjJGbTFqWEwwM0t5RTBvVVBOejhMRjBjREItam95MFRyY2RjWFdvZzJUMUVEUjJYRDlFcTkwVDVvVXZVSHhIWk5JSks0Vm1RZTc1WmRObG9BNGJyb081ZUF1MlNWSF9XOHlpRnpUdjlkRzluck14c0tHSjdfV3JZZmhoMURfS2RwWFo3NjZnSmVBVmpjTzRFdTJNYkYzSUg1SE5ZaFIyYTNGVTVKaVZkNFAwNThhLThzcnNRdG9SSS1KRG54enFYMmNLbl9SZGw2aVlSc09NTU0tQlhIZGtYb2FEOHJmX3l2VDVlelFZOHdoQWFuQUpOcTVqWDlndFdmbzdzT2JOaG5TNXJxU0E?oc=5",
+      "headline": "Crude Oil Prices Fall Over 1% After Hitting Near Six-Month Highs, but Brent Remains Above $115 and WTI Near $101.50; Will Saudi Attacks and US-Iran Tensions Push Oil Towards $120? - The Sunday Guardian",
+      "detected_at": "2026-10-26T04:50:15Z"
     }
   ],
   "scheduled_events": [
@@ -740,7 +785,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 2,
+    "discovered_count": 4,
     "scheduled_count": 10,
     "failures": []
   }

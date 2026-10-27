@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-27T05:09:02Z",
+  "updated_at": "2026-10-27T12:15:06Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -569,7 +569,7 @@
       "source": "Bloomberg.com",
       "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOZW9LMWRyT2twSklnZmlGUkxQV3RHTzg1dDVXcVdRUWJuUHdqUWdjS1J6YXVNdEY4SDRXWXBhcnZ1VlhHTDNlck9ySXM4SlhvMTkwZVBYaHI0LWFBQ2lRdjVMdENfNHRwU0N4Yk9nTTJjM0RxcEhnMndDVDl3dS15QUIzejNORm1yWkQ3UWVqZGZXOWt3NnRxeTVKdE9Gbm9Ic2kzaTNBcVIyNE5xdzR6STFUcEg?oc=5",
       "headline": "Warsh Tells Traders to Watch the Data. They Still Follow the Fed - Bloomberg.com",
-      "detected_at": "2026-10-26T22:41:34Z"
+      "detected_at": "2026-10-27T12:15:05Z"
     },
     {
       "event_id": "03ef64ee40c110e7",
@@ -599,7 +599,7 @@
       "source": "The Sunday Guardian",
       "source_url": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxPeXQwbjJhcWhtTDhPZ2ptWkRxT2l5bFlFVmFfbEY5UUZwamVKUVV5T0ZCQ0FKdFg4YnhFcUpBT1l0UHNENEtpcmZhQ1Q5S2RmMXl3Z0d3R0gtTTQwLWdsbDNCWG5KbkMzZDEtY0lUU2ZuTmtsTlUzVVNOWmdjNjVfSFZBektCZm0tMlJrQzBKSFNDTllfX2lMNk5QUERaaE04dTdPUFB5VTZFTkxjREMxUTBkSDJXMEVrNW1JT0RzaDBsb0g4OFhrek1jNzNQVXZUdC1OM0dCWDRhbE5JN2hMdUhlNkkzRmZJWkE4aVBfSWRTQWJoaDdRcDc0dHNYSTB5R19STFZUaHVJenN6WEQwc2RaN3hfLXJHVFVwU2k3MTBYdzRja1RLVmFuaGlFRmpkeWUtbldPOE90bTExMy1ERUR0OHNhM2N6MmZNYU1hRUp2VEtq0gHUAkFVX3lxTE95dDBuMmFxaG1MOE9nam1aRHFPaXlsWUVWYV9sRjlRRnBqZUpRVXlPRkJDQUp0WDhieEVxSkFPWXRQc0Q0S2lyZmFDVDlLZGYxeXdnR3dHSC1NNDAtZ2xsM0JYbkpuQzNkMS1jSVRTZm5Oa2xOVTNVU05aZ2M2NV9IVkF6S0JmbS0yUmtDMEpIU0NOWV9faUw2TlBQRFpoTTh1N09QUHlVNkVOTGNEQzFRMGRIMlcwRWs1bUlPRHNoMGxvSDg4WGt6TWM3M1BVdlR0LU4zR0JYNGFsTkk3aEx1SGU2STNGZklaQThpUF9JZFNBYmhoN1FwNzR0c1hJMHlHX1JMVlRodUl6c3pYRDBzZFo3eF8tckdUVXBTaTcxMFh3NGNrVEtWYW5oaUVGamR5ZS1uV084T3RtMTEzLURFRHQ4c2EzY3oyZk1hTWFFSnZUS2o?oc=5",
       "headline": "US-Israel-Iran War Latest Live Updates: Brent Crude Slips to $115 and WTI Falls to $101 as Iran Talks Raise Hopes of De-escalation, While Saudi Attacks and Hormuz Risks Keep Traders on Edge - The Sunday Guardian",
-      "detected_at": "2026-10-27T05:09:01Z"
+      "detected_at": "2026-10-27T12:15:06Z"
     },
     {
       "event_id": "a69b064298db4b2e",
@@ -614,7 +614,7 @@
       "source": "Vocal",
       "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOcmRtLUFnR2lvMjF0NWFrTm8xdFNKcnRwekdyNlRGemNoTUJ0UEhzSXYtcnlCTHZtUjdHLTg1WW0xRXJEQnVDcG55dGRSdjhQYXlhcmpkMWJPOFpYVVJnNi02anl4R2hSSEtMRHl6TXBOM2ZWZ25Id2x2dHNsb3VLQU5SbmNzRU1odkhITEVucGFNVG1yQzFpVzhXbEJJdUduMVlSQVIxRXo4dw?oc=5",
       "headline": "Markets in Flux: Ceasefire Claims, Sanctions Shifts, and Geopolitics Reconsidered - Vocal",
-      "detected_at": "2026-10-27T05:09:01Z"
+      "detected_at": "2026-10-27T12:15:06Z"
     },
     {
       "event_id": "32228c808a37300f",
@@ -630,6 +630,21 @@
       "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOamRMeXF1dF9xaFlNcFlIalRnaGZBQUs2SUwtNThkNExtMzBQa2dYdExLbnJVckRGM3BpMWpjWkhGbEdQUGFHQ1FOWER6SUhadU04ams5RkNXR0tOVDdRTkExX2xnRWhCd3gxUl9icTE4Sk5nSHZFVU1vXzVidVRhOEdESWJCRGR2M3Z3NDVVY2JjZ1dQdjRGelQwTTVnakd6ckIzd2x4bEo5VnFnTjNRaHdNajdIZElQb2pnampYMDZnZW81OTR0NQ?oc=5",
       "headline": "Oil eases on Middle East diplomacy hopes, Saudi attacks keep supply worries alive - Reuters",
       "detected_at": "2026-10-27T05:09:01Z"
+    },
+    {
+      "event_id": "036eaae46d9c942e",
+      "kind": "point",
+      "date": "2026-10-27",
+      "label": "贸易 / 关税 / 出口管制冲击",
+      "category": "贸易",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "MoneyWise.com",
+      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcUNmeU9kcUFBcnpCMUtmcXpJYlJtcjZSeUdieGd2ZlFIQTU3QkZIeDc3cmdvZ0lzdHpmdnJkSkI1TFhOdmZ1U2tZVGM1ems2RnVKWThOSW15Q21XQVY4ODNtVGNsY3hNbXFEZUFBdUhpajJmTndSTjRvVHA2UW9MdDE1eE5OdkJmRlVFOHM2aEtzX0dadW9IWg?oc=5",
+      "headline": "China’s economy keeps growing despite Trump’s tariffs. What Goldman Sachs’ warning means for US investors - MoneyWise.com",
+      "detected_at": "2026-10-27T12:15:06Z"
     }
   ],
   "scheduled_events": [
@@ -830,7 +845,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 4,
+    "discovered_count": 5,
     "scheduled_count": 10,
     "failures": []
   }

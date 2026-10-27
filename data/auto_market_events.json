@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26T22:41:35Z",
+  "updated_at": "2026-10-27T05:09:02Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -584,7 +584,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQMFBxcEVKT0RxYVJKYWZGOUlGd0VJTE5vN2lNTnozcm92NTV5Vzg3aVdhT2p3eGpoVlZlZ19aaGtPa0s2VzBsS2xuamdkTnU4X2dhNGRzYjlaVTFpVzdLSkg4TDRlQThPdnZOandxOE1wV0o0WDFCcDgtbEZIQmR0a3BFOWdIM1dPZGdmQQ?oc=5",
       "headline": "Fed to hit pause on rate hikes, but maybe not for long - Reuters",
-      "detected_at": "2026-10-26T13:07:03Z"
+      "detected_at": "2026-10-27T05:09:00Z"
     },
     {
       "event_id": "5d4778caff84cc53",
@@ -599,7 +599,7 @@
       "source": "The Sunday Guardian",
       "source_url": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxPeXQwbjJhcWhtTDhPZ2ptWkRxT2l5bFlFVmFfbEY5UUZwamVKUVV5T0ZCQ0FKdFg4YnhFcUpBT1l0UHNENEtpcmZhQ1Q5S2RmMXl3Z0d3R0gtTTQwLWdsbDNCWG5KbkMzZDEtY0lUU2ZuTmtsTlUzVVNOWmdjNjVfSFZBektCZm0tMlJrQzBKSFNDTllfX2lMNk5QUERaaE04dTdPUFB5VTZFTkxjREMxUTBkSDJXMEVrNW1JT0RzaDBsb0g4OFhrek1jNzNQVXZUdC1OM0dCWDRhbE5JN2hMdUhlNkkzRmZJWkE4aVBfSWRTQWJoaDdRcDc0dHNYSTB5R19STFZUaHVJenN6WEQwc2RaN3hfLXJHVFVwU2k3MTBYdzRja1RLVmFuaGlFRmpkeWUtbldPOE90bTExMy1ERUR0OHNhM2N6MmZNYU1hRUp2VEtq0gHUAkFVX3lxTE95dDBuMmFxaG1MOE9nam1aRHFPaXlsWUVWYV9sRjlRRnBqZUpRVXlPRkJDQUp0WDhieEVxSkFPWXRQc0Q0S2lyZmFDVDlLZGYxeXdnR3dHSC1NNDAtZ2xsM0JYbkpuQzNkMS1jSVRTZm5Oa2xOVTNVU05aZ2M2NV9IVkF6S0JmbS0yUmtDMEpIU0NOWV9faUw2TlBQRFpoTTh1N09QUHlVNkVOTGNEQzFRMGRIMlcwRWs1bUlPRHNoMGxvSDg4WGt6TWM3M1BVdlR0LU4zR0JYNGFsTkk3aEx1SGU2STNGZklaQThpUF9JZFNBYmhoN1FwNzR0c1hJMHlHX1JMVlRodUl6c3pYRDBzZFo3eF8tckdUVXBTaTcxMFh3NGNrVEtWYW5oaUVGamR5ZS1uV084T3RtMTEzLURFRHQ4c2EzY3oyZk1hTWFFSnZUS2o?oc=5",
       "headline": "US-Israel-Iran War Latest Live Updates: Brent Crude Slips to $115 and WTI Falls to $101 as Iran Talks Raise Hopes of De-escalation, While Saudi Attacks and Hormuz Risks Keep Traders on Edge - The Sunday Guardian",
-      "detected_at": "2026-10-26T22:41:34Z"
+      "detected_at": "2026-10-27T05:09:01Z"
     },
     {
       "event_id": "a69b064298db4b2e",
@@ -614,7 +614,22 @@
       "source": "Vocal",
       "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOcmRtLUFnR2lvMjF0NWFrTm8xdFNKcnRwekdyNlRGemNoTUJ0UEhzSXYtcnlCTHZtUjdHLTg1WW0xRXJEQnVDcG55dGRSdjhQYXlhcmpkMWJPOFpYVVJnNi02anl4R2hSSEtMRHl6TXBOM2ZWZ25Id2x2dHNsb3VLQU5SbmNzRU1odkhITEVucGFNVG1yQzFpVzhXbEJJdUduMVlSQVIxRXo4dw?oc=5",
       "headline": "Markets in Flux: Ceasefire Claims, Sanctions Shifts, and Geopolitics Reconsidered - Vocal",
-      "detected_at": "2026-10-26T22:41:35Z"
+      "detected_at": "2026-10-27T05:09:01Z"
+    },
+    {
+      "event_id": "32228c808a37300f",
+      "kind": "point",
+      "date": "2026-10-27",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.9,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOamRMeXF1dF9xaFlNcFlIalRnaGZBQUs2SUwtNThkNExtMzBQa2dYdExLbnJVckRGM3BpMWpjWkhGbEdQUGFHQ1FOWER6SUhadU04ams5RkNXR0tOVDdRTkExX2xnRWhCd3gxUl9icTE4Sk5nSHZFVU1vXzVidVRhOEdESWJCRGR2M3Z3NDVVY2JjZ1dQdjRGelQwTTVnakd6ckIzd2x4bEo5VnFnTjNRaHdNajdIZElQb2pnampYMDZnZW81OTR0NQ?oc=5",
+      "headline": "Oil eases on Middle East diplomacy hopes, Saudi attacks keep supply worries alive - Reuters",
+      "detected_at": "2026-10-27T05:09:01Z"
     }
   ],
   "scheduled_events": [

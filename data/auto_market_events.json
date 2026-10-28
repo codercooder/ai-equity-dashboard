@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-28T05:45:37Z",
+  "updated_at": "2026-10-28T12:58:58Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -645,6 +645,21 @@
       "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcUNmeU9kcUFBcnpCMUtmcXpJYlJtcjZSeUdieGd2ZlFIQTU3QkZIeDc3cmdvZ0lzdHpmdnJkSkI1TFhOdmZ1U2tZVGM1ems2RnVKWThOSW15Q21XQVY4ODNtVGNsY3hNbXFEZUFBdUhpajJmTndSTjRvVHA2UW9MdDE1eE5OdkJmRlVFOHM2aEtzX0dadW9IWg?oc=5",
       "headline": "China’s economy keeps growing despite Trump’s tariffs. What Goldman Sachs’ warning means for US investors - MoneyWise.com",
       "detected_at": "2026-10-27T12:15:06Z"
+    },
+    {
+      "event_id": "dc0909be634e7abf",
+      "kind": "point",
+      "date": "2026-10-28",
+      "label": "俄乌战争重大升级 / 缓和",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "The Kyiv Independent",
+      "source_url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQWUVOY2dJVDQ2NzVEam44SlB4TjNoVnZpUEROZHZBWXdRRWtTZ1BxM29keTB4SkJqb1lmQjhhTzdYeGZIQjYtalNYcE5PdzFsTTgyZkxKZ3MzYWJEWHVUWFhzVDE0VkxqZHJrdVpzcTlRUVJTYktEMkVRQmdKZ0pPbmZMR3pqZ2ZUVl9WV3pJSHQ0aTJLVTBsYnJTRmtxc2hDUC1LdllpckRhTnNTams2MW9vM0dsNldKQnNqM0l2Q09ZYU9sTUVSTWNnenBycVFZVklpSTZsZlZPdzJVY2laMA?oc=5",
+      "headline": "Ukraine paused attacks on oil refineries for 3 days as Russia continued strikes on energy infrastructure, Zelensky says - The Kyiv Independent",
+      "detected_at": "2026-10-28T12:58:57Z"
     }
   ],
   "scheduled_events": [
@@ -845,7 +860,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 3,
+    "discovered_count": 2,
     "scheduled_count": 10,
     "failures": []
   }

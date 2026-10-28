@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-28T12:58:58Z",
+  "updated_at": "2026-10-28T22:37:11Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -659,7 +659,37 @@
       "source": "The Kyiv Independent",
       "source_url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQWUVOY2dJVDQ2NzVEam44SlB4TjNoVnZpUEROZHZBWXdRRWtTZ1BxM29keTB4SkJqb1lmQjhhTzdYeGZIQjYtalNYcE5PdzFsTTgyZkxKZ3MzYWJEWHVUWFhzVDE0VkxqZHJrdVpzcTlRUVJTYktEMkVRQmdKZ0pPbmZMR3pqZ2ZUVl9WV3pJSHQ0aTJLVTBsYnJTRmtxc2hDUC1LdllpckRhTnNTams2MW9vM0dsNldKQnNqM0l2Q09ZYU9sTUVSTWNnenBycVFZVklpSTZsZlZPdzJVY2laMA?oc=5",
       "headline": "Ukraine paused attacks on oil refineries for 3 days as Russia continued strikes on energy infrastructure, Zelensky says - The Kyiv Independent",
-      "detected_at": "2026-10-28T12:58:57Z"
+      "detected_at": "2026-10-28T22:37:11Z"
+    },
+    {
+      "event_id": "be1f48092980e1b5",
+      "kind": "point",
+      "date": "2026-10-28",
+      "label": "FOMC 利率政策重大变化",
+      "category": "利率",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.7,
+      "auto_generated": true,
+      "source": "BNN Bloomberg",
+      "source_url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQcUlSeGRaV0llbkRuM0kyalU1NWdSajNNSDE0RWNwSk5GOFhaeVNBVFB1d21CSXdrMlhIWk1ILWVDdy1DRU9CcWhJLXc4U3paU0pHSnluWDlPU0FQa3BELWlLTHJhZnlhWk05RjVkU1BiVlp5b0NwS0JGLXRvdGtLNWNuTzYxNmVETEZ1QVFOSHNuWGQtTlJ6WjR2M3ZjdFNXNXhJa1VpV19fRVZVXzhpTU9qMzU5VEJheGJhcmZTRTU0M3pSbTlyLVlJcXZNSjdUdHpXWUhmU0o2SWVRb3AyQ0ZkbTJ1TFM1aVhxY1Fsb3RGUjNvSk9mQTRZRQ?oc=5",
+      "headline": "U.S. Federal Reserve keeps rates unchanged despite elevated inflation - BNN Bloomberg",
+      "detected_at": "2026-10-28T22:37:10Z"
+    },
+    {
+      "event_id": "15c76bfc74bd8e31",
+      "kind": "point",
+      "date": "2026-10-28",
+      "label": "贸易 / 关税 / 出口管制冲击",
+      "category": "贸易",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.8,
+      "auto_generated": true,
+      "source": "Bloomberg.com",
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRDlGNDA3akR4eDFvczk1NmR5ZGx3S0RZV2IwMFlHUUVNV216aGFwVDRlQnhoMnNzbFlEeTVqODJiaWJTQkZiVzFmcFlocHVaaWU2OEJpQVhWSW1wQUFZWFdhSWFzejJacU5PbGhVRUZJTWh2dVpNZjF3LThORWE4SHJ1WUFJM3NtaUdRQmlhYUt2akt5Wi1YbDlaYkpnRHFINmhOTFV5MmVKUQ?oc=5",
+      "headline": "How’s the US-China Tech War Going? Ask AI - Bloomberg.com",
+      "detected_at": "2026-10-28T22:37:11Z"
     }
   ],
   "scheduled_events": [
@@ -860,7 +890,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 2,
+    "discovered_count": 4,
     "scheduled_count": 10,
     "failures": []
   }

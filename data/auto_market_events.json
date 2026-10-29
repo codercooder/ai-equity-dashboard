@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-29T05:51:04Z",
+  "updated_at": "2026-10-29T13:05:24Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -656,10 +656,10 @@
       "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "The Kyiv Independent",
-      "source_url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQWUVOY2dJVDQ2NzVEam44SlB4TjNoVnZpUEROZHZBWXdRRWtTZ1BxM29keTB4SkJqb1lmQjhhTzdYeGZIQjYtalNYcE5PdzFsTTgyZkxKZ3MzYWJEWHVUWFhzVDE0VkxqZHJrdVpzcTlRUVJTYktEMkVRQmdKZ0pPbmZMR3pqZ2ZUVl9WV3pJSHQ0aTJLVTBsYnJTRmtxc2hDUC1LdllpckRhTnNTams2MW9vM0dsNldKQnNqM0l2Q09ZYU9sTUVSTWNnenBycVFZVklpSTZsZlZPdzJVY2laMA?oc=5",
-      "headline": "Ukraine paused attacks on oil refineries for 3 days as Russia continued strikes on energy infrastructure, Zelensky says - The Kyiv Independent",
-      "detected_at": "2026-10-29T05:51:03Z"
+      "source": "eurotopics.net",
+      "source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9RNkdmN21hY0tRRUVNbWYyUjVQN09vbkFyeHFEVEthWHVoaVlkYUZ1QXFfWUlwa1pMY1UxbEMzcHJGRUVRWU5odmp4c3dfQlNhalZiWEdUOElTR3dKd0xYTkxsLXh5MFdUdDhJbjlZbEpqYi1KR1FxWA?oc=5",
+      "headline": "Ukraine war: ceasefire in Oleshky - eurotopics.net",
+      "detected_at": "2026-10-29T13:05:23Z"
     },
     {
       "event_id": "be1f48092980e1b5",
@@ -671,10 +671,10 @@
       "status": "auto_high",
       "confidence": 0.7,
       "auto_generated": true,
-      "source": "BNN Bloomberg",
-      "source_url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQcUlSeGRaV0llbkRuM0kyalU1NWdSajNNSDE0RWNwSk5GOFhaeVNBVFB1d21CSXdrMlhIWk1ILWVDdy1DRU9CcWhJLXc4U3paU0pHSnluWDlPU0FQa3BELWlLTHJhZnlhWk05RjVkU1BiVlp5b0NwS0JGLXRvdGtLNWNuTzYxNmVETEZ1QVFOSHNuWGQtTlJ6WjR2M3ZjdFNXNXhJa1VpV19fRVZVXzhpTU9qMzU5VEJheGJhcmZTRTU0M3pSbTlyLVlJcXZNSjdUdHpXWUhmU0o2SWVRb3AyQ0ZkbTJ1TFM1aVhxY1Fsb3RGUjNvSk9mQTRZRQ?oc=5",
-      "headline": "U.S. Federal Reserve keeps rates unchanged despite elevated inflation - BNN Bloomberg",
-      "detected_at": "2026-10-28T22:37:10Z"
+      "source": "CNBC",
+      "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5HTy1FRHJET2ZsWjdodm1pYU11UnkxQnJwU09YdjVUQV9xaEJfc2V6blhkdHJNV3ZLTGtaZ3lYZ2pYTElPQXVLMFl5T2IwVkhaWUo4Y2hrZGxfMXJ3d1NaYXhTSHBXM3RnS2NJMzA1cUppWGxRelEta1pR0gF_QVVfeXFMTXBjUk5HbWZHZHBtbFdrTDU0c2FpdUxrQmtCakJZTUxQUWdCYXcydWFfVmFDdnViazVkRmxhOHNuR1ZNdmdpSUFZUEt4OXphUlR2bjNqejg4UkpZZ3VNWU9DZ0RTMnUzd1lPUEphVTZXV2ktV3BUYXBJNDZrVVRZaw?oc=5",
+      "headline": "Here are five key takeaways from the Fed rate decision and Warsh news conference - CNBC",
+      "detected_at": "2026-10-29T13:05:22Z"
     },
     {
       "event_id": "15c76bfc74bd8e31",
@@ -686,10 +686,10 @@
       "status": "auto_high",
       "confidence": 0.8,
       "auto_generated": true,
-      "source": "Bloomberg",
+      "source": "Bloomberg.com",
       "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRDlGNDA3akR4eDFvczk1NmR5ZGx3S0RZV2IwMFlHUUVNV216aGFwVDRlQnhoMnNzbFlEeTVqODJiaWJTQkZiVzFmcFlocHVaaWU2OEJpQVhWSW1wQUFZWFdhSWFzejJacU5PbGhVRUZJTWh2dVpNZjF3LThORWE4SHJ1WUFJM3NtaUdRQmlhYUt2akt5Wi1YbDlaYkpnRHFINmhOTFV5MmVKUQ?oc=5",
-      "headline": "How’s the US-China Tech War Going? Ask AI - Bloomberg",
-      "detected_at": "2026-10-29T05:51:04Z"
+      "headline": "How’s the US-China Tech War Going? Ask AI - Bloomberg.com",
+      "detected_at": "2026-10-29T13:05:23Z"
     },
     {
       "event_id": "305460b26e4cb050",
@@ -719,7 +719,22 @@
       "source": "Aaj English TV",
       "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPU05KR0pTYThJYS1FRW1jT1BvR2V3UFFaUXdVQWdabXVZeWlXVHNhM1QtaDN4UHlCR3hfRVMtWHYtY3R0dXZJUE5HcVFiN0N1d3RPRmFCR3NZVXo4Mm5hV2wtTTBSWV9tNzJQaWNfU29tWFhST2VwdTE1SlU4R1FPNzlncmlFY3ZvRjRrUFpzRWs1QmdBbnF3c25OZ2NaZw?oc=5",
       "headline": "Iran discusses plan with mediators to end war, reopen Hormuz: Araghchi - Aaj English TV",
-      "detected_at": "2026-10-29T05:51:03Z"
+      "detected_at": "2026-10-29T13:05:22Z"
+    },
+    {
+      "event_id": "3bdcc76f72f89cc1",
+      "kind": "point",
+      "date": "2026-10-29",
+      "label": "俄乌战争重大升级 / 缓和",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.85,
+      "auto_generated": true,
+      "source": "Il Sole 24 ORE",
+      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNTTdpc0VUU3NRVkFHcDJDZFNVU05kbTJpdHFEWTBFYUFkOG9PazJPeVJSczkyY2JaUnVIRFdYNHowMkxIWnNjS2ZEV3RCSWlPTzRNcG55X0d3SVhKUkhNbl9qdktITllfQURrRTZhenhoTGcxeEt3M0J4V1NVd2tNVVdNRVhncHdvLU5rQXgtWF9GbjZaRzZrdkVQME5xcUpLUmF3RHlfcHJaLUk?oc=5",
+      "headline": "Ukraine, latest news. Russian attack on a civilian train in Dnipro leaves 13 dead. EU launches new ‘Safe’ call for proposals worth 21.3 billion - Il Sole 24 ORE",
+      "detected_at": "2026-10-29T13:05:23Z"
     }
   ],
   "scheduled_events": [
@@ -920,7 +935,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 5,
+    "discovered_count": 7,
     "scheduled_count": 10,
     "failures": []
   }

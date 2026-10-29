@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-28T22:37:11Z",
+  "updated_at": "2026-10-29T05:51:04Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -659,7 +659,7 @@
       "source": "The Kyiv Independent",
       "source_url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQWUVOY2dJVDQ2NzVEam44SlB4TjNoVnZpUEROZHZBWXdRRWtTZ1BxM29keTB4SkJqb1lmQjhhTzdYeGZIQjYtalNYcE5PdzFsTTgyZkxKZ3MzYWJEWHVUWFhzVDE0VkxqZHJrdVpzcTlRUVJTYktEMkVRQmdKZ0pPbmZMR3pqZ2ZUVl9WV3pJSHQ0aTJLVTBsYnJTRmtxc2hDUC1LdllpckRhTnNTams2MW9vM0dsNldKQnNqM0l2Q09ZYU9sTUVSTWNnenBycVFZVklpSTZsZlZPdzJVY2laMA?oc=5",
       "headline": "Ukraine paused attacks on oil refineries for 3 days as Russia continued strikes on energy infrastructure, Zelensky says - The Kyiv Independent",
-      "detected_at": "2026-10-28T22:37:11Z"
+      "detected_at": "2026-10-29T05:51:03Z"
     },
     {
       "event_id": "be1f48092980e1b5",
@@ -686,10 +686,40 @@
       "status": "auto_high",
       "confidence": 0.8,
       "auto_generated": true,
-      "source": "Bloomberg.com",
+      "source": "Bloomberg",
       "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRDlGNDA3akR4eDFvczk1NmR5ZGx3S0RZV2IwMFlHUUVNV216aGFwVDRlQnhoMnNzbFlEeTVqODJiaWJTQkZiVzFmcFlocHVaaWU2OEJpQVhWSW1wQUFZWFdhSWFzejJacU5PbGhVRUZJTWh2dVpNZjF3LThORWE4SHJ1WUFJM3NtaUdRQmlhYUt2akt5Wi1YbDlaYkpnRHFINmhOTFV5MmVKUQ?oc=5",
-      "headline": "How’s the US-China Tech War Going? Ask AI - Bloomberg.com",
-      "detected_at": "2026-10-28T22:37:11Z"
+      "headline": "How’s the US-China Tech War Going? Ask AI - Bloomberg",
+      "detected_at": "2026-10-29T05:51:04Z"
+    },
+    {
+      "event_id": "305460b26e4cb050",
+      "kind": "point",
+      "date": "2026-10-28",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.9,
+      "auto_generated": true,
+      "source": "CNBC",
+      "source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1VVTZnQjZMOUgxd3doMmJKclN5eUlkbFJoOE9TZDJQVlN5Zm92aDRIYW5yMWcwTGxtRHBfNW9FQ3NIbTJXSmdJZU9ibE9XZFRaQWJXb3JYbDJWY1l4c2o5OU5xeC1VbmFRN1JmMWZUUG9LNVhCYnk2ZNIBfkFVX3lxTE9PVWR4YV9Fa0UyQi0tN013V0d5bjY3bUJqZ1R2VGlsSHdGOURZVkRTSDhLUkpQS2lyV0ZDVlNua3RRelVoMmV4QUdfZUU5S09oV0ZHQTAzNm1hVWxVTVMzRWd0X2M3b3RfdVFUcFNfckgxMUdKMnNldWo2RWpIdw?oc=5",
+      "headline": "Oil prices rise as U.S. reportedly tells Gulf countries to prepare for Iran strikes after midterm elections - CNBC",
+      "detected_at": "2026-10-29T05:51:03Z"
+    },
+    {
+      "event_id": "e47f364d6d48cb70",
+      "kind": "point",
+      "date": "2026-10-29",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Aaj English TV",
+      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPU05KR0pTYThJYS1FRW1jT1BvR2V3UFFaUXdVQWdabXVZeWlXVHNhM1QtaDN4UHlCR3hfRVMtWHYtY3R0dXZJUE5HcVFiN0N1d3RPRmFCR3NZVXo4Mm5hV2wtTTBSWV9tNzJQaWNfU29tWFhST2VwdTE1SlU4R1FPNzlncmlFY3ZvRjRrUFpzRWs1QmdBbnF3c25OZ2NaZw?oc=5",
+      "headline": "Iran discusses plan with mediators to end war, reopen Hormuz: Araghchi - Aaj English TV",
+      "detected_at": "2026-10-29T05:51:03Z"
     }
   ],
   "scheduled_events": [
@@ -890,7 +920,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 4,
+    "discovered_count": 5,
     "scheduled_count": 10,
     "failures": []
   }

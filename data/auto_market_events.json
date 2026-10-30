@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-30T05:51:59Z",
+  "updated_at": "2026-10-30T12:58:35Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -671,10 +671,10 @@
       "status": "auto_high",
       "confidence": 0.7,
       "auto_generated": true,
-      "source": "CNBC",
-      "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5HTy1FRHJET2ZsWjdodm1pYU11UnkxQnJwU09YdjVUQV9xaEJfc2V6blhkdHJNV3ZLTGtaZ3lYZ2pYTElPQXVLMFl5T2IwVkhaWUo4Y2hrZGxfMXJ3d1NaYXhTSHBXM3RnS2NJMzA1cUppWGxRelEta1pR0gF_QVVfeXFMTXBjUk5HbWZHZHBtbFdrTDU0c2FpdUxrQmtCakJZTUxQUWdCYXcydWFfVmFDdnViazVkRmxhOHNuR1ZNdmdpSUFZUEt4OXphUlR2bjNqejg4UkpZZ3VNWU9DZ0RTMnUzd1lPUEphVTZXV2ktV3BUYXBJNDZrVVRZaw?oc=5",
-      "headline": "Here are five key takeaways from the Fed rate decision and Warsh news conference - CNBC",
-      "detected_at": "2026-10-30T05:51:58Z"
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPT2picUVQd3dYWDhKUnVJWUlEbmFULTE2RUF5NlBYemZiSHQzejU3OS05d3FrbHJXRXI2clNabXhwQ1RMSkJxU0VVTy1GT3VBbDFWSmozLWl1V3dybzVBZFd2bGdnWUVQelNhQ3psMmpVQXlEOFNHZURtaDZQLTR2aHY1T2FkSk9KbklCQTV6eXA2Z3h3V05xQVVTRVo3ZkNua25RTEotVi1JR0U4MXNodExiUFBBTmZFOTBJd1h3?oc=5",
+      "headline": "Warsh says politics played no role in Fed's rate decision by group he is 'honored' to lead - Reuters",
+      "detected_at": "2026-10-30T12:58:33Z"
     },
     {
       "event_id": "15c76bfc74bd8e31",
@@ -689,7 +689,7 @@
       "source": "Bloomberg.com",
       "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRDlGNDA3akR4eDFvczk1NmR5ZGx3S0RZV2IwMFlHUUVNV216aGFwVDRlQnhoMnNzbFlEeTVqODJiaWJTQkZiVzFmcFlocHVaaWU2OEJpQVhWSW1wQUFZWFdhSWFzejJacU5PbGhVRUZJTWh2dVpNZjF3LThORWE4SHJ1WUFJM3NtaUdRQmlhYUt2akt5Wi1YbDlaYkpnRHFINmhOTFV5MmVKUQ?oc=5",
       "headline": "How’s the US-China Tech War Going? Ask AI - Bloomberg.com",
-      "detected_at": "2026-10-30T05:51:59Z"
+      "detected_at": "2026-10-30T12:58:34Z"
     },
     {
       "event_id": "305460b26e4cb050",
@@ -716,10 +716,10 @@
       "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "EnergyNow",
-      "source_url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOb2tDZWxRRkpxMWFfY1hhRDZKVS1WclRycUpKOFNyNmtBei05OUszWDRQM2lTWWJaemVHV1o0c2QtNjNrRUFPc1RXdHJlcDdHd0owWXZJbmE1Qi1YclVDdnRFa0szcTFmaGlnUUhBcnRQZTBBSXotOTE1b2Y0MWZiZExLZ2pCcy11QWlkQTlVeTF3dHBoY3l1dUt6SnFEem56Y3pJRlpjOG5DYXIyUHpsV0paVEhYa1RsYmNZdkxWSlZ2RF93VldCbmZBeUl5RjQzSFFSaGs3QUVHZw?oc=5",
-      "headline": "HOW ABOUT NOW INSTEAD? Trump Says Iran War to End after US Midterm Elections, Threatens to Attack Pickaxe Mountain - EnergyNow",
-      "detected_at": "2026-10-30T05:51:58Z"
+      "source": "Britannica",
+      "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
+      "headline": "2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
+      "detected_at": "2026-10-30T12:58:34Z"
     },
     {
       "event_id": "3bdcc76f72f89cc1",
@@ -735,6 +735,21 @@
       "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNTTdpc0VUU3NRVkFHcDJDZFNVU05kbTJpdHFEWTBFYUFkOG9PazJPeVJSczkyY2JaUnVIRFdYNHowMkxIWnNjS2ZEV3RCSWlPTzRNcG55X0d3SVhKUkhNbl9qdktITllfQURrRTZhenhoTGcxeEt3M0J4V1NVd2tNVVdNRVhncHdvLU5rQXgtWF9GbjZaRzZrdkVQME5xcUpLUmF3RHlfcHJaLUk?oc=5",
       "headline": "Ukraine, latest news. Russian attack on a civilian train in Dnipro leaves 13 dead. EU launches new ‘Safe’ call for proposals worth 21.3 billion - Il Sole 24 ORE",
       "detected_at": "2026-10-29T13:05:23Z"
+    },
+    {
+      "event_id": "121bc11b8392e283",
+      "kind": "point",
+      "date": "2026-10-30",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.85,
+      "auto_generated": true,
+      "source": "Global Banking & Finance Review",
+      "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOMkJXYVN6UHA2WUJOR3YzZkVKeHNUQlBNcXVfUjk1YVdOckVFMmJ6UXVncU1FNXBTT2ZMc2ZwV1VtSkplSUE0OC1OazI3R0JGUlZwUjN1OEs4M05pZUVJYnJGdE5TNFNhY0d6VHhQdHN4WWhuQnRxM2U0Ni00LWtPeU5hX3FjUXpIMEYyUnRiMl9lLW5NcUwxUW1R?oc=5",
+      "headline": "Oil Extends Gains as Hormuz Tanker Attack Fuels Supply Risk Fears - Global Banking & Finance Review",
+      "detected_at": "2026-10-30T12:58:34Z"
     }
   ],
   "scheduled_events": [

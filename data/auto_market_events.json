@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-29T22:46:59Z",
+  "updated_at": "2026-10-30T05:51:59Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -659,7 +659,7 @@
       "source": "The Kyiv Independent",
       "source_url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQWUVOY2dJVDQ2NzVEam44SlB4TjNoVnZpUEROZHZBWXdRRWtTZ1BxM29keTB4SkJqb1lmQjhhTzdYeGZIQjYtalNYcE5PdzFsTTgyZkxKZ3MzYWJEWHVUWFhzVDE0VkxqZHJrdVpzcTlRUVJTYktEMkVRQmdKZ0pPbmZMR3pqZ2ZUVl9WV3pJSHQ0aTJLVTBsYnJTRmtxc2hDUC1LdllpckRhTnNTams2MW9vM0dsNldKQnNqM0l2Q09ZYU9sTUVSTWNnenBycVFZVklpSTZsZlZPdzJVY2laMA?oc=5",
       "headline": "Ukraine paused attacks on oil refineries for 3 days as Russia continued strikes on energy infrastructure, Zelensky says - The Kyiv Independent",
-      "detected_at": "2026-10-29T22:46:58Z"
+      "detected_at": "2026-10-30T05:51:59Z"
     },
     {
       "event_id": "be1f48092980e1b5",
@@ -671,10 +671,10 @@
       "status": "auto_high",
       "confidence": 0.7,
       "auto_generated": true,
-      "source": "Reuters",
-      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPT2picUVQd3dYWDhKUnVJWUlEbmFULTE2RUF5NlBYemZiSHQzejU3OS05d3FrbHJXRXI2clNabXhwQ1RMSkJxU0VVTy1GT3VBbDFWSmozLWl1V3dybzVBZFd2bGdnWUVQelNhQ3psMmpVQXlEOFNHZURtaDZQLTR2aHY1T2FkSk9KbklCQTV6eXA2Z3h3V05xQVVTRVo3ZkNua25RTEotVi1JR0U4MXNodExiUFBBTmZFOTBJd1h3?oc=5",
-      "headline": "Warsh says politics played no role in Fed's rate decision by group he is 'honored' to lead - Reuters",
-      "detected_at": "2026-10-29T22:46:57Z"
+      "source": "CNBC",
+      "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5HTy1FRHJET2ZsWjdodm1pYU11UnkxQnJwU09YdjVUQV9xaEJfc2V6blhkdHJNV3ZLTGtaZ3lYZ2pYTElPQXVLMFl5T2IwVkhaWUo4Y2hrZGxfMXJ3d1NaYXhTSHBXM3RnS2NJMzA1cUppWGxRelEta1pR0gF_QVVfeXFMTXBjUk5HbWZHZHBtbFdrTDU0c2FpdUxrQmtCakJZTUxQUWdCYXcydWFfVmFDdnViazVkRmxhOHNuR1ZNdmdpSUFZUEt4OXphUlR2bjNqejg4UkpZZ3VNWU9DZ0RTMnUzd1lPUEphVTZXV2ktV3BUYXBJNDZrVVRZaw?oc=5",
+      "headline": "Here are five key takeaways from the Fed rate decision and Warsh news conference - CNBC",
+      "detected_at": "2026-10-30T05:51:58Z"
     },
     {
       "event_id": "15c76bfc74bd8e31",
@@ -689,7 +689,7 @@
       "source": "Bloomberg.com",
       "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRDlGNDA3akR4eDFvczk1NmR5ZGx3S0RZV2IwMFlHUUVNV216aGFwVDRlQnhoMnNzbFlEeTVqODJiaWJTQkZiVzFmcFlocHVaaWU2OEJpQVhWSW1wQUFZWFdhSWFzejJacU5PbGhVRUZJTWh2dVpNZjF3LThORWE4SHJ1WUFJM3NtaUdRQmlhYUt2akt5Wi1YbDlaYkpnRHFINmhOTFV5MmVKUQ?oc=5",
       "headline": "How’s the US-China Tech War Going? Ask AI - Bloomberg.com",
-      "detected_at": "2026-10-29T22:46:58Z"
+      "detected_at": "2026-10-30T05:51:59Z"
     },
     {
       "event_id": "305460b26e4cb050",
@@ -719,7 +719,7 @@
       "source": "EnergyNow",
       "source_url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOb2tDZWxRRkpxMWFfY1hhRDZKVS1WclRycUpKOFNyNmtBei05OUszWDRQM2lTWWJaemVHV1o0c2QtNjNrRUFPc1RXdHJlcDdHd0owWXZJbmE1Qi1YclVDdnRFa0szcTFmaGlnUUhBcnRQZTBBSXotOTE1b2Y0MWZiZExLZ2pCcy11QWlkQTlVeTF3dHBoY3l1dUt6SnFEem56Y3pJRlpjOG5DYXIyUHpsV0paVEhYa1RsYmNZdkxWSlZ2RF93VldCbmZBeUl5RjQzSFFSaGs3QUVHZw?oc=5",
       "headline": "HOW ABOUT NOW INSTEAD? Trump Says Iran War to End after US Midterm Elections, Threatens to Attack Pickaxe Mountain - EnergyNow",
-      "detected_at": "2026-10-29T22:46:57Z"
+      "detected_at": "2026-10-30T05:51:58Z"
     },
     {
       "event_id": "3bdcc76f72f89cc1",
@@ -935,7 +935,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 5,
+    "discovered_count": 4,
     "scheduled_count": 10,
     "failures": []
   }

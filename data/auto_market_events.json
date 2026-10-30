@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-30T12:58:35Z",
+  "updated_at": "2026-10-30T22:23:26Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -744,12 +744,27 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.85,
+      "confidence": 1.0,
       "auto_generated": true,
-      "source": "Global Banking & Finance Review",
-      "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOMkJXYVN6UHA2WUJOR3YzZkVKeHNUQlBNcXVfUjk1YVdOckVFMmJ6UXVncU1FNXBTT2ZMc2ZwV1VtSkplSUE0OC1OazI3R0JGUlZwUjN1OEs4M05pZUVJYnJGdE5TNFNhY0d6VHhQdHN4WWhuQnRxM2U0Ni00LWtPeU5hX3FjUXpIMEYyUnRiMl9lLW5NcUwxUW1R?oc=5",
-      "headline": "Oil Extends Gains as Hormuz Tanker Attack Fuels Supply Risk Fears - Global Banking & Finance Review",
-      "detected_at": "2026-10-30T12:58:34Z"
+      "source": "CNBC",
+      "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPLVd2SDlwRldfcEJqN0RhbWhMNVVvTElLbXQ2NmhfeU1HMVZob2hqM3h6aHNIQjE1SmE4eTZBc21vY0h2MmdCcDhodTJMdmZBNldrdmpsR1pFeFptS19mMHMzTmZhOGRxc3NCYWxCVVJIYTZEZ2QyRFF5M0E1VWxCdzUyZkFRRnlmQlhGUmpvNE90OGRQOGlVc0dwV3bSAaIBQVVfeXFMUFlzUTNfY0toTFpqNWd4b2JLT1V6ZVFMaDJLSmpqbFVpRW5RWDJ5Y21wTThpMEJzbHlEU09sdmVuWmdkZzlERWVlNFVKSEtRTEJsYUVUNGdIWUN6V0dZSTNPWGI0eVMxN0lIOGxSZTFnVHFIU1o4N1BSUXYtQkhwV3REajJEQ1EzX0hMYlRvZUZtSktOSlBJVmtPY0Q0VDB6aERn?oc=5",
+      "headline": "Oil set for fourth monthly gain as Hormuz tanker attack highlights supply risks from war - CNBC",
+      "detected_at": "2026-10-30T22:23:25Z"
+    },
+    {
+      "event_id": "9bf6257c397d1ba2",
+      "kind": "point",
+      "date": "2026-10-30",
+      "label": "俄乌战争重大升级 / 缓和",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Ahram Online",
+      "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQMG00WXVSODgwa1BYbEV6SkMtMVE3TXNwSXByOHdNRlhKa2IyUTNNXzdQY3FDSkFKY1NMX09JSkY3aEFYOUlFbEFyc2NyS29admZKQU9UWG9hOVZUalAtSm9BSkhackNybEROTW40MmNDU0FLQkNBOTd3dGVjenRmMllTdUdCY0FtYkUxNnFMS1RVeUlWWnNpVERFWUlheUtwWTBzbDgxdFBTM05IeEtieGgzUXJvek9vYUhTSnhGUDdQUE4xbUxENA?oc=5",
+      "headline": "Ukraine has resumed strikes on Russian oil refineries: Russia - War in Ukraine - World - Ahram Online",
+      "detected_at": "2026-10-30T22:23:25Z"
     }
   ],
   "scheduled_events": [
@@ -950,7 +965,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 4,
+    "discovered_count": 3,
     "scheduled_count": 10,
     "failures": []
   }

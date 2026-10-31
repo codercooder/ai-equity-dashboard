@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-30T22:23:26Z",
+  "updated_at": "2026-10-31T05:45:00Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -759,12 +759,27 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
+      "confidence": 0.85,
+      "auto_generated": true,
+      "source": "Newswav",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPb3dub1ZPS2pIeG5mV0xZTFkyM2hzeXdMZU1BY1NnTXJ6QnpMUnhQejNOR3c4RmtHRU5STm5iSThSY29DYmUwcEpxYXhGb0F0Ml9XMEtDRjZ6ZzdnLUFma0xhV2dCVV9OWXI5NFJVajJqMFN0eFFTU2JwcS1GUGI5ZkYxMVk3d2xydjJOWDdWU2JLUm1acE5Wb2h1OTlDMmZ5ZzZ4MHFUMThZMHkzN2dMcTBKbENFeHM?oc=5",
+      "headline": "Ukraine-Russia war latest: Kyiv ‘pauses oil strikes’ under pressure from Trump even as Putin keeps up attacks - Newswav",
+      "detected_at": "2026-10-31T05:45:00Z"
+    },
+    {
+      "event_id": "379c2773a397a578",
+      "kind": "point",
+      "date": "2026-10-31",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "Ahram Online",
-      "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQMG00WXVSODgwa1BYbEV6SkMtMVE3TXNwSXByOHdNRlhKa2IyUTNNXzdQY3FDSkFKY1NMX09JSkY3aEFYOUlFbEFyc2NyS29admZKQU9UWG9hOVZUalAtSm9BSkhackNybEROTW40MmNDU0FLQkNBOTd3dGVjenRmMllTdUdCY0FtYkUxNnFMS1RVeUlWWnNpVERFWUlheUtwWTBzbDgxdFBTM05IeEtieGgzUXJvek9vYUhTSnhGUDdQUE4xbUxENA?oc=5",
-      "headline": "Ukraine has resumed strikes on Russian oil refineries: Russia - War in Ukraine - World - Ahram Online",
-      "detected_at": "2026-10-30T22:23:25Z"
+      "source": "Arabian Business",
+      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeGVzSjhrbUhOTTctX0ViTkJTRnFEZnkwNTJQR3gySTJRQlk3aXNwenJ2Qk1DejVYcF84dmF4WDFPd2xKRzEwazEtOEdOb05OOFhJaXZQVTd3R2lDRHdGbTgtM1JSSEMxeFN5OTlLc0tLNE55MHlHRDZNU3lOVFBDaTJwQQ?oc=5",
+      "headline": "Iran war live: Qatar calls for immediate, unconditional reopening of Strait of Hormuz - Arabian Business",
+      "detected_at": "2026-10-31T05:44:59Z"
     }
   ],
   "scheduled_events": [
@@ -965,7 +980,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 3,
+    "discovered_count": 4,
     "scheduled_count": 10,
     "failures": []
   }

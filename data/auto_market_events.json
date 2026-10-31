@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-31T05:45:00Z",
+  "updated_at": "2026-10-31T12:35:21Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -737,6 +737,21 @@
       "detected_at": "2026-10-29T13:05:23Z"
     },
     {
+      "event_id": "628c9e798e38c75d",
+      "kind": "point",
+      "date": "2026-10-29",
+      "label": "FOMC 利率政策重大变化",
+      "category": "利率",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Kathleen Hays Presents: Central Bank Central",
+      "source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1BaTZTWERNZFg1VThaakdyYXAtNGpHY0Q1X21BbWlCRDlvb1NnZHdlZjhuU1J3UEZQT0NrSEU1YS1PWEJoNU1BbF9WSExGa0RubDZla1lfdXNDMVJyT0Eyd0FXeGFydmhJOENZSUJqYTRkWGdpVHBHeA?oc=5",
+      "headline": "Lacker: Fed Behind Inflation Curve as Warsh Fails to Turn Strong Words into Rate Hike - Kathleen Hays Presents: Central Bank Central",
+      "detected_at": "2026-10-31T12:35:19Z"
+    },
+    {
       "event_id": "121bc11b8392e283",
       "kind": "point",
       "date": "2026-10-30",
@@ -776,10 +791,10 @@
       "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "Arabian Business",
-      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeGVzSjhrbUhOTTctX0ViTkJTRnFEZnkwNTJQR3gySTJRQlk3aXNwenJ2Qk1DejVYcF84dmF4WDFPd2xKRzEwazEtOEdOb05OOFhJaXZQVTd3R2lDRHdGbTgtM1JSSEMxeFN5OTlLc0tLNE55MHlHRDZNU3lOVFBDaTJwQQ?oc=5",
-      "headline": "Iran war live: Qatar calls for immediate, unconditional reopening of Strait of Hormuz - Arabian Business",
-      "detected_at": "2026-10-31T05:44:59Z"
+      "source": "Dawn",
+      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE4wWU1XcTJjVkhydDJ6REhTa1RGZHp5eHJhYXVpQlRoNndhUjBOamFNWlRERkdMYk53LWc4LVhDbktnSXZ3RkJyWmtEMEgycjRFNmJN?oc=5",
+      "headline": "Live Updates: War returns to Iran with Israel, US strikes - Dawn",
+      "detected_at": "2026-10-31T12:35:20Z"
     }
   ],
   "scheduled_events": [
@@ -980,7 +995,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 4,
+    "discovered_count": 5,
     "scheduled_count": 10,
     "failures": []
   }

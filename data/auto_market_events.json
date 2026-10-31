@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-31T12:35:21Z",
+  "updated_at": "2026-10-31T21:37:32Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -749,7 +749,7 @@
       "source": "Kathleen Hays Presents: Central Bank Central",
       "source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1BaTZTWERNZFg1VThaakdyYXAtNGpHY0Q1X21BbWlCRDlvb1NnZHdlZjhuU1J3UEZQT0NrSEU1YS1PWEJoNU1BbF9WSExGa0RubDZla1lfdXNDMVJyT0Eyd0FXeGFydmhJOENZSUJqYTRkWGdpVHBHeA?oc=5",
       "headline": "Lacker: Fed Behind Inflation Curve as Warsh Fails to Turn Strong Words into Rate Hike - Kathleen Hays Presents: Central Bank Central",
-      "detected_at": "2026-10-31T12:35:19Z"
+      "detected_at": "2026-10-31T21:37:31Z"
     },
     {
       "event_id": "121bc11b8392e283",
@@ -995,7 +995,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 5,
+    "discovered_count": 3,
     "scheduled_count": 10,
     "failures": []
   }

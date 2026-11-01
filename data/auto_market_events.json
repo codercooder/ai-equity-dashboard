@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-01T06:08:52Z",
+  "updated_at": "2026-11-01T13:27:50Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -806,10 +806,25 @@
       "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "Dawn",
-      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE4wWU1XcTJjVkhydDJ6REhTa1RGZHp5eHJhYXVpQlRoNndhUjBOamFNWlRERkdMYk53LWc4LVhDbktnSXZ3RkJyWmtEMEgycjRFNmJN?oc=5",
-      "headline": "Live Updates: War returns to Iran with Israel, US strikes - Dawn",
-      "detected_at": "2026-10-31T12:35:20Z"
+      "source": "Investing.com India",
+      "source_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPRHhmczlCTXBQSFhSU0pQYUpUNFdUWURialRLaDQxdVotenlMLXYwRncwRDNEQU1PR2lLS25sOG9yTG1HMGd4bFM1SlBiMWhVclA4Qjlvb05lMlFsWVRHN1VQcHJ3aWJZVVUtbnZmNDJUVjNRTU16eVJ3cmtFWnRpb0F4NzRjM09pU3JlNmhiSmpaVU1yOU9UaHRZUWR6ZzJrT0loU05JbTVDbXFpSVdiZldLeERkYXZPRDhycg?oc=5",
+      "headline": "Oil hits six-month highs as Hormuz attacks threaten Iran peace efforts - Investing.com India",
+      "detected_at": "2026-11-01T13:27:49Z"
+    },
+    {
+      "event_id": "c22b707f070b90bc",
+      "kind": "point",
+      "date": "2026-11-01",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.85,
+      "auto_generated": true,
+      "source": "The National",
+      "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQVzF0OTFEeDd6NkxQYjVkWnpCRmQ1cEtKaVJZNWdaaDFySGVQOHY4cklQUXhQSUMxNjRXRFpjcFZhTFBud0ZyQmp4SlM5OGxqY3YtNzRTdGczNXVDRnpKRWJrN1A1TnZaY0pEVEkxRUJCZWtaS1dYT3llWnZIZGswajFiWXZveGhnUFpFZg?oc=5",
+      "headline": "Middle East latest: Attacks on ships transiting Hormuz in October highest since start of war - The National",
+      "detected_at": "2026-11-01T13:27:49Z"
     }
   ],
   "scheduled_events": [
@@ -1010,7 +1025,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 2,
+    "discovered_count": 3,
     "scheduled_count": 10,
     "failures": []
   }

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-31T21:37:32Z",
+  "updated_at": "2026-11-01T06:08:52Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -782,6 +782,21 @@
       "detected_at": "2026-10-31T05:45:00Z"
     },
     {
+      "event_id": "4c68e2988f147864",
+      "kind": "point",
+      "date": "2026-10-30",
+      "label": "FOMC 利率政策重大变化",
+      "category": "利率",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.8,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxObTlSSnpPaC0yUGM0aTNCb3h0cUVRejBTRjg0SXVnT0MwSXNMSzBVS1NFSEpUaGxtOUpzSkZmQlRKWjFWQ2UtNEp2RUgzcWwyMEN3clpKaU1acDlRUGFhS21BTEpWQjdSVURWZjRJd19Tc19pbVVHeWYwUEZLdUlka0x6M1p5WDRMVkVjRmlLTWU?oc=5",
+      "headline": "Fed officials make case for rate hikes amid ongoing inflation concerns - Reuters",
+      "detected_at": "2026-11-01T06:08:51Z"
+    },
+    {
       "event_id": "379c2773a397a578",
       "kind": "point",
       "date": "2026-10-31",
@@ -995,7 +1010,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 3,
+    "discovered_count": 2,
     "scheduled_count": 10,
     "failures": []
   }

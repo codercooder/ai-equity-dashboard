@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-02T06:08:59Z",
+  "updated_at": "2026-11-02T15:57:58Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -824,7 +824,7 @@
       "source": "The National",
       "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQVzF0OTFEeDd6NkxQYjVkWnpCRmQ1cEtKaVJZNWdaaDFySGVQOHY4cklQUXhQSUMxNjRXRFpjcFZhTFBud0ZyQmp4SlM5OGxqY3YtNzRTdGczNXVDRnpKRWJrN1A1TnZaY0pEVEkxRUJCZWtaS1dYT3llWnZIZGswajFiWXZveGhnUFpFZg?oc=5",
       "headline": "Middle East latest: Attacks on ships transiting Hormuz in October highest since start of war - The National",
-      "detected_at": "2026-11-02T06:08:58Z"
+      "detected_at": "2026-11-02T15:57:57Z"
     },
     {
       "event_id": "957b9f29590d3d08",
@@ -851,10 +851,10 @@
       "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "Dawn",
-      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE4wWU1XcTJjVkhydDJ6REhTa1RGZHp5eHJhYXVpQlRoNndhUjBOamFNWlRERkdMYk53LWc4LVhDbktnSXZ3RkJyWmtEMEgycjRFNmJN?oc=5",
-      "headline": "Live Updates: War returns to Iran with Israel, US strikes - Dawn",
-      "detected_at": "2026-11-02T06:08:58Z"
+      "source": "TradingView",
+      "source_url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNeEZGZ2wyY2xIUldxaVlkSGFHaTlDZnhTSUJtVmNyWGxYSERVbXg2RjRaX1VfX2xCekthdlNjc01QSFUtMkI0ZElCUnVKWktoUW1xX3lfSTNtVE9hSFg4MEI4WUdYSjhZZW80cEhRMFF3VUlNZjBYSnhkbEp4SHpCcDZ2OEJuWlBOYmU1RkFEUHZpRWRpSmxyb0REdFgyMjlsLThsTWtMaXFDQVhLQjNKRG9RQnUxTV9tcDN5MWwwd0RyOXRuXzVDNFFJMllwTEQzQTVEdUxMal9hNlFHb25tZDhmMWxwRmstcGdfTnRiT1dGdnU2emc?oc=5",
+      "headline": "Oil prices retreat ahead of U.S. midterms despite renewed Strait of Hormuz attacks - TradingView",
+      "detected_at": "2026-11-02T15:57:57Z"
     }
   ],
   "scheduled_events": [

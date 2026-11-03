@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T00:59:45Z",
+  "updated_at": "2026-11-03T14:19:19Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -834,12 +834,12 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.75,
+      "confidence": 0.85,
       "auto_generated": true,
-      "source": "24 Канал",
-      "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQNklnaXh0NGtTemRBY0JISXkzZTQxNTRmQWxOVTdWbWhadVJadkg5RWZWUVJWbWd2RUtmRXVxZl9rTGtMX3JqNnRRTUt3N0x6VWFrcklDaVZKMjladzdMa1J0dENrZDdiVE1uSDVhTWhPXzBaV2xwbVUzajJwTzNZaG5sai1wS3lwOENxY3B0a1c2d2lNbUE0ajl3?oc=5",
-      "headline": "Energy Ceasefire Broken – Why Ukraine Has Resumed Strikes on Russian Oil Refineries - 24 Канал",
-      "detected_at": "2026-11-01T22:04:03Z"
+      "source": "Newswav",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOWDJkX19yZy1UZ3hPbUd5czVuQXIzZG9GVW5GT0tDZkY1cEJrSDB4dndTdzlqTW5zdlBuZUM3UGxVa3VYRDdsQk9tQ1JPdC00VDlVNkE1d0pYcTB2NWx0QXdiRTdMNGVLOW8tYm44c01SVGxoOW9xSm1PTE9WdGM1RjFmTGlVbkk1ZXB0TWhKSkFFRU52QVlpcjJWZFZfQjdOOVVmck5FT2hVOXFVbC1SZ0s5Z2ZNQQ?oc=5",
+      "headline": "Ukraine-Russia war latest: Kyiv launches ‘massive’ overnight drone strikes on Russian facilities - Newswav",
+      "detected_at": "2026-11-03T14:19:18Z"
     },
     {
       "event_id": "3c364462795b520d",
@@ -851,10 +851,10 @@
       "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "TradingView",
-      "source_url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNeEZGZ2wyY2xIUldxaVlkSGFHaTlDZnhTSUJtVmNyWGxYSERVbXg2RjRaX1VfX2xCekthdlNjc01QSFUtMkI0ZElCUnVKWktoUW1xX3lfSTNtVE9hSFg4MEI4WUdYSjhZZW80cEhRMFF3VUlNZjBYSnhkbEp4SHpCcDZ2OEJuWlBOYmU1RkFEUHZpRWRpSmxyb0REdFgyMjlsLThsTWtMaXFDQVhLQjNKRG9RQnUxTV9tcDN5MWwwd0RyOXRuXzVDNFFJMllwTEQzQTVEdUxMal9hNlFHb25tZDhmMWxwRmstcGdfTnRiT1dGdnU2emc?oc=5",
-      "headline": "Oil prices retreat ahead of U.S. midterms despite renewed Strait of Hormuz attacks - TradingView",
-      "detected_at": "2026-11-03T00:59:44Z"
+      "source": "Britannica",
+      "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
+      "headline": "2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
+      "detected_at": "2026-11-03T14:19:18Z"
     },
     {
       "event_id": "7d1209441d20b158",
@@ -870,6 +870,21 @@
       "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPc3h6XzRIbzJlZWFMQkhIRDg0cUZNOTE4U19rYXhPUmw4cGZBcVVyc2tMYV9tN20wLTU1cFJjSTJQcVZ3SElFLUlpMlJpQWw1OFJMQ0h4R3c1YlR2ZW1JZk93eUxDNkRNdDByb2YxUFplRWRvMFo3VUU2eWRPTHZBaFU3SEIybS1mT2NjTFR6blNYV1NEYzVmT2NnZXhMc1NKUkJRSzFxZ005eXBLamxSbWk4X2syZw?oc=5",
       "headline": "Ukraine-Russia war latest: 26 killed in Ukrainian aid centre after ‘horrific’ Russian attack - Newswav",
       "detected_at": "2026-11-03T00:59:44Z"
+    },
+    {
+      "event_id": "e3835cc34f73139c",
+      "kind": "point",
+      "date": "2026-11-03",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Dawn",
+      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE4wWU1XcTJjVkhydDJ6REhTa1RGZHp5eHJhYXVpQlRoNndhUjBOamFNWlRERkdMYk53LWc4LVhDbktnSXZ3RkJyWmtEMEgycjRFNmJN?oc=5",
+      "headline": "Live Updates: War returns to Iran with Israel, US strikes - Dawn",
+      "detected_at": "2026-11-03T14:19:18Z"
     }
   ],
   "scheduled_events": [

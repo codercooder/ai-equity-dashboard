@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-02T15:57:58Z",
+  "updated_at": "2026-11-03T00:59:45Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -824,7 +824,7 @@
       "source": "The National",
       "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQVzF0OTFEeDd6NkxQYjVkWnpCRmQ1cEtKaVJZNWdaaDFySGVQOHY4cklQUXhQSUMxNjRXRFpjcFZhTFBud0ZyQmp4SlM5OGxqY3YtNzRTdGczNXVDRnpKRWJrN1A1TnZaY0pEVEkxRUJCZWtaS1dYT3llWnZIZGswajFiWXZveGhnUFpFZg?oc=5",
       "headline": "Middle East latest: Attacks on ships transiting Hormuz in October highest since start of war - The National",
-      "detected_at": "2026-11-02T15:57:57Z"
+      "detected_at": "2026-11-03T00:59:44Z"
     },
     {
       "event_id": "957b9f29590d3d08",
@@ -854,7 +854,22 @@
       "source": "TradingView",
       "source_url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNeEZGZ2wyY2xIUldxaVlkSGFHaTlDZnhTSUJtVmNyWGxYSERVbXg2RjRaX1VfX2xCekthdlNjc01QSFUtMkI0ZElCUnVKWktoUW1xX3lfSTNtVE9hSFg4MEI4WUdYSjhZZW80cEhRMFF3VUlNZjBYSnhkbEp4SHpCcDZ2OEJuWlBOYmU1RkFEUHZpRWRpSmxyb0REdFgyMjlsLThsTWtMaXFDQVhLQjNKRG9RQnUxTV9tcDN5MWwwd0RyOXRuXzVDNFFJMllwTEQzQTVEdUxMal9hNlFHb25tZDhmMWxwRmstcGdfTnRiT1dGdnU2emc?oc=5",
       "headline": "Oil prices retreat ahead of U.S. midterms despite renewed Strait of Hormuz attacks - TradingView",
-      "detected_at": "2026-11-02T15:57:57Z"
+      "detected_at": "2026-11-03T00:59:44Z"
+    },
+    {
+      "event_id": "7d1209441d20b158",
+      "kind": "point",
+      "date": "2026-11-02",
+      "label": "俄乌战争重大升级 / 缓和",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Newswav",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPc3h6XzRIbzJlZWFMQkhIRDg0cUZNOTE4U19rYXhPUmw4cGZBcVVyc2tMYV9tN20wLTU1cFJjSTJQcVZ3SElFLUlpMlJpQWw1OFJMQ0h4R3c1YlR2ZW1JZk93eUxDNkRNdDByb2YxUFplRWRvMFo3VUU2eWRPTHZBaFU3SEIybS1mT2NjTFR6blNYV1NEYzVmT2NnZXhMc1NKUkJRSzFxZ005eXBLamxSbWk4X2syZw?oc=5",
+      "headline": "Ukraine-Russia war latest: 26 killed in Ukrainian aid centre after ‘horrific’ Russian attack - Newswav",
+      "detected_at": "2026-11-03T00:59:44Z"
     }
   ],
   "scheduled_events": [
@@ -1055,7 +1070,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 2,
+    "discovered_count": 3,
     "scheduled_count": 10,
     "failures": []
   }

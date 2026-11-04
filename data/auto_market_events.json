@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T23:24:53Z",
+  "updated_at": "2026-11-04T06:26:21Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -879,12 +879,12 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.75,
+      "confidence": 0.8,
       "auto_generated": true,
-      "source": "Dawn",
-      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE4wWU1XcTJjVkhydDJ6REhTa1RGZHp5eHJhYXVpQlRoNndhUjBOamFNWlRERkdMYk53LWc4LVhDbktnSXZ3RkJyWmtEMEgycjRFNmJN?oc=5",
-      "headline": "Live Updates: War returns to Iran with Israel, US strikes - Dawn",
-      "detected_at": "2026-11-03T14:19:18Z"
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQTFpzbEJURFlBbkE1RzNfclduVWpDY29HaWY3dnZJNUFuTHFsckZXSU5iTGJHdUFzQkVmeVhvdk9IME9Hdkxwc0NQZzg4dFFzckltYVlzcGdWY2xhYmJWMWlMVmFyNml3YmFoSDBZMGdPZWlpU25IM3UtMW5iR3d1dGZrMGF4SzQ2MklEeG5lWU1iRUZjVDd5Nnhjc0dQamdDdEtUc3NMcFZDMTQ?oc=5",
+      "headline": "Oil prices ease to settle near 4-week low on hopes peace talks will end wars - Reuters",
+      "detected_at": "2026-11-04T06:26:21Z"
     }
   ],
   "scheduled_events": [
@@ -1085,7 +1085,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 0,
+    "discovered_count": 1,
     "scheduled_count": 10,
     "failures": []
   }

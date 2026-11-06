@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-05T19:58:37Z",
+  "updated_at": "2026-11-06T06:50:39Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -914,7 +914,37 @@
       "source": "Yahoo! Finance Canada",
       "source_url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOS2VLaXJuOEZwenhfZE1aOGJub2plSjNLdFpDeTZXTWlUWE1qYXJHQnUzaWtULTRsMWFKS3hSU3V4aU56NHF6UHY4bFlMUjF4SmxJQzVYMEl4UkU3SnFIc0dQT2Jma3BZazhVcUo2UFBlckRrcWtYM2RGdjFDQzBnQWlSbDF1X1FGdHc?oc=5",
       "headline": "Oil jumps over $3 as investors assess Iran war future, tanker attacks - Yahoo! Finance Canada",
-      "detected_at": "2026-11-05T19:58:36Z"
+      "detected_at": "2026-11-06T06:50:38Z"
+    },
+    {
+      "event_id": "9cde4b0ecbaee695",
+      "kind": "point",
+      "date": "2026-11-05",
+      "label": "贸易 / 关税 / 出口管制冲击",
+      "category": "贸易",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.7,
+      "auto_generated": true,
+      "source": "Bloomberg.com",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPcnZreU9qMWlnZ2R0aml1QzVpNW5YYnFXcEZweG8zYVpPczFhSjdhRllUZkxjQV85SzM4UlBqdW1pR0hSXzUzUEczLXpaZFZ0aERYOVp2M3F5NlZLQkhoRVJ1SFdEcHBRd2dFcUJ0T3l4aS1UZmg3eTkxOWxVeTFUTUpGMFBWZnpkOHBaUFd3aUloT3FXZjFkSXRYQkVvbVdSNHpOM2JNRHJ3dUZ1Zk1TYlBHNA?oc=5",
+      "headline": "China Keeps Faith in Trump as ‘Total Defeat’ Adds New Risks - Bloomberg.com",
+      "detected_at": "2026-11-06T06:50:38Z"
+    },
+    {
+      "event_id": "f338bfe56749bb40",
+      "kind": "point",
+      "date": "2026-11-06",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.7,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQem82aUU3S0NZWXNNcXlreW9xS3J0UnpIcDNCWVdqS3NyclRxSUtWenpmMEhoNmp6amtNSG5ZYmpuMzc1TElxODVYTmVSZURrYjJsbVliVXlVSzNtM3J5TDBMNl9sQ0JSTmxKQ2RxVzc4RnMxX2lIZGp3Y3kwTFdrUndLZkFMN0JkN2xLTi02dDZjT0x1Wk0ySTMxZlpNZWRmX1F6ZDhR?oc=5",
+      "headline": "As high oil prices curb demand, fresh signs of glut appear - Reuters",
+      "detected_at": "2026-11-06T06:50:38Z"
     }
   ],
   "scheduled_events": [

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-06T19:26:22Z",
+  "updated_at": "2026-11-07T06:00:31Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -914,7 +914,7 @@
       "source": "Yahoo! Finance Canada",
       "source_url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOS2VLaXJuOEZwenhfZE1aOGJub2plSjNLdFpDeTZXTWlUWE1qYXJHQnUzaWtULTRsMWFKS3hSU3V4aU56NHF6UHY4bFlMUjF4SmxJQzVYMEl4UkU3SnFIc0dQT2Jma3BZazhVcUo2UFBlckRrcWtYM2RGdjFDQzBnQWlSbDF1X1FGdHc?oc=5",
       "headline": "Oil jumps over $3 as investors assess Iran war future, tanker attacks - Yahoo! Finance Canada",
-      "detected_at": "2026-11-06T19:26:21Z"
+      "detected_at": "2026-11-07T06:00:30Z"
     },
     {
       "event_id": "9cde4b0ecbaee695",
@@ -939,12 +939,57 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.7,
+      "confidence": 0.8,
       "auto_generated": true,
       "source": "Reuters",
-      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQem82aUU3S0NZWXNNcXlreW9xS3J0UnpIcDNCWVdqS3NyclRxSUtWenpmMEhoNmp6amtNSG5ZYmpuMzc1TElxODVYTmVSZURrYjJsbVliVXlVSzNtM3J5TDBMNl9sQ0JSTmxKQ2RxVzc4RnMxX2lIZGp3Y3kwTFdrUndLZkFMN0JkN2xLTi02dDZjT0x1Wk0ySTMxZlpNZWRmX1F6ZDhR?oc=5",
-      "headline": "As high oil prices curb demand, fresh signs of glut appear - Reuters",
-      "detected_at": "2026-11-06T19:26:21Z"
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQdzM2c3YzcktwU285aS1QaVVzTk51WFR0UnpxMXlnaFdEd2RtZWYzMm81TDZQUTJZS0ZlLXFVV3ZhcGFibkdLZm9Remo3YjlhNHJTd1lxSXNMUFNzejhIMkt0TlFRXy1RZl9TdTkxbDhfdjQxUEIzcUhaYlpOMjZJSVViNmVPV0dRV0RmaTJ3dDJ3QUs4TTFleFlnZnNyUHhVYlQ5NldaZVRZRFd5dU5nVnRKVUQ0UFE?oc=5",
+      "headline": "Brent crude jumps, settles up over $3 after tanker attacks - Reuters",
+      "detected_at": "2026-11-07T06:00:30Z"
+    },
+    {
+      "event_id": "b126f6a53ffe1dac",
+      "kind": "point",
+      "date": "2026-11-06",
+      "label": "FOMC 利率政策重大变化",
+      "category": "利率",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.8,
+      "auto_generated": true,
+      "source": "Bloomberg.com",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNNlV4UkhGUmxWX1RyQXZqMnlGbnJIMFRXMm1VWGJ6dWVDNERJMjB4eTVva3FxNmFmMzZBU3Jmc1hTc09BWG5OcC1SMVA3MmhhMTV3bFk0NE56N0t0NkFPcXFGeTV4dFZvcGlqS2hzRTUtSkRxNzNoWnFJUjFhWkFlZFBzZHNYeGl1enUxOXlna2NPdkNEMGU3OTVWYkJmYXR1ZnRUaFR1ekI3QXBQeWoySDBrMHNnUQ?oc=5",
+      "headline": "Fed’s Daly Says More Rate Hikes Likely Needed to Tame Prices - Bloomberg.com",
+      "detected_at": "2026-11-07T06:00:30Z"
+    },
+    {
+      "event_id": "1c36ed71c674bf3e",
+      "kind": "point",
+      "date": "2026-11-07",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Britannica",
+      "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
+      "headline": "2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
+      "detected_at": "2026-11-07T06:00:30Z"
+    },
+    {
+      "event_id": "7dea19272298c68c",
+      "kind": "point",
+      "date": "2026-11-07",
+      "label": "俄乌战争重大升级 / 缓和",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Newswav",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbjMwRllHWWJvWjhzQUdkWGY2VHVJZE52UDA4cXVaY0xBYzVTcEs0MnNJaXJhVndOZFZia2F3RlpkOXNxSjJvVUVXMGJvTkl2NW5lZEh6MUpuLWxKcHFFMHBVZmFNT01uSlNobGtJaFhUbFZXOFJTeGZ3VVVzSFpjUHAwdkhFR0d6dTFBeWJ0SFhrR2I2NC1PdVYzbWVnWUhhRlQ5dnZQUk81b0VnSnNSMzVXTnhkYlE?oc=5",
+      "headline": "Ukraine-Russia war latest: Kyiv strikes oil refinery as Zelensky admits ‘every Ukrainian power plant’ damaged - Newswav",
+      "detected_at": "2026-11-07T06:00:31Z"
     }
   ],
   "scheduled_events": [
@@ -1145,7 +1190,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 3,
+    "discovered_count": 5,
     "scheduled_count": 10,
     "failures": []
   }

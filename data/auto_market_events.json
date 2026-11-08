@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-08T06:04:33Z",
+  "updated_at": "2026-11-08T13:27:40Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -956,10 +956,10 @@
       "status": "auto_high",
       "confidence": 0.8,
       "auto_generated": true,
-      "source": "Bloomberg.com",
+      "source": "Bloomberg",
       "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNNlV4UkhGUmxWX1RyQXZqMnlGbnJIMFRXMm1VWGJ6dWVDNERJMjB4eTVva3FxNmFmMzZBU3Jmc1hTc09BWG5OcC1SMVA3MmhhMTV3bFk0NE56N0t0NkFPcXFGeTV4dFZvcGlqS2hzRTUtSkRxNzNoWnFJUjFhWkFlZFBzZHNYeGl1enUxOXlna2NPdkNEMGU3OTVWYkJmYXR1ZnRUaFR1ekI3QXBQeWoySDBrMHNnUQ?oc=5",
-      "headline": "Fed’s Daly Says More Rate Hikes Likely Needed to Tame Prices - Bloomberg.com",
-      "detected_at": "2026-11-08T06:04:32Z"
+      "headline": "Fed’s Daly Says More Rate Hikes Likely Needed to Tame Prices - Bloomberg",
+      "detected_at": "2026-11-08T13:27:38Z"
     },
     {
       "event_id": "01cb57615aa97292",
@@ -974,7 +974,7 @@
       "source": "finance.biggo.com",
       "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5EZGVDc1ptUm9YUC11dk1KRnhvWV9DZVM4dlNBVzlPelY3Rm9tLWVwWk5zQnVWUWJVa0hMYWhqM1laREpVbDFKdURlVFNPQnFCUU9QRVdtMXR5ZGhQSDZz?oc=5",
       "headline": "Tariffs, Free Trade, Export Controls, H20 & Rare Earth Ban | BG2 w/ Bill Gurley & Brad Gerstner｜BG2Pod - finance.biggo.com",
-      "detected_at": "2026-11-08T06:04:33Z"
+      "detected_at": "2026-11-08T13:27:39Z"
     },
     {
       "event_id": "1c36ed71c674bf3e",
@@ -989,7 +989,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOR0loTjAtWUlkbnpIR2huZE8zWWkxZHZIZlprNlQ5Z3BSaGUxcnE1ZDdqbXFuOHFpQVdrbzEyNnRUSGR4ZDh3SEpqQkpqX2NZa0JlZjEyZlp3RElJMFlhVDRLLTZ3MzRuV2NuTXR3SjhQejExMVR4eE10YThVcmJYaTdNYmt1SjJfeG10NlJRRFB1SFNQUlRSanFrYzBFUjlZNjBGMjhxSi1MZG1sd19kWGU0Ykt5bmR4by1B?oc=5",
       "headline": "Crude gains on worries about renewed US attacks on Iran - Reuters",
-      "detected_at": "2026-11-08T06:04:32Z"
+      "detected_at": "2026-11-08T13:27:39Z"
     },
     {
       "event_id": "7dea19272298c68c",
@@ -1004,7 +1004,7 @@
       "source": "Newswav",
       "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbjMwRllHWWJvWjhzQUdkWGY2VHVJZE52UDA4cXVaY0xBYzVTcEs0MnNJaXJhVndOZFZia2F3RlpkOXNxSjJvVUVXMGJvTkl2NW5lZEh6MUpuLWxKcHFFMHBVZmFNT01uSlNobGtJaFhUbFZXOFJTeGZ3VVVzSFpjUHAwdkhFR0d6dTFBeWJ0SFhrR2I2NC1PdVYzbWVnWUhhRlQ5dnZQUk81b0VnSnNSMzVXTnhkYlE?oc=5",
       "headline": "Ukraine-Russia war latest: Kyiv strikes oil refinery as Zelensky admits ‘every Ukrainian power plant’ damaged - Newswav",
-      "detected_at": "2026-11-08T06:04:32Z"
+      "detected_at": "2026-11-08T13:27:39Z"
     },
     {
       "event_id": "095e7815e247e3b4",
@@ -1019,7 +1019,7 @@
       "source": "Britannica",
       "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
       "headline": "2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
-      "detected_at": "2026-11-08T06:04:32Z"
+      "detected_at": "2026-11-08T13:27:39Z"
     }
   ],
   "scheduled_events": [
@@ -1220,7 +1220,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 6,
+    "discovered_count": 5,
     "scheduled_count": 10,
     "failures": []
   }

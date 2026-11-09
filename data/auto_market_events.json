@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-09T06:35:23Z",
+  "updated_at": "2026-11-09T22:24:27Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1029,12 +1029,12 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.75,
+      "confidence": 0.8,
       "auto_generated": true,
-      "source": "Energies Media",
-      "source_url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1nSThoZjI4d3ZwOXhTU1FxMkxrNlJXN045YlR2bUI4aXdMM1k2SVZtVFRXMmxjTGs4SHA1RjBkUkhQWWhxWGEwYWU1RzBFOXFOQnQwT3U0MXdNZVBSS2xiUzZn?oc=5",
-      "headline": "Brent crude settles near $118 as US-Iran military uncertainty and Strait of Hormuz tanker attacks push oil to a fourth consecutive monthly gain - Energies Media",
-      "detected_at": "2026-11-09T06:35:22Z"
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOWWdUbTZOMkxOdnRzOHBPdHRWSFBmNG1jZnFISWQ0MVFaWEc1MUlkTjRuNlhSQzdMQWQxaXQzYTBOTGtBd0NkYnRNTFNHaDlNZ0xwVU1JODVSMFdLZnREeGttWWlEdmE3ZnJwODdnMG5iQnJwRlZBbDZvOEU5UjczRC1UcGo5S0p4U01KZWMzcVBjNEdnWW42clRaR1U5QXpoMHh1bnE0T2phU1I1OEpUVFJJUHN2LThoMFd3WGJR?oc=5",
+      "headline": "COMMENTARY: Middle East oil price war heralds post-conflict glut - Reuters",
+      "detected_at": "2026-11-09T22:24:26Z"
     }
   ],
   "scheduled_events": [
@@ -1235,7 +1235,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 3,
+    "discovered_count": 2,
     "scheduled_count": 10,
     "failures": []
   }

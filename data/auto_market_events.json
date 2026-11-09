@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-08T22:08:01Z",
+  "updated_at": "2026-11-09T06:35:23Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1014,12 +1014,27 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
+      "confidence": 0.9,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNWnV4VENDNkFNVllVVEpoVTJLcC13SlhHREstWFZZQ252QTRiU3dKeW5EYWYxVUJjNnQzVzh1M1FsWjNGTmRKMVFEYjhxT3M2VmF4aVpERWwwczh6dV9OTG5NcFJCMFVZZ0toWEEyMnRRTnBZUm9iQVVzblIzcmJMOTR4V29sUDFVME1jcFQ5VVhoMHVUM0YzWHM2bmE1b3VCV0s0R2JmUUQ?oc=5",
+      "headline": "Oil steadies after Trump signals restraint on Iran, Hormuz risks persist - Reuters",
+      "detected_at": "2026-11-09T06:35:22Z"
+    },
+    {
+      "event_id": "278d82f7489443eb",
+      "kind": "point",
+      "date": "2026-11-09",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "Britannica",
-      "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
-      "headline": "2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
-      "detected_at": "2026-11-08T13:27:39Z"
+      "source": "Energies Media",
+      "source_url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1nSThoZjI4d3ZwOXhTU1FxMkxrNlJXN045YlR2bUI4aXdMM1k2SVZtVFRXMmxjTGs4SHA1RjBkUkhQWWhxWGEwYWU1RzBFOXFOQnQwT3U0MXdNZVBSS2xiUzZn?oc=5",
+      "headline": "Brent crude settles near $118 as US-Iran military uncertainty and Strait of Hormuz tanker attacks push oil to a fourth consecutive monthly gain - Energies Media",
+      "detected_at": "2026-11-09T06:35:22Z"
     }
   ],
   "scheduled_events": [
@@ -1220,7 +1235,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 2,
+    "discovered_count": 3,
     "scheduled_count": 10,
     "failures": []
   }

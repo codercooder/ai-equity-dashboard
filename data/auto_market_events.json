@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T07:21:38Z",
+  "updated_at": "2026-11-10T19:45:20Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1037,6 +1037,21 @@
       "detected_at": "2026-11-09T22:24:26Z"
     },
     {
+      "event_id": "e832235392bc7178",
+      "kind": "point",
+      "date": "2026-11-09",
+      "label": "贸易 / 关税 / 出口管制冲击",
+      "category": "贸易",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.7,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOMVo4bzYyXzJlM0RUaEJCaDNDQWZ2bzhKOFNmbzBNTnMzNW9UeGRqVm9vd0pDWkNZUnROTXVSRmZ4aFJ1ZW1SeFdfQXJhZmFOREt6R3JQa2NFb3dsa21BYkdRanpFLTdVT1JEUko5NnhTY2lTbVk4cTZZS2NvS3lSMWQ4YnpQbElVcElZMDlQNjE2cDg2VnVwZ3MySXRraGpZQUtJWndKemxDRTVlMzBF?oc=5",
+      "headline": "China extends suspension of new rare earth controls until January - Reuters",
+      "detected_at": "2026-11-10T19:45:20Z"
+    },
+    {
       "event_id": "4c778e43d3200a17",
       "kind": "point",
       "date": "2026-11-10",
@@ -1044,12 +1059,27 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.8,
+      "confidence": 0.9,
       "auto_generated": true,
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5",
-      "headline": "Oil falls as Trump downplays prospect of escalation with Iran - Reuters",
-      "detected_at": "2026-11-10T07:21:37Z"
+      "headline": "Oil prices hit two-month lows as US downplays further Iran strikes - Reuters",
+      "detected_at": "2026-11-10T19:45:19Z"
+    },
+    {
+      "event_id": "40cdc8742e6370e2",
+      "kind": "point",
+      "date": "2026-11-10",
+      "label": "贸易 / 关税 / 出口管制冲击",
+      "category": "贸易",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.8,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOSkdyZ0hqUllXMmZjUVB1QnBoMXFCYWdEUldHN3hPWVo3MFNNbWlGX2dmWWVtdVVnTU5icUpXRGl3a09jSWpEN0x3VXJQQnNOZkxCbVhnREhXdWFoa25HbXIzUlZqVXVaVXd3T19HcmdxWGxHbjl5WC0zeDB5S3Q0SUxTNUREYm9lTE5IU0JJdXBSd1h5Q21uNHFfNGtqSi1tMkFmY1FDTWxEUmJ1enE3TUZSTWhYWVdjVHhoM2t0SmU4dVU?oc=5",
+      "headline": "China's trade surplus soars past $1 trillion as AI boom powers exports - Reuters",
+      "detected_at": "2026-11-10T19:45:20Z"
     }
   ],
   "scheduled_events": [
@@ -1250,7 +1280,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 3,
+    "discovered_count": 4,
     "scheduled_count": 10,
     "failures": []
   }

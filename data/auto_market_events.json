@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T19:45:20Z",
+  "updated_at": "2026-11-11T06:26:45Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1049,7 +1049,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOMVo4bzYyXzJlM0RUaEJCaDNDQWZ2bzhKOFNmbzBNTnMzNW9UeGRqVm9vd0pDWkNZUnROTXVSRmZ4aFJ1ZW1SeFdfQXJhZmFOREt6R3JQa2NFb3dsa21BYkdRanpFLTdVT1JEUko5NnhTY2lTbVk4cTZZS2NvS3lSMWQ4YnpQbElVcElZMDlQNjE2cDg2VnVwZ3MySXRraGpZQUtJWndKemxDRTVlMzBF?oc=5",
       "headline": "China extends suspension of new rare earth controls until January - Reuters",
-      "detected_at": "2026-11-10T19:45:20Z"
+      "detected_at": "2026-11-11T06:26:44Z"
     },
     {
       "event_id": "4c778e43d3200a17",
@@ -1079,7 +1079,37 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOSkdyZ0hqUllXMmZjUVB1QnBoMXFCYWdEUldHN3hPWVo3MFNNbWlGX2dmWWVtdVVnTU5icUpXRGl3a09jSWpEN0x3VXJQQnNOZkxCbVhnREhXdWFoa25HbXIzUlZqVXVaVXd3T19HcmdxWGxHbjl5WC0zeDB5S3Q0SUxTNUREYm9lTE5IU0JJdXBSd1h5Q21uNHFfNGtqSi1tMkFmY1FDTWxEUmJ1enE3TUZSTWhYWVdjVHhoM2t0SmU4dVU?oc=5",
       "headline": "China's trade surplus soars past $1 trillion as AI boom powers exports - Reuters",
-      "detected_at": "2026-11-10T19:45:20Z"
+      "detected_at": "2026-11-11T06:26:44Z"
+    },
+    {
+      "event_id": "b09a742c6a7e26e0",
+      "kind": "point",
+      "date": "2026-11-10",
+      "label": "FOMC 利率政策重大变化",
+      "category": "利率",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.8,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTXo5UzFWVEh5WllQOHNxS1Q2cERxOEM0X1QyN1dPX0R4XzdfT1BpajYxdi0xOEltNWh6cE15Z2ZvZ2dXV0Vwb3NkbWZ1VGQ2M2tvVVVSaWd6clhPcS1XUEU2QXE3c0tlLUhPX0c2emRnWVpwOGtoajlnSS1VRXRNZXFaNEpyVlVwcFVIOUdkT18yQ2t6a1psZGVlOFpiZl90QnVhcmxqQzNxNnlNSEdXcWpjcUdzYUNJSi1hcnl6ZEpUSUU?oc=5",
+      "headline": "Fed officials open door to a quicker round of rate hikes as inflation worsens - Reuters",
+      "detected_at": "2026-11-11T06:26:43Z"
+    },
+    {
+      "event_id": "ee2d98dea63a1c64",
+      "kind": "point",
+      "date": "2026-11-11",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.85,
+      "auto_generated": true,
+      "source": "Banglanews24",
+      "source_url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE12LUxlY3dRM2dqbnRyZy1iNW1Xc2Jya09zUW96R2VacDFUMGppUXBlcmtkQnRsNENSdlZUbW4yT2NqMk1YRzM3YzA1cFJBMTZjUjM1ak40N2RCU0lTeXJaYmZWamN1TkpnaUN3?oc=5",
+      "headline": "Oil rebounds as Hormuz attacks cloud Iran peace hopes - Banglanews24",
+      "detected_at": "2026-11-11T06:26:44Z"
     }
   ],
   "scheduled_events": [
@@ -1280,7 +1310,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 4,
+    "discovered_count": 5,
     "scheduled_count": 10,
     "failures": []
   }

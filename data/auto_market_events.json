@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T06:26:45Z",
+  "updated_at": "2026-11-11T19:37:59Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1063,8 +1063,8 @@
       "auto_generated": true,
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5",
-      "headline": "Oil prices hit two-month lows as US downplays further Iran strikes - Reuters",
-      "detected_at": "2026-11-10T19:45:19Z"
+      "headline": "Oil prices ease to two-month lows as US downplays further Iran strikes - Reuters",
+      "detected_at": "2026-11-11T19:37:58Z"
     },
     {
       "event_id": "40cdc8742e6370e2",
@@ -1079,7 +1079,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOSkdyZ0hqUllXMmZjUVB1QnBoMXFCYWdEUldHN3hPWVo3MFNNbWlGX2dmWWVtdVVnTU5icUpXRGl3a09jSWpEN0x3VXJQQnNOZkxCbVhnREhXdWFoa25HbXIzUlZqVXVaVXd3T19HcmdxWGxHbjl5WC0zeDB5S3Q0SUxTNUREYm9lTE5IU0JJdXBSd1h5Q21uNHFfNGtqSi1tMkFmY1FDTWxEUmJ1enE3TUZSTWhYWVdjVHhoM2t0SmU4dVU?oc=5",
       "headline": "China's trade surplus soars past $1 trillion as AI boom powers exports - Reuters",
-      "detected_at": "2026-11-11T06:26:44Z"
+      "detected_at": "2026-11-11T19:37:59Z"
     },
     {
       "event_id": "b09a742c6a7e26e0",
@@ -1094,7 +1094,22 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTXo5UzFWVEh5WllQOHNxS1Q2cERxOEM0X1QyN1dPX0R4XzdfT1BpajYxdi0xOEltNWh6cE15Z2ZvZ2dXV0Vwb3NkbWZ1VGQ2M2tvVVVSaWd6clhPcS1XUEU2QXE3c0tlLUhPX0c2emRnWVpwOGtoajlnSS1VRXRNZXFaNEpyVlVwcFVIOUdkT18yQ2t6a1psZGVlOFpiZl90QnVhcmxqQzNxNnlNSEdXcWpjcUdzYUNJSi1hcnl6ZEpUSUU?oc=5",
       "headline": "Fed officials open door to a quicker round of rate hikes as inflation worsens - Reuters",
-      "detected_at": "2026-11-11T06:26:43Z"
+      "detected_at": "2026-11-11T19:37:58Z"
+    },
+    {
+      "event_id": "68fea77cb1da2605",
+      "kind": "point",
+      "date": "2026-11-10",
+      "label": "俄乌战争重大升级 / 缓和",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Jagran Josh",
+      "source_url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxPNTJpd19EWjJ6dDhXVk8zUUswS1BnQUQ2TjQ0eFBhVXI5UmpEeVRsdElLUE40ZFJuTlUwUldrVnVONWJrUEpVS1RiUjJ6TEEzVVB2TjlDcndrejhsVHBKbmg0emF1OW1DcFpJSEkzYkdReVpkWF9FZnJFUkxhLU5pcGlUeHU4T0hmM0ROMFdlaGxCUjduME5ISnRHZkVIY1hqQjJHM09JNHFfOWQ4X3liTUVtUldXUVRueEhZckdpbVRpRDRXeURDaW1BZDlBR2NWdWY0cTJIR3d4T2hXZ3h6NFJqUXREb3JraHdhSnJ3M3R4ZVRLaXZ1bWgtUVRIazR1SllSaS1LRzd6dTJDZHVXQtIBlwJBVV95cUxPYXJjQ2JzUFp3a0Qxb2ZPV1EweTVOSkJpc1VFX1hROWJlZWNTN1piVFY5eER2ZHlJVUNQUVMwRi1heWlQa013VXZHZ3R1ZHgtRUhJM05odjVRSkRaXzhkbklnbDJ2dF9TeTNsai1hMlpsTnFjM21TMUVqd0djY0o4XzFPbGxrandTTjBvbkNDWHQ2b0ZSb0VzNktMa29rdmozd2FlZEdscTZiVWZ6SFB3MncxN28tSkRvdVA0MlN5LXN6REZDZ0V0RjdGRU5qUkVrV0R1QjZLeml3dGVYOEdHNFE1aExXcmVBU3JfQzlqTVFlZmNYeENGZGo1QXJlSjRyVUhYTUxuSlpGQkJPRm85UTV3N05TVG8?oc=5",
+      "headline": "US-Iran War is ‘Effectively Over', Russia-Ukraine War Ceasefire Shows 'Very Strong Inclination': Trump; Are the 2 Big Conflicts Ending? - Jagran Josh",
+      "detected_at": "2026-11-11T19:37:59Z"
     },
     {
       "event_id": "ee2d98dea63a1c64",

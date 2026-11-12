@@ -1265,6 +1265,9 @@ with dashboard_tab:
         finance_view["Capex $B"] = pd.to_numeric(finance_view["Capex"], errors="coerce") / 1e9
         finance_view["FCF $B"] = pd.to_numeric(finance_view["FCF"], errors="coerce") / 1e9
         finance_view["Gross Debt $B"] = pd.to_numeric(finance_view["Gross Debt"], errors="coerce") / 1e9
+        financial_asof = pd.to_datetime(finance_view["As Of"], errors="coerce").dropna()
+        if not financial_asof.empty:
+            st.caption(f"最新财务观测截至：{financial_asof.iloc[-1].strftime('%Y-%m-%d')}")
 
         # 10. Cash generation and reinvestment: same-unit dollar metrics.
         level3_heading(10, f"{level3_ticker} Cash Generation & Reinvestment")

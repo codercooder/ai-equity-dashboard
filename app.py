@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 
 from config import ALL_TICKERS, SECTORS, NAME_MAP
 from event_engine import get_market_events, auto_event_metadata
+from sector_fundamentals_view import render_sector_fundamentals
 from data_layer import (
     INDEX_BASE_DATE,
     INDEX_BASE_VALUE,
@@ -198,7 +199,7 @@ with page_r:
         f"Twelve Data: {'Ready' if td_enabled else 'Not configured'}"
     )
 
-dashboard_tab, news_tab = st.tabs(["Dashboard", "Latest Company News"])
+dashboard_tab, news_tab, fundamentals_tab = st.tabs(["Dashboard", "Latest Company News", "S&P 500 Sector Fundamentals"])
 
 with dashboard_tab:
     refresh_col, refresh_note_col = st.columns([1.25, 4.75])
@@ -1420,3 +1421,7 @@ with news_tab:
             st.caption(
                 f"当前显示 {len(display_news)} 条。新闻按发布时间倒序；同一标题会去重并合并相关公司。"
             )
+
+
+with fundamentals_tab:
+    render_sector_fundamentals()

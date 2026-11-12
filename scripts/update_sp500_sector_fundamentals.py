@@ -97,7 +97,7 @@ def get_constituents() -> pd.DataFrame:
             {
                 "ticker": cells[0].replace(".", "-"),
                 "security": cells[1],
-                "sector": cells[3],
+                "sector": cells[2],
             }
         )
 

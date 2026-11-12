@@ -52,6 +52,8 @@ ALIASES = {
         "CashAndCashEquivalents",
     ],
     "equity": ["StockholdersEquity", "TotalStockholderEquity"],
+    "assets": ["TotalAssets"],
+    "interest_expense": ["InterestExpense", "InterestExpenseNonOperating"],
     "invested": ["InvestedCapital"],
     "shares": ["OrdinarySharesNumber", "ShareIssued"],
 }
@@ -214,7 +216,7 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
     q = {
         k: series(
             iq
-            if k in {"revenue", "net_income", "ebit", "ebitda", "tax", "pretax"}
+            if k in {"revenue", "net_income", "ebit", "ebitda", "tax", "pretax", "interest_expense"}
             else cq
             if k in {"cfo", "capex", "depr"}
             else bq,
@@ -225,7 +227,7 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
     a = {
         k: series(
             ia
-            if k in {"revenue", "net_income", "ebit", "ebitda", "tax", "pretax"}
+            if k in {"revenue", "net_income", "ebit", "ebitda", "tax", "pretax", "interest_expense"}
             else ca
             if k in {"cfo", "capex", "depr"}
             else ba,
@@ -249,6 +251,8 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
     debt = latest(q["debt"])
     cash = latest(q["cash"])
     equity = latest(q["equity"])
+    assets = latest(q["assets"])
+    interest_expense = ttm(q["interest_expense"])
     invested = latest(q["invested"])
 
     if not np.isfinite(debt):
@@ -257,6 +261,10 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
         cash = latest(a["cash"])
     if not np.isfinite(equity):
         equity = latest(a["equity"])
+    if not np.isfinite(assets):
+        assets = latest(a["assets"])
+    if not np.isfinite(interest_expense):
+        interest_expense = nearest_value(a["interest_expense"], a["interest_expense"].index[0]) if not a["interest_expense"].empty else np.nan
     if not np.isfinite(invested) and np.isfinite(debt) and np.isfinite(equity):
         invested = debt + equity - (cash if np.isfinite(cash) else 0.0)
 
@@ -302,6 +310,14 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
         "debt": debt,
         "cash": cash,
         "equity": equity,
+        "assets": assets,
+        "interest_expense": abs(interest_expense) if np.isfinite(interest_expense) else np.nan,
+        "depreciation": abs(depr) if np.isfinite(depr) else np.nan,
+        "ffo_proxy": (
+            net_income + abs(depr)
+            if np.isfinite(net_income) and np.isfinite(depr)
+            else np.nan
+        ),
         "invested_capital": invested,
         "nopat": nopat,
     }
@@ -317,6 +333,9 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
         "capex",
         "debt",
         "equity",
+        "assets",
+        "interest_expense",
+        "depr",
     ]:
         annual_dates.update(
             pd.to_datetime(a[key].index, errors="coerce").dropna().tolist()
@@ -347,6 +366,8 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
         debt_y = nearest_value(a["debt"], d)
         cash_y = nearest_value(a["cash"], d)
         eq_y = nearest_value(a["equity"], d)
+        assets_y = nearest_value(a["assets"], d)
+        interest_y = nearest_value(a["interest_expense"], d)
         inv_y = nearest_value(a["invested"], d)
         if (
             not np.isfinite(inv_y)
@@ -388,6 +409,14 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
                 "debt": debt_y,
                 "cash": cash_y,
                 "equity": eq_y,
+                "assets": assets_y,
+                "interest_expense": abs(interest_y) if np.isfinite(interest_y) else np.nan,
+                "depreciation": abs(dep_y) if np.isfinite(dep_y) else np.nan,
+                "ffo_proxy": (
+                    ni + abs(dep_y)
+                    if np.isfinite(ni) and np.isfinite(dep_y)
+                    else np.nan
+                ),
                 "invested_capital": inv_y,
                 "nopat": nopat_y,
             }
@@ -483,6 +512,48 @@ def aggregate(rows: list[dict], sector_name: str) -> dict:
         s(roe_rows, "equity"),
     )
 
+    pb_rows = eligible("market_cap", "equity")
+    pb_den = s(pb_rows, "equity")
+    p_book = (
+        safe_div(s(pb_rows, "market_cap"), pb_den)
+        if np.isfinite(pb_den) and pb_den > 0
+        else np.nan
+    )
+
+    asset_rows = eligible("debt", "assets")
+    debt_assets = safe_div(
+        s(asset_rows, "debt"),
+        s(asset_rows, "assets"),
+    )
+
+    equity_asset_rows = eligible("equity", "assets")
+    equity_assets = safe_div(
+        s(equity_asset_rows, "equity"),
+        s(equity_asset_rows, "assets"),
+    )
+    assets_equity = safe_div(
+        s(equity_asset_rows, "assets"),
+        s(equity_asset_rows, "equity"),
+    )
+
+    intcov_rows = eligible("ebit", "interest_expense")
+    interest_coverage = safe_div(
+        s(intcov_rows, "ebit"),
+        s(intcov_rows, "interest_expense"),
+    )
+
+    ffo_rows = eligible("ffo_proxy", "market_cap")
+    ffo_proxy_total = s(ffo_rows, "ffo_proxy")
+    ffo_proxy_yield = safe_div(
+        ffo_proxy_total,
+        s(ffo_rows, "market_cap"),
+    )
+    p_ffo_proxy = (
+        safe_div(s(ffo_rows, "market_cap"), ffo_proxy_total)
+        if np.isfinite(ffo_proxy_total) and ffo_proxy_total > 0
+        else np.nan
+    )
+
     if sector_name == "Financials":
         ev_ebitda = np.nan
         net_debt_ebitda = np.nan
@@ -504,6 +575,13 @@ def aggregate(rows: list[dict], sector_name: str) -> dict:
         "roic": roic,
         "ebitda_margin": ebitda_margin,
         "roe": roe,
+        "p_book": p_book,
+        "debt_assets": debt_assets,
+        "equity_assets": equity_assets,
+        "assets_equity": assets_equity,
+        "interest_coverage": interest_coverage,
+        "ffo_proxy_yield": ffo_proxy_yield,
+        "p_ffo_proxy": p_ffo_proxy,
         "coverage_pct": coverage,
     }
 
@@ -623,6 +701,13 @@ def main():
         "roic",
         "ebitda_margin",
         "roe",
+        "p_book",
+        "debt_assets",
+        "equity_assets",
+        "assets_equity",
+        "interest_coverage",
+        "ffo_proxy_yield",
+        "p_ffo_proxy",
     ]
 
     summary_rows = []
@@ -688,7 +773,13 @@ def main():
             ),
             (
                 "Financials excludes corporate-style net debt/EBITDA, FCF, ROIC "
-                "and EBITDA margin as non-comparable; ROE is retained."
+                "and EBITDA margin as non-comparable; P/B, ROE and balance-sheet "
+                "capital ratios are retained instead."
+            ),
+            (
+                "Real Estate FFO is a proxy defined as net income plus depreciation "
+                "and amortization; it does not adjust for property-sale gains/losses "
+                "and is therefore not official NAREIT FFO/AFFO."
             ),
         ],
     }

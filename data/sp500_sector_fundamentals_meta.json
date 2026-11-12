@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-12",
-  "generated_at_utc": "2026-11-12T06:40:09.548381+00:00",
+  "generated_at_utc": "2026-11-12T08:15:39.158558+00:00",
   "source": "S&P 500 constituents from Wikipedia; company financial statements, market cap and prices from Yahoo Finance via yfinance",
   "universe_method": "Current S&P 500 constituents backcast to their available annual financial history",
   "companies_requested": 503,

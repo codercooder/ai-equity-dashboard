@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import streamlit as st
 from dotenv import load_dotenv
 
@@ -36,6 +37,7 @@ from data_layer import (
     eps_revision_trend,
     company_event_snapshot,
     company_news_feed,
+    cashflow_leverage_history,
 )
 
 load_dotenv()
@@ -1027,6 +1029,7 @@ with dashboard_tab:
         eps_df = eps_history(level3_ticker)
         eps_revision_df = eps_revision_trend(level3_ticker)
         event_snapshot = company_event_snapshot(level3_ticker)
+        cashflow_df = cashflow_leverage_history(level3_ticker)
 
     if ohlcv.empty:
         st.warning(f"{level3_ticker} 暂时没有可用的历史 OHLCV 数据。")
@@ -1248,6 +1251,220 @@ with dashboard_tab:
 
     st.caption("事件模块优先展示 Yahoo Finance 可获取的公司活动/新闻与公司日历；未公开或数据源未覆盖的活动不会推断补齐。")
 
+    level3_divider()
+    st.markdown("### 财务现金流与杠杆")
+    st.caption(
+        "最近5个财年 + 最新TTM（若四个季度数据齐全）。重点观察现金创造、AI/基础设施再投资强度，以及资产负债表杠杆变化。"
+    )
+
+    if cashflow_df is None or cashflow_df.empty:
+        st.caption(f"{level3_ticker}：暂未获取到足够的现金流 / 资产负债表历史数据。")
+    else:
+        finance_view = cashflow_df.copy()
+        finance_view["CFO $B"] = pd.to_numeric(finance_view["CFO"], errors="coerce") / 1e9
+        finance_view["Capex $B"] = pd.to_numeric(finance_view["Capex"], errors="coerce") / 1e9
+        finance_view["FCF $B"] = pd.to_numeric(finance_view["FCF"], errors="coerce") / 1e9
+        finance_view["Gross Debt $B"] = pd.to_numeric(finance_view["Gross Debt"], errors="coerce") / 1e9
+        financial_asof = pd.to_datetime(finance_view["As Of"], errors="coerce").dropna()
+        if not financial_asof.empty:
+            st.caption(f"最新财务观测截至：{financial_asof.iloc[-1].strftime('%Y-%m-%d')}")
+
+        # 10. Cash generation and reinvestment: same-unit dollar metrics.
+        level3_heading(10, f"{level3_ticker} Cash Generation & Reinvestment")
+        cash_fig = go.Figure()
+        cash_fig.add_trace(
+            go.Bar(
+                x=finance_view.index,
+                y=finance_view["CFO $B"],
+                name="CFO",
+                text=[f"{v:.1f}" if pd.notna(v) else "" for v in finance_view["CFO $B"]],
+                textposition="outside",
+                cliponaxis=False,
+            )
+        )
+        cash_fig.add_trace(
+            go.Bar(
+                x=finance_view.index,
+                y=-finance_view["Capex $B"],
+                name="Capex (outflow)",
+                text=[f"-{v:.1f}" if pd.notna(v) else "" for v in finance_view["Capex $B"]],
+                textposition="outside",
+                cliponaxis=False,
+            )
+        )
+        cash_fig.add_trace(
+            go.Scatter(
+                x=finance_view.index,
+                y=finance_view["FCF $B"],
+                mode="lines+markers+text",
+                name="FCF",
+                text=[f"{v:.1f}" if pd.notna(v) else "" for v in finance_view["FCF $B"]],
+                textposition="top center",
+                line=dict(width=2.4),
+            )
+        )
+        cash_fig.add_hline(y=0, line_width=1, line_dash="dot")
+        style_level3_chart(cash_fig, height=360, yaxis_title="USD bn", showlegend=True)
+        cash_fig.update_layout(barmode="relative")
+        st.plotly_chart(cash_fig, use_container_width=True, config={"displaylogo": False})
+        st.caption("Capex 以现金流出方式绘制在零轴下方；FCF = CFO - Capex。TTM可更快反映最新资本开支周期。")
+        level3_divider()
+
+        # 11. Cash conversion: all three measures share the same percentage scale.
+        level3_heading(11, f"{level3_ticker} Cash Flow Conversion")
+        conversion_fig = go.Figure()
+        conversion_specs = [
+            ("CFO Margin", "CFO Margin"),
+            ("Capex/CFO", "Capex / CFO"),
+            ("FCF Margin", "FCF Margin"),
+        ]
+        for col, label in conversion_specs:
+            vals = pd.to_numeric(finance_view[col], errors="coerce") * 100.0
+            conversion_fig.add_trace(
+                go.Scatter(
+                    x=finance_view.index,
+                    y=vals,
+                    mode="lines+markers+text",
+                    name=label,
+                    text=[f"{v:.1f}%" if pd.notna(v) else "" for v in vals],
+                    textposition="top center",
+                )
+            )
+        conversion_fig.add_hline(y=0, line_width=1, line_dash="dot")
+        conversion_fig.add_hline(
+            y=100,
+            line_width=1,
+            line_dash="dot",
+            annotation_text="Capex = 100% of CFO",
+            annotation_position="top left",
+        )
+        style_level3_chart(conversion_fig, height=340, yaxis_title="Percent", showlegend=True)
+        st.plotly_chart(conversion_fig, use_container_width=True, config={"displaylogo": False})
+        st.caption(
+            "Capex/CFO 上升且 FCF Margin 下行，是经营现金流被资本开支快速吸收的直接信号；"
+            "对 MSFT / GOOGL / META / AMZN / ORCL 等 AI 基础设施投入者尤其重要。"
+        )
+        level3_divider()
+
+        # 12. Debt and leverage: dollar debt on its own panel; leverage ratios
+        # use separate axes so Debt/Assets (%) is not visually conflated with
+        # Net Debt/EBITDA (x).
+        level3_heading(12, f"{level3_ticker} Debt & Leverage")
+        leverage_fig = make_subplots(
+            rows=2,
+            cols=1,
+            shared_xaxes=True,
+            vertical_spacing=0.16,
+            specs=[[{}], [{"secondary_y": True}]],
+            row_heights=[0.48, 0.52],
+        )
+        debt_b = finance_view["Gross Debt $B"]
+        leverage_fig.add_trace(
+            go.Bar(
+                x=finance_view.index,
+                y=debt_b,
+                name="Gross Debt",
+                text=[f"{v:.1f}" if pd.notna(v) else "" for v in debt_b],
+                textposition="outside",
+                cliponaxis=False,
+            ),
+            row=1,
+            col=1,
+        )
+
+        debt_assets = pd.to_numeric(finance_view["Gross Debt/Assets"], errors="coerce") * 100.0
+        net_debt_ebitda = pd.to_numeric(finance_view["Net Debt/EBITDA"], errors="coerce")
+        leverage_fig.add_trace(
+            go.Scatter(
+                x=finance_view.index,
+                y=debt_assets,
+                mode="lines+markers+text",
+                name="Gross Debt / Assets",
+                text=[f"{v:.1f}%" if pd.notna(v) else "" for v in debt_assets],
+                textposition="top center",
+            ),
+            row=2,
+            col=1,
+            secondary_y=False,
+        )
+        leverage_fig.add_trace(
+            go.Scatter(
+                x=finance_view.index,
+                y=net_debt_ebitda,
+                mode="lines+markers+text",
+                name="Net Debt / EBITDA",
+                text=[f"{v:.2f}x" if pd.notna(v) else "" for v in net_debt_ebitda],
+                textposition="bottom center",
+                line=dict(width=2.4),
+            ),
+            row=2,
+            col=1,
+            secondary_y=True,
+        )
+        leverage_fig.add_hline(y=0, line_width=1, line_dash="dot", row=2, col=1)
+        leverage_fig.update_layout(
+            height=530,
+            margin=dict(l=18, r=18, t=52, b=38),
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            hovermode="x unified",
+            font=dict(size=12),
+            legend=dict(
+                orientation="h",
+                yanchor="bottom",
+                y=1.03,
+                xanchor="left",
+                x=0,
+                bgcolor="rgba(0,0,0,0)",
+                borderwidth=0,
+                itemclick="toggle",
+                itemdoubleclick="toggleothers",
+            ),
+        )
+        leverage_fig.update_xaxes(
+            showgrid=False,
+            zeroline=False,
+            showline=True,
+            linecolor="rgba(127,127,127,.22)",
+            ticks="outside",
+            ticklen=4,
+        )
+        leverage_fig.update_yaxes(
+            title_text="Gross Debt (USD bn)",
+            showgrid=True,
+            gridcolor="rgba(127,127,127,.14)",
+            zeroline=False,
+            row=1,
+            col=1,
+        )
+        leverage_fig.update_yaxes(
+            title_text="Debt / Assets (%)",
+            showgrid=True,
+            gridcolor="rgba(127,127,127,.14)",
+            zeroline=False,
+            row=2,
+            col=1,
+            secondary_y=False,
+        )
+        leverage_fig.update_yaxes(
+            title_text="Net Debt / EBITDA (x)",
+            showgrid=False,
+            zeroline=False,
+            row=2,
+            col=1,
+            secondary_y=True,
+        )
+        st.plotly_chart(leverage_fig, use_container_width=True, config={"displaylogo": False})
+        st.caption(
+            "Gross Debt 看绝对债务规模；Gross Debt/Assets 看资产负债表负债强度；"
+            "Net Debt/EBITDA 会扣除现金和短期投资，因此净现金公司可以出现负值。银行类公司该指标可比性较弱。"
+        )
+
+    st.caption(
+        "现金流口径为标准化 CFO - Capex。部分公司（例如使用大量 finance leases 的数据中心投资者）"
+        "会在自报 FCF 中额外扣除 lease principal，因此公司官方 FCF 可能低于这里的标准化 FCF。"
+    )
+
     with st.expander("三级图表数据说明"):
         st.markdown(
             """
@@ -1258,7 +1475,8 @@ with dashboard_tab:
     - **EPS**：reported quarterly EPS，并额外计算滚动四季度 TTM EPS。
     - **EPS Revision**：Yahoo/yfinance analyst consensus 的 Current、7/30/60/90天前 FY1/FY2 EPS estimate。
     - **活动 / 重要事件**：Yahoo Finance 公司新闻、活动相关标题、earnings calendar 与可获取的公司日历；只展示可核验的公开事件。
-    - **时间选择**：YTD、1M、3M、6M、1Y、3Y、5Y、MAX会同时作用于上述所有图。若股票尚未上市或对应基本面历史不足，只显示实际可用数据，不做跨证券回填。
+    - **现金流与杠杆**：Yahoo Finance 财务报表，最近5个财年 + 可获取的最新TTM。FCF = CFO - Capex；Gross Debt/Assets = Total Debt / Total Assets；Net Debt/EBITDA = (Total Debt - Cash & Short-Term Investments) / EBITDA。
+    - **时间选择**：YTD、1M、3M、6M、1Y、3Y、5Y、MAX会同时作用于价格、技术、相对表现、估值和EPS图；现金流/杠杆图固定展示最近5个财年 + TTM，以保留中期资本开支趋势。若股票尚未上市或对应基本面历史不足，只显示实际可用数据，不做跨证券回填。
             """
         )
 

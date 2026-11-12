@@ -651,6 +651,241 @@ def stock_ohlcv(ticker: str) -> pd.DataFrame:
 
 
 @st.cache_data(ttl=60 * 60 * 12, show_spinner=False)
+def cashflow_leverage_history(ticker: str) -> pd.DataFrame:
+    """Five-year annual + latest TTM cash-flow and leverage history.
+
+    Cash-flow metrics use Yahoo Finance reported statements:
+      FCF = operating cash flow - capital expenditure
+      CFO Margin = CFO / revenue
+      Capex / CFO = capital expenditure / CFO
+      FCF Margin = FCF / revenue
+      Gross Debt / Assets = total debt / total assets
+      Net Debt / EBITDA = (total debt - cash & short-term investments) / EBITDA
+
+    The TTM row is built from the latest four reported quarters when available.
+    Balance-sheet items use the latest quarter. Missing fields remain missing;
+    no values are backfilled from another security.
+    """
+    columns = [
+        "As Of",
+        "CFO",
+        "Capex",
+        "FCF",
+        "CFO Margin",
+        "Capex/CFO",
+        "FCF Margin",
+        "Gross Debt",
+        "Gross Debt/Assets",
+        "Net Debt/EBITDA",
+    ]
+    empty = pd.DataFrame(columns=columns)
+
+    try:
+        obj = yf.Ticker(ticker)
+        income_a = obj.get_income_stmt(freq="yearly")
+        cash_a = obj.get_cash_flow(freq="yearly")
+        balance_a = obj.get_balance_sheet(freq="yearly")
+        income_q = obj.get_income_stmt(freq="quarterly")
+        cash_q = obj.get_cash_flow(freq="quarterly")
+        balance_q = obj.get_balance_sheet(freq="quarterly")
+    except Exception:
+        return empty
+
+    aliases = {
+        "revenue": ["TotalRevenue", "OperatingRevenue"],
+        "cfo": ["OperatingCashFlow", "TotalCashFromOperatingActivities"],
+        "capex": ["CapitalExpenditure"],
+        "ebitda": ["EBITDA", "NormalizedEBITDA"],
+        "ebit": ["EBIT", "OperatingIncome"],
+        "depr": [
+            "DepreciationAndAmortization",
+            "Depreciation",
+            "DepreciationAmortizationDepletion",
+        ],
+        "debt": ["TotalDebt"],
+        "cash": [
+            "CashCashEquivalentsAndShortTermInvestments",
+            "CashAndCashEquivalents",
+        ],
+        "assets": ["TotalAssets"],
+    }
+
+    def _series(df: pd.DataFrame, key: str) -> pd.Series:
+        if df is None or df.empty:
+            return pd.Series(dtype=float)
+        for name in aliases[key]:
+            if name in df.index:
+                s = pd.to_numeric(df.loc[name], errors="coerce")
+                s.index = pd.to_datetime(s.index, errors="coerce")
+                s = s[~s.index.isna()].dropna()
+                return s[~s.index.duplicated(keep="last")].sort_index(ascending=False)
+        return pd.Series(dtype=float)
+
+    def _nearest(s: pd.Series, dt: pd.Timestamp, days: int = 120) -> float:
+        if s is None or s.empty:
+            return np.nan
+        idx = pd.to_datetime(s.index, errors="coerce")
+        diffs = np.abs((idx - pd.Timestamp(dt)).days)
+        if len(diffs) == 0:
+            return np.nan
+        pos = int(np.argmin(diffs))
+        if diffs[pos] > days:
+            return np.nan
+        try:
+            value = float(s.iloc[pos])
+            return value if np.isfinite(value) else np.nan
+        except Exception:
+            return np.nan
+
+    def _sum4(s: pd.Series) -> float:
+        if s is None or s.empty:
+            return np.nan
+        vals = pd.to_numeric(s, errors="coerce").dropna().sort_index(ascending=False).head(4)
+        return float(vals.sum()) if len(vals) >= 4 else np.nan
+
+    def _latest(s: pd.Series) -> float:
+        if s is None or s.empty:
+            return np.nan
+        vals = pd.to_numeric(s, errors="coerce").dropna().sort_index(ascending=False)
+        return float(vals.iloc[0]) if len(vals) else np.nan
+
+    def _safe_div(a, b) -> float:
+        try:
+            a = float(a)
+            b = float(b)
+            if not np.isfinite(a) or not np.isfinite(b) or b == 0:
+                return np.nan
+            return a / b
+        except Exception:
+            return np.nan
+
+    annual = {
+        "revenue": _series(income_a, "revenue"),
+        "cfo": _series(cash_a, "cfo"),
+        "capex": _series(cash_a, "capex"),
+        "ebitda": _series(income_a, "ebitda"),
+        "ebit": _series(income_a, "ebit"),
+        "depr": _series(cash_a, "depr"),
+        "debt": _series(balance_a, "debt"),
+        "cash": _series(balance_a, "cash"),
+        "assets": _series(balance_a, "assets"),
+    }
+    quarterly = {
+        "revenue": _series(income_q, "revenue"),
+        "cfo": _series(cash_q, "cfo"),
+        "capex": _series(cash_q, "capex"),
+        "ebitda": _series(income_q, "ebitda"),
+        "ebit": _series(income_q, "ebit"),
+        "depr": _series(cash_q, "depr"),
+        "debt": _series(balance_q, "debt"),
+        "cash": _series(balance_q, "cash"),
+        "assets": _series(balance_q, "assets"),
+    }
+
+    anchor_series = annual["revenue"]
+    if anchor_series.empty:
+        anchor_series = annual["cfo"]
+    if anchor_series.empty:
+        anchor_series = annual["assets"]
+    if anchor_series.empty:
+        return empty
+
+    rows: list[dict] = []
+    annual_dates = list(pd.to_datetime(anchor_series.index, errors="coerce"))
+    annual_dates = [pd.Timestamp(x).tz_localize(None) for x in annual_dates if pd.notna(x)]
+    annual_dates = sorted(set(annual_dates), reverse=True)[:5]
+
+    for dt in sorted(annual_dates):
+        revenue = _nearest(annual["revenue"], dt)
+        cfo = _nearest(annual["cfo"], dt)
+        capex_raw = _nearest(annual["capex"], dt)
+        capex = abs(capex_raw) if np.isfinite(capex_raw) else np.nan
+        ebitda = _nearest(annual["ebitda"], dt)
+        if not np.isfinite(ebitda):
+            ebit = _nearest(annual["ebit"], dt)
+            depr = _nearest(annual["depr"], dt)
+            if np.isfinite(ebit) and np.isfinite(depr):
+                ebitda = ebit + abs(depr)
+        debt = _nearest(annual["debt"], dt)
+        cash = _nearest(annual["cash"], dt)
+        assets = _nearest(annual["assets"], dt)
+        fcf = cfo - capex if np.isfinite(cfo) and np.isfinite(capex) else np.nan
+
+        rows.append({
+            "Period": str(dt.year),
+            "As Of": dt,
+            "CFO": cfo,
+            "Capex": capex,
+            "FCF": fcf,
+            "CFO Margin": _safe_div(cfo, revenue),
+            "Capex/CFO": _safe_div(capex, cfo),
+            "FCF Margin": _safe_div(fcf, revenue),
+            "Gross Debt": debt,
+            "Gross Debt/Assets": _safe_div(debt, assets),
+            "Net Debt/EBITDA": _safe_div(
+                debt - (cash if np.isfinite(cash) else 0.0),
+                ebitda,
+            ),
+        })
+
+    # Add a current TTM point only when four quarters are available and the
+    # quarter-end is newer than the latest annual statement.
+    q_dates = []
+    for key in ["revenue", "cfo", "assets"]:
+        if not quarterly[key].empty:
+            q_dates.extend(pd.to_datetime(quarterly[key].index, errors="coerce").dropna().tolist())
+    q_asof = max(q_dates) if q_dates else pd.NaT
+    latest_annual = max(annual_dates) if annual_dates else pd.NaT
+
+    revenue_ttm = _sum4(quarterly["revenue"])
+    cfo_ttm = _sum4(quarterly["cfo"])
+    capex_raw_ttm = _sum4(quarterly["capex"])
+    capex_ttm = abs(capex_raw_ttm) if np.isfinite(capex_raw_ttm) else np.nan
+    ebitda_ttm = _sum4(quarterly["ebitda"])
+    if not np.isfinite(ebitda_ttm):
+        ebit_ttm = _sum4(quarterly["ebit"])
+        depr_ttm = _sum4(quarterly["depr"])
+        if np.isfinite(ebit_ttm) and np.isfinite(depr_ttm):
+            ebitda_ttm = ebit_ttm + abs(depr_ttm)
+
+    if (
+        pd.notna(q_asof)
+        and np.isfinite(cfo_ttm)
+        and np.isfinite(revenue_ttm)
+        and (pd.isna(latest_annual) or pd.Timestamp(q_asof).tz_localize(None) > latest_annual + pd.Timedelta(days=30))
+    ):
+        debt = _latest(quarterly["debt"])
+        cash = _latest(quarterly["cash"])
+        assets = _latest(quarterly["assets"])
+        fcf_ttm = cfo_ttm - capex_ttm if np.isfinite(capex_ttm) else np.nan
+        rows.append({
+            "Period": "TTM",
+            "As Of": pd.Timestamp(q_asof).tz_localize(None),
+            "CFO": cfo_ttm,
+            "Capex": capex_ttm,
+            "FCF": fcf_ttm,
+            "CFO Margin": _safe_div(cfo_ttm, revenue_ttm),
+            "Capex/CFO": _safe_div(capex_ttm, cfo_ttm),
+            "FCF Margin": _safe_div(fcf_ttm, revenue_ttm),
+            "Gross Debt": debt,
+            "Gross Debt/Assets": _safe_div(debt, assets),
+            "Net Debt/EBITDA": _safe_div(
+                debt - (cash if np.isfinite(cash) else 0.0),
+                ebitda_ttm,
+            ),
+        })
+
+    if not rows:
+        return empty
+
+    out = pd.DataFrame(rows).set_index("Period")
+    for col in columns:
+        if col not in out.columns:
+            out[col] = np.nan
+    return out[columns]
+
+
+@st.cache_data(ttl=60 * 60 * 12, show_spinner=False)
 def valuation_history(ticker: str) -> pd.DataFrame:
     """Reconstruct daily Forward P/E and Price/Sales series.
 

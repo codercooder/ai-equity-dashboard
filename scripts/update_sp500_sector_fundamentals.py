@@ -274,6 +274,21 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
     ):
         current_shares = mcap / current_price
 
+    # fast_info can be incomplete/rate-limited in GitHub Actions. Use the
+    # already-downloaded bulk close history as a deterministic price fallback,
+    # then infer market cap from the latest reported share count.
+    if (not np.isfinite(current_price)) and ticker in prices.columns:
+        px_vals = pd.to_numeric(prices[ticker], errors="coerce").dropna()
+        if not px_vals.empty:
+            current_price = finite(px_vals.iloc[-1])
+    if (
+        not np.isfinite(mcap)
+        and np.isfinite(current_shares)
+        and np.isfinite(current_price)
+        and current_price > 0
+    ):
+        mcap = current_shares * current_price
+
     current = {
         "ticker": ticker,
         "sector": sector_name,

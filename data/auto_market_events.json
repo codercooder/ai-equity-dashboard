@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T19:37:59Z",
+  "updated_at": "2026-11-12T07:14:18Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1094,7 +1094,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTXo5UzFWVEh5WllQOHNxS1Q2cERxOEM0X1QyN1dPX0R4XzdfT1BpajYxdi0xOEltNWh6cE15Z2ZvZ2dXV0Vwb3NkbWZ1VGQ2M2tvVVVSaWd6clhPcS1XUEU2QXE3c0tlLUhPX0c2emRnWVpwOGtoajlnSS1VRXRNZXFaNEpyVlVwcFVIOUdkT18yQ2t6a1psZGVlOFpiZl90QnVhcmxqQzNxNnlNSEdXcWpjcUdzYUNJSi1hcnl6ZEpUSUU?oc=5",
       "headline": "Fed officials open door to a quicker round of rate hikes as inflation worsens - Reuters",
-      "detected_at": "2026-11-11T19:37:58Z"
+      "detected_at": "2026-11-12T07:14:16Z"
     },
     {
       "event_id": "68fea77cb1da2605",
@@ -1109,7 +1109,7 @@
       "source": "Jagran Josh",
       "source_url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxPNTJpd19EWjJ6dDhXVk8zUUswS1BnQUQ2TjQ0eFBhVXI5UmpEeVRsdElLUE40ZFJuTlUwUldrVnVONWJrUEpVS1RiUjJ6TEEzVVB2TjlDcndrejhsVHBKbmg0emF1OW1DcFpJSEkzYkdReVpkWF9FZnJFUkxhLU5pcGlUeHU4T0hmM0ROMFdlaGxCUjduME5ISnRHZkVIY1hqQjJHM09JNHFfOWQ4X3liTUVtUldXUVRueEhZckdpbVRpRDRXeURDaW1BZDlBR2NWdWY0cTJIR3d4T2hXZ3h6NFJqUXREb3JraHdhSnJ3M3R4ZVRLaXZ1bWgtUVRIazR1SllSaS1LRzd6dTJDZHVXQtIBlwJBVV95cUxPYXJjQ2JzUFp3a0Qxb2ZPV1EweTVOSkJpc1VFX1hROWJlZWNTN1piVFY5eER2ZHlJVUNQUVMwRi1heWlQa013VXZHZ3R1ZHgtRUhJM05odjVRSkRaXzhkbklnbDJ2dF9TeTNsai1hMlpsTnFjM21TMUVqd0djY0o4XzFPbGxrandTTjBvbkNDWHQ2b0ZSb0VzNktMa29rdmozd2FlZEdscTZiVWZ6SFB3MncxN28tSkRvdVA0MlN5LXN6REZDZ0V0RjdGRU5qUkVrV0R1QjZLeml3dGVYOEdHNFE1aExXcmVBU3JfQzlqTVFlZmNYeENGZGo1QXJlSjRyVUhYTUxuSlpGQkJPRm85UTV3N05TVG8?oc=5",
       "headline": "US-Iran War is ‘Effectively Over', Russia-Ukraine War Ceasefire Shows 'Very Strong Inclination': Trump; Are the 2 Big Conflicts Ending? - Jagran Josh",
-      "detected_at": "2026-11-11T19:37:59Z"
+      "detected_at": "2026-11-12T07:14:17Z"
     },
     {
       "event_id": "ee2d98dea63a1c64",
@@ -1125,6 +1125,21 @@
       "source_url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE12LUxlY3dRM2dqbnRyZy1iNW1Xc2Jya09zUW96R2VacDFUMGppUXBlcmtkQnRsNENSdlZUbW4yT2NqMk1YRzM3YzA1cFJBMTZjUjM1ak40N2RCU0lTeXJaYmZWamN1TkpnaUN3?oc=5",
       "headline": "Oil rebounds as Hormuz attacks cloud Iran peace hopes - Banglanews24",
       "detected_at": "2026-11-11T06:26:44Z"
+    },
+    {
+      "event_id": "8b487198a478c424",
+      "kind": "point",
+      "date": "2026-11-12",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Britannica",
+      "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
+      "headline": "2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
+      "detected_at": "2026-11-12T07:14:17Z"
     }
   ],
   "scheduled_events": [

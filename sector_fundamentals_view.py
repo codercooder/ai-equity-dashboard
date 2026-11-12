@@ -39,6 +39,13 @@ METRICS = {
     "ROIC": ("roic", "roic_5y_avg", "%"),
     "EBITDA Margin": ("ebitda_margin", "ebitda_margin_5y_avg", "%"),
     "ROE (Financials reference)": ("roe", "roe_5y_avg", "%"),
+    "P/B (Financials)": ("p_book", "p_book_5y_avg", "x"),
+    "Equity / Assets (Financials)": ("equity_assets", "equity_assets_5y_avg", "%"),
+    "Assets / Equity (Financials)": ("assets_equity", "assets_equity_5y_avg", "x"),
+    "P/FFO Proxy (Real Estate)": ("p_ffo_proxy", "p_ffo_proxy_5y_avg", "x"),
+    "FFO Yield Proxy (Real Estate)": ("ffo_proxy_yield", "ffo_proxy_yield_5y_avg", "%"),
+    "Debt / Assets (Real Estate)": ("debt_assets", "debt_assets_5y_avg", "%"),
+    "Interest Coverage (Real Estate)": ("interest_coverage", "interest_coverage_5y_avg", "x"),
 }
 
 
@@ -61,7 +68,96 @@ def style_view(df, percent_cols=(), ratio_cols=()):
     fmt = {"Coverage": "{:.0%}"}
     fmt.update({c: "{:.1%}" for c in percent_cols if c in df.columns})
     fmt.update({c: "{:.1f}x" for c in ratio_cols if c in df.columns})
-    return df.style.format(fmt, na_rep="—")
+    styler = df.style.format(fmt, na_rep="—")
+    avg_cols = [c for c in df.columns if "5Y" in str(c)]
+    if avg_cols:
+        styler = styler.set_properties(
+            subset=avg_cols,
+            **{
+                "color": "#7A8494",
+                "background-color": "#F3F5F7",
+            },
+        )
+    return styler
+
+
+def special_sector_table(summary):
+    re_row = summary.loc[summary["sector"] == "Real Estate"].iloc[0]
+    fin_row = summary.loc[summary["sector"] == "Financials"].iloc[0]
+
+    rows = [
+        (
+            "P/FFO Proxy",
+            re_row.get("p_ffo_proxy"),
+            re_row.get("p_ffo_proxy_5y_avg"),
+            "P/E (TTM)",
+            fin_row.get("pe_ttm"),
+            fin_row.get("pe_ttm_5y_avg"),
+            "x",
+            "x",
+        ),
+        (
+            "FFO Yield Proxy",
+            re_row.get("ffo_proxy_yield"),
+            re_row.get("ffo_proxy_yield_5y_avg"),
+            "P/B",
+            fin_row.get("p_book"),
+            fin_row.get("p_book_5y_avg"),
+            "%",
+            "x",
+        ),
+        (
+            "Net Debt / EBITDA",
+            re_row.get("net_debt_ebitda"),
+            re_row.get("net_debt_ebitda_5y_avg"),
+            "ROE",
+            fin_row.get("roe"),
+            fin_row.get("roe_5y_avg"),
+            "x",
+            "%",
+        ),
+        (
+            "Debt / Assets",
+            re_row.get("debt_assets"),
+            re_row.get("debt_assets_5y_avg"),
+            "Equity / Assets",
+            fin_row.get("equity_assets"),
+            fin_row.get("equity_assets_5y_avg"),
+            "%",
+            "%",
+        ),
+        (
+            "Interest Coverage",
+            re_row.get("interest_coverage"),
+            re_row.get("interest_coverage_5y_avg"),
+            "Assets / Equity",
+            fin_row.get("assets_equity"),
+            fin_row.get("assets_equity_5y_avg"),
+            "x",
+            "x",
+        ),
+    ]
+
+    def fmt_value(value, kind):
+        if value is None or pd.isna(value):
+            return "—"
+        if kind == "%":
+            return f"{value:.1%}"
+        return f"{value:.1f}x"
+
+    data = []
+    for re_metric, re_cur, re_avg, fin_metric, fin_cur, fin_avg, re_kind, fin_kind in rows:
+        data.append(
+            {
+                "Real Estate 指标": re_metric,
+                "Current": fmt_value(re_cur, re_kind),
+                "5Y Avg": fmt_value(re_avg, re_kind),
+                "Financials 指标": fin_metric,
+                "Current ": fmt_value(fin_cur, fin_kind),
+                "5Y Avg ": fmt_value(fin_avg, fin_kind),
+            }
+        )
+    return pd.DataFrame(data)
 
 
 def render_sector_fundamentals():
@@ -79,6 +175,9 @@ def render_sector_fundamentals():
     
     summary["sector"] = pd.Categorical(summary["sector"], categories=SECTOR_ORDER, ordered=True)
     summary = summary.sort_values("sector").reset_index(drop=True)
+    standard_summary = summary[
+        ~summary["sector"].astype(str).isin(["Real Estate", "Financials"])
+    ].copy()
     
     as_of = meta.get("as_of") or (
         summary["as_of"].iloc[0] if "as_of" in summary.columns and len(summary) else "—"
@@ -109,7 +208,7 @@ def render_sector_fundamentals():
     
     metric_name = st.selectbox("跨板块比较指标", list(METRICS.keys())[:-1], index=0)
     current_col, avg_col, kind = METRICS[metric_name]
-    plot_df = summary[["sector", current_col, avg_col]].copy()
+    plot_df = standard_summary[["sector", current_col, avg_col]].copy()
     plot_df["sector"] = plot_df["sector"].astype(str)
     plot_df = plot_df.dropna(how="all", subset=[current_col, avg_col])
     
@@ -133,7 +232,7 @@ def render_sector_fundamentals():
     )
     
     with tab_all:
-        all_view = summary[
+        all_view = standard_summary[
             [
                 "sector",
                 "pe_ttm",
@@ -209,9 +308,32 @@ def render_sector_fundamentals():
             hide_index=True,
             height=500,
         )
+
+        st.markdown("#### Real Estate / Financials 专属指标")
+        special = special_sector_table(summary)
+        special_styler = (
+            special.style
+            .set_properties(
+                subset=["5Y Avg", "5Y Avg "],
+                **{
+                    "color": "#7A8494",
+                    "background-color": "#F3F5F7",
+                },
+            )
+        )
+        st.dataframe(
+            special_styler,
+            use_container_width=True,
+            hide_index=True,
+            height=245,
+        )
+        st.caption(
+            "Real Estate 的 FFO 为公开财报推导 proxy（Net Income + D&A），"
+            "不是正式 NAREIT FFO/AFFO；Financials 使用 P/B、ROE 和资本结构指标。"
+        )
     
     with tab_val:
-        val = summary[
+        val = standard_summary[
             [
                 "sector",
                 "pe_ttm",
@@ -246,7 +368,7 @@ def render_sector_fundamentals():
         )
     
     with tab_cf:
-        cf = summary[
+        cf = standard_summary[
             [
                 "sector",
                 "cfo_margin",
@@ -281,7 +403,7 @@ def render_sector_fundamentals():
         )
     
     with tab_bs:
-        bs = summary[
+        bs = standard_summary[
             [
                 "sector",
                 "net_debt_ebitda",
@@ -379,8 +501,8 @@ def render_sector_fundamentals():
     - **FCF**：Operating Cash Flow - Capex；Capex 按现金流出绝对值处理。
     - **ROIC**：NOPAT / Invested Capital；税率由 Tax Provision / Pretax Income 估算并做合理边界处理。
     - **Coverage**：可计算核心财务指标的公司市值 / 该板块可取得市值的公司总市值。
-    - **Financials**：企业净债务、EBITDA、FCF等口径不具备跨行业可比性，因此相关字段保留为空，并额外展示 ROE。
-    - **Real Estate**：P/E 对 REITs 解释力有限；后续如接入稳定 FFO/AFFO 数据，可再升级为 P/FFO 与 AFFO Yield。
+    - **Financials**：企业净债务、EBITDA、FCF等口径不具备跨行业可比性，因此单独展示 P/E、P/B、ROE、Equity/Assets、Assets/Equity。
+    - **Real Estate**：单独展示 P/FFO Proxy、FFO Yield Proxy、Net Debt/EBITDA、Debt/Assets、Interest Coverage。FFO Proxy = Net Income + D&A，不等同于正式 NAREIT FFO/AFFO。
             """
         )
     

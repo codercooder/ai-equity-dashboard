@@ -8,7 +8,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parent
 DATA_DIR = ROOT / "data"
 SUMMARY_PATH = DATA_DIR / "sp500_sector_fundamentals.csv"
 HISTORY_PATH = DATA_DIR / "sp500_sector_fundamentals_history.csv"
@@ -29,7 +29,7 @@ SECTOR_ORDER = [
 ]
 
 METRICS = {
-    "P/E (TTM)": ("pe_ttm", "pe_5y_avg", "x"),
+    "P/E (TTM)": ("pe_ttm", "pe_ttm_5y_avg", "x"),
     "EV / EBITDA": ("ev_ebitda", "ev_ebitda_5y_avg", "x"),
     "FCF Yield": ("fcf_yield", "fcf_yield_5y_avg", "%"),
     "Net Debt / EBITDA": ("net_debt_ebitda", "net_debt_ebitda_5y_avg", "x"),
@@ -137,7 +137,7 @@ def render_sector_fundamentals():
             [
                 "sector",
                 "pe_ttm",
-                "pe_5y_avg",
+                "pe_ttm_5y_avg",
                 "ev_ebitda",
                 "ev_ebitda_5y_avg",
                 "fcf_yield",
@@ -215,7 +215,7 @@ def render_sector_fundamentals():
             [
                 "sector",
                 "pe_ttm",
-                "pe_5y_avg",
+                "pe_ttm_5y_avg",
                 "ev_ebitda",
                 "ev_ebitda_5y_avg",
                 "fcf_yield",

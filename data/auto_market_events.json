@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12T07:14:18Z",
+  "updated_at": "2026-11-12T19:56:48Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1326,6 +1326,19 @@
       "source_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
     },
     {
+      "event_id": "8940e97fb0f9304c",
+      "kind": "point",
+      "date": "2027-11-17",
+      "label": "FOMC 决议日",
+      "category": "利率",
+      "importance": "High",
+      "status": "scheduled",
+      "confidence": 1.0,
+      "auto_generated": true,
+      "source": "Federal Reserve",
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+    },
+    {
       "event_id": "f7136d7d04ff4593",
       "kind": "point",
       "date": "2027-12-08",
@@ -1340,7 +1353,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 5,
+    "discovered_count": 1,
     "scheduled_count": 10,
     "failures": []
   }

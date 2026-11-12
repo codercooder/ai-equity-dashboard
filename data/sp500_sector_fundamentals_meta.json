@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-12",
-  "generated_at_utc": "2026-11-12T08:15:39.158558+00:00",
+  "generated_at_utc": "2026-11-12T08:28:17.241899+00:00",
   "source": "S&P 500 constituents from Wikipedia; company financial statements, market cap and prices from Yahoo Finance via yfinance",
   "universe_method": "Current S&P 500 constituents backcast to their available annual financial history",
   "companies_requested": 503,
@@ -9,6 +9,7 @@
   "notes": [
     "Sector ratios are aggregated from numerator/denominator totals, not simple averages of company ratios.",
     "Historical market cap uses fiscal-date close multiplied by reported shares outstanding when available; current shares are a fallback.",
-    "Financials excludes corporate-style net debt/EBITDA, FCF, ROIC and EBITDA margin as non-comparable; ROE is retained."
+    "Financials excludes corporate-style net debt/EBITDA, FCF, ROIC and EBITDA margin as non-comparable; P/B, ROE and balance-sheet capital ratios are retained instead.",
+    "Real Estate FFO is a proxy defined as net income plus depreciation and amortization; it does not adjust for property-sale gains/losses and is therefore not official NAREIT FFO/AFFO."
   ]
 }

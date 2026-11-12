@@ -465,11 +465,17 @@ def render_sector_fundamentals():
                 key="fund_hist_metric",
             )
             hist_col, _, hist_kind = METRICS[hist_metric]
-            h = (
-                history.loc[history["sector"] == selected_sector, ["year", hist_col]]
-                .dropna()
-                .sort_values("year")
-            )
+            if hist_col not in history.columns:
+                h = pd.DataFrame(columns=["year", hist_col])
+            else:
+                h = (
+                    history.loc[
+                        history["sector"] == selected_sector,
+                        ["year", hist_col],
+                    ]
+                    .dropna()
+                    .sort_values("year")
+                )
             if h.empty:
                 st.info(f"{selected_sector} 暂无 {hist_metric} 可用历史数据。")
             else:

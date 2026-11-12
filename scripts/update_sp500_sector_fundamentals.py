@@ -512,6 +512,30 @@ def aggregate(rows: list[dict], sector_name: str) -> dict:
         s(roe_rows, "equity"),
     )
 
+    roa_rows = eligible("net_income", "assets")
+    roa = safe_div(
+        s(roa_rows, "net_income"),
+        s(roa_rows, "assets"),
+    )
+
+    margin_rows_fin = eligible("net_income", "revenue")
+    net_margin = safe_div(
+        s(margin_rows_fin, "net_income"),
+        s(margin_rows_fin, "revenue"),
+    )
+
+    mcap_assets_rows = eligible("market_cap", "assets")
+    market_cap_assets = safe_div(
+        s(mcap_assets_rows, "market_cap"),
+        s(mcap_assets_rows, "assets"),
+    )
+
+    revenue_assets_rows = eligible("revenue", "assets")
+    revenue_assets = safe_div(
+        s(revenue_assets_rows, "revenue"),
+        s(revenue_assets_rows, "assets"),
+    )
+
     pb_rows = eligible("market_cap", "equity")
     pb_den = s(pb_rows, "equity")
     p_book = (
@@ -575,6 +599,10 @@ def aggregate(rows: list[dict], sector_name: str) -> dict:
         "roic": roic,
         "ebitda_margin": ebitda_margin,
         "roe": roe,
+        "roa": roa,
+        "net_margin": net_margin,
+        "market_cap_assets": market_cap_assets,
+        "revenue_assets": revenue_assets,
         "p_book": p_book,
         "debt_assets": debt_assets,
         "equity_assets": equity_assets,
@@ -701,6 +729,10 @@ def main():
         "roic",
         "ebitda_margin",
         "roe",
+        "roa",
+        "net_margin",
+        "market_cap_assets",
+        "revenue_assets",
         "p_book",
         "debt_assets",
         "equity_assets",

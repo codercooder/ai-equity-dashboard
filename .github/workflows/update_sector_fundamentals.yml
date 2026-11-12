@@ -37,12 +37,12 @@ jobs:
       - name: Commit sector fundamental changes
         shell: bash
         run: |
-          if git diff --quiet -- data/sp500_sector_fundamentals.csv data/sp500_sector_fundamentals_history.csv data/sp500_sector_fundamentals_meta.json; then
+          git add data/sp500_sector_fundamentals.csv data/sp500_sector_fundamentals_history.csv data/sp500_sector_fundamentals_meta.json
+          if git diff --cached --quiet; then
             echo "No sector fundamental changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/sp500_sector_fundamentals.csv data/sp500_sector_fundamentals_history.csv data/sp500_sector_fundamentals_meta.json
           git commit -m "Auto-update S&P 500 sector fundamentals"
           git push

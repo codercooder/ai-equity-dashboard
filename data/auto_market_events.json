@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12T19:56:48Z",
+  "updated_at": "2026-11-13T06:48:35Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1127,6 +1127,21 @@
       "detected_at": "2026-11-11T06:26:44Z"
     },
     {
+      "event_id": "bdffadeebb1b55f5",
+      "kind": "point",
+      "date": "2026-11-11",
+      "label": "FOMC 利率政策重大变化",
+      "category": "利率",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "www.tmgm.com",
+      "source_url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOczZGTEJ4dE5QWF9hd01PNy1Cckw0UmN4Q1JJaS1SOFBBaVdDSEtjaXBnMVlOTnl6aVVvVTdiWTU3aFpUeGFfcHRRV3Z5d2x6NHRvdWo1TGdWdUVOd2s5M2VFaU5VNGRaaklNTDdXZG54M1djUTN4VzhBUVE1MEYzMHFxNHhQdHM0MW5qVFhraGw0aGpBaWVuZ2FuYzB2NmlnaVpyT0UybTlqaXM0M2NEUTdiczl5NVVzaThuWmFaSGFYQ2VpTmVhcmNhaDJjeWpfYy1Ha0NR?oc=5",
+      "headline": "Federal Reserve: Are December Rate Hike Expectations Strengthening? – Commerzbank - www.tmgm.com",
+      "detected_at": "2026-11-13T06:48:34Z"
+    },
+    {
       "event_id": "8b487198a478c424",
       "kind": "point",
       "date": "2026-11-12",
@@ -1140,6 +1155,21 @@
       "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
       "headline": "2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
       "detected_at": "2026-11-12T07:14:17Z"
+    },
+    {
+      "event_id": "af6267e29cf513f3",
+      "kind": "point",
+      "date": "2026-11-13",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.9,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOa0ZTUUtQbXVySmRXLWtEc2xtZDk5RWkwa29OWlEyQjN3UXVzMkZTYzF3ajVoNkVXZnBnODVRTkN0b1ZwaVk4VE5KOXFqZktYbG1PN1RwdEtwS1ZEb3BBUEkxM2JtUl91NkxCMWpjbmxWV3RScndxMjJUcjh4dEpZM256Nl8tY19iWmp4OExndnRRaXQwdFRpMGRYRDFnNGQ1eEFhNEVrZjZwaW0tamJkLXFYa1I3V1EzbVE?oc=5",
+      "headline": "Oil prices set for second weekly decline as Trump sticks with Iran blockade - Reuters",
+      "detected_at": "2026-11-13T06:48:35Z"
     }
   ],
   "scheduled_events": [
@@ -1353,7 +1383,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 1,
+    "discovered_count": 3,
     "scheduled_count": 10,
     "failures": []
   }

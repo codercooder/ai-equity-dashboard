@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T06:48:35Z",
+  "updated_at": "2026-11-13T19:44:11Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1157,6 +1157,21 @@
       "detected_at": "2026-11-12T07:14:17Z"
     },
     {
+      "event_id": "51dbe21a313ca5e4",
+      "kind": "point",
+      "date": "2026-11-12",
+      "label": "FOMC 利率政策重大变化",
+      "category": "利率",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.8,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQVUQyM3Nob1JwMmZBS1JHN1FtZ2h5eTZFWlpZWkJ1Tm9XRlByR2lJWEZkdjJKcVVYbklvMW9GekZ5RDZDQU5KRkVaVHZzN2d6cm5NQTEzWlNtQkNGWmw2dXNJN2hvMFBwenUzdFZDLURfM2JsRVBmckhzY2FZRVJPemM5S0ZIX1BqQzFrbW1wN3lxdw?oc=5",
+      "headline": "Fed has time to calibrate rate hikes, Daly says - Reuters",
+      "detected_at": "2026-11-13T19:44:09Z"
+    },
+    {
       "event_id": "af6267e29cf513f3",
       "kind": "point",
       "date": "2026-11-13",
@@ -1166,10 +1181,10 @@
       "status": "auto_high",
       "confidence": 0.9,
       "auto_generated": true,
-      "source": "Reuters",
-      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOa0ZTUUtQbXVySmRXLWtEc2xtZDk5RWkwa29OWlEyQjN3UXVzMkZTYzF3ajVoNkVXZnBnODVRTkN0b1ZwaVk4VE5KOXFqZktYbG1PN1RwdEtwS1ZEb3BBUEkxM2JtUl91NkxCMWpjbmxWV3RScndxMjJUcjh4dEpZM256Nl8tY19iWmp4OExndnRRaXQwdFRpMGRYRDFnNGQ1eEFhNEVrZjZwaW0tamJkLXFYa1I3V1EzbVE?oc=5",
-      "headline": "Oil prices set for second weekly decline as Trump sticks with Iran blockade - Reuters",
-      "detected_at": "2026-11-13T06:48:35Z"
+      "source": "CNBC",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPRFBFU3Azbm9falV6RjVGbVNHUVpPQUhULWU5Z1B2OVJ0MnFTTkN1eDZlbnNGWFBBRFVDTFB3MEhWRHlFY0NiVlhfd2otRjdRR2VRQ2ZRek5SMXdpWHlGdkMzVEhzUU1jTUxqbnlra2dYTWVLMzNtTTE3VmpnMEJrUnJEakZjTmhIcFBYODlDS09hWHVnXzJMMkxVWHp1OFZkRzFqbVM1YzJkWjVVd1Vmdk5Na9IBuAFBVV95cUxNYzhhcXNuRlRPaHhoZTZMVUpicm1GNmVyU3YyLTY0Q1lhWEFiTVRBbW5sT0NjTWtWcFQzRVFyRGVVVk96UDJNMVRLR3JzSWNNellzdnZ5RTZMc010UFlWa2QxVkg2cy1lZWFnakdXbXVIQnlFYW11VmNfeXBjSkE0Y08zQ3o1b294OFBSbUFqbXp6RmdFZ0gxbGQ1RTBndXZsUlZNM1FPTEg0OGZJbk9NSm9aXy1FMDE2?oc=5",
+      "headline": "Oil prices set for second weekly decline as Trump to stay with Iran blockade - CNBC",
+      "detected_at": "2026-11-13T19:44:10Z"
     }
   ],
   "scheduled_events": [
@@ -1383,7 +1398,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 3,
+    "discovered_count": 2,
     "scheduled_count": 10,
     "failures": []
   }

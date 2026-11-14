@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14T18:05:38Z",
+  "updated_at": "2026-11-14T22:26:35Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1413,7 +1413,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 2,
+    "discovered_count": 1,
     "scheduled_count": 10,
     "failures": []
   }

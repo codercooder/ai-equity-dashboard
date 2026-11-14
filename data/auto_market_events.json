@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T19:44:11Z",
+  "updated_at": "2026-11-14T06:26:51Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1170,6 +1170,21 @@
       "source_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQVUQyM3Nob1JwMmZBS1JHN1FtZ2h5eTZFWlpZWkJ1Tm9XRlByR2lJWEZkdjJKcVVYbklvMW9GekZ5RDZDQU5KRkVaVHZzN2d6cm5NQTEzWlNtQkNGWmw2dXNJN2hvMFBwenUzdFZDLURfM2JsRVBmckhzY2FZRVJPemM5S0ZIX1BqQzFrbW1wN3lxdw?oc=5",
       "headline": "Fed has time to calibrate rate hikes, Daly says - Reuters",
       "detected_at": "2026-11-13T19:44:09Z"
+    },
+    {
+      "event_id": "1503ed05ba5bfad9",
+      "kind": "point",
+      "date": "2026-11-12",
+      "label": "俄乌战争重大升级 / 缓和",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Kyiv Post",
+      "source_url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5xTkx2REhLRS1pQUlyS1pRZkktTkVuSnREeXNicVZ0RUpYRG9kRUJqd0U5akxYblFKZDIxcXRicGZ0YnBpMHAybTZIMA?oc=5",
+      "headline": "RAND Scenario: Putin Dies in 3 Months, Russia Attacks NATO by 2030 in Hypothetical War Plan - Kyiv Post",
+      "detected_at": "2026-11-14T06:26:50Z"
     },
     {
       "event_id": "af6267e29cf513f3",

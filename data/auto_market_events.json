@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14T22:26:35Z",
+  "updated_at": "2026-11-15T06:35:48Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1200,6 +1200,21 @@
       "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPRFBFU3Azbm9falV6RjVGbVNHUVpPQUhULWU5Z1B2OVJ0MnFTTkN1eDZlbnNGWFBBRFVDTFB3MEhWRHlFY0NiVlhfd2otRjdRR2VRQ2ZRek5SMXdpWHlGdkMzVEhzUU1jTUxqbnlra2dYTWVLMzNtTTE3VmpnMEJrUnJEakZjTmhIcFBYODlDS09hWHVnXzJMMkxVWHp1OFZkRzFqbVM1YzJkWjVVd1Vmdk5Na9IBuAFBVV95cUxNYzhhcXNuRlRPaHhoZTZMVUpicm1GNmVyU3YyLTY0Q1lhWEFiTVRBbW5sT0NjTWtWcFQzRVFyRGVVVk96UDJNMVRLR3JzSWNNellzdnZ5RTZMc010UFlWa2QxVkg2cy1lZWFnakdXbXVIQnlFYW11VmNfeXBjSkE0Y08zQ3o1b294OFBSbUFqbXp6RmdFZ0gxbGQ1RTBndXZsUlZNM1FPTEg0OGZJbk9NSm9aXy1FMDE2?oc=5",
       "headline": "Oil prices set for second weekly decline as Trump to stay with Iran blockade - CNBC",
       "detected_at": "2026-11-13T19:44:10Z"
+    },
+    {
+      "event_id": "f799efe86c092306",
+      "kind": "point",
+      "date": "2026-11-14",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "EnergyNow.com",
+      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPOWtVOFBSWVhzVG5kSEI5SVlscW9HNHg5QUZsTHQ3V0d5eFlFV1Y0cEFsa0U0d2VqUV9uNGd1VUFkbjZJV0VnY2sxQ3RCUTJaMHBmUXpYbjByWkRna2p4S2tfd1NmN3RQU3ZMOFoyeldsQ2hhU3RuYlBfQ3hxMVRnV0Q0UGh5X0NvM2xidmdpaVZWaGttOUI3ZzFLb1FWRUhfaHozSlVn?oc=5",
+      "headline": "Iran War Spreads to Red Sea and Caspian, Gulf Quiet as US Forgoes Strikes - EnergyNow.com",
+      "detected_at": "2026-11-15T06:35:47Z"
     }
   ],
   "scheduled_events": [
@@ -1413,7 +1428,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 1,
+    "discovered_count": 2,
     "scheduled_count": 10,
     "failures": []
   }

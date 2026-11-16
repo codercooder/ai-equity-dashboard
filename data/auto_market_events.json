@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-16T06:32:58Z",
+  "updated_at": "2026-11-16T22:05:57Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1229,7 +1229,7 @@
       "source": "EnergyNow.com",
       "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOR3AtUThyTTFHa2J5N1pOeDh1SnQ3MnlOM3RseDFESUszd2VkSF9UTE52LXZmM1JKdWcySTdlamhRRVhRaUVoUlM2cGE4b3Q5LVlKMS14Z3RBZ05Bal9fcU5YVDhCYnFjUF8zaVVQbDJGeFZPeGl3bVlreUgyeERSNk5pd2FMYW1na1JjYnh4NmRXNzZkVy1tSElfRTJyMjBKcVlWOVk3ZGJqYTkySnJaajRqZXFNdm05MGhlUV9hTzdPQmwzVC10b25OYUI0dUxFRzM3d2EzblhNZXc?oc=5",
       "headline": "HOW ABOUT NOW INSTEAD? Trump Says Iran War to End after US Midterm Elections, Threatens to Attack Pickaxe Mountain - EnergyNow.com",
-      "detected_at": "2026-11-16T06:32:57Z"
+      "detected_at": "2026-11-16T22:05:56Z"
     },
     {
       "event_id": "1a1c7889c12dec2d",
@@ -1244,7 +1244,22 @@
       "source": "Bloomberg.com",
       "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPSTlsTGpib2E2Sm9JYXBzRlBxWTZNbGFEWHhjaHk3MG5ab1VybmtNNlAyaWtWYnFranRoZFRWNmY1clprM3lzeXJETGtTRW5oeldDa0NqdFJrWF9SZWkwUUZnSnNoVXJBcTk3ZmVNODB6Z21ZMVJLejZPSjI5S0pybXByY1hJNGEtWm5mNmVqZlJzVGxrblBCdVBiQVFNQQ?oc=5",
       "headline": "Oil Steadies With Iranian Attack on Base in Bahrain in Focus - Bloomberg.com",
-      "detected_at": "2026-11-16T06:32:57Z"
+      "detected_at": "2026-11-16T22:05:56Z"
+    },
+    {
+      "event_id": "c6755061ada26bf6",
+      "kind": "point",
+      "date": "2026-11-16",
+      "label": "NVIDIA 重要新品 / 架构发布",
+      "category": "AI",
+      "importance": "High",
+      "status": "confirmed",
+      "confidence": 0.98,
+      "auto_generated": true,
+      "source": "NVIDIA Newsroom",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-announces-collaboration-with-ibm-and-fermi-national-accelerator-laboratory-to-launch-quantum-classical-codesign-platform-plus-error-correction-breakthrough-to-advance-practical-quantum-computing",
+      "headline": "NVIDIA Announces Collaboration With IBM and Fermi National Accelerator Laboratory to Launch Quantum-Classical Codesign Platform, Plus Error-Correction Breakthrough to Advance Practical Quantum Computing",
+      "detected_at": "2026-11-16T22:05:54Z"
     }
   ],
   "scheduled_events": [
@@ -1458,7 +1473,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 3,
+    "discovered_count": 5,
     "scheduled_count": 10,
     "failures": []
   }

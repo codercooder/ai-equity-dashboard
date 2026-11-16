@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T18:52:55Z",
+  "updated_at": "2026-11-16T06:32:58Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1214,7 +1214,37 @@
       "source": "EnergyNow.com",
       "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPOWtVOFBSWVhzVG5kSEI5SVlscW9HNHg5QUZsTHQ3V0d5eFlFV1Y0cEFsa0U0d2VqUV9uNGd1VUFkbjZJV0VnY2sxQ3RCUTJaMHBmUXpYbjByWkRna2p4S2tfd1NmN3RQU3ZMOFoyeldsQ2hhU3RuYlBfQ3hxMVRnV0Q0UGh5X0NvM2xidmdpaVZWaGttOUI3ZzFLb1FWRUhfaHozSlVn?oc=5",
       "headline": "Iran War Spreads to Red Sea and Caspian, Gulf Quiet as US Forgoes Strikes - EnergyNow.com",
-      "detected_at": "2026-11-15T18:52:54Z"
+      "detected_at": "2026-11-16T06:32:57Z"
+    },
+    {
+      "event_id": "87ebbfa4c81d470d",
+      "kind": "point",
+      "date": "2026-11-15",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "EnergyNow.com",
+      "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOR3AtUThyTTFHa2J5N1pOeDh1SnQ3MnlOM3RseDFESUszd2VkSF9UTE52LXZmM1JKdWcySTdlamhRRVhRaUVoUlM2cGE4b3Q5LVlKMS14Z3RBZ05Bal9fcU5YVDhCYnFjUF8zaVVQbDJGeFZPeGl3bVlreUgyeERSNk5pd2FMYW1na1JjYnh4NmRXNzZkVy1tSElfRTJyMjBKcVlWOVk3ZGJqYTkySnJaajRqZXFNdm05MGhlUV9hTzdPQmwzVC10b25OYUI0dUxFRzM3d2EzblhNZXc?oc=5",
+      "headline": "HOW ABOUT NOW INSTEAD? Trump Says Iran War to End after US Midterm Elections, Threatens to Attack Pickaxe Mountain - EnergyNow.com",
+      "detected_at": "2026-11-16T06:32:57Z"
+    },
+    {
+      "event_id": "1a1c7889c12dec2d",
+      "kind": "point",
+      "date": "2026-11-16",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.9,
+      "auto_generated": true,
+      "source": "Bloomberg.com",
+      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPSTlsTGpib2E2Sm9JYXBzRlBxWTZNbGFEWHhjaHk3MG5ab1VybmtNNlAyaWtWYnFranRoZFRWNmY1clprM3lzeXJETGtTRW5oeldDa0NqdFJrWF9SZWkwUUZnSnNoVXJBcTk3ZmVNODB6Z21ZMVJLejZPSjI5S0pybXByY1hJNGEtWm5mNmVqZlJzVGxrblBCdVBiQVFNQQ?oc=5",
+      "headline": "Oil Steadies With Iranian Attack on Base in Bahrain in Focus - Bloomberg.com",
+      "detected_at": "2026-11-16T06:32:57Z"
     }
   ],
   "scheduled_events": [
@@ -1428,7 +1458,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 2,
+    "discovered_count": 3,
     "scheduled_count": 10,
     "failures": []
   }

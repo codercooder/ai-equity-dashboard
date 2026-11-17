@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17T07:57:17Z",
+  "updated_at": "2026-11-17T20:57:17Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1259,7 +1259,67 @@
       "source": "NVIDIA Newsroom",
       "source_url": "https://nvidianews.nvidia.com/news/nvidia-announces-collaboration-with-ibm-and-fermi-national-accelerator-laboratory-to-launch-quantum-classical-codesign-platform-plus-error-correction-breakthrough-to-advance-practical-quantum-computing",
       "headline": "NVIDIA Announces Collaboration With IBM and Fermi National Accelerator Laboratory to Launch Quantum-Classical Codesign Platform, Plus Error-Correction Breakthrough to Advance Practical Quantum Computing",
-      "detected_at": "2026-11-17T07:57:14Z"
+      "detected_at": "2026-11-17T20:57:14Z"
+    },
+    {
+      "event_id": "d2cf98b416ce80a6",
+      "kind": "point",
+      "date": "2026-11-16",
+      "label": "贸易 / 关税 / 出口管制冲击",
+      "category": "贸易",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.7,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNYkh0ckZncVlZLW10eldobVVJNEs3SHAwbGNnakh3bExOZ2t6SEtpNjloRHZndS13UTBFUXZMUVA4RGZCZE9DTUVxRWJBMmxRdndNX1Y3YXJ3NWMwUm5JQXlkdEFxMEZJcVhmaUZtd0tGTk4yRFBKOWtjT2pJaXQyX1JxZi1Sd2FTS0VWS3A0bDFmdk1RQTE3MnptQTVIa1o1UUFiRXExaFNETEtLcV9OV0dzWTBUcV9DNmptN1lEREgxd0dZLWdV?oc=5",
+      "headline": "Chip tensions loom over Trump-Xi summit, as US and China push AI safety steps - Reuters",
+      "detected_at": "2026-11-17T20:57:17Z"
+    },
+    {
+      "event_id": "44024c7cc4d3b0ae",
+      "kind": "point",
+      "date": "2026-11-17",
+      "label": "NVIDIA 重要新品 / 架构发布",
+      "category": "AI",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.85,
+      "auto_generated": true,
+      "source": "Tech Times",
+      "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPaF9ueGx1ZHVDUzlhV3hseEtrUVRDZm5jeGE0eTdlV1JZMXdZY3NWanRBbm94dWdZbENlWHNfcURxODdSdGdlNkg1Z1ZCOXRGcTE0Y2RXLXgzMHJXRGxkd0hBLUsybVI2dnFyYlNjaDNwcnNra1JBS0lJNGlKSTl5QzBFUzRIdkJ4VW9Zc2UwM0h3OHBtdnA4TVB5OGpSa3Q3eHZvUktvRURrNXFrdmduX3RpSHF2dF9wQ0NSWncwTGltSkp5U2E2a1N0TVBpZw?oc=5",
+      "headline": "Nvidia Rubin HPC GPU Unveiled at SC26 With 50,000+ CUDA Cores but No Memory Bandwidth Figure - Tech Times",
+      "detected_at": "2026-11-17T20:57:15Z"
+    },
+    {
+      "event_id": "817e0aadb41cdbba",
+      "kind": "point",
+      "date": "2026-11-17",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.9,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPQm40d1ZiR2k1S1RxaFdvQzJVYmRJUE1rcnNLZkEyRkZzbk5KZjlqWl9sZW9MUFB2OHpwdGZzT3duNzVnMnNaMEJMYkFKWndKTWE1OWNtd0hLcWRtSmVVYU5JaTBlNXZuT2t0V1AzVHdXVEhPMWt5QnhXakxpWkxiQk50ZEt0UGtXT3RpeXdiNEY0UXBqeXk2RGVHYURMNzJzNm13Zldtbm8tQQ?oc=5",
+      "headline": "Oil edges up on tanker attacks, expected US crude drop - Reuters",
+      "detected_at": "2026-11-17T20:57:16Z"
+    },
+    {
+      "event_id": "9fbb79e1555e3414",
+      "kind": "point",
+      "date": "2026-11-17",
+      "label": "贸易 / 关税 / 出口管制冲击",
+      "category": "贸易",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Investing.com",
+      "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQTE16V2dGNUpYb19Kd0RWVHYyZ0ZRazE3RXg0WG5ZV1QtSzZKamtHSDVZOXVzZnNfaHFCSE5wbm92dUhUcERrckNKVjJyNWRWbnJGU3dWdHF3bFRYRDRxdTJoMHh6RzlkWk00bU1IZ0tMVWZ2X3BqOUNNX3UtTEZtWlhfM3pEZEFNVWdpaDEzMVY1YldWdFdLWGdVeUQwT3dMRm8zNGJRcVhXblpzWVE?oc=5",
+      "headline": "How Trump and Xi went from tariff war to trade truce By Reuters - Investing.com",
+      "detected_at": "2026-11-17T20:57:17Z"
     }
   ],
   "scheduled_events": [
@@ -1473,7 +1533,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 2,
+    "discovered_count": 8,
     "scheduled_count": 10,
     "failures": []
   }

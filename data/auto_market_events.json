@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-18T20:33:59Z",
+  "updated_at": "2026-11-19T07:28:59Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1259,7 +1259,7 @@
       "source": "NVIDIA Newsroom",
       "source_url": "https://nvidianews.nvidia.com/news/nvidia-announces-collaboration-with-ibm-and-fermi-national-accelerator-laboratory-to-launch-quantum-classical-codesign-platform-plus-error-correction-breakthrough-to-advance-practical-quantum-computing",
       "headline": "NVIDIA Announces Collaboration With IBM and Fermi National Accelerator Laboratory to Launch Quantum-Classical Codesign Platform, Plus Error-Correction Breakthrough to Advance Practical Quantum Computing",
-      "detected_at": "2026-11-18T20:33:55Z"
+      "detected_at": "2026-11-19T07:28:56Z"
     },
     {
       "event_id": "d2cf98b416ce80a6",
@@ -1289,7 +1289,7 @@
       "source": "Tech Times",
       "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPaF9ueGx1ZHVDUzlhV3hseEtrUVRDZm5jeGE0eTdlV1JZMXdZY3NWanRBbm94dWdZbENlWHNfcURxODdSdGdlNkg1Z1ZCOXRGcTE0Y2RXLXgzMHJXRGxkd0hBLUsybVI2dnFyYlNjaDNwcnNra1JBS0lJNGlKSTl5QzBFUzRIdkJ4VW9Zc2UwM0h3OHBtdnA4TVB5OGpSa3Q3eHZvUktvRURrNXFrdmduX3RpSHF2dF9wQ0NSWncwTGltSkp5U2E2a1N0TVBpZw?oc=5",
       "headline": "Nvidia Rubin HPC GPU Unveiled at SC26 With 50,000+ CUDA Cores but No Memory Bandwidth Figure - Tech Times",
-      "detected_at": "2026-11-18T20:33:56Z"
+      "detected_at": "2026-11-19T07:28:57Z"
     },
     {
       "event_id": "817e0aadb41cdbba",
@@ -1334,7 +1334,7 @@
       "source": "Tech Times",
       "source_url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxObzlzbndPaEhPYnNtcF9Va3F0ci1jLThnWnRyRlNVZUZWTUlqSHczSHJ0ME9welJHSEMxbjFwaExldmhGeVlVQ1FkSFhkQlJmeVZjT2dlTS12Wl9CcUpEQnhYSXlFOHhuY0RnVk9pbkZsR196aElSOHU1TkQxaDQ2VXRDVjRtSXUzcWNnRy1MeUstSHlya01fQko2WHlXTFYzOWxmRE9hU2IxZjlPTnNCWDRHS3JIUkZkRDN4QnVzQ0dlWXRFa3pfTVhEdGhBUjA3c1gwY183ZFJYcTJ5SHc?oc=5",
       "headline": "Nvidia Export Control Committee Launches With Three Directors, No Stated Power to Block Chip Orders - Tech Times",
-      "detected_at": "2026-11-18T20:33:56Z"
+      "detected_at": "2026-11-19T07:28:57Z"
     },
     {
       "event_id": "65bca6c1910822ad",
@@ -1349,7 +1349,7 @@
       "source": "CNBC",
       "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQQ0FXYWthQmJLZi05SXhQR1o2akNmbUo4WFAyUWVjbjdkNmdwWi05clFGakpLMEFkSi1oS2ljalM2N2NyclZWTE9temNQMTJjZk9EQTYwZUJiMVlPcE1zQzA4eE5OU0tNQTg5QU5fU3k4bGIxM2NIVVFGZUZzRlR6VXEwVjBLNmvSAYwBQVVfeXFMUDZSczNSbHAxcjNFa1FMNWU3STJRUVBRV0x6SjhFVFRBdGNqSFhqMGl5bGtMSkN0YzQyWUpWLVppMmxpQWNFbFF4VmY0eE5feTJ5UVotZnNPYVdEdXhzWWVmaTk3YmdXNGdtRHlRN1RqeElDMXBEbkw4Z1hyWWxnM3hBWm9MME5Xbm5MNU0?oc=5",
       "headline": "Fed’s Waller says central bank may need to ‘shock people’ with half-point rate hike - CNBC",
-      "detected_at": "2026-11-18T20:33:57Z"
+      "detected_at": "2026-11-19T07:28:58Z"
     },
     {
       "event_id": "0dfe750874a8b8eb",
@@ -1359,12 +1359,12 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.7,
+      "confidence": 0.9,
       "auto_generated": true,
       "source": "Reuters",
-      "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQbmp3REJQam1xdjkyMkpCN1JlSkotTnJNM0JEWDVFNmJqZ2FHbmNIN2E0V2twa2N3djBLTXlNNVJvcDJmZVNXMlBlQnk2VG1FTThnX0hQbVRqS2dKbVVBdXl6MWR5ZHo0S2VneWt2bUdwVjE4TnNxaHFLN0hHNU9IUVljVnNXLWJTeHdORFFJX3BfQXhPTThEbGFYQXhYaGNneHRHcVRGS2NyOFhxTzVN?oc=5",
-      "headline": "Oil prices settle lower as traders weigh surplus supply outlook - Reuters",
-      "detected_at": "2026-11-18T20:33:58Z"
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPQm40d1ZiR2k1S1RxaFdvQzJVYmRJUE1rcnNLZkEyRkZzbk5KZjlqWl9sZW9MUFB2OHpwdGZzT3duNzVnMnNaMEJMYkFKWndKTWE1OWNtd0hLcWRtSmVVYU5JaTBlNXZuT2t0V1AzVHdXVEhPMWt5QnhXakxpWkxiQk50ZEt0UGtXT3RpeXdiNEY0UXBqeXk2RGVHYURMNzJzNm13Zldtbm8tQQ?oc=5",
+      "headline": "Oil edges up on tanker attacks, expected US crude drop - Reuters",
+      "detected_at": "2026-11-19T07:28:58Z"
     },
     {
       "event_id": "51e5d38c80a9539a",
@@ -1374,12 +1374,27 @@
       "category": "贸易",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.75,
+      "confidence": 0.8,
       "auto_generated": true,
-      "source": "BigGo Finance",
-      "source_url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5FR0VVdkd4a1dYLUo3V2JFaXVhMlFjZTJrQkZqNENfWGZlV1B4ZmM4WjJ1eTZHVzlqM2hKbnZRbTc5amZ3a1hFbEtVOTROTjBoMWx4Slo0Zy1zdGVzVDktOEJBVWMtX1AxUEl6dGphaHhlX0RXOUE?oc=5",
-      "headline": "Xi Jinping Says \"Closing Off Leads to Backwardness\" Ahead of U.S.-China Summit, Directly Targeting Trump's Tariff Policy - BigGo Finance",
-      "detected_at": "2026-11-18T20:33:58Z"
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQX0NhQU5GdEJ3aUxWWTFkbm94YXJXWTRmdkltaU9WLWVHQ2tLNVZVb0VuWnZBSnlhM2RUY1dFSlVyT0k2akttcnQ0bWthTUxQdENXNUtFQ0ZIcjNRdTM1Mkp3SXBMRTV0dThvWm15TDQ0QVBRWVpMbHR2bWJZcGFRQjNtODNpV3FVdlhCZGszcm4wU1gzbk0xU2FMOG9ST0lNSEp3?oc=5",
+      "headline": "Breakingviews - COMMENTARY: Chip curbs threaten US-China trade truce - Reuters",
+      "detected_at": "2026-11-19T07:28:59Z"
+    },
+    {
+      "event_id": "2776634322ed2ae4",
+      "kind": "point",
+      "date": "2026-11-19",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.9,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOMnV0bXBXX1ZzNHpkcHFmanlPQ2FmczM3Z2xCcXRqRjYwTVB6SlFhZ29vbGcyM3V5a3lOMHZ3OXprMDM0ang4RVEwQmhFMTZ2QU1GT2lQN0ZPUXQyZWJ4MHR1S0JQTmE5Y0Z5dkZlemdFU0V6TWFId0pZZlFtbHVzaU1EeVl1S2RiSFdrcE95d1ZqQW9NRWlZUFNHWU9QVHNXRlZiTmEtckdWZEpScFREcVpPQ0x3MDNQeFhiZHJHMUlVQXFRNkE?oc=5",
+      "headline": "Oil prices steady as Middle East shipping attacks counter supply surplus outlook - Reuters",
+      "detected_at": "2026-11-19T07:28:58Z"
     }
   ],
   "scheduled_events": [
@@ -1606,8 +1621,8 @@
     }
   ],
   "last_run": {
-    "discovered_count": 9,
-    "scheduled_count": 10,
+    "discovered_count": 8,
+    "scheduled_count": 9,
     "failures": []
   }
 }

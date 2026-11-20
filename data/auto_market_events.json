@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-20T07:19:30Z",
+  "updated_at": "2026-11-20T20:24:20Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1394,7 +1394,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOMnV0bXBXX1ZzNHpkcHFmanlPQ2FmczM3Z2xCcXRqRjYwTVB6SlFhZ29vbGcyM3V5a3lOMHZ3OXprMDM0ang4RVEwQmhFMTZ2QU1GT2lQN0ZPUXQyZWJ4MHR1S0JQTmE5Y0Z5dkZlemdFU0V6TWFId0pZZlFtbHVzaU1EeVl1S2RiSFdrcE95d1ZqQW9NRWlZUFNHWU9QVHNXRlZiTmEtckdWZEpScFREcVpPQ0x3MDNQeFhiZHJHMUlVQXFRNkE?oc=5",
       "headline": "Oil settles flat as Hormuz disruptions offset global surplus fears - Reuters",
-      "detected_at": "2026-11-20T07:19:29Z"
+      "detected_at": "2026-11-20T20:24:19Z"
     },
     {
       "event_id": "d17a989658f2ea52",
@@ -1409,7 +1409,7 @@
       "source": "Cryptonews.net",
       "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1DUHlncnNKcmJhbmtvOU9uSERtV2RDdmRTV0dxcHp2RVU3UFNwa3lNRWx3Rk9DLUtSeXY0MENEVjZBLUJ5T0s2M0F4cWpMbjhEU1RZTGtNSFo?oc=5",
       "headline": "JPMorgan Warns: “Three Interest Rate Hikes from the Fed May Be Coming!” Points to 2028 for a Rate Cut! How Will Bitcoin (BTC) Be... - Cryptonews.net",
-      "detected_at": "2026-11-20T07:19:28Z"
+      "detected_at": "2026-11-20T20:24:18Z"
     },
     {
       "event_id": "4351a00f9b6378e5",
@@ -1651,7 +1651,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 6,
+    "discovered_count": 5,
     "scheduled_count": 9,
     "failures": []
   }

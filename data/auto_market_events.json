@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-19T20:39:35Z",
+  "updated_at": "2026-11-20T07:19:30Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1349,7 +1349,7 @@
       "source": "CNBC",
       "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQQ0FXYWthQmJLZi05SXhQR1o2akNmbUo4WFAyUWVjbjdkNmdwWi05clFGakpLMEFkSi1oS2ljalM2N2NyclZWTE9temNQMTJjZk9EQTYwZUJiMVlPcE1zQzA4eE5OU0tNQTg5QU5fU3k4bGIxM2NIVVFGZUZzRlR6VXEwVjBLNmvSAYwBQVVfeXFMUDZSczNSbHAxcjNFa1FMNWU3STJRUVBRV0x6SjhFVFRBdGNqSFhqMGl5bGtMSkN0YzQyWUpWLVppMmxpQWNFbFF4VmY0eE5feTJ5UVotZnNPYVdEdXhzWWVmaTk3YmdXNGdtRHlRN1RqeElDMXBEbkw4Z1hyWWxnM3hBWm9MME5Xbm5MNU0?oc=5",
       "headline": "Fed’s Waller says central bank may need to ‘shock people’ with half-point rate hike - CNBC",
-      "detected_at": "2026-11-19T20:39:33Z"
+      "detected_at": "2026-11-20T07:19:28Z"
     },
     {
       "event_id": "0dfe750874a8b8eb",
@@ -1376,10 +1376,10 @@
       "status": "auto_high",
       "confidence": 0.8,
       "auto_generated": true,
-      "source": "Reuters",
-      "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQX0NhQU5GdEJ3aUxWWTFkbm94YXJXWTRmdkltaU9WLWVHQ2tLNVZVb0VuWnZBSnlhM2RUY1dFSlVyT0k2akttcnQ0bWthTUxQdENXNUtFQ0ZIcjNRdTM1Mkp3SXBMRTV0dThvWm15TDQ0QVBRWVpMbHR2bWJZcGFRQjNtODNpV3FVdlhCZGszcm4wU1gzbk0xU2FMOG9ST0lNSEp3?oc=5",
-      "headline": "Breakingviews - COMMENTARY: Chip curbs threaten US-China trade truce - Reuters",
-      "detected_at": "2026-11-19T20:39:35Z"
+      "source": "Bloomberg.com",
+      "source_url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5vcUk1U2RBTkh5eFZCSGZSeVdsSlRyTk8xcmR5YXlwYUhvaW1uVWt5cUJWQTdFOGdWWGJrbWdYQzdUbVF6MzNFTzFPYUhSRTBNM1djVGdYQUp0WVU0OW5RbVpiZW04T01YUXZzSzAwVnFJWkVIS1RlNHRoOW03dw?oc=5",
+      "headline": "Xi Welcomes Trump in Show of US-China Warmth and Cooperation - Bloomberg.com",
+      "detected_at": "2026-11-20T07:19:29Z"
     },
     {
       "event_id": "2776634322ed2ae4",
@@ -1393,8 +1393,8 @@
       "auto_generated": true,
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOMnV0bXBXX1ZzNHpkcHFmanlPQ2FmczM3Z2xCcXRqRjYwTVB6SlFhZ29vbGcyM3V5a3lOMHZ3OXprMDM0ang4RVEwQmhFMTZ2QU1GT2lQN0ZPUXQyZWJ4MHR1S0JQTmE5Y0Z5dkZlemdFU0V6TWFId0pZZlFtbHVzaU1EeVl1S2RiSFdrcE95d1ZqQW9NRWlZUFNHWU9QVHNXRlZiTmEtckdWZEpScFREcVpPQ0x3MDNQeFhiZHJHMUlVQXFRNkE?oc=5",
-      "headline": "Oil prices steady as Middle East shipping attacks counter supply surplus outlook - Reuters",
-      "detected_at": "2026-11-19T07:28:58Z"
+      "headline": "Oil settles flat as Hormuz disruptions offset global surplus fears - Reuters",
+      "detected_at": "2026-11-20T07:19:29Z"
     },
     {
       "event_id": "d17a989658f2ea52",
@@ -1409,7 +1409,22 @@
       "source": "Cryptonews.net",
       "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1DUHlncnNKcmJhbmtvOU9uSERtV2RDdmRTV0dxcHp2RVU3UFNwa3lNRWx3Rk9DLUtSeXY0MENEVjZBLUJ5T0s2M0F4cWpMbjhEU1RZTGtNSFo?oc=5",
       "headline": "JPMorgan Warns: “Three Interest Rate Hikes from the Fed May Be Coming!” Points to 2028 for a Rate Cut! How Will Bitcoin (BTC) Be... - Cryptonews.net",
-      "detected_at": "2026-11-19T20:39:33Z"
+      "detected_at": "2026-11-20T07:19:28Z"
+    },
+    {
+      "event_id": "4351a00f9b6378e5",
+      "kind": "point",
+      "date": "2026-11-20",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.9,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPb3pQREZDSHE2RmNHdDdGdExDUXhYeWljc2VualVoQ09oQV90WnFQQlZkYW1rWnl5ODJ6N2haaVBDVUY4VmFvRmtLSlZKbU5kR1lHNklrUUR3X3JGc181OHZCUHpXalZFUllBZXVEczJPUUdZZUt1MmpsTEN0MkJGSDNCVHhoa25pZFBSb1lldS1US0VJNVNBWWN1U2VwQmd0WmlQR1RKWmgyS2lyUDVfNHdWeWhzaFhmZ1E?oc=5",
+      "headline": "Oil prices gain as Houthi attacks on Riyadh raise supply concerns - Reuters",
+      "detected_at": "2026-11-20T07:19:29Z"
     }
   ],
   "scheduled_events": [

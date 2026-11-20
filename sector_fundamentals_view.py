@@ -143,10 +143,14 @@ STANDARD_SPECS = [
 
 
 REAL_ESTATE_SPECS = [
-    ("P/FFO Proxy", "p_ffo_proxy", "x"),
-    ("P/FFO Proxy 5Y Avg", "p_ffo_proxy_5y_avg", "x"),
-    ("FFO Yield Proxy", "ffo_proxy_yield", "%"),
-    ("FFO Yield Proxy 5Y Avg", "ffo_proxy_yield_5y_avg", "%"),
+    ("P/B", "p_book", "x"),
+    ("P/B 5Y Avg", "p_book_5y_avg", "x"),
+    ("P/NAV", "p_nav", "x"),
+    ("P/NAV 5Y Avg", "p_nav_5y_avg", "x"),
+    ("P/FFO", "p_ffo_proxy", "x"),
+    ("P/FFO 5Y Avg", "p_ffo_proxy_5y_avg", "x"),
+    ("FFO Yield", "ffo_proxy_yield", "%"),
+    ("FFO Yield 5Y Avg", "ffo_proxy_yield_5y_avg", "%"),
     ("Net Debt / EBITDA", "net_debt_ebitda", "x"),
     ("Net Debt / EBITDA 5Y Avg", "net_debt_ebitda_5y_avg", "x"),
     ("Debt / Assets", "debt_assets", "%"),
@@ -155,35 +159,31 @@ REAL_ESTATE_SPECS = [
     ("Interest Coverage 5Y Avg", "interest_coverage_5y_avg", "x"),
     ("EBITDA Margin", "ebitda_margin", "%"),
     ("EBITDA Margin 5Y Avg", "ebitda_margin_5y_avg", "%"),
-    ("CFO Margin", "cfo_margin", "%"),
-    ("CFO Margin 5Y Avg", "cfo_margin_5y_avg", "%"),
-    ("Capex / CFO", "capex_cfo", "%"),
-    ("Capex / CFO 5Y Avg", "capex_cfo_5y_avg", "%"),
-    ("P/B", "p_book", "x"),
-    ("P/B 5Y Avg", "p_book_5y_avg", "x"),
+    ("Dividend Yield", "dividend_yield", "%"),
+    ("Dividend Yield 5Y Avg", "dividend_yield_5y_avg", "%"),
     ("Coverage", "coverage_pct", "coverage"),
 ]
 
 
 FINANCIALS_SPECS = [
-    ("P/E (TTM)", "pe_ttm", "x"),
-    ("P/E 5Y Avg", "pe_ttm_5y_avg", "x"),
     ("P/B", "p_book", "x"),
     ("P/B 5Y Avg", "p_book_5y_avg", "x"),
+    ("P/TBV", "p_tbv", "x"),
+    ("P/TBV 5Y Avg", "p_tbv_5y_avg", "x"),
     ("ROE", "roe", "%"),
     ("ROE 5Y Avg", "roe_5y_avg", "%"),
-    ("ROA", "roa", "%"),
-    ("ROA 5Y Avg", "roa_5y_avg", "%"),
-    ("Net Margin", "net_margin", "%"),
-    ("Net Margin 5Y Avg", "net_margin_5y_avg", "%"),
+    ("NIM", "nim", "%"),
+    ("NIM 5Y Avg", "nim_5y_avg", "%"),
     ("Equity / Assets", "equity_assets", "%"),
     ("Equity / Assets 5Y Avg", "equity_assets_5y_avg", "%"),
-    ("Assets / Equity", "assets_equity", "x"),
-    ("Assets / Equity 5Y Avg", "assets_equity_5y_avg", "x"),
-    ("Market Cap / Assets", "market_cap_assets", "%"),
-    ("Market Cap / Assets 5Y Avg", "market_cap_assets_5y_avg", "%"),
-    ("Revenue / Assets", "revenue_assets", "%"),
-    ("Revenue / Assets 5Y Avg", "revenue_assets_5y_avg", "%"),
+    ("NPL Ratio", "npl_ratio", "%"),
+    ("NPL Ratio 5Y Avg", "npl_ratio_5y_avg", "%"),
+    ("CET1 Ratio", "cet1_ratio", "%"),
+    ("CET1 Ratio 5Y Avg", "cet1_ratio_5y_avg", "%"),
+    ("Dividend Yield", "dividend_yield", "%"),
+    ("Dividend Yield 5Y Avg", "dividend_yield_5y_avg", "%"),
+    ("ROTCE", "rotce", "%"),
+    ("ROTCE 5Y Avg", "rotce_5y_avg", "%"),
     ("Coverage", "coverage_pct", "coverage"),
 ]
 
@@ -264,7 +264,7 @@ def render_sector_fundamentals():
     summary, history, meta = load_data()
     
     st.title("S&P 500 Sector Fundamentals")
-    st.caption("11个GICS板块 · 当前值 vs 过去5个可用财年平均 · 估值 / 杠杆 / 现金流 / ROIC / EBITDA Margin")
+    st.caption("11个GICS板块 · 当前值 vs 过去5个可用财年平均 · 标准板块 + Real Estate / Financials 专属指标")
     
     if summary.empty:
         st.warning(
@@ -341,8 +341,9 @@ def render_sector_fundamentals():
         )
         st.caption(
             "Utilities 后直接接 Real Estate 指标行/数据行，再接 Financials 指标行/数据行；"
-            "所有 5Y Avg 位置使用浅色区分。Real Estate 的 FFO 为公开财报推导 proxy，"
-            "并非正式 NAREIT FFO/AFFO。"
+            "所有 5Y Avg 位置使用浅色区分。Real Estate 的 FFO 当前仍为公开财报推导 proxy，"
+            "并非正式 NAREIT FFO/AFFO。P/NAV、NIM、NPL Ratio、CET1 Ratio 只有在专门披露源可比时才展示；"
+            "未可靠取得时显示“—”，不使用通用财报代理值。"
         )
 
     with tab_val:

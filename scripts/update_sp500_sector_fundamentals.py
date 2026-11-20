@@ -46,6 +46,11 @@ ALIASES = {
         "Depreciation",
         "DepreciationAmortizationDepletion",
     ],
+    "dividends_paid": [
+        "CashDividendsPaid",
+        "CommonStockDividendPaid",
+        "CommonStockDividendPaidAndDistributions",
+    ],
     "debt": ["TotalDebt"],
     "cash": [
         "CashCashEquivalentsAndShortTermInvestments",
@@ -53,6 +58,17 @@ ALIASES = {
     ],
     "equity": ["StockholdersEquity", "TotalStockholderEquity"],
     "assets": ["TotalAssets"],
+    "goodwill": ["Goodwill"],
+    "intangibles": [
+        "OtherIntangibleAssets",
+        "OtherIntangibleAssetsNet",
+        "IntangibleAssets",
+        "FiniteLivedIntangibleAssetsNet",
+    ],
+    "goodwill_intangibles": [
+        "GoodwillAndOtherIntangibleAssets",
+        "GoodwillAndOtherIntangibleAssetsNet",
+    ],
     "interest_expense": ["InterestExpense", "InterestExpenseNonOperating"],
     "invested": ["InvestedCapital"],
     "shares": ["OrdinarySharesNumber", "ShareIssued"],
@@ -218,7 +234,7 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
             iq
             if k in {"revenue", "net_income", "ebit", "ebitda", "tax", "pretax", "interest_expense"}
             else cq
-            if k in {"cfo", "capex", "depr"}
+            if k in {"cfo", "capex", "depr", "dividends_paid"}
             else bq,
             k,
         )
@@ -229,7 +245,7 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
             ia
             if k in {"revenue", "net_income", "ebit", "ebitda", "tax", "pretax", "interest_expense"}
             else ca
-            if k in {"cfo", "capex", "depr"}
+            if k in {"cfo", "capex", "depr", "dividends_paid"}
             else ba,
             k,
         )
@@ -247,11 +263,16 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
     cfo = ttm(q["cfo"])
     capex_raw = ttm(q["capex"])
     capex = abs(capex_raw) if np.isfinite(capex_raw) else np.nan
+    dividends_raw = ttm(q["dividends_paid"])
+    dividends_paid = abs(dividends_raw) if np.isfinite(dividends_raw) else np.nan
 
     debt = latest(q["debt"])
     cash = latest(q["cash"])
     equity = latest(q["equity"])
     assets = latest(q["assets"])
+    goodwill = latest(q["goodwill"])
+    intangibles = latest(q["intangibles"])
+    goodwill_intangibles = latest(q["goodwill_intangibles"])
     interest_expense = ttm(q["interest_expense"])
     invested = latest(q["invested"])
 
@@ -263,6 +284,15 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
         equity = latest(a["equity"])
     if not np.isfinite(assets):
         assets = latest(a["assets"])
+    if not np.isfinite(goodwill):
+        goodwill = latest(a["goodwill"])
+    if not np.isfinite(intangibles):
+        intangibles = latest(a["intangibles"])
+    if not np.isfinite(goodwill_intangibles):
+        goodwill_intangibles = latest(a["goodwill_intangibles"])
+    if not np.isfinite(dividends_paid):
+        div_y = latest(a["dividends_paid"])
+        dividends_paid = abs(div_y) if np.isfinite(div_y) else np.nan
     if not np.isfinite(interest_expense):
         interest_expense = nearest_value(a["interest_expense"], a["interest_expense"].index[0]) if not a["interest_expense"].empty else np.nan
     if not np.isfinite(invested) and np.isfinite(debt) and np.isfinite(equity):
@@ -270,6 +300,19 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
 
     tr = tax_rate(ttm(q["tax"]), ttm(q["pretax"]))
     nopat = ebit * (1.0 - tr) if np.isfinite(ebit) else np.nan
+
+    if np.isfinite(goodwill_intangibles):
+        intangible_total = goodwill_intangibles
+    else:
+        intangible_total = (
+            (goodwill if np.isfinite(goodwill) else 0.0)
+            + (intangibles if np.isfinite(intangibles) else 0.0)
+        )
+    tangible_equity = (
+        equity - intangible_total
+        if np.isfinite(equity)
+        else np.nan
+    )
 
     current_shares = latest(q["shares"])
     if not np.isfinite(current_shares):
@@ -311,6 +354,8 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
         "cash": cash,
         "equity": equity,
         "assets": assets,
+        "tangible_equity": tangible_equity,
+        "dividends_paid": dividends_paid,
         "interest_expense": abs(interest_expense) if np.isfinite(interest_expense) else np.nan,
         "depreciation": abs(depr) if np.isfinite(depr) else np.nan,
         "ffo_proxy": (
@@ -331,9 +376,13 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
         "ebitda",
         "cfo",
         "capex",
+        "dividends_paid",
         "debt",
         "equity",
         "assets",
+        "goodwill",
+        "intangibles",
+        "goodwill_intangibles",
         "interest_expense",
         "depr",
     ]:
@@ -363,10 +412,27 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
         cfo_y = nearest_value(a["cfo"], d)
         cap_y_raw = nearest_value(a["capex"], d)
         cap_y = abs(cap_y_raw) if np.isfinite(cap_y_raw) else np.nan
+        div_y_raw = nearest_value(a["dividends_paid"], d)
+        div_y = abs(div_y_raw) if np.isfinite(div_y_raw) else np.nan
         debt_y = nearest_value(a["debt"], d)
         cash_y = nearest_value(a["cash"], d)
         eq_y = nearest_value(a["equity"], d)
         assets_y = nearest_value(a["assets"], d)
+        goodwill_y = nearest_value(a["goodwill"], d)
+        intangibles_y = nearest_value(a["intangibles"], d)
+        goodwill_intangibles_y = nearest_value(a["goodwill_intangibles"], d)
+        if np.isfinite(goodwill_intangibles_y):
+            intangible_total_y = goodwill_intangibles_y
+        else:
+            intangible_total_y = (
+                (goodwill_y if np.isfinite(goodwill_y) else 0.0)
+                + (intangibles_y if np.isfinite(intangibles_y) else 0.0)
+            )
+        tangible_equity_y = (
+            eq_y - intangible_total_y
+            if np.isfinite(eq_y)
+            else np.nan
+        )
         interest_y = nearest_value(a["interest_expense"], d)
         inv_y = nearest_value(a["invested"], d)
         if (
@@ -410,6 +476,8 @@ def extract_company(ticker: str, sector_name: str, prices: pd.DataFrame) -> dict
                 "cash": cash_y,
                 "equity": eq_y,
                 "assets": assets_y,
+                "tangible_equity": tangible_equity_y,
+                "dividends_paid": div_y,
                 "interest_expense": abs(interest_y) if np.isfinite(interest_y) else np.nan,
                 "depreciation": abs(dep_y) if np.isfinite(dep_y) else np.nan,
                 "ffo_proxy": (
@@ -544,6 +612,35 @@ def aggregate(rows: list[dict], sector_name: str) -> dict:
         else np.nan
     )
 
+    ptbv_rows = eligible("market_cap", "tangible_equity")
+    ptbv_den = s(ptbv_rows, "tangible_equity")
+    p_tbv = (
+        safe_div(s(ptbv_rows, "market_cap"), ptbv_den)
+        if np.isfinite(ptbv_den) and ptbv_den > 0
+        else np.nan
+    )
+
+    rotce_rows = eligible("net_income", "tangible_equity")
+    rotce_den = s(rotce_rows, "tangible_equity")
+    rotce = (
+        safe_div(s(rotce_rows, "net_income"), rotce_den)
+        if np.isfinite(rotce_den) and rotce_den > 0
+        else np.nan
+    )
+
+    div_rows = eligible("dividends_paid", "market_cap")
+    dividend_yield = safe_div(
+        s(div_rows, "dividends_paid"),
+        s(div_rows, "market_cap"),
+    )
+
+    # Specialized disclosure metrics. Keep blank unless a dedicated,
+    # comparable source is added; do not substitute accounting proxies.
+    p_nav = np.nan
+    nim = np.nan
+    npl_ratio = np.nan
+    cet1_ratio = np.nan
+
     asset_rows = eligible("debt", "assets")
     debt_assets = safe_div(
         s(asset_rows, "debt"),
@@ -604,6 +701,13 @@ def aggregate(rows: list[dict], sector_name: str) -> dict:
         "market_cap_assets": market_cap_assets,
         "revenue_assets": revenue_assets,
         "p_book": p_book,
+        "p_tbv": p_tbv,
+        "p_nav": p_nav,
+        "nim": nim,
+        "npl_ratio": npl_ratio,
+        "cet1_ratio": cet1_ratio,
+        "dividend_yield": dividend_yield,
+        "rotce": rotce,
         "debt_assets": debt_assets,
         "equity_assets": equity_assets,
         "assets_equity": assets_equity,
@@ -734,6 +838,13 @@ def main():
         "market_cap_assets",
         "revenue_assets",
         "p_book",
+        "p_tbv",
+        "p_nav",
+        "nim",
+        "npl_ratio",
+        "cet1_ratio",
+        "dividend_yield",
+        "rotce",
         "debt_assets",
         "equity_assets",
         "assets_equity",
@@ -805,8 +916,17 @@ def main():
             ),
             (
                 "Financials excludes corporate-style net debt/EBITDA, FCF, ROIC "
-                "and EBITDA margin as non-comparable; P/B, ROE and balance-sheet "
-                "capital ratios are retained instead."
+                "and EBITDA margin as non-comparable. P/TBV and ROTCE use a tangible "
+                "common equity proxy defined as book equity less goodwill and identifiable intangibles."
+            ),
+            (
+                "P/NAV, NIM, NPL ratio and CET1 ratio require specialized REIT/bank disclosures "
+                "and are intentionally left blank until a dedicated comparable source is integrated; "
+                "generic accounting proxies are not substituted."
+            ),
+            (
+                "Dividend Yield is a trailing cash-dividend yield based on reported cash dividends "
+                "paid divided by market capitalization; it is not a forward indicated yield."
             ),
             (
                 "Real Estate FFO is a proxy defined as net income plus depreciation "

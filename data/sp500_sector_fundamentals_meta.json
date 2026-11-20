@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-11-14",
-  "generated_at_utc": "2026-11-14T13:45:34.493074+00:00",
+  "as_of": "2026-11-20",
+  "generated_at_utc": "2026-11-20T09:50:43.679730+00:00",
   "source": "S&P 500 constituents from Wikipedia; company financial statements, market cap and prices from Yahoo Finance via yfinance",
   "universe_method": "Current S&P 500 constituents backcast to their available annual financial history",
   "companies_requested": 503,
@@ -9,7 +9,9 @@
   "notes": [
     "Sector ratios are aggregated from numerator/denominator totals, not simple averages of company ratios.",
     "Historical market cap uses fiscal-date close multiplied by reported shares outstanding when available; current shares are a fallback.",
-    "Financials excludes corporate-style net debt/EBITDA, FCF, ROIC and EBITDA margin as non-comparable; P/B, ROE and balance-sheet capital ratios are retained instead.",
+    "Financials excludes corporate-style net debt/EBITDA, FCF, ROIC and EBITDA margin as non-comparable. P/TBV and ROTCE use a tangible common equity proxy defined as book equity less goodwill and identifiable intangibles.",
+    "P/NAV, NIM, NPL ratio and CET1 ratio require specialized REIT/bank disclosures and are intentionally left blank until a dedicated comparable source is integrated; generic accounting proxies are not substituted.",
+    "Dividend Yield is a trailing cash-dividend yield based on reported cash dividends paid divided by market capitalization; it is not a forward indicated yield.",
     "Real Estate FFO is a proxy defined as net income plus depreciation and amortization; it does not adjust for property-sale gains/losses and is therefore not official NAREIT FFO/AFFO."
   ]
 }

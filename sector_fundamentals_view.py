@@ -339,11 +339,20 @@ def render_sector_fundamentals():
             hide_index=True,
             height=560,
         )
+        bank_reg = meta.get("financials_bank_regulatory", {}) if isinstance(meta, dict) else {}
+        bank_date = bank_reg.get("report_date") or "—"
+        bank_matched = bank_reg.get("matched_count", 0)
+        bank_candidates = bank_reg.get("candidate_count", 0)
         st.caption(
             "Utilities 后直接接 Real Estate 指标行/数据行，再接 Financials 指标行/数据行；"
             "所有 5Y Avg 位置使用浅色区分。Real Estate 的 FFO 当前仍为公开财报推导 proxy，"
-            "并非正式 NAREIT FFO/AFFO。P/NAV、NIM、NPL Ratio、CET1 Ratio 只有在专门披露源可比时才展示；"
-            "未可靠取得时显示“—”，不使用通用财报代理值。"
+            "并非正式 NAREIT FFO/AFFO；P/NAV 继续显示“—”。"
+        )
+        st.caption(
+            f"Financials 的 NIM / NPL Ratio / CET1 Ratio 来自 FDIC BankFind Suite，"
+            f"仅覆盖具有可匹配 FDIC 银行主体的银行类成分股（{bank_matched}/{bank_candidates}），"
+            f"最新监管数据期：{bank_date}。NIM 与 CET1 按资产加权，NPL 按 Gross Loans 加权；"
+            "这三个指标的 5Y Avg 为最近最多20个季度的板块银行子集序列平均。"
         )
 
     with tab_val:

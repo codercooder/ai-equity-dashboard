@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
@@ -31,6 +32,42 @@ SECTOR_ORDER = [
     "Real Estate",
     "Financials",
 ]
+
+FDIC_API = "https://api.fdic.gov/banks"
+BANK_SUBINDUSTRIES = {
+    "Diversified Banks",
+    "Regional Banks",
+    "Consumer Finance",
+    "Asset Management & Custody Banks",
+}
+# Primary FDIC-insured bank subsidiary search hints for listed Financials names.
+# Only tickers that are actually present in the current S&P 500 universe are used.
+BANK_NAME_HINTS = {
+    "JPM": "JPMorgan Chase Bank",
+    "BAC": "Bank of America",
+    "WFC": "Wells Fargo Bank",
+    "C": "Citibank",
+    "USB": "U.S. Bank",
+    "PNC": "PNC Bank",
+    "TFC": "Truist Bank",
+    "BK": "Bank of New York Mellon",
+    "STT": "State Street Bank",
+    "NTRS": "Northern Trust",
+    "COF": "Capital One",
+    "AXP": "American Express National Bank",
+    "SYF": "Synchrony Bank",
+    "FITB": "Fifth Third Bank",
+    "CFG": "Citizens Bank",
+    "RF": "Regions Bank",
+    "HBAN": "Huntington National Bank",
+    "KEY": "KeyBank",
+    "MTB": "Manufacturers and Traders Trust",
+    "CMA": "Comerica Bank",
+    "ZION": "Zions Bancorporation",
+    "EWBC": "East West Bank",
+    "WAL": "Western Alliance Bank",
+    "FHN": "First Horizon Bank",
+}
 
 ALIASES = {
     "revenue": ["TotalRevenue", "OperatingRevenue"],
@@ -116,6 +153,7 @@ def get_constituents() -> pd.DataFrame:
                 "ticker": cells[0].replace(".", "-"),
                 "security": cells[1],
                 "sector": cells[2],
+                "sub_industry": cells[3],
             }
         )
 
@@ -128,6 +166,250 @@ def get_constituents() -> pd.DataFrame:
     if len(df) < 450:
         raise RuntimeError(f"Unexpected S&P 500 universe size: {len(df)}")
     return df
+
+
+def _fdic_json(endpoint: str, params: dict, timeout: int = 30) -> dict:
+    """Small resilient wrapper around the official FDIC BankFind Suite API."""
+    last_exc = None
+    for attempt in range(3):
+        try:
+            r = requests.get(
+                f"{FDIC_API}/{endpoint}",
+                params=params,
+                headers={"User-Agent": "AIEquityDashboard/1.0"},
+                timeout=timeout,
+            )
+            r.raise_for_status()
+            payload = r.json()
+            return payload if isinstance(payload, dict) else {}
+        except Exception as exc:
+            last_exc = exc
+            if attempt < 2:
+                time.sleep(1.5 * (attempt + 1))
+    raise RuntimeError(f"FDIC API {endpoint} failed: {last_exc}")
+
+
+def _payload_rows(payload: dict) -> list[dict]:
+    rows = []
+    for item in payload.get("data", []) if isinstance(payload, dict) else []:
+        if isinstance(item, dict):
+            row = item.get("data") if isinstance(item.get("data"), dict) else item
+            if isinstance(row, dict):
+                rows.append(row)
+    return rows
+
+
+def _bank_search_hint(ticker: str, security: str) -> str:
+    if ticker in BANK_NAME_HINTS:
+        return BANK_NAME_HINTS[ticker]
+    hint = str(security)
+    hint = re.sub(
+        r"\b(Corporation|Corp\.?|Incorporated|Inc\.?|Company|Co\.?|Bancorp|Financial|Group|Holdings?)\b",
+        " ",
+        hint,
+        flags=re.I,
+    )
+    return re.sub(r"\s+", " ", hint).strip()
+
+
+def _resolve_primary_fdic_bank(ticker: str, security: str) -> dict | None:
+    hint = _bank_search_hint(ticker, security)
+    if not hint:
+        return None
+    payload = _fdic_json(
+        "institutions",
+        {
+            "search": f"NAME:{hint}",
+            "fields": "NAME,CERT,ACTIVE,ASSET,REPDTE,FED_RSSD",
+            "limit": 25,
+            "sort_by": "ASSET",
+            "sort_order": "DESC",
+            "format": "json",
+        },
+    )
+    candidates = []
+    for row in _payload_rows(payload):
+        active = str(row.get("ACTIVE", "")).strip()
+        cert = finite(row.get("CERT"))
+        asset = finite(row.get("ASSET"))
+        if active not in {"1", "1.0", "True", "true"} or not np.isfinite(cert):
+            continue
+        candidates.append((asset if np.isfinite(asset) else -1.0, row))
+    if not candidates:
+        return None
+    candidates.sort(key=lambda x: x[0], reverse=True)
+    return candidates[0][1]
+
+
+def _fetch_fdic_bank_history(cert: int, limit: int = 24) -> pd.DataFrame:
+    fields = "NAME,CERT,REPDTE,ASSET,LNLSGR,NIMY,NCLNLSR,IDT1CER"
+    payload = _fdic_json(
+        "financials",
+        {
+            "filters": f"CERT:{int(cert)}",
+            "fields": fields,
+            "limit": max(24, min(int(limit), 100)),
+            "sort_by": "REPDTE",
+            "sort_order": "DESC",
+            "format": "json",
+        },
+        timeout=45,
+    )
+    rows = _payload_rows(payload)
+    if not rows:
+        return pd.DataFrame()
+
+    df = pd.DataFrame(rows)
+    if "REPDTE" not in df.columns:
+        return pd.DataFrame()
+    df["report_date"] = pd.to_datetime(
+        df["REPDTE"].astype(str),
+        format="%Y%m%d",
+        errors="coerce",
+    )
+    for col in ["ASSET", "LNLSGR", "NIMY", "NCLNLSR", "IDT1CER"]:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+        else:
+            df[col] = np.nan
+    return (
+        df.dropna(subset=["report_date"])
+        .sort_values("report_date")
+        .drop_duplicates("report_date", keep="last")
+        .tail(limit)
+        .reset_index(drop=True)
+    )
+
+
+def build_financial_bank_metrics(constituents: pd.DataFrame) -> dict:
+    """Build bank-only NIM, NPL and CET1 metrics from FDIC Call Report data.
+
+    Scope: current S&P 500 Financials constituents whose GICS sub-industry is
+    bank-like and for which a primary active FDIC-insured bank subsidiary can
+    be resolved. NIM and CET1 are asset-weighted; NPL is gross-loan-weighted.
+    All FDIC ratios arrive in percentage points and are converted to unit
+    fractions for the dashboard.
+    """
+    bank_universe = constituents.loc[
+        (constituents["sector"] == "Financials")
+        & (constituents["sub_industry"].isin(BANK_SUBINDUSTRIES)),
+        ["ticker", "security", "sub_industry"],
+    ].copy()
+
+    resolved = []
+    histories = []
+    for _, rec in bank_universe.iterrows():
+        ticker = str(rec["ticker"])
+        security = str(rec["security"])
+        try:
+            bank = _resolve_primary_fdic_bank(ticker, security)
+            if not bank:
+                print(f"WARN FDIC no bank match: {ticker} {security}")
+                continue
+            cert = int(float(bank["CERT"]))
+            hist = _fetch_fdic_bank_history(cert, limit=24)
+            if hist.empty:
+                print(f"WARN FDIC no financials: {ticker} CERT {cert}")
+                continue
+            hist["ticker"] = ticker
+            hist["security"] = security
+            hist["fdic_name"] = bank.get("NAME")
+            hist["cert"] = cert
+            histories.append(hist)
+            resolved.append({
+                "ticker": ticker,
+                "security": security,
+                "sub_industry": rec["sub_industry"],
+                "fdic_name": bank.get("NAME"),
+                "cert": cert,
+            })
+            time.sleep(0.15)
+        except Exception as exc:
+            print(f"WARN FDIC {ticker}: {exc}")
+
+    if not histories:
+        return {
+            "ok": False,
+            "matched": resolved,
+            "candidate_count": int(len(bank_universe)),
+        }
+
+    panel = pd.concat(histories, ignore_index=True)
+    dates = sorted(panel["report_date"].dropna().unique())
+    quarter_rows = []
+    for dt in dates:
+        q = panel.loc[panel["report_date"] == dt].copy()
+        if q.empty:
+            continue
+
+        nim_rows = q.dropna(subset=["NIMY", "ASSET"])
+        cet1_rows = q.dropna(subset=["IDT1CER", "ASSET"])
+        npl_rows = q.dropna(subset=["NCLNLSR", "LNLSGR"])
+
+        nim = (
+            np.average(nim_rows["NIMY"], weights=nim_rows["ASSET"]) / 100.0
+            if len(nim_rows) and nim_rows["ASSET"].sum() > 0
+            else np.nan
+        )
+        cet1 = (
+            np.average(cet1_rows["IDT1CER"], weights=cet1_rows["ASSET"]) / 100.0
+            if len(cet1_rows) and cet1_rows["ASSET"].sum() > 0
+            else np.nan
+        )
+        npl = (
+            np.average(npl_rows["NCLNLSR"], weights=npl_rows["LNLSGR"]) / 100.0
+            if len(npl_rows) and npl_rows["LNLSGR"].sum() > 0
+            else np.nan
+        )
+
+        quarter_rows.append({
+            "report_date": pd.Timestamp(dt),
+            "nim": nim,
+            "npl_ratio": npl,
+            "cet1_ratio": cet1,
+            "nim_count": int(len(nim_rows)),
+            "npl_count": int(len(npl_rows)),
+            "cet1_count": int(len(cet1_rows)),
+        })
+
+    qdf = pd.DataFrame(quarter_rows).dropna(
+        how="all",
+        subset=["nim", "npl_ratio", "cet1_ratio"],
+    )
+    if qdf.empty:
+        return {
+            "ok": False,
+            "matched": resolved,
+            "candidate_count": int(len(bank_universe)),
+        }
+
+    latest = qdf.sort_values("report_date").iloc[-1]
+    trailing = qdf.sort_values("report_date").tail(20)
+    avg = {
+        key: float(pd.to_numeric(trailing[key], errors="coerce").dropna().mean())
+        if pd.to_numeric(trailing[key], errors="coerce").notna().any()
+        else np.nan
+        for key in ["nim", "npl_ratio", "cet1_ratio"]
+    }
+    return {
+        "ok": True,
+        "report_date": pd.Timestamp(latest["report_date"]).strftime("%Y-%m-%d"),
+        "nim": finite(latest["nim"]),
+        "npl_ratio": finite(latest["npl_ratio"]),
+        "cet1_ratio": finite(latest["cet1_ratio"]),
+        "nim_5y_avg": avg["nim"],
+        "npl_ratio_5y_avg": avg["npl_ratio"],
+        "cet1_ratio_5y_avg": avg["cet1_ratio"],
+        "history_quarters": int(len(trailing)),
+        "matched_count": int(len(resolved)),
+        "candidate_count": int(len(bank_universe)),
+        "latest_counts": {
+            "nim": int(latest["nim_count"]),
+            "npl": int(latest["npl_count"]),
+            "cet1": int(latest["cet1_count"]),
+        },
+        "matched": resolved,
+    }
 
 
 def stmt(obj, kind: str, freq: str) -> pd.DataFrame:
@@ -754,6 +1036,12 @@ def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
     constituents = get_constituents()
+    existing_summary = (
+        pd.read_csv(SUMMARY_PATH)
+        if SUMMARY_PATH.exists()
+        else pd.DataFrame()
+    )
+    fdic_bank_metrics = build_financial_bank_metrics(constituents)
     tickers = constituents["ticker"].tolist()
     prices = download_prices(tickers)
     sector_map = dict(
@@ -885,6 +1173,41 @@ def main():
                 else np.nan
             )
             row[f"{col}_history_years"] = int(len(vals))
+
+        if sector_name == "Financials":
+            if fdic_bank_metrics.get("ok"):
+                for field in ["nim", "npl_ratio", "cet1_ratio"]:
+                    row[field] = fdic_bank_metrics.get(field, np.nan)
+                    row[f"{field}_5y_avg"] = fdic_bank_metrics.get(
+                        f"{field}_5y_avg",
+                        np.nan,
+                    )
+                    row[f"{field}_history_years"] = fdic_bank_metrics.get(
+                        "history_quarters",
+                        0,
+                    )
+                row["bank_reg_report_date"] = fdic_bank_metrics.get("report_date")
+                row["bank_reg_matched_count"] = fdic_bank_metrics.get("matched_count")
+                row["bank_reg_candidate_count"] = fdic_bank_metrics.get("candidate_count")
+            elif not existing_summary.empty and "sector" in existing_summary.columns:
+                prev = existing_summary.loc[
+                    existing_summary["sector"].astype(str) == "Financials"
+                ]
+                if not prev.empty:
+                    prev = prev.iloc[0]
+                    for field in ["nim", "npl_ratio", "cet1_ratio"]:
+                        row[field] = finite(prev.get(field))
+                        row[f"{field}_5y_avg"] = finite(prev.get(f"{field}_5y_avg"))
+                        row[f"{field}_history_years"] = int(
+                            finite(prev.get(f"{field}_history_years"))
+                            if np.isfinite(finite(prev.get(f"{field}_history_years")))
+                            else 0
+                        )
+                    row["bank_reg_report_date"] = prev.get("bank_reg_report_date")
+                    row["bank_reg_matched_count"] = prev.get("bank_reg_matched_count")
+                    row["bank_reg_candidate_count"] = prev.get("bank_reg_candidate_count")
+                    print("WARN FDIC unavailable; preserved prior Financials bank metrics")
+
         summary_rows.append(row)
 
     summary_df = pd.DataFrame(summary_rows)
@@ -896,7 +1219,8 @@ def main():
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "source": (
             "S&P 500 constituents from Wikipedia; company financial statements, "
-            "market cap and prices from Yahoo Finance via yfinance"
+            "market cap and prices from Yahoo Finance via yfinance; bank regulatory "
+            "ratios from the FDIC BankFind Suite API"
         ),
         "universe_method": (
             "Current S&P 500 constituents backcast to their available annual "
@@ -905,6 +1229,14 @@ def main():
         "companies_requested": len(tickers),
         "companies_processed": len(company_results),
         "history_window": "latest up to 5 available fiscal years",
+        "financials_bank_regulatory": {
+            "source": "FDIC BankFind Suite API",
+            "report_date": fdic_bank_metrics.get("report_date"),
+            "matched_count": fdic_bank_metrics.get("matched_count", 0),
+            "candidate_count": fdic_bank_metrics.get("candidate_count", 0),
+            "history_quarters": fdic_bank_metrics.get("history_quarters", 0),
+            "matched": fdic_bank_metrics.get("matched", []),
+        },
         "notes": [
             (
                 "Sector ratios are aggregated from numerator/denominator totals, "
@@ -920,9 +1252,14 @@ def main():
                 "common equity proxy defined as book equity less goodwill and identifiable intangibles."
             ),
             (
-                "P/NAV, NIM, NPL ratio and CET1 ratio require specialized REIT/bank disclosures "
-                "and are intentionally left blank until a dedicated comparable source is integrated; "
-                "generic accounting proxies are not substituted."
+                "Real Estate P/NAV requires specialized REIT NAV estimates and remains blank; "
+                "no book-value proxy is substituted."
+            ),
+            (
+                "Financials NIM, NPL Ratio and CET1 Ratio use the current S&P 500 bank-like "
+                "Financials subset matched to primary active FDIC-insured bank subsidiaries. "
+                "NIM and CET1 are asset-weighted; NPL is weighted by gross loans. "
+                "Their 5Y Avg uses the latest up to 20 quarterly aggregate observations."
             ),
             (
                 "Dividend Yield is a trailing cash-dividend yield based on reported cash dividends "

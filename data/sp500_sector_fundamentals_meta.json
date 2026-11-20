@@ -1,16 +1,180 @@
 {
   "as_of": "2026-11-20",
-  "generated_at_utc": "2026-11-20T09:50:43.679730+00:00",
-  "source": "S&P 500 constituents from Wikipedia; company financial statements, market cap and prices from Yahoo Finance via yfinance",
+  "generated_at_utc": "2026-11-20T10:07:33.572770+00:00",
+  "source": "S&P 500 constituents from Wikipedia; company financial statements, market cap and prices from Yahoo Finance via yfinance; bank regulatory ratios from the FDIC BankFind Suite API",
   "universe_method": "Current S&P 500 constituents backcast to their available annual financial history",
   "companies_requested": 503,
   "companies_processed": 503,
   "history_window": "latest up to 5 available fiscal years",
+  "financials_bank_regulatory": {
+    "source": "FDIC BankFind Suite API",
+    "report_date": "2026-06-30",
+    "matched_count": 22,
+    "candidate_count": 28,
+    "history_quarters": 20,
+    "matched": [
+      {
+        "ticker": "AXP",
+        "security": "American Express",
+        "sub_industry": "Consumer Finance",
+        "fdic_name": "American Express National  Bank",
+        "cert": 27471
+      },
+      {
+        "ticker": "AMP",
+        "security": "Ameriprise Financial",
+        "sub_industry": "Asset Management & Custody Banks",
+        "fdic_name": "Ameriprise Bank, FSB",
+        "cert": 58303
+      },
+      {
+        "ticker": "BAC",
+        "security": "Bank of America",
+        "sub_industry": "Diversified Banks",
+        "fdic_name": "Bank of America, National Association",
+        "cert": 3510
+      },
+      {
+        "ticker": "BNY",
+        "security": "BNY Mellon",
+        "sub_industry": "Asset Management & Custody Banks",
+        "fdic_name": "BNY Mellon, National Association",
+        "cert": 7946
+      },
+      {
+        "ticker": "COF",
+        "security": "Capital One",
+        "sub_industry": "Consumer Finance",
+        "fdic_name": "Capital One, National Association",
+        "cert": 4297
+      },
+      {
+        "ticker": "C",
+        "security": "Citigroup",
+        "sub_industry": "Diversified Banks",
+        "fdic_name": "Citibank, National Association",
+        "cert": 7213
+      },
+      {
+        "ticker": "CFG",
+        "security": "Citizens Financial Group",
+        "sub_industry": "Regional Banks",
+        "fdic_name": "Wells Fargo Bank, National Association",
+        "cert": 3511
+      },
+      {
+        "ticker": "FITB",
+        "security": "Fifth Third Bancorp",
+        "sub_industry": "Regional Banks",
+        "fdic_name": "Fifth Third Bank, National Association",
+        "cert": 6672
+      },
+      {
+        "ticker": "HBAN",
+        "security": "Huntington Bancshares",
+        "sub_industry": "Regional Banks",
+        "fdic_name": "The Huntington National Bank",
+        "cert": 6560
+      },
+      {
+        "ticker": "IVZ",
+        "security": "Invesco",
+        "sub_industry": "Asset Management & Custody Banks",
+        "fdic_name": "CIBC National Trust Company",
+        "cert": 91325
+      },
+      {
+        "ticker": "JPM",
+        "security": "JPMorgan Chase",
+        "sub_industry": "Diversified Banks",
+        "fdic_name": "JPMorgan Chase Bank, National Association",
+        "cert": 628
+      },
+      {
+        "ticker": "KEY",
+        "security": "KeyCorp",
+        "sub_industry": "Regional Banks",
+        "fdic_name": "KeyBank National Association",
+        "cert": 17534
+      },
+      {
+        "ticker": "MTB",
+        "security": "M&T Bank",
+        "sub_industry": "Regional Banks",
+        "fdic_name": "Manufacturers and Traders Trust Company",
+        "cert": 588
+      },
+      {
+        "ticker": "NTRS",
+        "security": "Northern Trust",
+        "sub_industry": "Asset Management & Custody Banks",
+        "fdic_name": "The Northern Trust Company",
+        "cert": 913
+      },
+      {
+        "ticker": "PNC",
+        "security": "PNC Financial Services",
+        "sub_industry": "Diversified Banks",
+        "fdic_name": "PNC Bank, National Association",
+        "cert": 6384
+      },
+      {
+        "ticker": "RF",
+        "security": "Regions Financial Corporation",
+        "sub_industry": "Regional Banks",
+        "fdic_name": "Regions Bank",
+        "cert": 12368
+      },
+      {
+        "ticker": "STT",
+        "security": "State Street Corporation",
+        "sub_industry": "Asset Management & Custody Banks",
+        "fdic_name": "State Street Bank and Trust Company",
+        "cert": 14
+      },
+      {
+        "ticker": "SYF",
+        "security": "Synchrony Financial",
+        "sub_industry": "Consumer Finance",
+        "fdic_name": "Synchrony Bank",
+        "cert": 27314
+      },
+      {
+        "ticker": "TROW",
+        "security": "T. Rowe Price",
+        "sub_industry": "Asset Management & Custody Banks",
+        "fdic_name": "BTG Pactual Bank, National Association",
+        "cert": 35154
+      },
+      {
+        "ticker": "TFC",
+        "security": "Truist Financial",
+        "sub_industry": "Diversified Banks",
+        "fdic_name": "JPMorgan Chase Bank, National Association",
+        "cert": 628
+      },
+      {
+        "ticker": "USB",
+        "security": "U.S. Bancorp",
+        "sub_industry": "Diversified Banks",
+        "fdic_name": "U.S. Bank National Association",
+        "cert": 6548
+      },
+      {
+        "ticker": "WFC",
+        "security": "Wells Fargo",
+        "sub_industry": "Diversified Banks",
+        "fdic_name": "Wells Fargo Bank, National Association",
+        "cert": 3511
+      }
+    ]
+  },
   "notes": [
     "Sector ratios are aggregated from numerator/denominator totals, not simple averages of company ratios.",
     "Historical market cap uses fiscal-date close multiplied by reported shares outstanding when available; current shares are a fallback.",
     "Financials excludes corporate-style net debt/EBITDA, FCF, ROIC and EBITDA margin as non-comparable. P/TBV and ROTCE use a tangible common equity proxy defined as book equity less goodwill and identifiable intangibles.",
-    "P/NAV, NIM, NPL ratio and CET1 ratio require specialized REIT/bank disclosures and are intentionally left blank until a dedicated comparable source is integrated; generic accounting proxies are not substituted.",
+    "Real Estate P/NAV requires specialized REIT NAV estimates and remains blank; no book-value proxy is substituted.",
+    "Financials NIM, NPL Ratio and CET1 Ratio use the current S&P 500 bank-like Financials subset matched to primary active FDIC-insured bank subsidiaries. NIM and CET1 are asset-weighted; NPL is weighted by gross loans. Their 5Y Avg uses the latest up to 20 quarterly aggregate observations.",
     "Dividend Yield is a trailing cash-dividend yield based on reported cash dividends paid divided by market capitalization; it is not a forward indicated yield.",
     "Real Estate FFO is a proxy defined as net income plus depreciation and amortization; it does not adjust for property-sale gains/losses and is therefore not official NAREIT FFO/AFFO."
   ]

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-20T20:24:20Z",
+  "updated_at": "2026-11-21T07:11:51Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1394,7 +1394,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOMnV0bXBXX1ZzNHpkcHFmanlPQ2FmczM3Z2xCcXRqRjYwTVB6SlFhZ29vbGcyM3V5a3lOMHZ3OXprMDM0ang4RVEwQmhFMTZ2QU1GT2lQN0ZPUXQyZWJ4MHR1S0JQTmE5Y0Z5dkZlemdFU0V6TWFId0pZZlFtbHVzaU1EeVl1S2RiSFdrcE95d1ZqQW9NRWlZUFNHWU9QVHNXRlZiTmEtckdWZEpScFREcVpPQ0x3MDNQeFhiZHJHMUlVQXFRNkE?oc=5",
       "headline": "Oil settles flat as Hormuz disruptions offset global surplus fears - Reuters",
-      "detected_at": "2026-11-20T20:24:19Z"
+      "detected_at": "2026-11-21T07:11:50Z"
     },
     {
       "event_id": "d17a989658f2ea52",
@@ -1409,7 +1409,7 @@
       "source": "Cryptonews.net",
       "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1DUHlncnNKcmJhbmtvOU9uSERtV2RDdmRTV0dxcHp2RVU3UFNwa3lNRWx3Rk9DLUtSeXY0MENEVjZBLUJ5T0s2M0F4cWpMbjhEU1RZTGtNSFo?oc=5",
       "headline": "JPMorgan Warns: “Three Interest Rate Hikes from the Fed May Be Coming!” Points to 2028 for a Rate Cut! How Will Bitcoin (BTC) Be... - Cryptonews.net",
-      "detected_at": "2026-11-20T20:24:18Z"
+      "detected_at": "2026-11-21T07:11:50Z"
     },
     {
       "event_id": "4351a00f9b6378e5",
@@ -1423,8 +1423,8 @@
       "auto_generated": true,
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPb3pQREZDSHE2RmNHdDdGdExDUXhYeWljc2VualVoQ09oQV90WnFQQlZkYW1rWnl5ODJ6N2haaVBDVUY4VmFvRmtLSlZKbU5kR1lHNklrUUR3X3JGc181OHZCUHpXalZFUllBZXVEczJPUUdZZUt1MmpsTEN0MkJGSDNCVHhoa25pZFBSb1lldS1US0VJNVNBWWN1U2VwQmd0WmlQR1RKWmgyS2lyUDVfNHdWeWhzaFhmZ1E?oc=5",
-      "headline": "Oil prices gain as Houthi attacks on Riyadh raise supply concerns - Reuters",
-      "detected_at": "2026-11-20T07:19:29Z"
+      "headline": "Oil gains on Iran war worries and short-covering ahead of Thanksgiving holiday - Reuters",
+      "detected_at": "2026-11-21T07:11:50Z"
     }
   ],
   "scheduled_events": [
@@ -1651,7 +1651,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 5,
+    "discovered_count": 3,
     "scheduled_count": 9,
     "failures": []
   }

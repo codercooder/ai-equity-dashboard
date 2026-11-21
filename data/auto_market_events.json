@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-21T07:11:51Z",
+  "updated_at": "2026-11-21T19:18:10Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1394,7 +1394,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOMnV0bXBXX1ZzNHpkcHFmanlPQ2FmczM3Z2xCcXRqRjYwTVB6SlFhZ29vbGcyM3V5a3lOMHZ3OXprMDM0ang4RVEwQmhFMTZ2QU1GT2lQN0ZPUXQyZWJ4MHR1S0JQTmE5Y0Z5dkZlemdFU0V6TWFId0pZZlFtbHVzaU1EeVl1S2RiSFdrcE95d1ZqQW9NRWlZUFNHWU9QVHNXRlZiTmEtckdWZEpScFREcVpPQ0x3MDNQeFhiZHJHMUlVQXFRNkE?oc=5",
       "headline": "Oil settles flat as Hormuz disruptions offset global surplus fears - Reuters",
-      "detected_at": "2026-11-21T07:11:50Z"
+      "detected_at": "2026-11-21T19:18:08Z"
     },
     {
       "event_id": "d17a989658f2ea52",
@@ -1424,7 +1424,67 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPb3pQREZDSHE2RmNHdDdGdExDUXhYeWljc2VualVoQ09oQV90WnFQQlZkYW1rWnl5ODJ6N2haaVBDVUY4VmFvRmtLSlZKbU5kR1lHNklrUUR3X3JGc181OHZCUHpXalZFUllBZXVEczJPUUdZZUt1MmpsTEN0MkJGSDNCVHhoa25pZFBSb1lldS1US0VJNVNBWWN1U2VwQmd0WmlQR1RKWmgyS2lyUDVfNHdWeWhzaFhmZ1E?oc=5",
       "headline": "Oil gains on Iran war worries and short-covering ahead of Thanksgiving holiday - Reuters",
-      "detected_at": "2026-11-21T07:11:50Z"
+      "detected_at": "2026-11-21T19:18:08Z"
+    },
+    {
+      "event_id": "72308799a08693cb",
+      "kind": "point",
+      "date": "2026-11-20",
+      "label": "FOMC 利率政策重大变化",
+      "category": "利率",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.8,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNV0pwMURCc1diYXRGTmtCaC0tNnZac3RIMEtTT1BCMGxpZ093OTRFdVJpRGx4TW5YRENNTWxpN0dYLTZpQ0ZXOC1sby1jNUtYbVNseHFWN2J3MGFuQjNwa3lOR2F4S1JicENRMzQ1ZWlDMkRyRzk5eG5IcVFpQXkyS0kzYU15a1RCWXNwWERBVFRmbUFZbE80WHhKUmVoejA?oc=5",
+      "headline": "Fed's Cook says rate hikes needed to lower high inflation - Reuters",
+      "detected_at": "2026-11-21T19:18:08Z"
+    },
+    {
+      "event_id": "4cf82c19e45bcde9",
+      "kind": "point",
+      "date": "2026-11-21",
+      "label": "NVIDIA 重要新品 / 架构发布",
+      "category": "AI",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "PaidFreeDroid",
+      "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxORVREb21rR0d5MVA1S1VCYkczUVltWW5BR0FOdUtFX0VmUnBkZG9vZTY2NG8yQUl5WkZFQ3YwQjZpRGlRcTE3aDl4MHgxV016blM4YmgyaTJoYjllVWNxZ2RsWnhGNGhtbUpreUl5aXJYcUhZdDBBQk5hNFpSdkh4YjQ2Y1J0MXhOam1FVi1kaVJmSnpYeUJCLUlB?oc=5",
+      "headline": "NVIDIA Rubin HPC GPU Unveiled: 50,000 CUDA Cores in 2028 - PaidFreeDroid",
+      "detected_at": "2026-11-21T19:18:07Z"
+    },
+    {
+      "event_id": "fc113e452fa3df9b",
+      "kind": "point",
+      "date": "2026-11-21",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.85,
+      "auto_generated": true,
+      "source": "The Business Standard",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNM0MtUEhyd0J0Y3dueE1WRy0wOVhPOXlRc3VZQml2X1h2cEJyeVJYdVYwazlQSkNGMEhQUmctQ3dkTnFXdzhzZFFYZEZJRlJzUXdKdFlaSnRkcnd0cUk1cGsyNU9jM1ZYMWY3NnIwNk5mNm9ZYkJQcDVrS2xLbDItaU5lNy1aWE10S0U1eUpkR3czbFBTRDNxOTlJOXNHU0dUUHFrc3ozSlRQTlR2ZlE5V05DRndXdw?oc=5",
+      "headline": "Iran strikes three oil tankers as it unveils new missile launcher - The Business Standard",
+      "detected_at": "2026-11-21T19:18:08Z"
+    },
+    {
+      "event_id": "512e766afe69dbac",
+      "kind": "point",
+      "date": "2026-11-21",
+      "label": "贸易 / 关税 / 出口管制冲击",
+      "category": "贸易",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.7,
+      "auto_generated": true,
+      "source": "Financial Times",
+      "source_url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZ19qYnp1MlBaZldnRnozZXUxWjlTLXhWMFk3NXNmcEU5MWtXbzlDUFBiUlNLUkpFcU1OMTBySDRraFp0V2hKNUlpTzkwWEU4VlVHOGdHWWVHOUxGSVNXU1d6SU5yNllsdGZBUUpQQ2I2VlhWRnZnWlZVWThfTDc0RWRjOEI?oc=5",
+      "headline": "The chip war’s next battleground - Financial Times",
+      "detected_at": "2026-11-21T19:18:09Z"
     }
   ],
   "scheduled_events": [
@@ -1651,7 +1711,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 3,
+    "discovered_count": 6,
     "scheduled_count": 9,
     "failures": []
   }

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-23T07:42:04Z",
+  "updated_at": "2026-11-23T23:55:32Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1499,7 +1499,7 @@
       "source": "Digg",
       "source_url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5wa3BxYjJ5WHo3TkZJLWsxZms3MTdBaDljWTZhQ08xcUNUSVlncEItTnBCR2l5WGNGR0F2QVBaV1Vyb1h3NEtIcEM4NV9vc0Nvbmc?oc=5",
       "headline": "Reported Hormuz attacks hit wartime highs. Oil prices fall anyway. - Digg",
-      "detected_at": "2026-11-23T07:42:03Z"
+      "detected_at": "2026-11-23T23:55:30Z"
     },
     {
       "event_id": "8830e2004a8effba",
@@ -1515,6 +1515,36 @@
       "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNcXh5Rm5oX0xZaXpqczkwRTFfM2gzWGFGQzNsOWZlVVFuOTU1dHgwN1YwektGRmFBOW5LWUltcUE2Q0d2YThXTFQtSHctaFZmcUFWWTRsX0dMaWpKRUtnd2cyUFViMGt6b2N1RGJRMmdmUjF4aUlJR1J2dDF5c2lTZXd4dlFyVG5IQ2hFR2VyTG8zTWZvQ09Oc25Cd2x1Q2pFMFQtOW9FMjV4RnR1Vmc?oc=5",
       "headline": "Bessent Warns Fed Risks Overtightening as US Markets Swoon - Bloomberg.com",
       "detected_at": "2026-11-23T07:42:02Z"
+    },
+    {
+      "event_id": "368eca47da424869",
+      "kind": "point",
+      "date": "2026-11-23",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 1.0,
+      "auto_generated": true,
+      "source": "CNBC",
+      "source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1wbTZFX1V4aTdIb3RKOFB1YTJMZ3dFV01GbDhiRmt4RmZjYkdRTmdUY0FCSVpKYURLSml6UDdSZkVUVVR1UXRHOXN1UG1ZYXV6YXVTejU3THhPblVENVMxLU53cFZmeFNUREU3SEl3UG53WEd2STcycNIBeEFVX3lxTE1wbTZFX1V4aTdIb3RKOFB1YTJMZ3dFV01GbDhiRmt4RmZjYkdRTmdUY0FCSVpKYURLSml6UDdSZkVUVVR1UXRHOXN1UG1ZYXV6YXVTejU3THhPblVENVMxLU53cFZmeFNUREU3SEl3UG53WEd2STcycA?oc=5",
+      "headline": "Yemen's Houthis claim attacks on Saudi oil refinery as Trump warns of new strikes next year - CNBC",
+      "detected_at": "2026-11-23T23:55:30Z"
+    },
+    {
+      "event_id": "a584459fc0e50060",
+      "kind": "point",
+      "date": "2026-11-23",
+      "label": "俄乌战争重大升级 / 缓和",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "cwibc.co.id",
+      "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE13azNadlM1c1hqS0kteWs3ckloRjloak5hdjF0NzlBTzdlMjRNZDBrSlJjb0JKeVdpelc2UnoyTkwyTElwU3dIX3Fjc3BEcHVnSTNHRjI1UkZPQ2JjbjY0?oc=5",
+      "headline": "EU Targets Russian Banks Soldiers and Athletes in New Sanctions - cwibc.co.id",
+      "detected_at": "2026-11-23T23:55:31Z"
     }
   ],
   "scheduled_events": [

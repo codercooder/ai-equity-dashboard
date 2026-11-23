@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-22T19:43:04Z",
+  "updated_at": "2026-11-23T07:42:04Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1469,7 +1469,7 @@
       "source": "The Business Standard",
       "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNM0MtUEhyd0J0Y3dueE1WRy0wOVhPOXlRc3VZQml2X1h2cEJyeVJYdVYwazlQSkNGMEhQUmctQ3dkTnFXdzhzZFFYZEZJRlJzUXdKdFlaSnRkcnd0cUk1cGsyNU9jM1ZYMWY3NnIwNk5mNm9ZYkJQcDVrS2xLbDItaU5lNy1aWE10S0U1eUpkR3czbFBTRDNxOTlJOXNHU0dUUHFrc3ozSlRQTlR2ZlE5V05DRndXdw?oc=5",
       "headline": "Iran strikes three oil tankers as it unveils new missile launcher - The Business Standard",
-      "detected_at": "2026-11-22T19:43:03Z"
+      "detected_at": "2026-11-23T07:42:03Z"
     },
     {
       "event_id": "512e766afe69dbac",
@@ -1499,7 +1499,22 @@
       "source": "Digg",
       "source_url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5wa3BxYjJ5WHo3TkZJLWsxZms3MTdBaDljWTZhQ08xcUNUSVlncEItTnBCR2l5WGNGR0F2QVBaV1Vyb1h3NEtIcEM4NV9vc0Nvbmc?oc=5",
       "headline": "Reported Hormuz attacks hit wartime highs. Oil prices fall anyway. - Digg",
-      "detected_at": "2026-11-22T19:43:03Z"
+      "detected_at": "2026-11-23T07:42:03Z"
+    },
+    {
+      "event_id": "8830e2004a8effba",
+      "kind": "point",
+      "date": "2026-11-23",
+      "label": "FOMC 利率政策重大变化",
+      "category": "利率",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.7,
+      "auto_generated": true,
+      "source": "Bloomberg.com",
+      "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNcXh5Rm5oX0xZaXpqczkwRTFfM2gzWGFGQzNsOWZlVVFuOTU1dHgwN1YwektGRmFBOW5LWUltcUE2Q0d2YThXTFQtSHctaFZmcUFWWTRsX0dMaWpKRUtnd2cyUFViMGt6b2N1RGJRMmdmUjF4aUlJR1J2dDF5c2lTZXd4dlFyVG5IQ2hFR2VyTG8zTWZvQ09Oc25Cd2x1Q2pFMFQtOW9FMjV4RnR1Vmc?oc=5",
+      "headline": "Bessent Warns Fed Risks Overtightening as US Markets Swoon - Bloomberg.com",
+      "detected_at": "2026-11-23T07:42:02Z"
     }
   ],
   "scheduled_events": [
@@ -1726,7 +1741,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 4,
+    "discovered_count": 3,
     "scheduled_count": 9,
     "failures": []
   }

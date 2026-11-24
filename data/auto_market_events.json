@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-24T09:58:02Z",
+  "updated_at": "2026-11-24T22:28:49Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1544,7 +1544,37 @@
       "source": "cwibc.co.id",
       "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE13azNadlM1c1hqS0kteWs3ckloRjloak5hdjF0NzlBTzdlMjRNZDBrSlJjb0JKeVdpelc2UnoyTkwyTElwU3dIX3Fjc3BEcHVnSTNHRjI1UkZPQ2JjbjY0?oc=5",
       "headline": "EU Targets Russian Banks Soldiers and Athletes in New Sanctions - cwibc.co.id",
-      "detected_at": "2026-11-23T23:55:31Z"
+      "detected_at": "2026-11-24T22:28:48Z"
+    },
+    {
+      "event_id": "12101bbbe644793a",
+      "kind": "point",
+      "date": "2026-11-24",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 1.0,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMDQ4RU9qMFd6TWl0WkFDUGVsdk5Gb3Q1dURMcjcwbGxUV3ItdjhZUGdQUTBZOVUyZEZlRzdmSEtjM3EwQTNUam1nRVZNdXFRbmNfeHhpUnNVQjNPbjNyOGtSZHVnNEZmbnpJdC1VdVA5X25rWndhMnZqemNGVWdVU1Y5OE8ybExyT2xLelF6dnZsNkM0OU55b1dKc1NuNF9sWkVGSGZJaUNxLXc4eEdGZTl3LUtFTDFuUUE?oc=5",
+      "headline": "Oil settles up $2 as traders weigh continued Hormuz ship attacks - Reuters",
+      "detected_at": "2026-11-24T22:28:48Z"
+    },
+    {
+      "event_id": "879de526bd98ad42",
+      "kind": "point",
+      "date": "2026-11-24",
+      "label": "贸易 / 关税 / 出口管制冲击",
+      "category": "贸易",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.8,
+      "auto_generated": true,
+      "source": "Bloomberg.com",
+      "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPRVl4NjNqN2gwZ0daMjNHNG1lRHU3bmVyQUszYk1BN0U1OXgyYkxJdjcwVjZZSHNQZUZ2VWZYM2g1UjRXTjBPSnpuUlZESWNuMkZHd0tpQnZuT2ZTVDNRR3RuYjlpbWsxWFYzQmxWa2ZMWnU5WUkyNnA4LWk0dHExVWdHRWhhd3J5MnIzNTJYT2pSZmZkaF9CVUVlQjd2OEhQeDZvX1VEb1Q2UzRhZ2I4?oc=5",
+      "headline": "China Halts Critical Minerals Ban to Maintain Truce With US - Bloomberg.com",
+      "detected_at": "2026-11-24T22:28:49Z"
     }
   ],
   "scheduled_events": [
@@ -1771,7 +1801,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 0,
+    "discovered_count": 4,
     "scheduled_count": 9,
     "failures": []
   }

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-24T22:28:49Z",
+  "updated_at": "2026-11-25T08:38:40Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1544,7 +1544,7 @@
       "source": "cwibc.co.id",
       "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE13azNadlM1c1hqS0kteWs3ckloRjloak5hdjF0NzlBTzdlMjRNZDBrSlJjb0JKeVdpelc2UnoyTkwyTElwU3dIX3Fjc3BEcHVnSTNHRjI1UkZPQ2JjbjY0?oc=5",
       "headline": "EU Targets Russian Banks Soldiers and Athletes in New Sanctions - cwibc.co.id",
-      "detected_at": "2026-11-24T22:28:48Z"
+      "detected_at": "2026-11-25T08:38:39Z"
     },
     {
       "event_id": "12101bbbe644793a",
@@ -1574,7 +1574,22 @@
       "source": "Bloomberg.com",
       "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPRVl4NjNqN2gwZ0daMjNHNG1lRHU3bmVyQUszYk1BN0U1OXgyYkxJdjcwVjZZSHNQZUZ2VWZYM2g1UjRXTjBPSnpuUlZESWNuMkZHd0tpQnZuT2ZTVDNRR3RuYjlpbWsxWFYzQmxWa2ZMWnU5WUkyNnA4LWk0dHExVWdHRWhhd3J5MnIzNTJYT2pSZmZkaF9CVUVlQjd2OEhQeDZvX1VEb1Q2UzRhZ2I4?oc=5",
       "headline": "China Halts Critical Minerals Ban to Maintain Truce With US - Bloomberg.com",
-      "detected_at": "2026-11-24T22:28:49Z"
+      "detected_at": "2026-11-25T08:38:39Z"
+    },
+    {
+      "event_id": "55289b6dfab237d1",
+      "kind": "point",
+      "date": "2026-11-25",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.85,
+      "auto_generated": true,
+      "source": "The Business Standard",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNM0MtUEhyd0J0Y3dueE1WRy0wOVhPOXlRc3VZQml2X1h2cEJyeVJYdVYwazlQSkNGMEhQUmctQ3dkTnFXdzhzZFFYZEZJRlJzUXdKdFlaSnRkcnd0cUk1cGsyNU9jM1ZYMWY3NnIwNk5mNm9ZYkJQcDVrS2xLbDItaU5lNy1aWE10S0U1eUpkR3czbFBTRDNxOTlJOXNHU0dUUHFrc3ozSlRQTlR2ZlE5V05DRndXdw?oc=5",
+      "headline": "Iran strikes three oil tankers as it unveils new missile launcher - The Business Standard",
+      "detected_at": "2026-11-25T08:38:39Z"
     }
   ],
   "scheduled_events": [
@@ -1801,7 +1816,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 4,
+    "discovered_count": 5,
     "scheduled_count": 9,
     "failures": []
   }

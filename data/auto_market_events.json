@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25T21:43:41Z",
+  "updated_at": "2026-11-26T08:22:43Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1571,10 +1571,10 @@
       "status": "auto_high",
       "confidence": 0.8,
       "auto_generated": true,
-      "source": "Bloomberg",
+      "source": "Bloomberg.com",
       "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPRVl4NjNqN2gwZ0daMjNHNG1lRHU3bmVyQUszYk1BN0U1OXgyYkxJdjcwVjZZSHNQZUZ2VWZYM2g1UjRXTjBPSnpuUlZESWNuMkZHd0tpQnZuT2ZTVDNRR3RuYjlpbWsxWFYzQmxWa2ZMWnU5WUkyNnA4LWk0dHExVWdHRWhhd3J5MnIzNTJYT2pSZmZkaF9CVUVlQjd2OEhQeDZvX1VEb1Q2UzRhZ2I4?oc=5",
-      "headline": "China Halts Critical Minerals Ban to Maintain Truce With US - Bloomberg",
-      "detected_at": "2026-11-25T21:43:41Z"
+      "headline": "China Halts Critical Minerals Ban to Maintain Truce With US - Bloomberg.com",
+      "detected_at": "2026-11-26T08:22:43Z"
     },
     {
       "event_id": "55289b6dfab237d1",
@@ -1590,6 +1590,51 @@
       "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMDQ4RU9qMFd6TWl0WkFDUGVsdk5Gb3Q1dURMcjcwbGxUV3ItdjhZUGdQUTBZOVUyZEZlRzdmSEtjM3EwQTNUam1nRVZNdXFRbmNfeHhpUnNVQjNPbjNyOGtSZHVnNEZmbnpJdC1VdVA5X25rWndhMnZqemNGVWdVU1Y5OE8ybExyT2xLelF6dnZsNkM0OU55b1dKc1NuNF9sWkVGSGZJaUNxLXc4eEdGZTl3LUtFTDFuUUE?oc=5",
       "headline": "Oil settles up $2 as traders weigh continued Hormuz ship attacks - Reuters",
       "detected_at": "2026-11-25T21:43:40Z"
+    },
+    {
+      "event_id": "59d649fa6e6f09e3",
+      "kind": "point",
+      "date": "2026-11-25",
+      "label": "AI监管 / 出口管制重大变化",
+      "category": "AI监管",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.7,
+      "auto_generated": true,
+      "source": "Reuters",
+      "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPU05FY1hvQmJod19oM3p3aTZQaS1CdktCWEZsSnk0TmVWREE1a0tmVW5kVnBxdG5VNU1TX2FmWnZ1aTc1UEQyblFkSklCZ3NlcU1XQUZQVDUwTXZ6R3BoVjlRb1RPY0pTNGdmUUdNZkw0Zi1oanJOcXFieGlBdzRTN05pa3FsaVhUWVk0UWpzc0hkN2kySGF6bGRpU1Y1a2IyNi1iaUFQZThLNVZON0E?oc=5",
+      "headline": "How China got access to Nvidia's AI chips despite rules to stop them - Reuters",
+      "detected_at": "2026-11-26T08:22:41Z"
+    },
+    {
+      "event_id": "26447af4a114526b",
+      "kind": "point",
+      "date": "2026-11-25",
+      "label": "FOMC 利率政策重大变化",
+      "category": "利率",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.75,
+      "auto_generated": true,
+      "source": "Disruption Banking",
+      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOME5KS1hoRDRocnBOZld4ek1MWHRWcG1OV0xBX2NPdnpJNThzbHoxWDQ4N3BRUUxXdjg3ZkVyTmdWNDhNRDJEdDFZMnE1by1hdVBaNHFVblo2cWtBQ0xjbUlMT2NvNzUwaWloRFJlaGVXQ3BtbE56RkVtVGVNRUFUVWxUN2ZuRW9KVFRRZk13Z3Bid0ZZRHdUWVBkMFNacmhlNFNHQ2w3Vnk?oc=5",
+      "headline": "Emerging Market Currencies Slide as Fed Rate Hike and Tariff Risks Mount - Disruption Banking",
+      "detected_at": "2026-11-26T08:22:42Z"
+    },
+    {
+      "event_id": "3273c0156fcf783f",
+      "kind": "point",
+      "date": "2026-11-26",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
+      "confidence": 0.85,
+      "auto_generated": true,
+      "source": "The Sunday Guardian",
+      "source_url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxPN2NPTVFRSDVORjQzdGQ3OEJycThWcUI4MnVub25MOWJjNkoxUm9Ka3NaQ0t3eEhwUGV2ZndNY1d0a2dma2NOOWprb2ZXWm5yekxVdFJYNlRSdlA3UWsxWWZ2d204MW9rTzNWbFdCYzY1dWUxeVNpeXh0WkhzUTRNOWUyTkxqYmxlV0ZhVHJDaWI3ZlczWk1BZkgxUi1CY1F6eW5LaVVMR0Yxc294WC14Q3lYUzg5QjhCc3VmV25wdVR1bjJ5U2NXQmtUUmROUTAzUkdUN0VXbl9GdEJiTW1scTZRWE8xRjdqT0pQX0Z0aFJXUmhUYlBhOTd3bkVVMkFwRXhqSHpQZDBOSWFVNy1pddIBlgJBVV95cUxQdnNvcFpaOGRMMGlKVDBGZHM3WGJZbEdoUGdwZzRIbXh3X3NQY1NJdGVxWHVBSmdMVHJ1NTQtQVRGSFlTZGZ3c3VzQThGMklyZ2VKNjBoMklyd0x0MW9OcHJYbXplbElLSjBFM0c3WDNwMi1ONWl5Tk1nNjNaZFU5RFhXRy1rWVZYTkstQ2RzeVJENmhNcXoySERfY2czNHJreDNOZUtfTHZ3VlA1RGo4WkM5WmdKQ3RNMjRVcVRhS2lLaExmNkRWM0otRlpxVzNOOU96R1J5NlFfbjMxU0UxS0tlNWdocUVMTDhWeTJBVnBKOHhRZzl3TFVIUU0zQ1Qzek1BUnhkQWgwd2I1ekxaVC10ZTVsQQ?oc=5",
+      "headline": "Oil Price Today: Brent Crude Nears $95 a Barrel as US-Israel-Iran War Escalation, Saudi Refinery Attack and Hormuz Tensions Fuel Supply Fears - The Sunday Guardian",
+      "detected_at": "2026-11-26T08:22:43Z"
     }
   ],
   "scheduled_events": [
@@ -1816,7 +1861,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 5,
+    "discovered_count": 6,
     "scheduled_count": 9,
     "failures": []
   }

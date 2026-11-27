@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26T21:34:58Z",
+  "updated_at": "2026-11-27T08:37:38Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1619,7 +1619,7 @@
       "source": "Disruption Banking",
       "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOME5KS1hoRDRocnBOZld4ek1MWHRWcG1OV0xBX2NPdnpJNThzbHoxWDQ4N3BRUUxXdjg3ZkVyTmdWNDhNRDJEdDFZMnE1by1hdVBaNHFVblo2cWtBQ0xjbUlMT2NvNzUwaWloRFJlaGVXQ3BtbE56RkVtVGVNRUFUVWxUN2ZuRW9KVFRRZk13Z3Bid0ZZRHdUWVBkMFNacmhlNFNHQ2w3Vnk?oc=5",
       "headline": "Emerging Market Currencies Slide as Fed Rate Hike and Tariff Risks Mount - Disruption Banking",
-      "detected_at": "2026-11-26T21:34:57Z"
+      "detected_at": "2026-11-27T08:37:37Z"
     },
     {
       "event_id": "3273c0156fcf783f",
@@ -1634,7 +1634,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPWHpfX3p2RFoxU2l0SGZVbVdSejdGYkc0NFpERWlxVEtab0pQbGd1NUtqQ3c0cXprdWItUF9fRmVVVElET3BNbklnbElwaC1UZ0xoNnd4dE9Wb2dFVDFGN2JyQ3YyUVhfTWxsNGFWNFNURG5kX1pMdVBtb2QyLXFMaXZPM0ZPdGdud1hWdHFuTEpNQXBtdUh6RmpWcW1jelhTU0JHdmp3dWphb0hB?oc=5",
       "headline": "Brent settles higher as mine strikes, refinery attack stoke Middle East supply concerns - Reuters",
-      "detected_at": "2026-11-26T21:34:57Z"
+      "detected_at": "2026-11-27T08:37:37Z"
     },
     {
       "event_id": "d6141be6fbdbbc39",
@@ -1644,12 +1644,27 @@
       "category": "贸易",
       "importance": "High",
       "status": "auto_high",
+      "confidence": 0.9,
+      "auto_generated": true,
+      "source": "CNBC",
+      "source_url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBNbWY3Z2hNLWJsb3dsYmdKakJjZEVaU21VaTV3WEFZV196bldhMGJEeUlFMHJlSjV2UHU5eFhrTS1BQldGTTdKemhscThySFJfLW55ZE1PUGpFeHN0bUtjaDR5MzNHZ3RVODBhU0IxTnBuNmdySG400gF8QVVfeXFMTkRUVDZGZkdHZ1VDMWpGcWtvc01hVlJwd0lwdDJUYU9OZXV2NjdYRFNTUmprbFRuWEkxd1lrOFJfR1NVbXE3S0dMMXBLNk9qTGlsSFBDVEtqYWxuOXc4WTMzUHFZTENRQlFLeDM3cldOTHpxVlYzR2NNRC1BcQ?oc=5",
+      "headline": "U.S. tariff-hike threats pile pressure on partners to sign trade deals - CNBC",
+      "detected_at": "2026-11-27T08:37:38Z"
+    },
+    {
+      "event_id": "c0b8f0a44663e730",
+      "kind": "point",
+      "date": "2026-11-27",
+      "label": "中东地缘 / 油价重大冲击",
+      "category": "地缘政治",
+      "importance": "High",
+      "status": "auto_high",
       "confidence": 0.75,
       "auto_generated": true,
-      "source": "Outlook India",
-      "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPR3Y2Q2tERk5tX1RSc1NpRkJ3R183cW5ERzFUdjZrc0RWaF95XzBzQkM1cEI0R1JyY0NNcXZ5NTJBYURyaS1oVUpmNE1CVGgxUWdneFMyLWJFOTd2UndmYUxYWUl3WHoxWGN6TkpfYUk2TVAwYVkxbmRLbDJHYXhLY2ZiS1pEblRPQ0wyYjF5YUZEYlNnTW1IY1lFY2x2VjdESFJXQXN5b3pYN0N2UVN6Yi1nWFlmNG4tc1NDcTdmU3pmUEXSAdABQVVfeXFMUHYyZ05zZWxveUZZSHl2bGtaYWRSbFd4ZHlKdW91ZWhERVg4Y1ZYNWJ3eWxaRzNaNVJkNUM2TmJiZEdlWTBnVGJlZWRVQnZkbC1FR1BhQ3RrTXVmeTFDYmpVOUh6UC1iOVh6NzB1SS1iQjF2R2l5Y2V6ZXhtY3F5ajlHWkJSV0x6d1F5c1Zrd3hxRXRZZVMtZ1VPMWxLSlJjaVJvVV83cFI5WnhDQnd3NkxieGJqdFZfeTJFaS02TElPN0JVeE5aTEI0RlhwU2hLdA?oc=5",
-      "headline": "Another Cold War? Trump Turns To Tariffs To Challenge China's Global Trade Dominance - Outlook India",
-      "detected_at": "2026-11-26T21:34:58Z"
+      "source": "Arabian Business",
+      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeGVzSjhrbUhOTTctX0ViTkJTRnFEZnkwNTJQR3gySTJRQlk3aXNwenJ2Qk1DejVYcF84dmF4WDFPd2xKRzEwazEtOEdOb05OOFhJaXZQVTd3R2lDRHdGbTgtM1JSSEMxeFN5OTlLc0tLNE55MHlHRDZNU3lOVFBDaTJwQQ?oc=5",
+      "headline": "Iran war live: Worker killed and refinery operations partially suspended following Saudi Jazan attack - Arabian Business",
+      "detected_at": "2026-11-27T08:37:37Z"
     }
   ],
   "scheduled_events": [
@@ -1876,7 +1891,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 6,
+    "discovered_count": 5,
     "scheduled_count": 9,
     "failures": []
   }

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-27T08:37:38Z",
+  "updated_at": "2026-11-27T21:19:25Z",
   "events": [
     {
       "event_id": "3e40c994e6f25506",
@@ -1634,7 +1634,7 @@
       "source": "Reuters",
       "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPWHpfX3p2RFoxU2l0SGZVbVdSejdGYkc0NFpERWlxVEtab0pQbGd1NUtqQ3c0cXprdWItUF9fRmVVVElET3BNbklnbElwaC1UZ0xoNnd4dE9Wb2dFVDFGN2JyQ3YyUVhfTWxsNGFWNFNURG5kX1pMdVBtb2QyLXFMaXZPM0ZPdGdud1hWdHFuTEpNQXBtdUh6RmpWcW1jelhTU0JHdmp3dWphb0hB?oc=5",
       "headline": "Brent settles higher as mine strikes, refinery attack stoke Middle East supply concerns - Reuters",
-      "detected_at": "2026-11-27T08:37:37Z"
+      "detected_at": "2026-11-27T21:19:24Z"
     },
     {
       "event_id": "d6141be6fbdbbc39",
@@ -1649,7 +1649,7 @@
       "source": "CNBC",
       "source_url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBNbWY3Z2hNLWJsb3dsYmdKakJjZEVaU21VaTV3WEFZV196bldhMGJEeUlFMHJlSjV2UHU5eFhrTS1BQldGTTdKemhscThySFJfLW55ZE1PUGpFeHN0bUtjaDR5MzNHZ3RVODBhU0IxTnBuNmdySG400gF8QVVfeXFMTkRUVDZGZkdHZ1VDMWpGcWtvc01hVlJwd0lwdDJUYU9OZXV2NjdYRFNTUmprbFRuWEkxd1lrOFJfR1NVbXE3S0dMMXBLNk9qTGlsSFBDVEtqYWxuOXc4WTMzUHFZTENRQlFLeDM3cldOTHpxVlYzR2NNRC1BcQ?oc=5",
       "headline": "U.S. tariff-hike threats pile pressure on partners to sign trade deals - CNBC",
-      "detected_at": "2026-11-27T08:37:38Z"
+      "detected_at": "2026-11-27T21:19:24Z"
     },
     {
       "event_id": "c0b8f0a44663e730",
@@ -1659,12 +1659,12 @@
       "category": "地缘政治",
       "importance": "High",
       "status": "auto_high",
-      "confidence": 0.75,
+      "confidence": 0.85,
       "auto_generated": true,
-      "source": "Arabian Business",
-      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeGVzSjhrbUhOTTctX0ViTkJTRnFEZnkwNTJQR3gySTJRQlk3aXNwenJ2Qk1DejVYcF84dmF4WDFPd2xKRzEwazEtOEdOb05OOFhJaXZQVTd3R2lDRHdGbTgtM1JSSEMxeFN5OTlLc0tLNE55MHlHRDZNU3lOVFBDaTJwQQ?oc=5",
-      "headline": "Iran war live: Worker killed and refinery operations partially suspended following Saudi Jazan attack - Arabian Business",
-      "detected_at": "2026-11-27T08:37:37Z"
+      "source": "The Business Standard",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNM0MtUEhyd0J0Y3dueE1WRy0wOVhPOXlRc3VZQml2X1h2cEJyeVJYdVYwazlQSkNGMEhQUmctQ3dkTnFXdzhzZFFYZEZJRlJzUXdKdFlaSnRkcnd0cUk1cGsyNU9jM1ZYMWY3NnIwNk5mNm9ZYkJQcDVrS2xLbDItaU5lNy1aWE10S0U1eUpkR3czbFBTRDNxOTlJOXNHU0dUUHFrc3ozSlRQTlR2ZlE5V05DRndXdw?oc=5",
+      "headline": "Iran strikes three oil tankers as it unveils new missile launcher - The Business Standard",
+      "detected_at": "2026-11-27T21:19:24Z"
     }
   ],
   "scheduled_events": [
@@ -1891,7 +1891,7 @@
     }
   ],
   "last_run": {
-    "discovered_count": 5,
+    "discovered_count": 4,
     "scheduled_count": 9,
     "failures": []
   }

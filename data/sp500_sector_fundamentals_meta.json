@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-11-21",
-  "generated_at_utc": "2026-11-21T14:53:17.674911+00:00",
+  "as_of": "2026-11-28",
+  "generated_at_utc": "2026-11-28T15:47:19.354038+00:00",
   "source": "S&P 500 constituents from Wikipedia; company financial statements, market cap and prices from Yahoo Finance via yfinance; bank regulatory ratios from the FDIC BankFind Suite API",
   "universe_method": "Current S&P 500 constituents backcast to their available annual financial history",
   "companies_requested": 503,
@@ -8,8 +8,8 @@
   "history_window": "latest up to 5 available fiscal years",
   "financials_bank_regulatory": {
     "source": "FDIC BankFind Suite API",
-    "report_date": "2026-06-30",
-    "matched_count": 20,
+    "report_date": "2026-09-30",
+    "matched_count": 22,
     "candidate_count": 28,
     "history_quarters": 20,
     "matched": [
@@ -96,6 +96,20 @@
         "sub_industry": "Regional Banks",
         "fdic_name": "KeyBank National Association",
         "cert": 17534
+      },
+      {
+        "ticker": "MTB",
+        "security": "M&T Bank",
+        "sub_industry": "Regional Banks",
+        "fdic_name": "Manufacturers and Traders Trust Company",
+        "cert": 588
+      },
+      {
+        "ticker": "NTRS",
+        "security": "Northern Trust",
+        "sub_industry": "Asset Management & Custody Banks",
+        "fdic_name": "The Northern Trust Company",
+        "cert": 913
       },
       {
         "ticker": "PNC",
